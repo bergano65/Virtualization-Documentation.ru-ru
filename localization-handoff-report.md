@@ -1,30 +1,19 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 2
+ Total Files | 1
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e3a45526ac31f2303c662454dd2486dbea883da2/virtualization/windowscontainers/deployment/deployment.md) | HandedOff | [Details](#f8299eb5b51a0611510bc0aaebec04f707b6359a195)
- [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e3a45526ac31f2303c662454dd2486dbea883da2/virtualization/windowscontainers/management/hyperv_container.md) | HandedOff | [Details](#e3467d95ff42cd306cabf383d6a45da5d18c996c204)
+ [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c10e97d85a9734aa7b855376815066361b8e12d6/virtualization/windowscontainers/management/hyperv_container.md) | HandedOff | [Details](#f59e32669dcd5e04ab70289d54e4d188c16d6fd5204)
 
 ## Item Details
-##### <a name='f8299eb5b51a0611510bc0aaebec04f707b6359a195'></a> Source: [virtualization\windowscontainers\deployment\deployment.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e3a45526ac31f2303c662454dd2486dbea883da2/virtualization/windowscontainers/deployment/deployment.md)
+##### <a name='f59e32669dcd5e04ab70289d54e4d188c16d6fd5204'></a> Source: [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c10e97d85a9734aa7b855376815066361b8e12d6/virtualization/windowscontainers/management/hyperv_container.md)
 * Status: HandedOff
 * Target File: 
-* Handoff File: [deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b2c8bc2a259d1f4deed7ebdd4291776fac1cfbd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/deployment.4ddcd8318b2db72f246478d26d82fb4a73b6da65.ru-ru.xlf)
-* Handoff Datetime: 2015-12-07 20:43:16
-* Handoff Reason: Include
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* [Back to Top](#report-top)
-
-##### <a name='e3467d95ff42cd306cabf383d6a45da5d18c996c204'></a> Source: [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e3a45526ac31f2303c662454dd2486dbea883da2/virtualization/windowscontainers/management/hyperv_container.md)
-* Status: HandedOff
-* Target File: 
-* Handoff File: [hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/b2c8bc2a259d1f4deed7ebdd4291776fac1cfbd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf)
-* Handoff Datetime: 2015-12-07 20:43:16
+* Handoff File: [hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/890266b0d81717f310e8a08839fae0ac84334bb2/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf)
+* Handoff Datetime: 2015-12-07 22:29:29
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
