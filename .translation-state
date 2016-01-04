@@ -1,6 +1,6 @@
 {
   "LastProcessedCommit": "a51cf3d8ccd3710584879a9084a9745f1a3f1c50",
-  "LastTranslatedCommit": "92e23376a88e98eccc0e34519c865657207bb96d",
+  "LastTranslatedCommit": "31866f2eeaa90a2e3c0d41c7c7c040eead5ca511",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
       "FileHash": "5090f6d60b5cbdce0990242d795d9e4e3736e791",
@@ -2940,16 +2940,16 @@
       "FileHash": "5547f0f37b1d84d2930f4b54c156f06cd29f407e",
       "SourceFileCommit": "14789bf2e37d8a551ba2ee35f627c0514ea39e7e",
       "SourceFilePath": "virtualization\\windowscontainers\\containers_welcome.md",
-      "TargetFileCommit": null,
-      "TargetFilePath": null,
+      "TargetFileCommit": "31866f2eeaa90a2e3c0d41c7c7c040eead5ca511",
+      "TargetFilePath": "virtualization\\windowscontainers\\containers_welcome.md",
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf",
       "HandoffFileCommit": "fa5bd12aad3ee8f4a42450fca493689a9dd628c0",
       "HandoffReason": 1,
       "HandoffDateTime": "2015-12-23T01:47:00.9752161Z",
-      "HandbackFilePath": null,
-      "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
-      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf",
+      "HandbackFileCommit": "b6a9fab6e22ec73d5274931a20cc91400c97d658",
+      "HandbackDateTime": "2016-01-04T22:26:50.7897732Z",
+      "UpdatedDateTime": "2016-01-04T22:26:50.7897732Z",
       "DependencyFrom": null,
       "FilePathList": [
         "virtualization\\windowscontainers\\containers_welcome.md"
@@ -3001,16 +3001,16 @@
       "FileHash": "4ff8bc1286463449cb8c93aee680da31aab5d8a0",
       "SourceFileCommit": "14789bf2e37d8a551ba2ee35f627c0514ea39e7e",
       "SourceFilePath": "virtualization\\windowscontainers\\deployment\\system_requirements.md",
-      "TargetFileCommit": null,
-      "TargetFilePath": null,
+      "TargetFileCommit": "31866f2eeaa90a2e3c0d41c7c7c040eead5ca511",
+      "TargetFilePath": "virtualization\\windowscontainers\\deployment\\system_requirements.md",
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf",
       "HandoffFileCommit": "fa5bd12aad3ee8f4a42450fca493689a9dd628c0",
       "HandoffReason": 1,
       "HandoffDateTime": "2015-12-23T01:47:00.9752161Z",
-      "HandbackFilePath": null,
-      "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
-      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf",
+      "HandbackFileCommit": "b6a9fab6e22ec73d5274931a20cc91400c97d658",
+      "HandbackDateTime": "2016-01-04T22:26:50.7897732Z",
+      "UpdatedDateTime": "2016-01-04T22:26:50.7897732Z",
       "DependencyFrom": null,
       "FilePathList": [
         "virtualization\\windowscontainers\\deployment\\system_requirements.md"
