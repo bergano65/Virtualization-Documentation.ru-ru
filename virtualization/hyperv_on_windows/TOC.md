@@ -50,7 +50,7 @@
 
 ## [Поставщик WMI для Hyper-V (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
 
-## [Архитектура Hyper-V] (https://msdn.microsoft.com/ru-ru/library/cc768520 (v=bts.10).aspx)
+## [Архитектура Hyper-V] (https://msdn.microsoft.com/ru-ru/library/cc768520(v=bts.10).aspx)
 
 # Связь с сообществом и поддержка
 
