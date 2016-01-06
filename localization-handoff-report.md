@@ -6,19 +6,19 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3a8f4fb9a71ca837eaad4d949d68b47a528fd6a3/virtualization/windowscontainers/management/container_networking.md) | PartialHandedBack | [Details](#32705895b793260ec4ab4735fd6db7275230ddae208)
+ [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5cc0e8f278f58115048b79ad5527137dd0e69cab/virtualization/windowscontainers/management/hyperv_container.md) | PartialHandedBack | [Details](#b716fd35553420c0e01c9cc3597e9e913ff30f1a210)
 
 ## Item Details
-##### <a name='32705895b793260ec4ab4735fd6db7275230ddae208'></a> Source: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3a8f4fb9a71ca837eaad4d949d68b47a528fd6a3/virtualization/windowscontainers/management/container_networking.md)
+##### <a name='b716fd35553420c0e01c9cc3597e9e913ff30f1a210'></a> Source: [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5cc0e8f278f58115048b79ad5527137dd0e69cab/virtualization/windowscontainers/management/hyperv_container.md)
 * Status: PartialHandedBack
 * Target File: 
-* Handoff File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/99aadc2d18af1a4d46d17e85f0310df50933dbad/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf)
-* Handoff Datetime: 2016-01-06 05:30:15
+* Handoff File: [hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/cfae53be756bbd97364cd1c813dfa09fcf89663d/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf)
+* Handoff Datetime: 2016-01-06 05:50:48
 * Handoff Reason: Include
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/92e23376a88e98eccc0e34519c865657207bb96d/virtualization/windowscontainers/management/container_networking.md)
-* Current Handback File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/d362405abf4da43b19b925474aa3728822aaeb8d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf)
+* Current Target File: [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/92e23376a88e98eccc0e34519c865657207bb96d/virtualization/windowscontainers/management/hyperv_container.md)
+* Current Handback File: [hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/d362405abf4da43b19b925474aa3728822aaeb8d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf)
 * Current Handback Datetime: 2016-01-04 21:58:51
 * [Back to Top](#report-top)
 
