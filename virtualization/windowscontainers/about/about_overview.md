@@ -64,7 +64,7 @@
 ## Видеообзор
 
 <iframe 
-src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player#ccLang=ru" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 ## Попробуйте контейнеры Windows Server
