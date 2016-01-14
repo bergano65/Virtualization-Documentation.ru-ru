@@ -1,31 +1,31 @@
-# Windows Containers Quick Start - PowerShell
+# Краткое руководство по использованию PowerShell в работе с контейнерами Windows
 
-Windows Containers can be used to rapidly deploy many isolated applications on a single computer system. This quick start demonstrates deployment and management of both Windows Server and Hyper-V containers using PowerShell. Throughout this exercise you will build from the ground up a very simple ‘hello world’ application, running in both a Windows Server and a Hyper-V Container. During this process, you will create container images, work with container shared folders, and manage the container lifecycle. When completed, you will have a basic understanding of Widows Container deployment and management.
+Благодаря контейнерам Windows можно быстро развернуть много изолированных приложений на одном компьютере. В этом кратком руководстве показано, как с помощью PowerShell развертывать контейнеры Hyper-V и Windows Server, а также управлять ими. Выполнив упражнения из этой статьи, вы с нуля разработаете очень простое приложение "Hello world", работающие в контейнерах Windows Server и Hyper-V. При этом вы создадите образы контейнеров, поработаете с общими папками контейнеров и научитесь управлять жизненным циклом контейнеров. В результате вы получите общее представление о развертывании контейнеров Windows и управлении ими.
 
-This walkthrough details both Windows Server containers and Hyper-V containers. Each type of container has its own basic requirements. Included with the Windows Container documentation is a procedure for quickly deploying a container host. This is the easiest way to quickly start with Windows Containers. If you do not already have a container host, see the [Container Host Deployment Quick Start](./container_setup.md).
+В этом пошаговом руководстве подробно описаны контейнеры Windows Server и Hyper-V. Для каждого типа контейнеров предусмотрены базовые требования. В документацию по контейнерам Windows входит описание быстрого развертывания узла контейнера. Это самый простой способ сразу начать работать с контейнерами Windows. Если у вас еще нет узла контейнера, см. [краткое руководство по развертыванию узла контейнера](./container_setup.md).
 
-The following items are required for each exercise.
+Указанные ниже элементы обязательны для каждого упражнения из этой статьи.
 
-**Windows Server Containers:**
+**Контейнеры Windows Server:**
 
-- A Windows Container Host running Windows Server 2016 Core, either on-prem or in Azure.
+- Узел контейнера Windows под управлением Windows Server 2016 Core в локальной среде или Azure.
 
-**Hyper-V Containers:**
+**Контейнеры Hyper-V:**
 
-- A Windows Container host enabled with Nested Virtualization.
-- The Windows Server 2016 Media - [Download](https://aka.ms/tp4/serveriso).
+- Узел контейнера Windows, включенный с помощью вложенной виртуализации.
+- Windows Server 2016 Media — [Загрузить](https://aka.ms/tp4/serveriso).
 
-> Microsoft Azure does not support Hyper-V containers. To complete the Hyper-V exercises, you need an on-prem container host.
+>Microsoft Azure не поддерживает контейнеры Hyper-V. Для выполнения упражнения с контейнером Hyper-V требуется локальный узел контейнера.
 
-## Windows Server Container
+## Контейнер Windows Server
 
-Windows Server Containers provide an isolated, portable, and resource controlled operating environment for running applications and hosting processes. Windows Server Containers provide isolation between the container and host, and between containers running on the host, through process and namespace isolation.
+Контейнеры Windows Server представляют собой изолированную и переносимую операционную среду с возможностью учета ресурсов, в которой можно запускать приложения и размещать процессы. Контейнеры Windows Server обеспечивают изоляцию между контейнером и узлом, а также между контейнерами на узле благодаря изоляции процессов и пространств имен.
 
-### Create Container <!--1-->
+### Создание контейнера
 
-At the time of TP4, Windows Server Containers running on a Windows Server 2016, or a Windows Server 2016 core, require the Windows Server 2016 Core OS Image.
+При работе с TP4 для контейнеров Windows Server под управлением Windows Server 2016 или Windows Server 2016 Core требуется образ ОС Windows Server 2016 Core.
 
-Start a PowerShell session by typing `powershell`.
+Запустите сеанс PowerShell, введя команду `powershell`.
 
 ```powershell
 C:\> powershell
@@ -35,7 +35,7 @@ Copyright (C) 2015 Microsoft Corporation. All rights reserved.
 PS C:\>
 ```
 
-To validate that the Windows Server Core OS Image has been installed, use the `Get-ContainerImage` command. You may see multiple OS images, which is ok.
+Чтобы проверить, установлен ли образ операционной системы Windows Server Core, используйте команду `Get-ContainerImage`. Может появиться несколько образов ОС. Это нормально.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -46,7 +46,7 @@ NanoServer        CN=Microsoft 10.0.10586.0 True
 WindowsServerCore CN=Microsoft 10.0.10586.0 True
 ```
 
-To create a Windows Server Container, use the `New-Container` command. The below example creates a container named `TP4Demo` from the `WindowsServerCore` OS Image, and connects the container to a VM Switch named `Virtual Switch`. Note that the output, an object representing the container, is stored in a variable `$con`. This variable is used in subsequent commands.
+Чтобы создать контейнер Windows Server, используйте команду `New-Container`. В следующем примере показано создание контейнера `TP4Demo` на основе образа ОС с именем `WindowsServerCore`, а также подключение этого контейнера к коммутатору виртуальной машины с именем `Virtual Switch`. Обратите внимание, что выходной объект, представляющий контейнер, хранится в переменной `$con`. Эта переменная используется в последующих командах.
 
 ```powershell
 PS C:\> New-Container -Name TP4Demo -ContainerImageName WindowsServerCore -SwitchName "Virtual Switch"
@@ -56,7 +56,7 @@ Name    State Uptime   ParentImageName
 TP4Demo Off   00:00:00 WindowsServerCore
 ```
 
-To visualize exisiting containers, use the `Get-Container` command.
+Чтобы просмотреть список существующих контейнеров, используйте команду `Get-Container`.
 
 ```powershell
 PS C:\> Get-Container
@@ -66,13 +66,13 @@ Name    State Uptime   ParentImageName
 TP4Demo Off   00:00:00 WindowsServerCore
 ```
 
-Start the container using the `Start-Container` command.
+Запустите контейнер с помощью команды `Start-Container`.
 
 ```powershell
 PS C:\> Start-Container -Name TP4Demo
 ```
 
-Connect to the container using the `Enter-PSSession` command. Notice that when the PowerShell session has been created with the container, the PowerShell prompt changes to reflect the container name.
+Подключитесь к контейнеру с помощью команды `Enter-PSSession`. Обратите внимание, что при создании сеанса PowerShell с контейнером изменится запрос PowerShell: он будет отражать имя контейнера.
 
 ```powershell
 PS C:\> Enter-PSSession -ContainerName TP4Demo -RunAsAdministrator
@@ -80,11 +80,11 @@ PS C:\> Enter-PSSession -ContainerName TP4Demo -RunAsAdministrator
 [TP4Demo]: PS C:\Windows\system32>
 ```
 
-### Create IIS Image <!--1-->
+### Создание образа IIS
 
-Now the container can be modified, and these modifications captured to create a new container image. For this example, IIS is installed.
+Теперь можно изменить контейнер и записать эти изменения для создания нового образа контейнера. В этом примере установлены службы IIS.
 
-To install the IIS role in the container, use the `Install-WindowsFeature` command.
+Чтобы установить роль IIS в данном контейнере, используйте команду `Install-WindowsFeature`.
 
 ```powershell
 [TP4Demo]: PS C:\> Install-WindowsFeature web-server
@@ -94,22 +94,22 @@ Success Restart Needed Exit Code      Feature Result
 True    No             Success        {Common HTTP Features, Default Document, D...
 ```
 
-When the IIS installation has completed, exit the container by typing `exit`. This returns the PowerShell session to that of the container host.
+После завершения установки IIS выйдите из контейнера, введя команду `exit`. Это действие возвращает сеанс PowerShell к сеансу с узлом контейнера.
 
 ```powershell
 [TP4Demo]: PS C:\> exit
 PS C:\>
 ```
 
-Finally, stop the container using the `Stop-Container` command.
+Наконец, остановите работу контейнера с помощью команды `Stop-Container`.
 
 ```powershell
 PS C:\> Stop-Container -Name TP4Demo
 ```
 
-The state of this container can now be captured into a new container image. Do so using the `New-ContainerImage` command.
+Теперь состояние этого контейнера можно записать в новый образ контейнера. Сделайте это с помощью команды `New-ContainerImage`.
 
-This example creates a new container image named `WindowsServerCoreIIS`, with a publisher of `Demo`, and a version `1.0`.
+В этом примере создается образ контейнера, для которого указано имя `WindowsServerCoreIIS`, издатель `Demo` и версия `1.0`.
 
 ```powershell
 PS C:\> New-ContainerImage -ContainerName TP4Demo -Name WindowsServerCoreIIS -Publisher Demo -Version 1.0
@@ -119,16 +119,16 @@ Name                 Publisher Version IsOSImage
 WindowsServerCoreIIS CN=Demo   1.0.0.0 False
 ```
 
-Now that the container has been captured into the new image, it is no longer needed. You may remove it using the `Remove-Container` command.
+Теперь, когда контейнер записан в новый образ, он больше не нужен. Его можно удалить с помощью команды `Remove-Container`.
 
 ```powershell
 PS C:\> Remove-Container -Name TP4Demo -Force
 ```
 
 
-### Create IIS Container <!--1-->
+### Создание контейнера IIS
 
-Create a new container, this time from the `WindowsServerCoreIIS` container image.
+На этот раз создайте контейнер, используя образ контейнера `WindowsServerCoreIIS`.
 
 ```powershell
 PS C:\> New-Container -Name IIS -ContainerImageName WindowsServerCoreIIS -SwitchName "Virtual Switch"
@@ -136,20 +136,20 @@ PS C:\> New-Container -Name IIS -ContainerImageName WindowsServerCoreIIS -Switch
 Name State Uptime   ParentImageName
 ---- ----- ------   ---------------
 IIS  Off   00:00:00 WindowsServerCoreIIS
-```    
-Start the container.
+```
+Запустите контейнер.
 
 ```powershell
 PS C:\> Start-Container -Name IIS
 ```
 
-### Configure Networking <!--1-->
+### Настройка сетевых подключений
 
-The default network configuration for the Windows Container Quick Starts, is to have containers connected to a virtual switch configured with Network Address Translation (NAT). Because of this, in order to connect to an application running inside of a container, a port on the container host, needs to be mapped to a port on the container.
+Конфигурация сети по умолчанию для быстрого начала работы контейнеров Windows предусматривает подключение контейнеров к виртуальному коммутатору, настроенному с использованием преобразования сетевых адресов (NAT). По этой причине для подключения к приложению, работающему внутри контейнера, порт на узле контейнера необходимо сопоставить с портом на контейнере.
 
-For this exercise, a website is hosted in IIS, running inside of a container. To access the website on port 80, map port 80 of the container hosts IP address, to port 80 of the containers IP address.
+В этом упражнении веб-сайт размещается в службах IIS, которые выполняются внутри контейнера. Чтобы получить доступ к веб-сайту в порту 80, сопоставьте порт 80 для IP-адреса узла контейнера с портом 80 для IP-адреса контейнера.
 
-Run the following to return the IP address of the container.
+Чтобы вернуть IP-адрес контейнера, выполните приведенную ниже команду.
 
 ```powershell
 PS C:\> Invoke-Command -ContainerName IIS {ipconfig}
@@ -166,7 +166,7 @@ Ethernet adapter vEthernet (Virtual Switch-7570F6B1-E1CA-41F1-B47D-F3CA73121654-
    Default Gateway . . . . . . . . . : 172.16.0.1
 ```
 
-To create the NAT port mapping, use the `Add-NetNatStaticMapping` command. The following example checks for an existing port mapping rule, and if one does not exist, creates it. Note, the `-InternalIPAddress` needs to match the IP address of the container.
+Чтобы сопоставить порт NAT, используйте команду `Add-NetNatStaticMapping`. В примере ниже показано, как проверить наличие правила сопоставления портов и создать это правило, если оно не существует. Обратите внимание, что значение `-InternalIPAddress` должно соответствовать IP-адресу данного контейнера.
 
 ```powershell
 if (!(Get-NetNatStaticMapping | where {$_.ExternalPort -eq 80})) {
@@ -174,7 +174,7 @@ Add-NetNatStaticMapping -NatName "ContainerNat" -Protocol TCP -ExternalIPAddress
 }
 ```
 
-When the port mapping has been created, you also need to configure an inbound firewall rule for the configured port. To do so for port 80, run the following script. Note, if you’ve created a NAT rule for an external port other then 80, the firewall rule needs to be created to match.
+Когда порты будут сопоставлены, необходимо также настроить правило брандмауэра для входящих подключений в отношении настроенного порта. Чтобы сделать это для порта 80, запустите указанный ниже сценарий. Обратите внимание, что если создать правило NAT для внешнего порта, отличного от порта 80, понадобятся соответствующие правила брандмауэра.
 
 ```powershell
 if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
@@ -182,72 +182,72 @@ if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
 }
 ```
 
-If you are working in Azure, and have not already created a Network Security Group, you need to create one now. For more information on Network Security Groups see this article: [What is a Network Security Group](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/).
+Если вы работаете в Azure и еще не создали группу сетевой безопасности, необходимо создать ее. Дополнительные сведения о группах сетевой безопасности см. в статье [Что такое группа сетевой безопасности](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-nsg/).
 
-### Create Application <!--1-->
+### Создание приложения
 
-Now that a container has been created from the IIS image, and networking configured, open up a browser and browse to the IP address of the container host. You should see the IIS splash screen.
+Теперь, когда контейнер создан из образа IIS и сетевые подключения настроены, откройте браузер и введите IP-адрес узла контейнера. Должен появиться экран-заставка IIS.
 
 ![](media/iis1.png)
 
-With the IIS instances verified as running, you can now create a ‘Hello World’ application, and host this in the IIS instance. To do so, create a PowerShell session with the container.
+Проверив, работают ли экземпляры служб IIS, можно создать приложение "Hello, World!" и разместить его в экземпляре IIS. Для этого создайте сеанс PowerShell с контейнером.
 
 ```powershell
 PS C:\> Enter-PSSession -ContainerName IIS -RunAsAdministrator
 [IIS]: PS C:\Windows\system32>
 ```
 
-Run the following command to remove the IIS splash screen.
+Выполните приведенную ниже команду для удаления экрана-заставки IIS.
 
 ```powershell
 [IIS]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
-Run the following command to replace the default IIS site with a new static site.
+Выполните приведенную ниже команду, чтобы заменить сайт IIS по умолчанию новым статическим сайтом.
 
 ```powershell
 [IIS]: PS C:\> "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.html
 ```
 
-Browse again to the IP Address of the container host, you should now see the ‘Hello World’ application. Note – you may need to close any existing browser connections, or clear browser cache to see the updated application.
+Снова перейдите к IP-адресу узла контейнера. Вы увидите приложение "Hello, World!". Обратите внимание, что для просмотра обновленного приложения может потребоваться прервать все подключения через браузер или очистить кэш браузера.
 
 ![](media/HWWINServer.png)
 
-Exit the remote container session.
+Завершите удаленный сеанс контейнера.
 
 ```powershell
 [IIS]: PS C:\> exit
 PS C:\>
 ```
 
-### Remove Container
+### Удаление контейнера
 
-A container needs to be stopped, before it can be removed.
+Чтобы удалить контейнер, его работу нужно остановить.
 
 ```powershell
 PS C:\> Stop-Container -Name IIS
 ```
 
-When the container has been stopped, it can be removed with the `Remove-Container` command.
+Когда работа контейнера остановлена, его можно удалить с помощью команды `Remove-Container`.
 
 ```powershell
 PS C:\> Remove-Container -Name IIS -Force
 ```
 
-Finally, a container image can be removed using the `Remove-ContainerImage` command.
+Наконец, образ контейнера можно удалить с помощью команды `Remove-ContainerImage`.
 
 ```powershell
 PS C:\> Remove-ContainerImage -Name WindowsServerCoreIIS -Force
 ```
 
-## Hyper-V Container
+## Контейнер Hyper-V
 
-Hyper-V Containers provide an additional layer of isolation over Windows Server Containers. Each Hyper-V Container is created within a highly optimized virtual machine. Where a Windows Server Container shares a kernel with the Container host, and all other Windows Server Containers running on that host, a Hyper-V container is completely isolated from other containers. Hyper-V Containers are created and managed identically to Windows Server Containers. For more information about Hyper-V Containers see [Managing Hyper-V Containers](../management/hyperv_container.md).
+Контейнеры Hyper-V обеспечивают дополнительный уровень изоляции по сравнению с контейнерами Windows Server. Каждый контейнер Hyper-V создается в высокооптимизированной виртуальной машине. В отличие от контейнера Windows Server, использующего ядро совместно с узлом контейнера и всеми остальными контейнерами Windows Server на этом узле, контейнер Hyper-V полностью изолирован от других контейнеров. Создание контейнеров Hyper-V и управление ими выполняется так же, как и в случае с контейнерами Windows Server. Дополнительные сведения о контейнерах Hyper-V см. в статье [Управление контейнерами Hyper-V](../management/hyperv_container.md).
 
-> Microsoft Azure does not support Hyper-V containers. To complete the Hyper-V Container exercises, you need an on-prem container host.
+>Microsoft Azure не поддерживает контейнеры Hyper-V. Для выполнения упражнений с контейнером Hyper-V требуется локальный узел контейнера.
 
-### Create Container <!--2-->
+### Создание контейнера
 
-At the time of TP4, Hyper-V containers must use a Nano Server Core OS Image. To validate that the Nano Server OS image has been installed, use the `Get-ContainerImage` command.
+При работе с TP4 контейнеры Hyper-V должны использовать образ Nano Server Core. Команда `Get-ContainerImage` позволит проверить, установлен ли образ операционной системы Nano Server.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -258,7 +258,7 @@ NanoServer        CN=Microsoft 10.0.10586.0 True
 WindowsServerCore CN=Microsoft 10.0.10586.0 True
 ```
 
-To create a Hyper-V container, use the `New-Container` command, specifying a Runtime of HyperV.
+Чтобы создать контейнер Hyper-V, используйте команду `New-Container`, указав среду выполнения для HyperV.
 
 ```powershell
 PS C:\> New-Container -Name HYPV -ContainerImageName NanoServer -SwitchName "Virtual Switch" -RuntimeType HyperV
@@ -268,13 +268,13 @@ Name State Uptime   ParentImageName
 HYPV Off   00:00:00 NanoServer
 ```
 
-When the container has been created, **do not start it**.
+**Не запускайте** контейнер после его создания.
 
-### Create a Shared Folder
+### Создание общей папки
 
-Shared folders expose a directory from the container host, to the container. When a shared folder has been created, any files placed in the shared folder are available in the container. A shared folder is used in this example to copy the Nano Server IIS packages into the container. These packages will then be used to install IIS. For more information on shared folder see [Managing Container Data](../management/manage_data.md). 
+Общие папки позволяют контейнеру получить доступ к каталогу в узле контейнера. При создании общей папки все файлы, помещенные в нее, доступны в контейнере. Общая папка используется в этом примере для копирования пакетов IIS для Nano Server в контейнер. Эти пакеты затем будут использоваться для установки служб IIS. Дополнительные сведения об общих папках см. в статье [Управление данными контейнера](../management/manage_data.md).
 
-Create a directory named `c:\share\en-us` on the container host.
+Создайте на узле контейнера каталог с именем `c:\share\en-us`.
 
 ```powershell
 S C:\> New-Item -Type Directory c:\share\en-us
@@ -286,9 +286,9 @@ Mode                LastWriteTime         Length Name
 d-----       11/18/2015   5:27 PM                en-us
 ```
 
-Use the `Add-ContainerSharedFolder` command to create a new shared folder on the new container.
+Используйте команду `Add-ContainerSharedFolder`, чтобы создать общую папку в новом контейнере.
 
-> The container must be in a stopped stated when creating a shared folder.
+>При создании общей папки контейнер должен быть в режиме остановки.
 
 ```powershell
 PS C:\> Add-ContainerSharedFolder -ContainerName HYPV -SourcePath c:\share -DestinationPath c:\iisinstall
@@ -298,18 +298,18 @@ ContainerName SourcePath DestinationPath AccessMode
 HYPV          c:\share   c:\iisinstall   ReadWrite
 ```
 
-When the shared folder has been created, start the container.
+После создания общей папки запустите контейнер.
 
 ```powershell
 PS C:\> Start-Container -Name HYPV
 ```
-Create a PowerShell remote session with the container using the `Enter-PSSession` command.
+Создайте удаленный сеанс PowerShell с этим контейнером, выполнив команду `Enter-PSSession`.
 
 ```powershell
 PS C:\> Enter-PSSession -ContainerName HYPV -RunAsAdministrator
 [HYPV]: PS C:\windows\system32\config\systemprofile\Documents>cd /
 ```
-When in the remote session, notice that the shared folder `c:\iisinstall\en-us` has been created, however is empty.
+Обратите внимание, что во время удаленного сеанса будет создана общая папка `c:\iisinstall\en-us`, но она будет пустой.
 
 ```powershell
 [HYPV]: PS C:\> ls c:\iisinstall
@@ -321,15 +321,15 @@ Mode                LastWriteTime         Length Name
 d-----       11/18/2015   5:27 PM                en-us
 ```
 
-### Create IIS Image <!--2-->
+### Создание образа IIS
 
-Because the container is running a Nano Server OS Image, the Nano Server IIS packages are needed to install IIS. These can be found on the Windows Sever 2016 TP4 Installation media, under the `NanoServer\Packages` directory.
+Так как контейнер работает под управлением образа Nano Server, чтобы установить службы IIS, потребуются пакеты IIS для Nano Server. Их можно найти в каталоге `NanoServer\Packages` на установочном носителе Windows Sever 2016 TP4.
 
-Copy `Microsoft-NanoServer-IIS-Package.cab` from `NanoServer\Packages` to `c:\share` on the container host. 
+Скопируйте файл `Microsoft-NanoServer-IIS-Package.cab` из каталога `NanoServer\Packages` в папку `c:\share` на данном узле контейнера.
 
-Copy `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` to `c:\share\en-us` on the container host.
+Скопируйте файл `NanoServer\Packages\en-us\Microsoft-NanoServer-IIS-Package.cab` в папку `c:\share\en-us` на данном узле контейнера.
 
-Create a file in the c:\share folder named unattend.xml, copy this text into the unattend.xml file.
+Создайте файл unattend.xml в папке "c:\share" и скопируйте в этот файл приведенный ниже текст.
 
 ```powershell
 <?xml version="1.0" encoding="utf-8"?>
@@ -347,7 +347,7 @@ Create a file in the c:\share folder named unattend.xml, copy this text into the
 </unattend>
 ```
 
-When completed, the `c:\share` directory, on the container host, should be configured like this.
+После завершения этой процедуры каталог `c:\share` на узле контейнера должен быть настроен следующим образом.
 
 ```
 c:\share
@@ -358,7 +358,7 @@ c:\share
 |-- unattend.xml
 ```
 
-Back in the remote session on the container, note that the IIS packages and unattended.xml files are now visible in the c:\iisinstall directory.
+Вернитесь в удаленный сеанс на контейнере. Обратите внимание, что пакеты IIS и файл unattended.xml будут отображаться в каталоге "c:\iisinstall".
 
 ```powershell
 [HYPV]: PS C:\> ls c:\iisinstall
@@ -372,7 +372,7 @@ d-----       11/18/2015   5:32 PM                en-us
 -a----       11/18/2015   5:31 PM            789 unattend.xml
 ```
 
-Run the following command to install IIS.
+Для установки служб IIS выполните приведенную ниже команду.
 
 ```powershell
 [HYPV]: PS C:\> dism /online /apply-unattend:c:\iisinstall\unattend.xml
@@ -392,7 +392,7 @@ Image Version: 10.0.10586.0
 [===============            26.2%                          ]
 ```
 
-When the IIS installation has complete, manually start IIS with the following command.
+После установки служб IIS запустите их вручную с помощью приведенной ниже команды.
 
 ```powershell
 [HYPV]: PS C:\> Net start w3svc
@@ -400,21 +400,21 @@ The World Wide Web Publishing Service service is starting.
 The World Wide Web Publishing Service service was started successfully.
 ```
 
-Exit the container session.
+Завершите сеанс контейнера.
 
 ```powershell
 [HYPV]: PS C:\> exit
 ```
 
-Stop the container.
+Остановите работу контейнера.
 
 ```powershell
 PS C:\> Stop-Container -Name HYPV
 ```
 
-The state of this container can now be captured into a new container image.
+Теперь состояние этого контейнера можно записать в новый образ контейнера.
 
-This example creates a new container image named `NanoServerIIS`, with a publisher of `Demo`, and a version `1.0`.
+В этом примере создается образ контейнера, для которого указано имя `NanoServerIIS`, издатель `Demo` и версия `1.0`.
 
 ```powershell
 PS C:\> New-ContainerImage -ContainerName HYPV -Name NanoServerIIS -Publisher Demo -Version 1.0
@@ -424,9 +424,9 @@ Name          Publisher Version IsOSImage
 NanoServerIIS CN=Demo   1.0.0.0 False
 ```
 
-### Create IIS Container <!--2-->
+### Создание контейнера IIS
 
-Create a new Hyper-V container from the IIS image using the `New-Container` command.
+Создайте контейнер Hyper-V на основе образа IIS с помощью команды `New-Container`.
 
 ```powershell
 PS C:\> New-Container -Name IISApp -ContainerImageName NanoServerIIS -SwitchName "Virtual Switch" -RuntimeType HyperV
@@ -436,19 +436,19 @@ Name   State Uptime   ParentImageName
 IISApp Off   00:00:00 NanoServerIIS
 ```
 
-Start the container.
+Запустите контейнер.
 
 ```powershell
 PS C:\> Start-Container -Name IISApp
 ```
 
-### Configure Networking <!--2-->
+### Настройка сетевых подключений
 
-The default network configuration for the Windows Container Quick Starts is to have containers connected to a virtual switch, configured with Network Address Translation (NAT). Because of this, in order to connect to an application running inside of a container, a port on the container host, needs to be mapped to a port on the container.
+Конфигурация сети по умолчанию для быстрого начала работы с контейнером Windows предусматривает подключение контейнеров к виртуальному коммутатору, настроенному с использованием преобразования сетевых адресов (NAT). По этой причине для подключения к приложению, работающему внутри контейнера, порт на узле контейнера необходимо сопоставить с портом на контейнере.
 
-For this exercise, a website is hosted in IIS, running inside of a container. To access the website on port 80, map port 80 of the container hosts IP address, to port 80 of the containers IP address.
+В этом упражнении веб-сайт размещается в службах IIS, которые выполняются внутри контейнера. Чтобы получить доступ к веб-сайту в порту 80, сопоставьте порт 80 для IP-адреса узла контейнера с портом 80 для IP-адреса контейнера.
 
-Run the following to return the IP address of the container.
+Чтобы вернуть IP-адрес контейнера, выполните приведенную ниже команду.
 
 ```powershell
 PS C:\> Invoke-Command -ContainerName IISApp {ipconfig}
@@ -465,14 +465,14 @@ Ethernet adapter Ethernet:
    Default Gateway . . . . . . . . . : 172.16.0.1
 ```
 
-To create the NAT port mapping, use the `Add-NetNatStaticMapping` command. The following examples checks for an existing port mapping rule, and if one does not exist, creates it. Note, the `-InternalIPAddress` needs to match the IP address of the container.
+Чтобы сопоставить порт NAT, используйте команду `Add-NetNatStaticMapping`. В примере ниже показано, как проверить наличие правила сопоставления портов и создать это правило, если оно не существует. Обратите внимание, что значение `-InternalIPAddress` должно соответствовать IP-адресу данного контейнера.
 
 ```powershell
 if (!(Get-NetNatStaticMapping | where {$_.ExternalPort -eq 80})) {
 Add-NetNatStaticMapping -NatName "ContainerNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.2 -InternalPort 80 -ExternalPort 80
 }
 ```
-You also need to open up port 80 on the container host. Note, if you’ve created a NAT rule for an external port other then 80, the firewall rule needs to be created to match.
+Кроме того, нужно открыть порт 80 на узле контейнера. Обратите внимание, что если создать правило NAT для внешнего порта, отличного от порта 80, понадобятся соответствующие правила брандмауэра.
 
 ```powershell
 if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
@@ -480,36 +480,41 @@ if (!(Get-NetFirewallRule | where {$_.Name -eq "TCP80"})) {
 }
 ```
 
-### Create Application <!--2-->
+### Создание приложения
 
-Now that a container has been created from the IIS image, and networking configured, open up a browser and browse to the IP address of the container host, you should see the IIS splash screen.
+Теперь, когда контейнер создан на основе образа IIS и сетевые подключения настроены, откройте браузер и введите IP-адрес узла контейнера. Появится экран-заставка IIS.
 
 ![](media/iis1.png)
 
-With the IIS instances verified as running, you can now create a ‘Hello World’ application, and host this on the IIS instance. To do so, create a PowerShell session with the container.
+Проверив, работают ли экземпляры служб IIS, можно создать приложение "Hello, World!" и разместить его в экземпляре IIS. Для этого создайте сеанс PowerShell с контейнером.
 
 ```powershell
 PS C:\> Enter-PSSession -ContainerName IISApp -RunAsAdministrator
 [IISApp]: PS C:\windows\system32\config\systemprofile\Documents>
 ```
 
-Run the following command to remove the IIS splash screen.
+Выполните приведенную ниже команду для удаления экрана-заставки IIS.
 
 ```powershell
 [IIS]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
-Run the following command to replace the default IIS site with a new static site.
+Выполните приведенную ниже команду, чтобы заменить сайт IIS по умолчанию новым статическим сайтом.
 
 ```powershell
 [IISApp]: PS C:\> "Hello World From a Hyper-V Container" > C:\inetpub\wwwroot\index.html
 ```
 
-Browse again to the IP Address of the container host, you should now see the ‘Hello World’ application. Note – you may need to close any existing browser connections, or clear browser cache to see the updated application.
+Снова перейдите к IP-адресу узла контейнера. Вы увидите приложение "Hello, World!". Обратите внимание, что для просмотра обновленного приложения может потребоваться прервать все подключения через браузер или очистить кэш браузера.
 
 ![](media/HWWINServer.png)
 
-Exit the remote container session.
+Завершите удаленный сеанс контейнера.
 
 ```powershell
 exit
 ```
+
+
+
+
+<!--HONumber=Jan16_HO1-->
