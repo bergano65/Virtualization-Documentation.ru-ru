@@ -2280,7 +2280,7 @@
       "HandoffDateTime": "2015-12-03T21:44:54.3865846Z",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
-      "TargetFileCommit": "92e23376a88e98eccc0e34519c865657207bb96d",
+      "TargetFileCommit": "6cd0edc19ea5bf8ec1b3edc8b5bc81ce0d9ee0a2",
       "TargetFilePath": "virtualization\\windowscontainers\\quick_start\\azure_setup.md",
       "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\azure_setup.efbdfa56db2e296be3a4b34d7841c826cfcc65b5.ru-ru.xlf",
       "HandbackFileCommit": "d362405abf4da43b19b925474aa3728822aaeb8d",
