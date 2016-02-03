@@ -1,54 +1,55 @@
-# Участие в разработке документации
+# Contribute to the docs
 
-> **Примечание.** Для участия в разработке документов необходимо иметь учетную запись [GitHub](https://www.github.com).
+>**Note:**  In order to contribute, you must have a [GitHub](https://www.github.com) account.
 
-## Редактирование существующего документа
+## Edit an existing doc
 
-1. Найдите документ, который следует отредактировать.
+1. Find the doc you'd like to edit.
 
-2. Выберите **Contribute to this topic (Изменить этот раздел)**  
-    ![](media/editDoc.png)
+2. Select **Contribute to this topic**
+![](media/editDoc.png)
 
-    Вы будете автоматически перенаправлены в GitHub в файл разметки, связанный с этим файлом.
+This will automatically redirect you to the markdown file in GitHub associated with this file.
 
-    Убедитесь, что вы вошли в GitHub. В противном случае выполните вход или создайте учетную запись GitHub.
+Make sure you are signed into GitHub. If not, either sign in or create a GitHub account.
 
-    ![](media/GitHubView.png)
+![](media/GitHubView.png)
 
-3. Выберите значок правки для редактирования в редакторе браузера.
+3. Select the edit icon to edit with the in browser editor.
 
-    ![](media/GitHubEdit.png)
+![](media/GitHubEdit.png)
 
-4. Внесите соответствующие изменения.
+4. Make changes inline.
 
-    Возможные действия:
-    1. Изменение файла
-    2. Просмотр изменений
-    3. Переименование файла (крайне маловероятно, что это потребуется)
+Possible actions:
+1. Edit file
+2. Preview changes
+3. Rename the file (it's very unlikely you'll want to do this)
 
-    ![](media/GitHubEditor.png)
+![](media/GitHubEditor.png)
 
-5. Предложить изменения в виде запроса на включение
+5. Propose your changes as a pull request
 
-    ![](media/GitHubProposeChange.png)
+![](media/GitHubProposeChange.png)
 
-6. Проверить изменения
+6. Review your changes
 
-    **Что проверяется в запросе на включение**
-    * Изменение верно — достоверно представляет технологию
-    * Правильная орфография и грамматика
-    * Логическое расположение в документации
+**What we're looking for in a pull request**
+* The change is correct -- it accurately represents the technology
+* Spelling/grammar are correct
+* Logical location in the documentation
 
-    ![](media/GitHubCreatePR.png)
+![](media/GitHubCreatePR.png)
 
-7. Создание [запроса на включение](contribute_to_docs.md#pull-requests)
+7. Create a [pull request](contribute_to_docs.md#pull-requests)
 
-## Запрос на включение
+## Pull requests
 
-Большинство изменений будут внесены по запросу на включение. Запрос на включение — способ проверки набора изменений несколькими рецензентами, а также изменения и комментирования текущего содержимого.
-
-
+Most changes will be committed via pull request. A pull request is a way of reviewing a change set with multiple reviewers, changing, and commenting on the current content.
 
 
 
 
+
+
+<!--HONumber=Jan16_HO1-->
