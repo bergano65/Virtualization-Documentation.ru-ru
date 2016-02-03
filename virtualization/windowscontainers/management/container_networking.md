@@ -23,7 +23,7 @@
 ```powershell
 New-VMSwitch -Name "NAT" -SwitchType NAT -NATSubnetAddress "172.16.0.0/12"
 ```
-Создание объекта преобразования сетевых адресов (NAT). Этот объект будет отвечать за преобразование адресов NAT. Дополнительные сведения о команде **New-NetNat** см. в разделе [Справка по New-NetNat](https://technet.microsoft.com/en-us/library/dn283361.aspx).
+Создание объекта преобразования сетевых адресов (NAT). Этот объект отвечает за преобразование адресов NAT. Дополнительные сведения о команде **New-NetNat** см. в разделе [Справка по New-NetNat](https://technet.microsoft.com/en-us/library/dn283361.aspx).
 
 ```powershell
 New-NetNat -Name NAT -InternalIPInterfaceAddressPrefix "172.16.0.0/12" 
@@ -70,7 +70,7 @@ Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 
 ```powershell
 Add-NetNatStaticMapping -NatName "Nat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress 172.16.0.3 -InternalPort 80 -ExternalPort 82
 ```
-> Для каждого внешнего порта потребуются соответствующие правила брандмауэра. Они могут быть созданы с помощью `New-NetFirewallRule`. Дополнительные сведения см. в разделе [Справка по New-NetFirewallRule](https://technet.microsoft.com/en-us/library/jj554908.aspx).
+>Для каждого внешнего порта потребуются соответствующие правила брандмауэра. Они могут быть созданы с помощью команды `New-NetFirewallRule`. Дополнительные сведения см. в разделе [Справка по New-NetFirewallRule](https://technet.microsoft.com/en-us/library/jj554908.aspx).
 
 После создания сопоставления портов доступ к приложению контейнеров может осуществляться через IP-адрес узла контейнера (физического или виртуального) и предоставленный внешний порт. Например, на следующей схеме показана конфигурация NAT с запросом для внешнего порта **82** узла контейнера. На основании сопоставления портов этот запрос возвратит приложение, размещаемое в контейнере 2.
 
@@ -128,7 +128,7 @@ docker daemon -D -b “New Switch Name"
 Start-Service docker
 ```
 
-## Управление сетевыми адаптерами контейнеров
+## Управление сетевыми адаптерами
 
 Независимо от конфигурации сети (NAT или прозрачное подключение), для управления сетевым адаптером контейнера и соединениями виртуального коммутатора можно использовать команды PowerShell.
 
@@ -149,3 +149,4 @@ Start-Service docker
 
 
 
+<!--HONumber=Jan16_HO1-->

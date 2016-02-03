@@ -1,4 +1,4 @@
-## Развертывание узла контейнера
+# Развертывание узла контейнера
 
 **Это предварительное содержимое. Возможны изменения.**
 
@@ -13,9 +13,9 @@
 
 ### Узел Windows Server
 
-Действия, приведенные в этой таблице, помогут развернуть узел контейнера в Windows Server 2016 TP4 и Windows Server 2016 Core. Указаны также настройки, необходимые для контейнеров Windows Server и Hyper-V.
+Действия, приведенные в этой таблице, позволят развернуть узел контейнера в Windows Server 2016 и Windows Server 2016 Core. Указаны также настройки, необходимые для контейнеров Windows Server и Hyper-V.
 
-\* Требуется, только если будут развертываться контейнеры Hyper-V.  
+\* Требуется, только если будут развертываться контейнеры Hyper-V.
 \*\* Требуется, только если для создания контейнеров и управления ими будет использоваться Docker.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
@@ -34,6 +34,10 @@
 <tr>
 <td>[Настройка виртуальных процессоров *](#proc)</td>
 <td>Если узел контейнера — виртуальная машина Hyper-V, необходимо настроить по крайней мере два виртуальных процессора.</td>
+</tr>
+<tr>
+<td>[Отключение динамической памяти *](#dyn)</td>
+<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо отключить динамическую память.</td>
 </tr>
 <tr>
 <td>[Включение роли Hyper-V *](#hypv) </td>
@@ -65,7 +69,7 @@
 
 Действия, описанные в этой таблице, можно использовать для развертывания узла контейнера в Nano Server. Указаны также настройки, необходимые для контейнеров Windows Server и Hyper-V.
 
-\* Требуется, только если будут развертываться контейнеры Hyper-V.  
+\* Требуется, только если будут развертываться контейнеры Hyper-V.
 \*\* Требуется, только если для создания контейнеров и управления ими будет использоваться Docker.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
@@ -74,7 +78,7 @@
 <td width="70%"><strong>Подробности</strong></td>
 </tr>
 <tr>
-<td>[Подготовка Nano Server для контейнеров](#nano)</td>
+<td>[Подготовка Nano Server для использования контейнеров](#nano)</td>
 <td>Подготовка виртуального жесткого диска Nano Server с контейнером и возможностями Hyper-V.</td>
 </tr>
 <tr>
@@ -86,6 +90,10 @@
 <td>Если узел контейнера — виртуальная машина Hyper-V, необходимо настроить по крайней мере два виртуальных процессора.</td>
 </tr>
 <tr>
+<tr>
+<td>[Отключение динамической памяти *](#dyn)</td>
+<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо отключить динамическую память.</td>
+</tr>
 <td>[Создание виртуального коммутатора](#vswitch)</td>
 <td>Контейнеры подключаются к виртуальному коммутатору для установления сетевого соединения.</td>
 </tr>
@@ -146,7 +154,7 @@ WIN-LJGU7HD7TEP C:\ProgramData\Microsoft\Windows\Hyper-V\Container Image Store
 PS C:\> New-Item -ItemType Directory c:\nano
 ```
 
-Найдите файлы `NanoServerImageGenerator.psm1` и `Convert-WindowsImage.ps1` в папке Nano Server на носителе Windows Server. Скопируйте их в `c:\nano`.
+Найдите файлы `NanoServerImageGenerator.psm1` и `Convert-WindowsImage.ps1` в папке Nano Server на носителе Windows Server. Скопируйте их в папку `c:\nano`.
 
 ```powershell
 #Set path to Windows Server 2016 Media
@@ -167,10 +175,10 @@ PS C:\> New-NanoServerImage -MediaPath $WindowsMedia -BasePath c:\nano -TargetPa
 
 Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, необходимо включить вложенную виртуализацию. Это можно сделать с помощью приведенной ниже команды PowerShell.
 
-> При выполнении этой команды виртуальные машины должны быть отключены.
+>При выполнении этой команды виртуальные машины должны быть отключены.
 
 ```powershell
-PS C:\> Set-VMProcessor -VMName <container host vm> -ExposeVirtualizationExtensions $true
+PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
 ```
 
 ### <a name=proc></a>Настройка виртуальных процессоров
@@ -179,6 +187,16 @@ PS C:\> Set-VMProcessor -VMName <container host vm> -ExposeVirtualizationExtensi
 
 ```poweshell
 PS C:\> Set-VMProcessor –VMName <VM Name> -Count 2
+```
+
+### <a name=dyn></a>Отключение динамической памяти
+
+Если узел контейнера сам является виртуальной машиной Hyper-V, необходимо отключить динамическую память на виртуальной машине этого узла контейнера. Это можно настроить с помощью параметров виртуальной машины или приведенного ниже сценария PowerShell.
+
+>При выполнении этой команды виртуальные машины должны быть отключены.
+
+```poweshell
+PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
 ```
 
 ### <a name=hypv></a>Включение роли Hyper-V
@@ -201,7 +219,7 @@ PS C:\> New-VMSwitch -Name "Virtual Switch" -SwitchType NAT -NATSubnetAddress 17
 
 ### <a name=nat></a>Настройка преобразования сетевых адресов (NAT)
 
-Если тип коммутатора — NAT, в дополнение к виртуальному коммутатору необходимо создать объект NAT. Это можно сделать с помощью команды `New-NetNat`. В этом примере создается объект NAT с именем `ContainerNat`, а также префикс адреса, соответствующий подсети NAT, назначенной для коммутатора контейнера.
+Если тип коммутатора — NAT, в дополнение к виртуальному коммутатору необходимо создать объект NAT. Это можно сделать с помощью команды `New-NetNat`. В этом примере создается объект NAT с именем `ContainerNat`, а также префиксом адреса, соответствующим подсети NAT, назначенной для данного коммутатора контейнера.
 
 ```powershell
 PS C:\> New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"
@@ -223,7 +241,7 @@ Active                           : True
 <a name=mac></a>Наконец, если узел контейнера работает на виртуальной машине Hyper-V, необходимо включить спуфинг MAC-адресов. Благодаря этому каждый контейнер получит IP-адрес. Чтобы включить спуфинг MAC-адресов, выполните приведенную ниже команду на узле Hyper-V. Свойством VMName будет имя узла контейнера.
 
 ```powershell
-PS C:\> Get-VMNetworkAdapter -VMName <contianer host vm> | Set-VMNetworkAdapter -MacAddressSpoofing On
+PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
 ### <a name=img></a>Установка образов ОС
@@ -255,14 +273,14 @@ Downloaded in 0 hours, 0 minutes, 10 seconds.
 
 Кроме того, эта команда позволит скачать и установить базовый образ Windows Server Core.
 
-> **Проблема.** Командлеты Save-ContainerImage и Install-ContainerImage не работают с образом контейнера WindowsServerCore в сеансе удаленного взаимодействия PowerShell.<br /> **Обходной путь.** Войдите на компьютер с помощью удаленного рабочего стола и используйте непосредственно командлет Save-ContainerImage.
+>**Проблема.** Командлеты Save-ContainerImage и Install-ContainerImage не работают с образом контейнера WindowsServerCore в сеансе удаленного взаимодействия PowerShell.<br /> **Обходной путь.** Войдите на этот компьютер с помощью удаленного рабочего стола и напрямую используйте командлет Save-ContainerImage.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
 Downloaded in 0 hours, 2 minutes, 28 seconds.
 ```
 
-Убедитесь, что образы были установлены, с помощью команды `Get-ContainerImage`.
+С помощью команды `Get-ContainerImage` убедитесь, что эти образы были установлены.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -281,4 +299,4 @@ WindowsServerCore CN=Microsoft 10.0.10586.0 True
 
 
 
-
+<!--HONumber=Jan16_HO1-->

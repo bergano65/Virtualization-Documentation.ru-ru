@@ -43,7 +43,7 @@ NanoServer           10.0.10586.0            Container OS Image of Windows Serve
 WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
 ```
 
-Чтобы скачать и установить базовый образ Nano Server, выполните приведенную ниже команду.
+Чтобы скачать и установить базовый образ Nano Server, выполните приведенную ниже команду. Параметр `–version` не является обязательным. Если не указана базовая версия образа ОС, будет установлена последняя версия.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
@@ -51,9 +51,9 @@ PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
 Downloaded in 0 hours, 0 minutes, 10 seconds.
 ```
 
-Эта команда также позволяет скачать и установить базовый образ Windows Server Core.
+Эта команда также позволяет скачать и установить базовый образ Windows Server Core. Параметр `–version` не является обязательным. Если не указана базовая версия образа ОС, будет установлена последняя версия.
 
-> **Проблема.** Командлеты Save-ContainerImage и Install-ContainerImage не работают с образом контейнера WindowsServerCore в сеансе удаленного взаимодействия PowerShell. **Обходной путь.** Войдите на этот компьютер с помощью удаленного рабочего стола и используйте непосредственно командлет Save-ContainerImage.
+>**Проблема.** Командлеты Save-ContainerImage и Install-ContainerImage не работают с образом контейнера WindowsServerCore в сеансе удаленного взаимодействия PowerShell. **Обходной путь.** Войдите на этот компьютер с помощью удаленного рабочего стола и напрямую используйте командлет Save-ContainerImage.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
@@ -61,7 +61,7 @@ PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
 Downloaded in 0 hours, 2 minutes, 28 seconds.
 ```
 
-Убедитесь, что образы были установлены, с помощью команды `Get-ContainerImage`.
+С помощью команды `Get-ContainerImage` убедитесь, что эти образы были установлены.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -202,3 +202,4 @@ IMAGE               CREATED             CREATED BY          SIZE                
 
 
 
+<!--HONumber=Jan16_HO1-->

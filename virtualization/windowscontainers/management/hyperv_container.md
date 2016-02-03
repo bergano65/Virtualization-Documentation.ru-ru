@@ -24,7 +24,7 @@ PS C:\> $con = New-Container -Name HYPVCON -ContainerImageName NanoServer -Switc
 
 Контейнеры Windows Server, созданные с помощью PowerShell, можно преобразовывать в контейнеры Hyper-V.
 
-> В настоящее время Nano Server — единственная операционная система узла, которая поддерживает преобразование среды выполнения.
+>В настоящее время Nano Server — единственная операционная система узла, которая поддерживает преобразование среды выполнения.
 
 Создайте контейнер со средой выполнения по умолчанию.
 
@@ -61,7 +61,7 @@ DEMO               HyperV
 
 ### Создание контейнера
 
-Управление контейнерами Hyper-V и Windows Server с помощью Docker почти ничем не отличается. При создании контейнера Hyper-V с помощью Docker используется параметр `–issolation=hyperv`.
+Управление контейнерами Hyper-V и Windows Server с помощью Docker почти ничем не отличается. При создании контейнера Hyper-V с помощью Docker используется параметр `–isolation=hyperv`.
 
 ```powershell
 docker run -it --isolation=hyperv 646d6317b02f cmd
@@ -214,3 +214,4 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 
 
 
+<!--HONumber=Jan16_HO1-->

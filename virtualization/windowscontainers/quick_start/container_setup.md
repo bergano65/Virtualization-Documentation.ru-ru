@@ -6,10 +6,10 @@
 
 **ПРОЧТИТЕ ПЕРЕД УСТАНОВКОЙ ОБРАЗА ОС КОНТЕЙНЕРА.** Использование образа операционной системы контейнера Microsoft Windows ("дополнительное программное обеспечение") регулируется условиями лицензионного соглашения на использование предварительного выпуска Microsoft Windows Server ("Условия лицензионного соглашения"). Скачивая и используя дополнительное программное обеспечение, вы принимаете условия лицензионного соглашения. Иначе не используйте его. Предварительный выпуск Windows Server и дополнительное программное обеспечение лицензированы корпорацией Майкрософт.
 
-Для выполнения упражнений этого руководства по быстрому запуску с **Windows Server** и **контейнерами Hyper-V** необходимы следующие компоненты.
+Для выполнения упражнений этого руководства по быстрому запуску с **Windows Server** и **контейнерами Hyper-V** необходимо следующее.
 
-* Система с Windows 10 (сборка 1056 или более поздняя) или Windows Server Technical Preview 4 или более поздней версии.
-* Роль Hyper-V активирована ([см. инструкции](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell)).
+* Система с Windows 10 (сборка 10586 или более поздняя) или Windows Server Technical Preview 4 или более поздней версии.
+* Активированная роль Hyper-V ([см. инструкции](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_install#UsingPowerShell))).
 * 20 ГБ доступного пространства для образа узла контейнера, базового образа операционной системы и сценариев настройки.
 * Права администратора на узле Hyper-V.
 
@@ -33,13 +33,13 @@ PS C:\> start-process powershell -Verb runAs
 PS C:\> Get-VMSwitch | where {$_.SwitchType –eq “External”}
 ```
 
-Скачайте сценарий настройки с помощью указанной ниже команды Сценарий также можно загрузить вручную по ссылке [Сценарий настройки](https://aka.ms/tp4/New-ContainerHost).
+Скачайте сценарий настройки с помощью указанной ниже команды Этот сценарий также можно загрузить вручную по ссылке [Сценарий настройки](https://aka.ms/tp4/New-ContainerHost).
 
 ``` PowerShell
 PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-ContainerHost.ps1
 ```
 
-Выполните указанную ниже команду, чтобы создать и настроить узел контейнера, где `<containerhost>` — имя виртуальной машины.
+Выполните указанную ниже команду, чтобы создать и настроить узел контейнера, где `&lt;containerhost&gt;` — имя виртуальной машины.
 
 ``` powershell
 PS C:\> c:\New-ContainerHost.ps1 –VmName <containerhost> -WindowsImage ServerDatacenterCore -Hyperv
@@ -71,3 +71,5 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 
 
+
+<!--HONumber=Jan16_HO2-->

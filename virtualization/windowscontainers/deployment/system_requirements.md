@@ -9,11 +9,14 @@
 Windows Server Technical Preview 4 предлагается с двумя образами ОС контейнера: Windows Server Core и Nano Server. Не все конфигурации поддерживают оба образа ОС. В этой таблице указаны поддерживаемые конфигурации.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
+<thead>
 <tr valign="top">
-<td><center>**Гостевая операционная система**</center></td>
-<td><center>**Контейнер Windows Server**</center></td>
-<td><center>**Контейнер Hyper-V**</center></td>
+<th><center>Гостевая операционная система</center></th>
+<th><center>Контейнер Windows Server</center></th>
+<th><center>Контейнер Hyper-V</center></th>
 </tr>
+</thead>
+<tbody>
 <tr valign="top">
 <td><center>Полный пользовательский интерфейс Windows Server 2016</center></td>
 <td><center>Образ операционной системы Core</center></td>
@@ -29,6 +32,7 @@ Windows Server Technical Preview 4 предлагается с двумя обр
 <td><center> Образ операционной системы Nano</center></td>
 <td><center>Образ операционной системы Nano</center></td>
 </tr>
+</tbody>
 </table>
 
 ## Требования к контейнеру Hyper-V
@@ -44,3 +48,4 @@ Windows Server Technical Preview 4 предлагается с двумя обр
 
 
 
+<!--HONumber=Jan16_HO1-->

@@ -12,17 +12,17 @@
 
 ## [Контейнеры в Azure](quick_start/azure_setup.md)
 
-## [Контейнеры на новой виртуальной машине Hyper-V](quick_start/container_setup.md)
+## [Контейнеры на новой ВМ Hyper-V](quick_start/container_setup.md)
 
-## [Контейнеры в существующей виртуальной или физической системе](quick_start/inplace_setup.md)
+## [Контейнеры в существующей системе](quick_start/inplace_setup.md)
 
-## [PowerShell: быстрый запуск](quick_start/manage_powershell.md)
+## [Краткое руководство по PowerShell](quick_start/manage_powershell.md)
 
-## [Docker: быстрый запуск](quick_start/manage_docker.md)
+## [Краткое руководство по Docker](quick_start/manage_docker.md)
 
 # Развертывание контейнеров Windows
 
-## [Требования к системе](deployment/system_requirements.md)
+## [Системные требования](deployment/system_requirements.md)
 
 ## [Развертывание узла контейнера](deployment/deployment.md)
 
@@ -38,7 +38,7 @@
 
 ## [Сетевые подключения контейнеров](management/container_networking.md)
 
-## [Данные контейнеров](management/manage_data.md)
+## [Общие папки контейнера](management/manage_data.md)
 
 ## [Управление ресурсами контейнера](management/manage_resources.md)
 
@@ -60,6 +60,9 @@
 
 ## [Совместимость приложений](reference/app_compat.md)
 
-# [Лицензионное соглашение](EULA.md)
+# [Лицензионное соглашение Windows Server](EULA.md)
+
+# [Лицензионное соглашение Nano Server](Nano_EULA.md)
 
 
+<!--HONumber=Jan16_HO1-->

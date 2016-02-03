@@ -60,7 +60,7 @@ C:\> powershell.exe Install-WindowsFeature web-server
 C:\> exit
 ```
 
-Далее контейнер будет сохранен в новом образе контейнера с помощью команды `docker commit`. В этом примере создается новый образ контейнера с именем `windowsservercoreiis`.
+Далее этот контейнер будет сохранен в новом образе контейнера с помощью команды `docker commit`. В этом примере создается новый образ контейнера с именем `windowsservercoreiis`.
 
 ```powershell
 C:\> docker commit iisbase windowsservercoreiis
@@ -159,7 +159,7 @@ C:\> powershell new-item c:\build\dockerfile -Force
 C:\> notepad c:\build\dockerfile
 ```
 
-Скопируйте в него следующий текст и сохраните файл. Эти команды дают Docker указание создать новый образ на основе образа `windosservercore` и включить изменения, указанные с помощью команды `RUN`. Дополнительные сведения о файлах Dockerfile см. в [справке по Dockerfile на сайте docker.com](http://docs.docker.com/engine/reference/builder/).
+Скопируйте в него следующий текст и сохраните файл. Эти команды дают Docker указание создать новый образ на основе образа `windowsservercore` и включить изменения, указанные с помощью команды `RUN`. Дополнительные сведения о файлах Dockerfile см. в [справке по Dockerfile на сайте docker.com](http://docs.docker.com/engine/reference/builder/).
 
 ```powershell
 FROM windowsservercore
@@ -223,7 +223,7 @@ C:\> docker rmi iis
 
 ### Создание контейнера
 
-Так как контейнер будет работать под управлением образа ОС Nano Server, для установки служб IIS требуются пакеты Nano Server IIS. Их можно найти в каталоге `NanoServer\Packages` на установочном носителе Windows Server 2016 TP4.
+Так как контейнер будет работать под управлением образа ОС Nano Server, для установки служб IIS требуются пакеты Nano Server IIS. Их можно найти на установочном носителе Windows Server 2016 TP4 в каталоге `NanoServer\Packages`.
 
 В этом примере запущенному контейнеру будет предоставлен доступ к каталогу на узле контейнера с помощью параметра `-v` команды `docker run`. Перед этим необходимо настроить исходный каталог.
 
