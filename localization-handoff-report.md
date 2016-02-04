@@ -1,20 +1,21 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 2
+ Total Files | 3
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\community\media\GitFromWinCMD.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7e8b96ffaabe14bc13ffa16f33397e8f51ad872d/virtualization/community/media/GitFromWinCMD.png) | HandedOffSuccess | [Details](#54974198eb9f9f9ea840b99e83eab5952f3f6b9a67)
- [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7e8b96ffaabe14bc13ffa16f33397e8f51ad872d/virtualization/windowscontainers/about/work_in_progress.md) | OutofSyncHandedBackSuccess | [Details](#ea783b2a3b7b76777864a0a828151ef82b61a4f2204)
+ [virtualization\community\media\GitFromWinCMD.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4c8a58f3bb3c8defe213d77f23529f8950747780/virtualization/community/media/GitFromWinCMD.png) | HandedOffSuccess | [Details](#54974198eb9f9f9ea840b99e83eab5952f3f6b9a67)
+ [virtualization\windowscontainers\containers_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4c8a58f3bb3c8defe213d77f23529f8950747780/virtualization/windowscontainers/containers_welcome.md) | OutofSyncHandedBackSuccess | [Details](#22ac0a8efe4c536d813b0bccea52ecc030684e1e205)
+ [virtualization\windowscontainers\Media\video.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4c8a58f3bb3c8defe213d77f23529f8950747780/virtualization/windowscontainers/Media/video.png) | HandedOffSuccess | [Details](#3ae897bd58e90c4c7c21ef5f940d4234cccec78f233)
 
 ## Item Details
-##### <a name='54974198eb9f9f9ea840b99e83eab5952f3f6b9a67'></a> Source: [virtualization\community\media\GitFromWinCMD.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7e8b96ffaabe14bc13ffa16f33397e8f51ad872d/virtualization/community/media/GitFromWinCMD.png)
+##### <a name='54974198eb9f9f9ea840b99e83eab5952f3f6b9a67'></a> Source: [virtualization\community\media\GitFromWinCMD.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4c8a58f3bb3c8defe213d77f23529f8950747780/virtualization/community/media/GitFromWinCMD.png)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [54974198eb9f9f9ea840b99e83eab5952f3f6b9a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d76b979455b12dcaf81d2fcb5fa03c45f828b962/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/54974198eb9f9f9ea840b99e83eab5952f3f6b9a.png)
-* Handoff Datetime: 2016-02-04 05:10:13
+* Handoff File: [54974198eb9f9f9ea840b99e83eab5952f3f6b9a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9cf3480b3523b22a06946b4378d645548fa12995/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/54974198eb9f9f9ea840b99e83eab5952f3f6b9a.png)
+* Handoff Datetime: 2016-02-04 23:39:56
 * Handoff Reason: IsDependency
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
@@ -23,19 +24,32 @@
 * Dependency From: virtualization\community\contribute_to_docs.md
 * [Back to Top](#report-top)
 
-##### <a name='ea783b2a3b7b76777864a0a828151ef82b61a4f2204'></a> Source: [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7e8b96ffaabe14bc13ffa16f33397e8f51ad872d/virtualization/windowscontainers/about/work_in_progress.md)
+##### <a name='22ac0a8efe4c536d813b0bccea52ecc030684e1e205'></a> Source: [virtualization\windowscontainers\containers_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4c8a58f3bb3c8defe213d77f23529f8950747780/virtualization/windowscontainers/containers_welcome.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d76b979455b12dcaf81d2fcb5fa03c45f828b962/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf)
-* Handoff Datetime: 2016-02-04 05:10:13
+* Handoff File: [containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9cf3480b3523b22a06946b4378d645548fa12995/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf)
+* Handoff Datetime: 2016-02-04 23:39:56
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\about\work_in_progress.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/d090705c16cb668ebba6878d43a299659a5a5146/virtualization/windowscontainers/about/work_in_progress.md)
-* Current Handback File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/57b077de9bb1ef483ce60cd71e867a3803c80776/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf)
-* Current Handback Datetime: 2016-02-03 22:01:18
+* Current Target File: [virtualization\windowscontainers\containers_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/9d825021e703c6ea20f1b135a8817f7740398760/virtualization/windowscontainers/containers_welcome.md)
+* Current Handback File: [containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/392e9dbd3c55bbda1cd1cd156a126c60e182d0bb/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf)
+* Current Handback Datetime: 2016-01-05 22:08:40
+* [Back to Top](#report-top)
+
+##### <a name='3ae897bd58e90c4c7c21ef5f940d4234cccec78f233'></a> Source: [virtualization\windowscontainers\Media\video.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4c8a58f3bb3c8defe213d77f23529f8950747780/virtualization/windowscontainers/Media/video.png)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [3ae897bd58e90c4c7c21ef5f940d4234cccec78f.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9cf3480b3523b22a06946b4378d645548fa12995/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/3ae897bd58e90c4c7c21ef5f940d4234cccec78f.png)
+* Handoff Datetime: 2016-02-04 23:39:56
+* Handoff Reason: IsDependency
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Dependency From: virtualization\windowscontainers\containers_welcome.md
 * [Back to Top](#report-top)
 
 
