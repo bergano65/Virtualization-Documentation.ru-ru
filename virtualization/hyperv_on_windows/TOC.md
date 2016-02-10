@@ -46,14 +46,15 @@
 
 ## [Примеры PowerShell](develop/powershell_snippets.md)
 
-## [Служба управления](develop/make_mgmt_service.md)
+## [Создание службы интеграции](develop/make_mgmt_service.md)
 
 ## [Поставщик WMI для Hyper-V (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
 
-## [Архитектура Hyper-V] (https://msdn.microsoft.com/ru-ru/library/cc768520 (v=bts.10).aspx)
+## [Архитектура Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
 # Связь с сообществом и поддержка
 
 ## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
 
 
+<!--HONumber=Feb16_HO1-->

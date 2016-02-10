@@ -16,17 +16,19 @@
 
 ## [Контейнеры в существующей системе](quick_start/inplace_setup.md)
 
-## [Краткое руководство по PowerShell](quick_start/manage_powershell.md)
+## [PowerShell: быстрый запуск](quick_start/manage_powershell.md)
 
-## [Краткое руководство по Docker](quick_start/manage_docker.md)
+## [Docker: быстрый запуск](quick_start/manage_docker.md)
 
 # Развертывание контейнеров Windows
 
-## [Системные требования](deployment/system_requirements.md)
+## [Требования к системе](deployment/system_requirements.md)
 
-## [Развертывание узла контейнера](deployment/deployment.md)
+## [Контейнеры Windows Server](deployment/deployment.md)
 
-## [Развертывание Docker в Windows](deployment/docker_windows.md)
+## [Контейнеры Nano Server](deployment/deployment_nano.md)
+
+## [Docker в Windows](deployment/docker_windows.md)
 
 # Управление контейнерами Windows
 
@@ -65,4 +67,4 @@
 # [Лицензионное соглашение Nano Server](Nano_EULA.md)
 
 
-<!--HONumber=Jan16_HO1-->
+<!--HONumber=Feb16_HO1-->

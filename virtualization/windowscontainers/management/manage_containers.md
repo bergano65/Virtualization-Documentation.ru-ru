@@ -10,7 +10,7 @@
 
 ### Создание контейнера
 
-При создании контейнера требуется указать имя образа контейнера, который будет служить его базой. Его можно узнать с помощью команды `Get-ContainerImageName`.
+При создании контейнера требуется указать имя образа контейнера, который будет служить его базой. Его можно узнать с помощью команды `Get-ContainerImage`.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -48,7 +48,7 @@ DHCP External   Microsoft Hyper-V Network Adapter
 NAT  NAT
 ```
 
-Подключите сетевой адаптер к виртуальному коммутатору с помощью команды `Connect-ContainerNetowkrAdapter`. ПРИМЕЧАНИЕ. Это действие можно также выполнить при создании контейнера, используя параметр –SwitchName.
+Подключите сетевой адаптер к виртуальному коммутатору с помощью команды `Connect-ContainerNetworkAdapter`. ПРИМЕЧАНИЕ. Это действие можно также выполнить при создании контейнера, используя параметр –SwitchName.
 
 ```powershell
 PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
@@ -62,7 +62,7 @@ PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
 PS C:\> $container = Get-Container -Name TST
 ```
 
-Затем эти данные можно использовать с командой `Start-Container` для запуска контейнера.
+Затем эти данные можно использовать в команде `Start-Container` для запуска контейнера.
 
 ```powershell
 PS C:\> Start-Container $container
@@ -78,7 +78,7 @@ PS C:\> Get-Container | Start-Container
 
 Для подключения к контейнеру можно использовать приложение PowerShell Direct. Это может быть удобно, если необходимо вручную выполнить задачу, например установить программное обеспечение, запустить процессы или устранить неполадки с контейнером. Так как используется приложение PowerShell Direct, сеанс PowerShell с контейнером можно создать независимо от конфигурации сети. Дополнительные сведения о PowerShell Direct см. в [блоге PowerShell Direct](http://blogs.technet.com/b/virtualization/archive/2015/05/14/powershell-direct-running-powershell-inside-a-virtual-machine-from-the-hyper-v-host.aspx)
 
-Чтобы создать интерактивный сеанс с контейнером, используйте команду `Enter-PSSession`.
+Чтобы создать интерактивный сеанс связи с контейнером, используйте команду `Enter-PSSession`.
 
  ```powershell
 PS C:\> Enter-PSSession -ContainerName TST –RunAsAdministrator
@@ -112,7 +112,7 @@ d-----       10/28/2015   3:31 PM                application                    
 PS C:\> $container = Get-Container -Name TST
 ```
 
-Затем эти данные можно использовать с командой `Stop-Container` для остановки контейнера.
+Затем эти данные можно использовать в команде `Stop-Container` для остановки контейнера.
 
 ```powershell
 PS C:\> Stop-Container $container
@@ -198,3 +198,4 @@ dc3e282c064d
 
 
 
+<!--HONumber=Feb16_HO1-->
