@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "0be310e7b637b614847279b877900cb902865059",
+  "LastProcessedCommit": "d6bd98351e0a533df24bc72d9d933c9794215e77",
   "LastTranslatedCommit": "c00fb08a24772ce5eeb3e583084a8a0892924bde",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -6019,6 +6019,33 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf",
       "HandoffFileCommit": "f6aef3b6df0d312c2825d65261963e9cf6eaebee",
       "HandoffDateTime": "2016-02-11T05:02:05.1291963Z",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null
+    },
+    "c036077146d20d76c282077758d83fe298daa15c": {
+      "FileHash": "c036077146d20d76c282077758d83fe298daa15c",
+      "SourceFileCommit": "d6bd98351e0a533df24bc72d9d933c9794215e77",
+      "SourceFilePath": "virtualization\\windowscontainers\\management\\hyperv_container.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\management\\hyperv_container.md"
+      ],
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\hyperv_container.081f9802174235940087cf2891a3f48eaec73707.ru-ru.xlf",
+      "HandoffFileCommit": "d7b925c2de33d74862f09061cdbd494ab7a61ef6",
+      "HandoffDateTime": "2016-02-11T18:51:35.2104005Z",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
       "TargetFileCommit": null,
