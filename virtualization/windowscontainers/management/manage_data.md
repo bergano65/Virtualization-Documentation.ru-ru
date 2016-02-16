@@ -8,7 +8,7 @@
 
 ### Создание общей папки
 
-Чтобы создать общую папку, используйте команду `Add-ContainerSharedFolder`. В примере ниже создается каталог в контейнере `c:\shared_data`, который сопоставлен с каталогом на узле `c:\data_source`.
+Чтобы создать общую папку, используйте команду `Add-ContainerSharedFolder`. В следующем примере в контейнере создается каталог `c:\shared_data`, который сопоставляется с каталогом `c:\data_source` на узле.
 
 > При добавлении общей папки контейнер должен быть остановлен.
 
@@ -73,7 +73,10 @@ PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
 
 Дополнительные сведения об управлении данными в контейнерах с помощью Docker см. в разделе [Тома Docker на сайте Docker.com](https://docs.docker.com/userguide/dockervolumes/).
 
+## Видеоруководство
+
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-3-Shared-Folders/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
-
+<!--HONumber=Feb16_HO1-->

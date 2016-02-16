@@ -10,7 +10,7 @@
 
 ## [Linux и FreeBSD на узле Hyper-V](https://technet.microsoft.com/library/dn531030.aspx)
 
-# Начало работы с Hyper-V
+# Краткое руководство по Hyper-V в среде Windows
 
 ## [Требования к системе](quick_start/walkthrough_compatibility.md)
 
@@ -22,7 +22,7 @@
 
 ## [Hyper-V и PowerShell](quick_start/walkthrough_powershell.md)
 
-# Руководства пользователя
+# Управление Hyper-V в среде Windows
 
 ## [Миграция и обновление виртуальных машин](user_guide/migrating_vms.md)
 
@@ -40,7 +40,11 @@
 
 ## [Диагностика](user_guide/troubleshooting.md)
 
-# Разработка
+# Сообщество и поддержка
+
+## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
+
+# Ссылка
 
 ## [PowerShell для Hyper-V](https://technet.microsoft.com/library/hh848559.aspx)
 
@@ -52,9 +56,5 @@
 
 ## [Архитектура Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-# Связь с сообществом и поддержка
 
-## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
-
-
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Feb16_HO2-->

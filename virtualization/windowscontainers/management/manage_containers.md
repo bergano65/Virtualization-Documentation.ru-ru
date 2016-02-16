@@ -21,14 +21,14 @@ NanoServer        CN=Microsoft 10.0.10584.1000 True
 WindowsServerCore CN=Microsoft 10.0.10584.1000 True
 ```
 
-Чтобы создать контейнер, используйте команду `New-Container`.
+Чтобы создать контейнер, используйте команду `New-Container`. Также контейнеру можно задать имя NetBIOS с помощью параметра `-ContainerComputerName`.
 
 ```powershell
-PS C:\> New-Container -Name TST -ContainerImageName WindowsServerCore
+PS C:\> New-Container -ContainerImageName WindowsServerCore -Name demo -ContainerComputerName demo
 
 Name State Uptime   ParentImageName
 ---- ----- ------   ---------------
-TST  Off   00:00:00 WindowsServerCore
+demo  Off   00:00:00 WindowsServerCore
 ```
 
 После создания контейнера добавьте к нему сетевой адаптер.
@@ -48,7 +48,7 @@ DHCP External   Microsoft Hyper-V Network Adapter
 NAT  NAT
 ```
 
-Подключите сетевой адаптер к виртуальному коммутатору с помощью команды `Connect-ContainerNetworkAdapter`. ПРИМЕЧАНИЕ. Это действие можно также выполнить при создании контейнера, используя параметр –SwitchName.
+Подключите сетевой адаптер к виртуальному коммутатору с помощью команды `Connect-ContainerNetworkAdapter`. **ПРИМЕЧАНИЕ.** Это действие можно также выполнить при создании контейнера, используя параметр –SwitchName.
 
 ```powershell
 PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
@@ -162,6 +162,7 @@ PS C:\> docker run -p 80:80 windowsservercoreiis
 
 ```powershell
 PS C:\> docker stop tender_panini
+
 tender_panini
 ```
 

@@ -2,13 +2,13 @@
 
 Контейнеры Windows обеспечивают виртуализацию на уровне операционной системы. Они позволяют запускать несколько изолированных приложений в одной системе. В этот компонент включены два разных типа среды выполнения контейнера, каждый из которых имеет разную степень изоляции приложения. Контейнеры Windows Server обеспечивают изоляцию через пространство имен и изоляцию процессов. Контейнеры Hyper-V инкапсулируют каждый контейнер в облегченной виртуальной машине. Обоими вариантами сред выполнения можно управлять с помощью PowerShell или Docker. Этот набор документации содержит руководства по быстрому запуску, руководства по развертыванию и технические сведения об операциях управления.
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:80%" cellpadding="25" cellspacing="5">
+<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:90%" cellpadding="25" cellspacing="5">
 <tr>
 <td><center>![](media/try.png)</center></td>
 <td>**Краткое руководство**<br /><br />
 Используйте следующие руководства по быстрому запуску, чтобы опробовать контейнеры Windows Server и Hyper-V.<br /><br />
 <ul>
-<li>[Быстрый запуск Azure](quick_start/azure_setup.md)<br /><br /></li>
+<li>[Краткое руководство по Azure](quick_start/azure_setup.md)<br /><br /></li>
 <li>[Развертывание нового узла контейнера](quick_start/container_setup.md)<br /><br /></li>
 <li>[Развертывание узла в существующей системе](quick_start/inplace_setup.md)<br /><br /></li>
 <li>[PowerShell: быстрый запуск](quick_start/manage_powershell.md)<br /><br /></li>
@@ -21,7 +21,7 @@
 <td>**Развертывание**<br /><br />
 Узнайте, как развернуть контейнеры Windows на Windows Server 2016 и на сервере Nano.<br /><br />
 <ul>
-<li>[Системные требования](deployment/system_requirements.md)<br /><br /></li>
+<li>[Требования к системе](deployment/system_requirements.md)<br /><br /></li>
 <li>[Развертывание узла контейнера](deployment/deployment.md)<br /><br /></li>
 <li>[Развертывание Docker в Windows](deployment/docker_windows.md)<br /><br /></li>
 </ul>
@@ -43,6 +43,16 @@
 </td>
 </tr>
 <tr>
+<td><center>![](media/video.png)</center></td>
+<td>**Смотрите**<br /><br />
+Вы заинтересованы в получении видео и интервью с командой, которая работает с контейнерами Windows?<br /><br />
+<ul>
+<li>[Канал "Контейнеры"](https://channel9.msdn.com/Blogs/containers)</li>
+</ul>
+<br />
+</td>
+</tr>
+<tr>
 <td><center>![](media/question.png)</center></td>
 <td>**Сообщество**<br /><br />
 Взаимодействуйте с нашим сообществом, попробуйте использовать примеры и найдите дополнительные ресурсы.<br /><br />
@@ -58,3 +68,4 @@
 
 
 
+<!--HONumber=Feb16_HO1-->

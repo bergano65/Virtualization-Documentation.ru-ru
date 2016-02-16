@@ -8,7 +8,7 @@
 
 ### Память
 
-При создании контейнера с помощью параметра `-MaximumMemoryBytes` в команде `New-Container` можно ограничить объем памяти этого контейнера. В этом примере задан максимальный объем памяти в размере 256 МБ)
+При создании контейнера можно задать для него ограничения использования памяти с помощью параметра `-MaximumMemoryBytes` в команде `New-Container`. В этом примере задан максимальный объем памяти в размере 256 МБ)
 
 ```powershell
 PS C:\> New-Container –Name TestContainer –MaximumMemoryBytes 256MB -ContainerimageName WindowsServerCore
@@ -73,8 +73,12 @@ C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 - Контейнеры Hyper-V в настоящее время не поддерживают элементы управления ресурсами ЦП и ввода-вывода.
 - В настоящие время невозможно использовать элементы управления ресурсами ЦП и ввода-вывода для общих папок контейнеров.
 
+## Видеоруководство
+
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-4-Resource-Management/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+<!--HONumber=Feb16_HO1-->

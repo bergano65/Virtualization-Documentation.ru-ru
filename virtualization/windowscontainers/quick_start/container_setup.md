@@ -42,7 +42,7 @@ PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-Container
 Выполните указанную ниже команду, чтобы создать и настроить узел контейнера, где `&lt;containerhost&gt;` — имя виртуальной машины.
 
 ``` powershell
-PS C:\> c:\New-ContainerHost.ps1 –VmName <containerhost> -WindowsImage ServerDatacenterCore -Hyperv
+PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 –VmName testcont -WindowsImage ServerDatacenterCore -Hyperv
 ```
 
 После запуска сценария вам будет предложено ввести пароль от учетной записи администратора.
@@ -72,4 +72,4 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 
 
-<!--HONumber=Jan16_HO2-->
+<!--HONumber=Feb16_HO2-->

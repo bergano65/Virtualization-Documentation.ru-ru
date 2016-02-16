@@ -1,89 +1,89 @@
-# Container Host Deployment - Nano Server
+# Развертывание узла контейнера — Nano Server
 
-**This is preliminary content and subject to change.**
+**Это предварительное содержимое. Возможны изменения.**
 
-Deploying a Windows Container host has different steps depending on the operating system and the host system type (physical or virtual). The steps in this document are used to deploy a Windows Container host to Nano Server, on a physical or virtual system. To install a Windows Container host to Windows Server see [Container Host Deployment - Windows Server](./deployment.md).
+Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типов операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальной и физической). Действия, рассматриваемые в этом документе, позволяют развернуть узел контейнера Windows на Nano Server в физической или виртуальной системе. Описание установки узла контейнера Windows на Windows Server см. в разделе [Развертывание узла контейнеров — Windows Server](./deployment.md).
 
-For details on system requirements, see [Windows Container Host System Requirements](./system_requirements.md).
+Дополнительные сведения о требованиях к системе см. в разделе [Требования к системе узла контейнера Windows](./system_requirements.md).
 
-PowerShell scripts are available to automate the deployment of a Windows Container host.
-- [Deploy a container host in a new Hyper-V Virtual Machine](../quick_start/container_setup.md).
-- [Deploy a container host to an existing system](../quick_start/inplace_setup.md).
+С помощью сценариев PowerShell можно автоматизировать развертывание узла контейнера Windows.
+- [Развертывание узла контейнера на новой виртуальной машине Hyper-V](../quick_start/container_setup.md).
+- [Развертывание узла контейнера в существующей системе](../quick_start/inplace_setup.md).
 
 
-# Nano Server Host
+# Узел Nano Server
 
-The steps listed in this table can be used to deploy a container host to Nano Server. Included are the configurations necessary for both Windows Server and Hyper-V Containers.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Deployment Action</strong></td>
-<td width="70%"><strong>Details</strong></td>
-</tr>
-<tr>
-<td>[Prepare Nano Server for Containers](#nano)</td>
-<td>Prepare a Nano Server VHD with the container and Hyper-V capabilities.</td>
-</tr>
-<tr>
-<td>[Create Virtual Switch](#vswitch)</td>
-<td>Containers connect to a virtual switch for network connectivity.</td>
-</tr>
-<tr>
-<td>[Configure NAT](#nat)</td>
-<td>If a virtual switch is configured with Network Address Translation, NAT itself needs configuration.</td>
-</tr>
-<tr>
-<td>[Install Container OS Images](#img)</td>
-<td>OS images provide the base for container deployments.</td>
-</tr>
-<tr>
-<td>[Install Docker](#docker)</td>
-<td>Optional, however necessary in order to create and manage Windows containers with Docker. </td>
-</tr>
-</table>
-
-These steps need to be taken if Hyper-V Containers will be used. Note, the steps marked with and * are only necessary if the container host is itself a Hyper-V virtual machine.
+Действия, описанные в этой таблице, можно использовать для развертывания узла контейнера в Nano Server. Указаны также настройки, необходимые для контейнеров Windows Server и Hyper-V.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
 <tr valign="top">
-<td width="30%"><strong>Deployment Action</strong></td>
-<td width="70%"><strong>Details</strong></td>
+<td width="30%"><strong>Действие развертывания</strong></td>
+<td width="70%"><strong>Подробности</strong></td>
 </tr>
 <tr>
-<td>[Enable Hyper-V Role](#hypv) </td>
-<td>Hyper-V is only required if Hyper-V Containers will be used.</td>
+<td>[Подготовка Nano Server для использования контейнеров](#nano)</td>
+<td>Подготовка виртуального жесткого диска Nano Server с контейнером и возможностями Hyper-V.</td>
 </tr>
 <tr>
-<td>[Enable Nested Virtualization *](#nest)</td>
-<td>If the Container Host is itself a Hyper-V Virtual machine, Nested Virtualization needs to be enabled.</td>
+<td>[Создание виртуального коммутатора](#vswitch)</td>
+<td>Контейнеры подключаются к виртуальному коммутатору для установления сетевого соединения.</td>
 </tr>
 <tr>
-<td>[Configure Virtual Processors *](#proc)</td>
-<td>If the Container Host is itself a Hyper-V Virtual machine, at least two virtual processors will need to be configured.</td>
+<td>[Настройка преобразования сетевых адресов (NAT)](#nat)</td>
+<td>Если виртуальный коммутатор настроен с преобразованием сетевых адресов (NAT), необходимо настроить и NAT.</td>
 </tr>
 <tr>
-<td>[Disable Dynamic Memory *](#dyn)</td>
-<td>If the Container Host is itself a Hyper-V Virtual machine, dynamic memory must be disabled.</td>
+<td>[Установка образов операционной системы контейнера](#img)</td>
+<td>Образы ОС представляют собой основу для развертывания контейнера.</td>
 </tr>
 <tr>
-<td>[Configure MAC Address Spoofing *](#mac)</td>
-<td>If the container host is virtualized, MAC spoofing will need to be enabled.</td>
+<td>[Установка Docker](#docker)</td>
+<td>Этот шаг необязательный, но его необходимо выполнить, чтобы создавать контейнеры Windows и управлять ими с помощью Docker. </td>
 </tr>
 </table>
 
-## Deployment Steps
+Эти шаги необходимо выполнить, если планируется использовать контейнеры Hyper-V. Обратите внимание, что этапы, отмеченные знаком "*", необходимы, только если узел контейнера сам является виртуальной машиной Hyper-V.
 
-### <a name=nano></a> Prepare Nano Server
+<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
+<tr valign="top">
+<td width="30%"><strong>Действие развертывания</strong></td>
+<td width="70%"><strong>Подробности</strong></td>
+</tr>
+<tr>
+<td>[Включение роли Hyper-V](#hypv) </td>
+<td>Hyper-V требуется, только если будут использоваться контейнеры Hyper-V.</td>
+</tr>
+<tr>
+<td>[Включение вложенной виртуализации *](#nest)</td>
+<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо включить вложенную виртуализацию.</td>
+</tr>
+<tr>
+<td>[Настройка виртуальных процессоров *](#proc)</td>
+<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо настроить по крайней мере два виртуальных процессора.</td>
+</tr>
+<tr>
+<td>[Отключение динамической памяти *](#dyn)</td>
+<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо отключить динамическую память.</td>
+</tr>
+<tr>
+<td>[Настройка спуфинга MAC-адресов *](#mac)</td>
+<td>Если узел контейнера виртуализирован, необходимо включить спуфинг MAC-адресов.</td>
+</tr>
+</table>
 
-Deploying Nano Server involves creating a prepared virtual hard drive, which includes the Nano Server operating system, and additional feature packages. This guide quickly details preparing a Nano Server virtual hard drive, which can be used for Windows Containers. For more information on Nano Server, and to explore different Nano Server deployment options, see the [Nano Server Documentation](https://technet.microsoft.com/en-us/library/mt126167.aspx).
+## Шаги развертывания
 
-Create a folder named `nano`.
+### <a name=nano></a> Подготовка Nano Server
+
+Развертывание Nano Server предусматривает создание подготовленного виртуального жесткого диска с операционной системой Nano Server и пакетов дополнительных компонентов. В этом руководстве кратко описывается подготовка виртуального жесткого диска Nano Server, который можно использовать для контейнеров Windows. Дополнительные сведения о Nano Server и описание различных вариантов развертывания Nano Server см. в статье [Документация по Nano Server](https://technet.microsoft.com/en-us/library/mt126167.aspx).
+
+Создайте папку с именем `nano`.
 
 ```powershell
 PS C:\> New-Item -ItemType Directory c:\nano
 ```
 
-Locate the `NanoServerImageGenerator.psm1` and `Convert-WindowsImage.ps1` files from the Nano Server folder, on the Windows Server Media. Copy these to `c:\nano`.
+Найдите файлы `NanoServerImageGenerator.psm1` и `Convert-WindowsImage.ps1` в папке Nano Server на носителе Windows Server. Скопируйте эти файлы в `c:\nano`.
 
 ```powershell
 #Set path to Windows Server 2016 Media
@@ -93,28 +93,28 @@ PS C:\> Copy-Item $WindowsMedia\NanoServer\Convert-WindowsImage.ps1 c:\nano
 
 PS C:\> Copy-Item $WindowsMedia\NanoServer\NanoServerImageGenerator.psm1 c:\nano
 ```
-Run the following to create a Nano Server virtual hard drive. The `–Containers` parameter indicates that the container package is installed, and the `–Compute` parameter takes care of the Hyper-V package. Hyper-V is only required if using Hyper-V containers.
+Чтобы создать виртуальный жесткий диск Nano Server, запустите указанную ниже команду. Параметр `–Containers` указывает, что будет установлен пакет контейнера, а параметр `–Compute` — что будет установлен пакет Hyper-V. Hyper-V требуется, только если будут использоваться контейнеры Hyper-V.
 
 ```powershell
 PS C:\> Import-Module C:\nano\NanoServerImageGenerator.psm1
 
 PS C:\> New-NanoServerImage -MediaPath $WindowsMedia -BasePath c:\nano -TargetPath C:\nano\NanoContainer.vhdx -MaxSize 10GB -GuestDrivers -ReverseForwarders -Compute -Containers
 ```
-When completed, create a virtual machine from the `NanoContainer.vhdx` file. This virtual machine will be running the Nano Server OS, and optional packages.
+По завершении создайте виртуальную машину с использованием файла `NanoContainer.vhdx`. Эта виртуальная машина будет работать под управлением ОС Nano Server (при этом могут использоваться дополнительные пакеты).
 
-### <a name=vswitch></a>Create Virtual Switch
+### <a name=vswitch></a>Создание виртуального коммутатора
 
-Each container needs to be attached to a virtual switch in order to communicate over a network. A virtual switch is created with the `New-VMSwitch` command. Containers support a virtual switch with type `External` or `NAT`. For more information on Windows Container networking see [Container Networking](../management/container_networking.md).
+Каждый контейнер необходимо подключить к виртуальному коммутатору для связи по сети. Виртуальный коммутатор можно создать с помощью команды `New-VMSwitch`. Контейнеры поддерживают виртуальные коммутаторы типа `внешний` или `NAT`. Подробные сведения о работе контейнеров в сети см. в разделе [Сетевые подключения контейнеров](../management/container_networking.md).
 
-This example creates a virtual switch with the name “Virtual Switch”, a type of NAT, and Nat Subnet of 172.16.0.0/12.
+В этом примере создается виртуальный коммутатор с именем "Virtual Switch" типа "NAT" и подсеть NAT 172.16.0.0/12.
 
 ```powershell
 PS C:\> New-VMSwitch -Name "Virtual Switch" -SwitchType NAT -NATSubnetAddress "172.16.0.0/12"
 ```
 
-### <a name=nat></a>Configure NAT
+### <a name=nat></a>Настройка преобразования сетевых адресов (NAT)
 
-In addition to creating a virtual switch, if the switch type is NAT, a NAT object needs to be created. This is completed using the `New-NetNat` command. This example creates a NAT object, with the name `ContainerNat`, and an address prefix that matches the NAT subnet assigned to the container switch.
+Если тип коммутатора — NAT, в дополнение к виртуальному коммутатору необходимо создать объект NAT. Это можно сделать с помощью команды `New-NetNat`. В этом примере создается объект NAT с именем `ContainerNat`, а также префиксом адреса, соответствующим подсети NAT, назначенной для данного коммутатора контейнера.
 
 ```powershell
 PS C:\> New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"
@@ -133,17 +133,17 @@ Store                            : Local
 Active                           : True
 ```
 
-### <a name=img></a>Install OS Images
+### <a name=img></a>Установка образов ОС
 
-An OS image is used as the base to any Windows Server or Hyper-V container. The image is used to deploy a container, which can then be modified, and captured into a new container image. OS images have been created with both Windows Server Core and Nano Server as the underlying operating system.
+Образ ОС используется как основа для любого контейнера Windows Server или Hyper-V. Образ используется для развертывания контейнера, который затем можно изменить и поместить в новый образ контейнера. Образы ОС были созданы с использованием Windows Server Core и Nano Server как основной операционной системы.
 
-Container OS images can be found and installed using the ContainerProvider PowerShell module. Before using this module, it needs to be installed. The following commands can be used to install the module.
+Образы ОС контейнеров можно найти и установить с помощью модуля ContainerProvider PowerShell. Прежде чем использовать этот модуль, его необходимо установить. Для установки модуля можно использовать приведенные ниже команды.
 
 ```powershell
 PS C:\> Install-PackageProvider ContainerProvider -Force
 ```
 
-Use `Find-ContainerImage` to return a list of images from PowerShell OneGet package manager.
+Чтобы получить список образов из диспетчера пакетов OneGet в PowerShell, воспользуйтесь командой `Find-ContainerImage`.
 
 ```powershell
 PS C:\> Find-ContainerImage
@@ -153,7 +153,7 @@ Name                 Version                 Description
 NanoServer           10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
 WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
 ```
-**Note** - At this time, only the Nano Server OS Image is compatible with a Nano Server container host. To download and install the Nano Server base OS image, run the following.
+**Примечание.** В настоящее время только образ операционной системы Nano Server совместим с узлом контейнера Nano Server. Чтобы скачать и установить базовый образ Nano Server, выполните приведенную ниже команду.
 
 ```powershell
 PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
@@ -161,7 +161,7 @@ PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
 Downloaded in 0 hours, 0 minutes, 10 seconds.
 ```
 
-Verify that the image is installed using the `Get-ContainerImage` command.
+С помощью команды `Get-ContainerImage` убедитесь, что этот образ был установлен.
 
 ```powershell
 PS C:\> Get-ContainerImage
@@ -170,53 +170,53 @@ Name              Publisher    Version      IsOSImage
 ----              ---------    -------      ---------
 NanoServer        CN=Microsoft 10.0.10586.0 True
 ```
-For more information on Container image management see [Windows Container Images](../management/manage_images.md).
+Дополнительные сведения об управлении образами контейнеров см. в статье [Образы контейнеров Windows](../management/manage_images.md).
 
 
-### <a name=docker></a>Install Docker
+### <a name=docker></a>Установка Docker
 
-The Docker Daemon and command line interface are not shipped with Windows, and not installed with the Windows Container feature. Docker is not a requirement for working with Windows containers. If you would like to install Docker, follow the instructions in this article [Docker and Windows](./docker_windows.md).
+Управляющая программа и интерфейс командной строки для Docker не поставляются вместе с Windows и не устанавливаются с помощью компонента контейнеров Windows. Docker не обязательно использовать для работы с контейнерами Windows. Чтобы установить Docker, следуйте инструкциям из статьи [Docker и Windows](./docker_windows.md).
 
 
-## Hyper-V Container Host
+## Узел контейнера Hyper-V
 
-### <a name=hypv></a>Enable the Hyper-V Role
+### <a name=hypv></a>Включение роли Hyper-V
 
-On Nano Server this can be completed when creating the Nano Server image. See [Prepare Nano Server for Containers](#nano) for these instructions.
+На Nano Server это можно сделать при создании образа Nano Server. См. инструкции в разделе [Подготовка Nano Server для контейнеров](#nano).
 
-### <a name=nest></a>Configure Nested Virtualization
+### <a name=nest></a>Настройка вложенной виртуализации
 
-If the container host itself will be running on a Hyper-V virtual machine, and will also be hosting Hyper-V Containers, nested virtualization needs to be enabled. This can be completed with the following PowerShell command.
+Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, необходимо включить вложенную виртуализацию. Это можно сделать с помощью приведенной ниже команды PowerShell.
 
-**Note** - The virtual machines must be turned off when running this command.
+**Примечание.** При выполнении этой команды виртуальные машины должны быть отключены.
 
 ```powershell
 PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
 ```
 
-### <a name=proc></a>Configure Virtual Processors
+### <a name=proc></a>Настройка виртуальных процессоров
 
-If the container host itself will be running on a Hyper-V virtual machine, and will also be hosting Hyper-V Containers, the virtual machine will require at least two processors. This can be configured through the settings of the virtual machine, or with the following command.
+Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, для виртуальной машины требуется как минимум два процессора. Это можно настроить с помощью параметров виртуальной машины или приведенной ниже команды.
 
-**Note** - The virtual machines must be turned off when running this command.
+**Примечание.** При выполнении этой команды виртуальные машины должны быть отключены.
 
 ```poweshell
 PS C:\> Set-VMProcessor –VMName <VM Name> -Count 2
 ```
 
-### <a name=dyn></a>Disable Dynamic Memory
+### <a name=dyn></a>Отключение динамической памяти
 
-If the Container Host is itself a Hyper-V Virtual machine, dynamic memory must be disabled on the container host virtual machine. This can be configured through the settings of the virtual machine, or with the following command.
+Если узел контейнера сам является виртуальной машиной Hyper-V, необходимо отключить динамическую память на виртуальной машине этого узла контейнера. Это можно настроить с помощью параметров виртуальной машины или приведенной ниже команды.
 
-**Note** - The virtual machines must be turned off when running this command.
+**Примечание.** При выполнении этой команды виртуальные машины должны быть отключены.
 
 ```poweshell
 PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
 ```
 
-### <a name=mac></a>Configure MAC Address Spoofing
+### <a name=mac></a>Настройка спуфинга MAC-адресов
 
-Finally, if the container host is running inside of a Hyper-V virtual machine, MAC spoofing must be enable. This allows each container to receive an IP Address. To enable MAC address spoofing, run the following command on the Hyper-V host. The VMName property will be the name of the container host.
+Наконец, если узел контейнера работает на виртуальной машине Hyper-V, необходимо включить спуфинг MAC-адресов. Благодаря этому каждый контейнер получит IP-адрес. Чтобы включить спуфинг MAC-адресов, выполните приведенную ниже команду на узле Hyper-V. Свойством VMName будет имя узла контейнера.
 
 ```powershell
 PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On

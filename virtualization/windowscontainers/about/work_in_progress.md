@@ -93,6 +93,57 @@ PS C:\> Start-Container test2
 **Решение проблемы **  
 Если контейнер должен предоставлять несколько конечных точек, используйте сопоставление портов NAT.
 
+
+### Статические сопоставления NAT могут конфликтовать с сопоставлениями портов через Docker.
+
+При создании контейнеров с помощью Windows PowerShell и добавлении статических сопоставлений NAT могут возникать конфликты, если перед запуском контейнера не удалить эти сопоставления с помощью команды `docker -p &lt;src&gt;:&lt;dst&gt;`.
+
+Ниже приводится пример конфликта со статическим сопоставлением по порту 80.
+```
+PS C:\IISDemo> Add-NetNatStaticMapping -NatName "ContainerNat" -Protocol TCP -ExternalIPAddress 0.0.0.0 -InternalIPAddress
+ 172.16.0.2 -InternalPort 80 -ExternalPort 80
+
+
+StaticMappingID               : 1
+NatName                       : ContainerNat
+Protocol                      : TCP
+RemoteExternalIPAddressPrefix : 0.0.0.0/0
+ExternalIPAddress             : 0.0.0.0
+ExternalPort                  : 80
+InternalIPAddress             : 172.16.0.2
+InternalPort                  : 80
+InternalRoutingDomainId       : {00000000-0000-0000-0000-000000000000}
+Active                        : True
+
+
+
+PS C:\IISDemo> docker run -it -p 80:80 microsoft/iis cmd
+docker: Error response from daemon: Cannot start container 30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66: 
+HCSShim::CreateComputeSystem - Win32 API call returned error r1=2147942452 err=You were not connected because a 
+duplicate name exists on the network. If joining a domain, go to System in Control Panel to change the computer name
+ and try again. If joining a workgroup, choose another workgroup name. 
+ id=30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66 configuration= {"SystemType":"Container",
+ "Name":"30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66","Owner":"docker","IsDummy":false,
+ "VolumePath":"\\\\?\\Volume{4b239270-c94f-11e5-a4c6-00155d016f0a}","Devices":[{"DeviceType":"Network","Connection":
+ {"NetworkName":"Virtual Switch","EnableNat":false,"Nat":{"Name":"ContainerNAT","PortBindings":[{"Protocol":"TCP",
+ InternalPort":80,"ExternalPort":80}]}},"Settings":null}],"IgnoreFlushesDuringBoot":true,
+ "LayerFolderPath":"C:\\ProgramData\\docker\\windowsfilter\\30b17cbe85539f08282340cc01f2797b42517924a70c8133f9d8db83707a2c66",
+ "Layers":[{"ID":"4b91d267-ecbc-53fa-8392-62ac73812c7b","Path":"C:\\ProgramData\\docker\\windowsfilter\\39b8f98ccaf1ed6ae267fa3e98edcfe5e8e0d5414c306f6c6bb1740816e536fb"},
+ {"ID":"ff42c322-58f2-5dbe-86a0-8104fcb55c2a",
+"Path":"C:\\ProgramData\\docker\\windowsfilter\\6a182c7eba7e87f917f4806f53b2a7827d2ff0c8a22d200706cd279025f830f5"},
+{"ID":"84ea5d62-64ed-574d-a0b6-2d19ec831a27",
+"Path":"C:\\ProgramData\\Microsoft\\Windows\\Images\\CN=Microsoft_WindowsServerCore_10.0.10586.0"}],
+"HostName":"30b17cbe8553","MappedDirectories":[],"SandboxPath":"","HvPartition":false}.
+```
+
+
+*** Устранение ***
+Эту проблему можно устранить путем удаления сопоставления портов с помощью PowerShell. Такая процедура приведет к удалению конфликта по порту 80 в приведенном выше примере.
+```powershell
+Get-NetNatStaticMapping | ? ExternalPort -eq 80 | Remove-NetNatStaticMapping
+```
+
+
 ### Контейнеры Windows не получают IP-адреса
 
 При подключении к контейнерам Windows с коммутаторами виртуальной машины DHCP возможна ситуация, когда узел контейнера получает IP-адрес, а контейнеры — нет.
@@ -237,6 +288,7 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 Мы внимательно рассматриваем отзывы об использовании Active Directory службами и приложениями, а также пересечении их развертывания в контейнерах. Если у вас есть предложения по улучшению работы, поделитесь этим с нами на [форумах](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
 
 Мы активно ищем решения для поддержки таких типов сценариев.
+
 
 
 
