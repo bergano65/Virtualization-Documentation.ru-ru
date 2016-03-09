@@ -1,3 +1,7 @@
+
+
+
+
 # Общие папки контейнера
 
 **Это предварительное содержимое. Возможны изменения.**
@@ -8,7 +12,7 @@
 
 ### Создание общей папки
 
-Чтобы создать общую папку, используйте команду `Add-ContainerSharedFolder`. В следующем примере в контейнере создается каталог `c:\shared_data`, который сопоставляется с каталогом `c:\data_source` на узле.
+Чтобы создать общую папку, используйте команду `Add-ContainerSharedFolder`. В примере ниже создается каталог в контейнере `c:\shared_data`, который сопоставлен с каталогом на узле `c:\data_source`.
 
 > При добавлении общей папки контейнер должен быть остановлен.
 
@@ -71,7 +75,7 @@ PS C:\> Remove-ContainerSharedFolder -ContainerName DEMO2 -SourcePath c:\source 
 PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
 ```
 
-Дополнительные сведения об управлении данными в контейнерах с помощью Docker см. в разделе [Тома Docker на сайте Docker.com](https://docs.docker.com/userguide/dockervolumes/).
+Дополнительные сведения об управлении данными в контейнерах с помощью Docker см. в разделе ["Тома Docker" на сайте Docker.com](https://docs.docker.com/userguide/dockervolumes/).
 
 ## Видеоруководство
 
@@ -79,4 +83,4 @@ PS C:\> docker run -it -v c:\source:c:\destination 1f62aaf73140 cmd
 
 
 
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Feb16_HO3-->
