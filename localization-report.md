@@ -3112,14 +3112,14 @@
 
 ##### <a name='22320b32fb8af15c2e7125ec4f50c2b19643b9bf215'></a> Source: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7ed376b24c1960faea6625fea79c2f9e11574d28/virtualization/windowscontainers/deployment/media/nssm1.png)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/5b15a2bfd1e578630c48facccbf71817a699437b/virtualization/windowscontainers/deployment/media/nssm1.png)
+* Target File: [virtualization\windowscontainers\deployment\media\nssm1.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/f9099816bef44e7a07489db3817443fac584f2d7/virtualization/windowscontainers/deployment/media/nssm1.png)
 * Handoff File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/597385b774e95b3303446be5b334f2ec00acb882/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
 * Handoff Datetime: 2016-03-07 06:13:57
 * Handoff Reason: IsDependency
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/d4532ef313f0b8a52bd9b4c0a172170c4eabcf74/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
-* Handback Datetime: 2016-03-09 08:03:54
+* Handback File: [22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/db0f72202666cb885f87deb552d8fee12320868f/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/22320b32fb8af15c2e7125ec4f50c2b19643b9bf.png)
+* Handback Datetime: 2016-03-10 18:39:01
 * Dependency From: virtualization\windowscontainers\deployment\docker_windows.md
 * [Back to Top](#report-top)
 
