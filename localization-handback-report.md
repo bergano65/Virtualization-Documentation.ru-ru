@@ -1,13 +1,12 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 2
+ Total Files | 1
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
  [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/15511c52f04190aa859959e50e2e95160dfc0c91/virtualization/hyperv_on_windows/user_guide/vmsession.md) | HandedBackFailed | [Details](#d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197)
- [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/125827d4455642ffc8a25cb0ef7f5e5d40398b8a/virtualization/windowscontainers/reference/app_compat.md) | InSyncHandedBackSuccess | [Details](#43aca5e552bf0e406293b2b4042a2493c89f619f288)
 
 ## Item Details
 ##### <a name='d3997f4f512580be5e28fbafa51f1bbd6a0a4b44197'></a> Source: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/15511c52f04190aa859959e50e2e95160dfc0c91/virtualization/hyperv_on_windows/user_guide/vmsession.md)
@@ -24,18 +23,6 @@
 * Current Target File: [virtualization\hyperv_on_windows\user_guide\vmsession.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/d090705c16cb668ebba6878d43a299659a5a5146/virtualization/hyperv_on_windows/user_guide/vmsession.md)
 * Current Handback File: [vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/57b077de9bb1ef483ce60cd71e867a3803c80776/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/vmsession.5b8e9c3583d826412e0ae8e2f58f1deca9901582.ru-ru.xlf)
 * Current Handback Datetime: 2016-02-03 22:01:18
-* [Back to Top](#report-top)
-
-##### <a name='43aca5e552bf0e406293b2b4042a2493c89f619f288'></a> Source: [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/125827d4455642ffc8a25cb0ef7f5e5d40398b8a/virtualization/windowscontainers/reference/app_compat.md)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/ef6b87e612833d909f4dc7ac6d10347d73ceb8cd/virtualization/windowscontainers/reference/app_compat.md)
-* Handoff File: [app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d6e111b62a4a9f1c6323489b54467f092b372e2c/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf)
-* Handoff Datetime: 2016-03-11 01:44:37
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/180124c1f821d61d38464940ddcb862431e07ffb/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf)
-* Handback Datetime: 2016-03-24 09:04:05
 * [Back to Top](#report-top)
 
 
