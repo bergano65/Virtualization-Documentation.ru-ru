@@ -56,7 +56,7 @@
 
 ## [Архитектура Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
 
-## [TLFS гипервизора](develop/tlfs.md)
+## [Спецификации гипервизора](develop/tlfs.md)
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO2-->

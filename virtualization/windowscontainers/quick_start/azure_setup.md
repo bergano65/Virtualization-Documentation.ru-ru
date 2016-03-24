@@ -1,6 +1,6 @@
-
-
-
+---
+author: neilpeterson
+---
 
 # Быстрый запуск Azure
 
@@ -46,6 +46,16 @@
 
 ![](media/newazure7.png)
 
+## Обновление подсистемы Docker
+
+Чтобы использовать `запросы Docker` в образе версии Technical Preview контейнеров Windows Azure, требуется обновить подсистему Docker. Запустите следующие команды PowerShell в виртуальной машине Azure, чтобы завершить это обновление.
+
+```powershell
+PS C:\> wget https://raw.githubusercontent.com/Microsoft/Virtualization-Documentation/live/windows-server-container-tools/Update-ContainerHost/Update-ContainerHost.ps1 -OutFile Update-ContainerHost.ps1
+
+PS C:\> ./Update-ContainerHost.ps1
+```
+
 ## Видеоруководство
 
 <iframe src="https://channel9.msdn.com/Blogs/containers/Quick-Start-Configure-Windows-Server-Containers-in-Microsoft-Azure/player#ccLang=ru" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
@@ -60,4 +70,4 @@
 
 
 
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Mar16_HO3-->
