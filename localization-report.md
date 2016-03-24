@@ -4069,9 +4069,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/01224eaa0800b6a667f678bbaff25e7d88b87723/virtualization/windowscontainers/reference/app_compat.md)
-* Current Handback File: [app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/839ff4a3c9980057c4796b3edca8468c394b8562/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf)
-* Current Handback Datetime: 2016-03-11 23:58:18
+* Current Target File: [virtualization\windowscontainers\reference\app_compat.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/745d0e3b3c5b9bd83cc118acaf14e1c21c407359/virtualization/windowscontainers/reference/app_compat.md)
+* Current Handback File: [app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1c2e25399f4c32255167dea0daa33fe32ccf6daf/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/app_compat.85ea42fd0d23543a8fad7596dfdec7699ec15654.ru-ru.xlf)
+* Current Handback Datetime: 2016-03-24 08:57:38
 * [Back to Top](#report-top)
 
 ##### <a name='5463412d44bd7c657401c55558bb817df4cc1eb2289'></a> Source: [virtualization\windowscontainers\reference\powershell_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/961efcc74b0930cccaa77e82bdb14240ad71100c/virtualization/windowscontainers/reference/powershell_overview.md)
