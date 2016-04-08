@@ -1,6 +1,6 @@
 {
   "LastProcessedCommit": "d9c948b0a1dd19ab2120e6d1c5c4e34b96c7c379",
-  "LastTranslatedCommit": "a36186e2407f8e4ff2e964195c34707e39220724",
+  "LastTranslatedCommit": "1b231a37e6603c4bf2076adb5a969139eb104bf9",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
       "FileHash": "5090f6d60b5cbdce0990242d795d9e4e3736e791",
@@ -8847,14 +8847,14 @@
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
-      "TargetFileCommit": null,
-      "TargetFilePath": null,
-      "HandbackFilePath": null,
-      "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
+      "TargetFileCommit": "1b231a37e6603c4bf2076adb5a969139eb104bf9",
+      "TargetFilePath": "virtualization\\hyperv_on_windows\\develop\\media\\flightingSDK.png",
+      "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\224b91fc286f31a5c23fe3d7c9d36b178f6b04c3.png",
+      "HandbackFileCommit": "090141329dcf2fc12a763dfecee487868cb862e1",
+      "HandbackDateTime": "2016-04-08T01:41:42.8224225Z",
       "HandbackException": null,
       "HandbackFailureTimes": 0,
-      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "UpdatedDateTime": "2016-04-08T01:41:42.8224225Z",
       "ArchiveFilePath": null,
       "ArchiveFileCommit": null,
       "ArchiveFileDateTime": "0001-01-01T00:00:00",
