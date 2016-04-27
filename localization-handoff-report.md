@@ -1,24 +1,40 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick_start\quick_start_configure_host.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7409a4e80ca43074d0ef47c78f911120f84441af/virtualization/windowscontainers/quick_start/quick_start_configure_host.md) | HandedOffSuccess | [Details](#14cd704cb102b26e12a98f54a9de620ee658ba3d310)
+ [virtualization\hyperv_on_windows\quick_start\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c0a71a7a23527b6534eb8ea7d5485e53a0e41ac3/virtualization/hyperv_on_windows/quick_start/index.md) | HandedOffSuccess | [Details](#380e6aec81d02bed84769a4b31c0d1fdeb72d8dc103)
+ [virtualization\hyperv_on_windows\quick_start\walkthrough.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e6367bca6c8403bb2e69638dafaeac1abc830fd5/virtualization/hyperv_on_windows/quick_start/walkthrough.md) | OutofSyncHandedBackSuccess | [Details](#380e6aec81d02bed84769a4b31c0d1fdeb72d8dc170)
 
 ## Item Details
-##### <a name='14cd704cb102b26e12a98f54a9de620ee658ba3d310'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_configure_host.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7409a4e80ca43074d0ef47c78f911120f84441af/virtualization/windowscontainers/quick_start/quick_start_configure_host.md)
+##### <a name='380e6aec81d02bed84769a4b31c0d1fdeb72d8dc103'></a> Source: [virtualization\hyperv_on_windows\quick_start\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c0a71a7a23527b6534eb8ea7d5485e53a0e41ac3/virtualization/hyperv_on_windows/quick_start/index.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [quick_start_configure_host.22eb2cfc649ba7c5d36441e003bf951628b30837.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/f769805b05330b25adccc1747e3ad8a77c3d7959/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start_configure_host.22eb2cfc649ba7c5d36441e003bf951628b30837.ru-ru.xlf)
-* Handoff Datetime: 2016-04-27 21:10:28
+* Handoff File: [index.40b8186d52cab3ff775675407a35cc8c9efd33a9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/baa5e0edc9b0c0d46862f07fde08b0a7563a8f13/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/index.40b8186d52cab3ff775675407a35cc8c9efd33a9.ru-ru.xlf)
+* Handoff Datetime: 2016-04-27 21:42:49
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
+* [Back to Top](#report-top)
+
+##### <a name='380e6aec81d02bed84769a4b31c0d1fdeb72d8dc170'></a> Source: [virtualization\hyperv_on_windows\quick_start\walkthrough.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e6367bca6c8403bb2e69638dafaeac1abc830fd5/virtualization/hyperv_on_windows/quick_start/walkthrough.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [index.40b8186d52cab3ff775675407a35cc8c9efd33a9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/baa5e0edc9b0c0d46862f07fde08b0a7563a8f13/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/index.40b8186d52cab3ff775675407a35cc8c9efd33a9.ru-ru.xlf)
+* Handoff Datetime: 2016-04-27 21:42:49
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\hyperv_on_windows\quick_start\walkthrough.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/92e23376a88e98eccc0e34519c865657207bb96d/virtualization/hyperv_on_windows/quick_start/walkthrough.md)
+* Current Handback File: [walkthrough.479a697a5c0e6d13e1bbfafdcd36fe03e025a38d.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/d362405abf4da43b19b925474aa3728822aaeb8d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/walkthrough.479a697a5c0e6d13e1bbfafdcd36fe03e025a38d.ru-ru.xlf)
+* Current Handback Datetime: 2016-01-04 21:58:51
 * [Back to Top](#report-top)
 
 
