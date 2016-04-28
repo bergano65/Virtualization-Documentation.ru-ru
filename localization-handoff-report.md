@@ -1,19 +1,35 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick_start\quick_start_configure_host.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/dd97060d739bd64ef0b10f05c574f6db0018c091/virtualization/windowscontainers/quick_start/quick_start_configure_host.md) | HandedOffSuccess | [Details](#f35f804e3028baf6674a6629d80f05a4115984ab311)
+ [virtualization\hyperv_on_windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ce18b842ffa4654e133129ca8d007690b9ce31ce/virtualization/hyperv_on_windows/TOC.md) | OutofSyncHandedBackSuccess | [Details](#1d69f8bb5cb097eb6a394b85121ba064b2ee539f178)
+ [virtualization\hyperv_on_windows\user_guide\setup_nat_network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/71a94de60cbdddb009f1eb41221d11f547449fb9/virtualization/hyperv_on_windows/user_guide/setup_nat_network.md) | HandedOffSuccess | [Details](#fef03f64b1c2ea9f526b84590124f97d303af49b204)
 
 ## Item Details
-##### <a name='f35f804e3028baf6674a6629d80f05a4115984ab311'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_configure_host.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/dd97060d739bd64ef0b10f05c574f6db0018c091/virtualization/windowscontainers/quick_start/quick_start_configure_host.md)
+##### <a name='1d69f8bb5cb097eb6a394b85121ba064b2ee539f178'></a> Source: [virtualization\hyperv_on_windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ce18b842ffa4654e133129ca8d007690b9ce31ce/virtualization/hyperv_on_windows/TOC.md)
+* Status: OutofSyncHandedBackSuccess
+* Target File: 
+* Handoff File: [TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/50c02a9c7bb064fa0d7f17a941ccb436107879c2/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.ru-ru.xlf)
+* Handoff Datetime: 2016-04-28 00:10:20
+* Handoff Reason: Include
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Current Target File: [virtualization\hyperv_on_windows\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/cc1037b7459357dce80a25a0887833cf9f79b340/virtualization/hyperv_on_windows/TOC.md)
+* Current Handback File: [TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/41e98ebbeb57279681cb4433c4891b546568e17e/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.dc6d280c11d16ece7fbc1f22991c5fc34412dd1a.ru-ru.xlf)
+* Current Handback Datetime: 2016-03-24 09:00:52
+* [Back to Top](#report-top)
+
+##### <a name='fef03f64b1c2ea9f526b84590124f97d303af49b204'></a> Source: [virtualization\hyperv_on_windows\user_guide\setup_nat_network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/71a94de60cbdddb009f1eb41221d11f547449fb9/virtualization/hyperv_on_windows/user_guide/setup_nat_network.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [quick_start_configure_host.22eb2cfc649ba7c5d36441e003bf951628b30837.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/50ebdd76bf046c1d2a5dd9b43dcfd044902032d4/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start_configure_host.22eb2cfc649ba7c5d36441e003bf951628b30837.ru-ru.xlf)
-* Handoff Datetime: 2016-04-27 23:41:20
+* Handoff File: [setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/50c02a9c7bb064fa0d7f17a941ccb436107879c2/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/setup_nat_network.910a966b84616e203e5739d5dde1b65115f14a37.ru-ru.xlf)
+* Handoff Datetime: 2016-04-28 00:10:20
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
