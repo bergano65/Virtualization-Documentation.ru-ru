@@ -1,3 +1,7 @@
+
+
+
+
 # Управление ресурсами контейнера
 
 **Это предварительное содержимое. Возможны изменения.**
@@ -8,10 +12,10 @@
 
 ### Память
 
-При создании контейнера можно задать для него ограничения использования памяти с помощью параметра `-MaximumMemoryBytes` в команде `New-Container`. В этом примере задан максимальный объем памяти в размере 256 МБ)
+При создании контейнера с помощью параметра `-MaximumMemoryBytes` в команде `New-Container` можно ограничить объем памяти этого контейнера. В этом примере задан максимальный объем памяти в размере 256 МБ)
 
 ```powershell
-PS C:\> New-Container –Name TestContainer –MaximumMemoryBytes 256MB -ContainerimageName WindowsServerCore
+PS C:\> New-Container -Name TestContainer -MaximumMemoryBytes 256MB -ContainerimageName WindowsServerCore
 ```
 Предельный объем памяти для уже существующего контейнера можно задать с помощью командлета `Set-ContainerMemory`.
 
@@ -26,7 +30,7 @@ PS C:\> Set-ContainerMemory -ContainerName TestContainer -MaximumBytes 256mb
 В примере ниже установлена максимальная пропускная способность в размере 100 Мбит/с.
 
 ```powershell
-PS C:\> Set-ContainerNetworkAdapter –ContainerName TestContainer –MaximumBandwidth 100000000
+PS C:\> Set-ContainerNetworkAdapter -ContainerName TestContainer -MaximumBandwidth 100000000
 ```
 
 ### ЦП
@@ -36,10 +40,10 @@ PS C:\> Set-ContainerNetworkAdapter –ContainerName TestContainer –MaximumBan
 В примере ниже задается относительный вес контейнера в размере 1000. Вес контейнера по умолчанию равен 100, так что у контейнера из примера 10-кратный приоритет перед ним. Максимальное значение составляет 10 000.
 
 ```powershell
-PS C:\> Set-ContainerProcessor -ContainerName Container1 –RelativeWeight 10000
+PS C:\> Set-ContainerProcessor -ContainerName Container1 -RelativeWeight 10000
 ```
 
-Кроме того, можно задать жесткое ограничение на объем ресурсов ЦП, который контейнер может использовать за долю времени ЦП. По умолчанию контейнер может использовать 100 % ресурсов ЦП. В примере ниже контейнер может использовать максимум до 30 % ресурсов ЦП. Флаг –Maximum автоматически задает параметру RelativeWeight значение 100.
+Кроме того, можно задать жесткое ограничение на объем ресурсов ЦП, который контейнер может использовать за долю времени ЦП. По умолчанию контейнер может использовать 100 % ресурсов ЦП. В примере ниже контейнер может использовать максимум до 30 % ресурсов ЦП. При использовании флага -Maximum параметру RelativeWeight автоматически присваивается значение 100.
 
 ```powershell
 PS C:\> Set-ContainerProcessor -ContainerName Container1 -Maximum 30
@@ -65,7 +69,7 @@ PS C:\> Set-ContainerStorage -ContainerName Container1 -MaximumIOPS 32
 Во время работы при помощи флага --cpu-shares можно управлять долей времени ЦП для обслуживания контейнеров. По умолчанию доля времени ЦП для обслуживания всех контейнеров одинакова. Чтобы изменить относительную долю времени ЦП для обслуживания контейнеров, примените флаг --cpu-shares со значением от 1 до 10 000. По умолчанию вес всех контейнеров равен 5000. Дополнительные сведения об ограничении распределения ресурсов ЦП см. в [справке по Docker Run](https://docs.docker.com/engine/reference/run/#cpu-share-constraint).
 
 ```powershell 
-C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
+C:\> docker run -it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 ```
 
 ## Известные проблемы
@@ -75,10 +79,14 @@ C:\> docker run –it --cpu-shares 2 --name dockerdemo windowsservercore cmd
 
 ## Видеоруководство
 
-<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-4-Resource-Management/player" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+<iframe src="https://channel9.msdn.com/Blogs/containers/Container-Fundamentals--Part-4-Resource-Management/player#ccLang=ru" width="800" height="450"  allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

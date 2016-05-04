@@ -1,3 +1,7 @@
+
+
+
+
 # Docker и Windows
 
 **Это предварительное содержимое. Возможны изменения.**
@@ -26,7 +30,7 @@ PS C:\> wget https://aka.ms/tp4/docker -OutFile $env:SystemRoot\system32\docker.
 PS C:\> New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-Скопируйте следующий текст в файл `runDockerDaemon.cmd`. Этот пакетный файл запускает управляющую программу Docker с помощью команды `docker daemon –D –b "Virtual Switch"`. Примечание. Имя виртуального коммутатора в этом файле должно совпадать с именем виртуального коммутатора, который контейнеры будут использовать для подключения к сети.
+Скопируйте следующий текст в файл `runDockerDaemon.cmd`. Этот пакетный файл запускает управляющую программу Docker с помощью команды `docker daemon -D -b "виртуальный_коммутатор"`. Примечание. Имя виртуального коммутатора в этом файле должно совпадать с именем виртуального коммутатора, который контейнеры будут использовать для подключения к сети.
 
 ```powershell
 @echo off
@@ -70,7 +74,7 @@ PS C:\> start-process nssm install
 
 - **Каталог автозагрузки:** C:\Windows\System32
 
-- **Аргументы:** /s /c C:\ProgramData\docker\runDockerDaemon.cmd
+- **Аргументы:** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
 
 - **Имя службы:** Docker
 
@@ -174,4 +178,8 @@ docker daemon -D -H <ip address of Nano Server>:2375
 
 
 
-<!--HONumber=Jan16_HO3-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

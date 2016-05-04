@@ -1,3 +1,7 @@
+
+
+
+
 # Управление контейнерами Windows Server
 
 **Это предварительное содержимое. Возможны изменения.**
@@ -21,7 +25,7 @@ NanoServer        CN=Microsoft 10.0.10584.1000 True
 WindowsServerCore CN=Microsoft 10.0.10584.1000 True
 ```
 
-Чтобы создать контейнер, используйте команду `New-Container`. Также контейнеру можно задать имя NetBIOS с помощью параметра `-ContainerComputerName`.
+Чтобы создать контейнер, используйте команду `New-Container`. Контейнеру также можно присвоить имя NetBIOS с помощью параметра `-ContainerComputerName`.
 
 ```powershell
 PS C:\> New-Container -ContainerImageName WindowsServerCore -Name demo -ContainerComputerName demo
@@ -34,7 +38,7 @@ demo  Off   00:00:00 WindowsServerCore
 После создания контейнера добавьте к нему сетевой адаптер.
 
 ```powershell
-PS C:\> Add-ContainerNetworkAdapter -ContainerName TST
+PS C:\> Add-ContainerNetworkAdapter -ContainerName demo
 ```
 
 Чтобы подключить сетевой адаптер контейнера к виртуальному коммутатору, требуется указать имя коммутатора. Используйте команду `Get-VMSwitch`, чтобы отобразить список виртуальных коммутаторов.
@@ -48,10 +52,10 @@ DHCP External   Microsoft Hyper-V Network Adapter
 NAT  NAT
 ```
 
-Подключите сетевой адаптер к виртуальному коммутатору с помощью команды `Connect-ContainerNetworkAdapter`. **ПРИМЕЧАНИЕ.** Это действие можно также выполнить при создании контейнера, используя параметр –SwitchName.
+Подключите сетевой адаптер к виртуальному коммутатору с помощью команды `Connect-ContainerNetworkAdapter`. **ПРИМЕЧАНИЕ**. Это действие можно также выполнить при создании контейнера, используя параметр –SwitchName.
 
 ```powershell
-PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
+PS C:\> Connect-ContainerNetworkAdapter -ContainerName demo -SwitchName NAT
 ```
 
 ### Запуск контейнера
@@ -59,7 +63,7 @@ PS C:\> Connect-ContainerNetworkAdapter -ContainerName TST -SwitchName NAT
 Чтобы запустить контейнер, необходимо перечислить объект PowerShell, представляющий этот контейнер. Для этого поместите выходные данные команды `Get-Container` в переменную PowerShell.
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 Затем эти данные можно использовать в команде `Start-Container` для запуска контейнера.
@@ -81,13 +85,13 @@ PS C:\> Get-Container | Start-Container
 Чтобы создать интерактивный сеанс связи с контейнером, используйте команду `Enter-PSSession`.
 
  ```powershell
-PS C:\> Enter-PSSession -ContainerName TST –RunAsAdministrator
+PS C:\> Enter-PSSession -ContainerName demo -RunAsAdministrator
  ```
 
 Обратите внимание, что после создания удаленного сеанса PowerShell имя контейнера отобразится в командной строке оболочки.
 
 ```powershell
-[TST]: PS C:\>
+[demo]: PS C:\>
 ```
 
 Команды также можно выполнять, не создавая постоянного сеанса PowerShell. Для этого используйте команду `Invoke-Command`.
@@ -96,12 +100,12 @@ PS C:\> Enter-PSSession -ContainerName TST –RunAsAdministrator
 
 ```powershell
 
-PS C:\> Invoke-Command -ContainerName TST -ScriptBlock {New-Item -ItemType Directory -Path c:\application }
+PS C:\> Invoke-Command -ContainerName demo -ScriptBlock {New-Item -ItemType Directory -Path c:\application }
 
 Directory: C:\
 Mode                LastWriteTime         Length Name                                                 PSComputerName
 ----                -------------         ------ ----                                                 --------------
-d-----       10/28/2015   3:31 PM                application                                          TST
+d-----       10/28/2015   3:31 PM                application                                          demo
 ```
 
 ### Остановка контейнера
@@ -109,7 +113,7 @@ d-----       10/28/2015   3:31 PM                application                    
 Чтобы остановить контейнер, потребуется объект PowerShell, представляющий этот контейнер. Для этого поместите выходные данные команды `Get-Container` в переменную PowerShell.
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 Затем эти данные можно использовать в команде `Stop-Container` для остановки контейнера.
@@ -129,7 +133,7 @@ PS C:\> Get-Container | Stop-Container
 Если контейнер больше не нужен, его можно удалить. Чтобы удалить контейнер, он должен быть остановлен, и нужно создать объект PowerShell, представляющий этот контейнер.
 
 ```powershell
-PS C:\> $container = Get-Container -Name TST
+PS C:\> $container = Get-Container -Name demo
 ```
 
 Чтобы удалить контейнер, используйте команду `Remove-Container`.
@@ -199,4 +203,8 @@ dc3e282c064d
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Feb16_HO4-->
+
+

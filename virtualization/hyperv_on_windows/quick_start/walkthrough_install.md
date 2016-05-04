@@ -25,7 +25,7 @@
 2. Выполните следующую команду.
 
 ```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V –All
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 После завершения установки необходимо перезагрузить компьютер.
 
@@ -49,5 +49,11 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 [Создание виртуального коммутатора](walkthrough_virtual_switch.md)
 
+
+
+
+
+
+<!--HONumber=Feb16_HO4-->
 
 

@@ -1,3 +1,7 @@
+
+
+
+
 # Сравнение Docker и PowerShell как средств управления контейнерами Windows
 
 Управлять контейнерами Windows можно с помощью средств, поставляемых с Windows (в этой предварительной версии — PowerShell), и средств с открытым исходным кодом, например Docker.  
@@ -24,8 +28,8 @@
 | `docker rm`| `Remove-Container`|
 | `docker rmi`| `Remove-ContainerImage`|
 | `docker create`| `New-Container`|
-| `docker commit <container ID>`| `New-ContainerImage -Container <container>`|
-| `docker load <tarball>`| `Import-ContainerImage <AppX package>`|
+| `docker commit <container ID>`| `New-ContainerImage -Container &lt;container&gt;`|
+| `docker load &lt;tarball&gt;`| `Import-ContainerImage <AppX package>`|
 | `docker save`| `Export-ContainerImage`|
 | `docker start`| `Start-Container`|
 | `docker stop`| `Stop-Container`|
@@ -40,10 +44,10 @@
 
 1.  Жизненный цикл контейнера в модели PowerShell немного отличается. В модуле PowerShell для контейнеров мы предоставляем более специализированные командлеты `New-Container` (создает остановленный контейнер) и `Start-Container`.
 
-    Между созданием и запуском контейнера можно также настроить его параметры. Кроме того, в версии Technical Preview 3 мы планируем предоставить возможность установки сетевого подключения для контейнера с помощью командлетов (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter.
+  Между созданием и запуском контейнера можно также настроить его параметры. Кроме того, в версии Technical Preview 3 мы планируем предоставить возможность установки сетевого подключения для контейнера с помощью командлетов (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter.
 
 2.  В настоящее время невозможно передать команду в контейнер при запуске. Однако можно начать интерактивный сеанс PowerShell с запущенным контейнером с помощью команды `Enter-PSSession -ContainerId <идентификатор запущенного контейнера>`, а затем выполнить в нем команду с помощью команды `Invoke-Command -ContainerId <идентификатор контейнера> -ScriptBlock { код, запускаемый внутри контейнера }` или `Invoke-Command -ContainerId <идентификатор контейнера> -FilePath <путь к сценарию>`.  
-    С обеими командами можно использовать необязательный флаг `-RunAsAdministrator` для действий с повышенными правами.
+С обеими командами можно использовать необязательный флаг `-RunAsAdministrator` для действий с повышенными правами.
 
 
 ## Предупреждения и известные проблемы
@@ -185,5 +189,10 @@ function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name",
 
 В настоящее время мы работаем над документом "Проблемы и их решение", в котором рассматриваются возможности и ограничения работы с API Docker.
 
+
+
+
+
+<!--HONumber=Feb16_HO3-->
 
 
