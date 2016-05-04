@@ -1,3 +1,7 @@
+---
+author: neilpeterson
+---
+
 # Краткое руководство по использованию PowerShell в работе с контейнерами Windows
 
 Благодаря контейнерам Windows можно быстро развернуть много изолированных приложений на одном компьютере. В этом кратком руководстве показано, как с помощью PowerShell развертывать контейнеры Hyper-V и Windows Server, а также управлять ими. Выполнив упражнения из этой статьи, вы с нуля разработаете очень простое приложение "Hello world", работающее в контейнерах Windows Server и Hyper-V. При этом вы создадите образы контейнеров, поработаете с общими папками контейнеров и научитесь управлять жизненным циклом контейнеров. В итоге вы получите общее представление о развертывании контейнеров Windows и управлении ими.
@@ -277,7 +281,7 @@ HYPV Off   00:00:00 NanoServer
 Создайте на узле контейнера каталог с именем `c:\share\en-us`.
 
 ```powershell
-S C:\> New-Item -Type Directory c:\share\en-us
+PS C:\> New-Item -Type Directory c:\share\en-us
 
     Directory: C:\share
 
@@ -496,7 +500,7 @@ PS C:\> Enter-PSSession -ContainerName IISApp -RunAsAdministrator
 Выполните приведенную ниже команду для удаления экрана-заставки IIS.
 
 ```powershell
-[IIS]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
+[IISApp]: PS C:\> del C:\inetpub\wwwroot\iisstart.htm
 ```
 Выполните приведенную ниже команду, чтобы заменить сайт IIS по умолчанию новым статическим сайтом.
 
@@ -517,4 +521,8 @@ exit
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Mar16_HO1-->
+
+
