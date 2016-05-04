@@ -13,7 +13,7 @@
             <ul>
                 <li class="unordered">[Введение в Hyper-V](./about/hyperv_on_windows.md)<br /><br /></li>
                 <li class="unordered">[Новые возможности Hyper-V для Windows 10](./about/whats_new.md)<br /><br /></li>
-                <li class="unordered">[Поддерживаемые операционные системы на виртуальной машине](about\supported_guest_os.md)<br /><br /></li>
+                <li class="unordered">[Поддерживаемые операционные системы на виртуальных машинах](about\supported_guest_os.md)<br /><br /></li>
             </ul>   
         </td>
     </tr>
@@ -38,7 +38,7 @@
             <p>Дополнительные ресурсы технической поддержки и сообщества.</p>
             <ul>
                 <li class="unordered">[Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)<br /><br /></li>
-                <li class="unordered">[Ресурсы сообщества для Hyper-V и контейнеров Windows](/virtualization/community/community_overview.md)<br /><br /></li>
+                <li class="unordered">[Ресурсы сообщества для Hyper-V и контейнеров Windows](/virtualization/community/community_overview)<br /><br /></li>
             </ul>   
         </td>
     </tr>
@@ -47,4 +47,8 @@
 
 
 
-<!--HONumber=Jan16_HO1-->
+
+
+<!--HONumber=Mar16_HO3-->
+
+

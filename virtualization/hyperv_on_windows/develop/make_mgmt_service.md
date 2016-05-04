@@ -7,14 +7,15 @@
 [PowerShell Direct](../user_guide/vmsession.md) — это пример приложения (в данном случае службы, поставляемой с Windows), использующего для связи сокеты Hyper-V.
 
 **Поддерживаемые операционные системы узла**
-* Windows 10
-* Windows Server Technical Preview 3
+* Сборка 14290 системы Windows 10 и более поздние сборки
+* Windows Server Technical Preview 4 и более поздние версии
 * Будущие выпуски (Server 2016 +)
 
 **Поддерживаемые гостевые операционные системы**
 * Windows 10
-* Windows Server Technical Preview 3
+* Windows Server Technical Preview 4 и более поздние версии
 * Будущие выпуски (Server 2016 +)
+* Гости Linux со службами интеграции Linux (см. раздел [Поддерживаемые виртуальные машины Linux и FreeBSD для Hyper-V в Windows](https://technet.microsoft.com/library/dn531030(ws.12).aspx)))
 
 **Возможности и ограничения**
 * Поддержка режима ядра или действий в режиме пользователя
@@ -32,7 +33,22 @@
 * Компилятор C. Если у вас его нет, см. раздел [Код Visual Studio](https://aka.ms/vs)
 * Компьютер, на котором работают Hyper-V и виртуальная машина.
   * В качестве гостевой операционной системы (виртуальная машина) и ОС узла должна использоваться Windows 10, Windows Server Technical Preview 3 или более поздней версии.
-* Пакет SDK для Windows. Воспользуйтесь ссылкой на [пакет SDK для Win10](https://dev.windows.com/en-us/downloads/windows-10-sdk), в который входит файл `hvsocket.h`.
+* [Пакет SDK для Windows 10](http://aka.ms/flightingSDK) установлен на узле Hyper-V
+
+**Сведения о Windows SDK**
+
+Ссылки на пакет SDK для Windows:
+* [Пакет SDK для Windows 10 — предварительная версия для инсайдеров](http://aka.ms/flightingSDK)
+* [Пакет SDK для Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk)
+
+Интерфейс API для сокетов Hyper-V стал доступен в Windows 10, начиная со сборки 14290, — скачиваемые файлы фокус-тестирования соответствуют последней сборке фокус-тестирования для инсайдеров.  
+При странностях в поведении сообщите нам через [форум TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home "Форумы TechNet"). В сообщение включите следующее.
+* Описание непредвиденного поведения.
+* Номера ОС и сборки для узла, виртуальной машины и пакета SDK.
+
+  Номер сборки пакета SDK отображается в заголовке установщика для пакета SDK:  
+  ![](./media/flightingSDK.png)
+
 
 ## Регистрация нового приложения
 
@@ -49,7 +65,7 @@ $friendlyName = "HV Socket Demo"
 
 # Create a new random GUID and add it to the services list then add the name as a value
 
-$service = New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices" -Name ([System.Guid]::NewGuid().ToString())
+$service = New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices" -Name ((New-Guid).Guid)
 
 $service.SetValue("ElementName", $friendlyName)
 
@@ -62,7 +78,7 @@ $service.PSChildName | clip.exe
 ``` 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
 ```
-В этом расположении реестра отображаются несколько кодов GUID. Это и есть службы, поставляемые с Windows.
+В этом расположении реестра есть несколько кодов GUID. Это и есть службы, поставляемые с Windows.
 
 Сведения в реестре для каждой службы:
 * `Service GUID`
@@ -83,7 +99,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 > ** Совет. ** Чтобы создать код GUID в PowerShell и скопировать его в буфер обмена, используйте следующую команду:
 ``` PowerShell
-[System.Guid]::NewGuid().ToString() | clip.exe
+(New-Guid).Guid | clip.exe
 ```
 
 ## Создание сокета Hyper-V
@@ -104,11 +120,11 @@ SOCKET WSAAPI socket(
 
 Для сокета Hyper-V:
 * Семейство адресов: `AF_HYPERV`
-* Тип: `SOCK_STREAM`, `SOCK_DGRAM` или `SOCK_RAW`
+* Тип — `SOCK_STREAM`
 * Протокол: `HV_PROTOCOL_RAW`
 
 
-Ниже приведен пример объявления или создания экземпляра:
+Пример объявления или создания экземпляра:
 ``` C
 SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 ```
@@ -192,4 +208,8 @@ Accept()
 
 
 
-<!--HONumber=Feb16_HO1-->
+
+
+<!--HONumber=Mar16_HO4-->
+
+
