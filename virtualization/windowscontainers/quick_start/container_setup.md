@@ -1,3 +1,7 @@
+---
+author: neilpeterson
+---
+
 # Развертывание узла контейнера Windows на новой виртуальной машине Hyper-V
 
 В этом документе приведены пошаговые инструкции по развертыванию новой виртуальной машины Hyper-V, которая затем настраивается как узел контейнера Windows, с помощью сценария PowerShell.
@@ -30,7 +34,7 @@ PS C:\> start-process powershell -Verb runAs
 Выполните указанную ниже команду, чтобы вывести список внешних виртуальных коммутаторов. Если он пуст, создайте внешний виртуальный коммутатор, а затем перейдите к следующему шагу руководства.
 
 ```powershell
-PS C:\> Get-VMSwitch | where {$_.SwitchType –eq “External”}
+PS C:\> Get-VMSwitch | where {$_.SwitchType -eq “External”}
 ```
 
 Скачайте сценарий настройки с помощью указанной ниже команды Этот сценарий также можно загрузить вручную по ссылке [Сценарий настройки](https://aka.ms/tp4/New-ContainerHost).
@@ -42,7 +46,7 @@ PS C:\> wget -uri https://aka.ms/tp4/New-ContainerHost -OutFile c:\New-Container
 Выполните указанную ниже команду, чтобы создать и настроить узел контейнера, где `&lt;containerhost&gt;` — имя виртуальной машины.
 
 ``` powershell
-PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 –VmName testcont -WindowsImage ServerDatacenterCore -Hyperv
+PS C:\> powershell.exe -NoProfile c:\New-ContainerHost.ps1 -VMName testcont -WindowsImage ServerDatacenterCore -Hyperv
 ```
 
 После запуска сценария вам будет предложено ввести пароль от учетной записи администратора.
@@ -66,10 +70,20 @@ license terms. Please confirm you have accepted and agree to the license terms.
 
 Включив функцию контейнеров Windows в системе Windows Server 2016, ознакомьтесь со следующими руководствами по началу работы с контейнерами Windows Server и Hyper-V.
 
+Вы можете использовать команду `Enter-PSSession` в узле управления Hyper-V, чтобы подключиться к узлу контейнера.
+
+```powershell
+PS C:\> Enter-PSSession -VMName <VM Name>
+```
+
 [Быстрый запуск: контейнеры Windows и PowerShell](./manage_powershell.md)  
 [Быстрый запуск: контейнеры Windows и Docker](./manage_docker.md)
 
 
 
 
-<!--HONumber=Feb16_HO2-->
+
+
+<!--HONumber=Mar16_HO3-->
+
+
