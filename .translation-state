@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "1b5bed6708c414f32715438b5596a85071997178",
+  "LastProcessedCommit": "dad1216ce1b62ae8a9535fd7a2939a10d9a23e8b",
   "LastTranslatedCommit": "6c9c854fd4d200f193e49f734a27f7f4594690ce",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -13751,6 +13751,35 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\azure_setup.efbdfa56db2e296be3a4b34d7841c826cfcc65b5.ru-ru.xlf",
       "HandoffFileCommit": "10e709e3a15b7ab70b01ff9560ac39eefea881fe",
       "HandoffDateTime": "2016-05-03T22:18:38.1716529Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null
+    },
+    "1fe676ed84b6d74ce29599bfc395b5d37c44a6db": {
+      "FileHash": "1fe676ed84b6d74ce29599bfc395b5d37c44a6db",
+      "SourceFileCommit": "f6e73b812404675531d0320538e75eeb2ceb95cd",
+      "SourceFilePath": "virtualization\\windowscontainers\\management\\manage_images.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\management\\manage_images.md"
+      ],
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf",
+      "HandoffFileCommit": "23a153b4c979cd06dd6600f59c4ddede6f8b20e2",
+      "HandoffDateTime": "2016-05-05T05:49:19.7930364Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
