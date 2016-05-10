@@ -1,45 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 2
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\quick_start\walkthrough_create_vm.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4885ad982804d17c8b3643f8a855fb3f3f834505/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm.md) | OutofSyncHandedBackSuccess | [Details](#206521ae366d5e0f5f7ca2ca510736cc178557fe173)
- [virtualization\hyperv_on_windows\quick_start\walkthrough_virtual_switch.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4885ad982804d17c8b3643f8a855fb3f3f834505/virtualization/hyperv_on_windows/quick_start/walkthrough_virtual_switch.md) | OutofSyncHandedBackSuccess | [Details](#44470901a9149666c15982a728037a95fc28aaa5177)
 
 ## Item Details
-##### <a name='206521ae366d5e0f5f7ca2ca510736cc178557fe173'></a> Source: [virtualization\hyperv_on_windows\quick_start\walkthrough_create_vm.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4885ad982804d17c8b3643f8a855fb3f3f834505/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm.md)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [walkthrough_create_vm.698a46fb78fa92b3f275f4115d4b77072fff0ed6.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/853cc10c67d55cebe3ba7735fe3e85f3efdc362c/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/walkthrough_create_vm.698a46fb78fa92b3f275f4115d4b77072fff0ed6.ru-ru.xlf)
-* Handoff Datetime: 2016-05-09 23:23:53
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\quick_start\walkthrough_create_vm.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/c0b629d4f3d256d7a650201554570299495c9a10/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm.md)
-* Current Handback File: [walkthrough_create_vm.698a46fb78fa92b3f275f4115d4b77072fff0ed6.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/745472e15cf34ace0e53e79eedf20b08c785dacd/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/walkthrough_create_vm.698a46fb78fa92b3f275f4115d4b77072fff0ed6.ru-ru.xlf)
-* Current Handback Datetime: 2016-02-16 21:13:04
-* [Back to Top](#report-top)
-
-##### <a name='44470901a9149666c15982a728037a95fc28aaa5177'></a> Source: [virtualization\hyperv_on_windows\quick_start\walkthrough_virtual_switch.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4885ad982804d17c8b3643f8a855fb3f3f834505/virtualization/hyperv_on_windows/quick_start/walkthrough_virtual_switch.md)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [walkthrough_virtual_switch.27dde78ebf41bbbdb946f00af1eb221b79cbb05a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/853cc10c67d55cebe3ba7735fe3e85f3efdc362c/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/walkthrough_virtual_switch.27dde78ebf41bbbdb946f00af1eb221b79cbb05a.ru-ru.xlf)
-* Handoff Datetime: 2016-05-09 23:23:53
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\quick_start\walkthrough_virtual_switch.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/92e23376a88e98eccc0e34519c865657207bb96d/virtualization/hyperv_on_windows/quick_start/walkthrough_virtual_switch.md)
-* Current Handback File: [walkthrough_virtual_switch.27dde78ebf41bbbdb946f00af1eb221b79cbb05a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/d362405abf4da43b19b925474aa3728822aaeb8d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/walkthrough_virtual_switch.27dde78ebf41bbbdb946f00af1eb221b79cbb05a.ru-ru.xlf)
-* Current Handback Datetime: 2016-01-04 21:58:51
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
