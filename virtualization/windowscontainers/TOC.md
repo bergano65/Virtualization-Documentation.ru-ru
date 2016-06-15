@@ -1,70 +1,47 @@
 # О контейнерах Windows
-
-## [Обзор документации о контейнерах](./containers_welcome.md)
-
-## [О контейнерах Windows](about/about_overview.md)
-
-## [Проблемы и их решение](about/work_in_progress.md)
-
-## [Вопросы и ответы](about/faq.md)
+## [Общие сведения о контейнерах Windows](about/about_overview.md)
+## [Ведется работа](about/work_in_progress.md)
+## [Часто задаваемые вопросы](about/faq.md)
 
 # Контейнеры: краткие руководства
-
-## [Контейнеры в Azure](quick_start/azure_setup.md)
-
-## [Контейнеры на новой ВМ Hyper-V](quick_start/container_setup.md)
-
-## [Контейнеры в существующей системе](quick_start/inplace_setup.md)
-
-## [PowerShell: быстрый запуск](quick_start/manage_powershell.md)
-
-## [Docker: быстрый запуск](quick_start/manage_docker.md)
+## [1. Основные понятия и терминология](quick_start/quick_start.md)
+## [2. Краткое руководство по Windows Server](quick_start/quick_start_windows_server.md)
+## [3. Образы Windows Server](quick_start/quick_start_images.md)
+## [4. Краткое руководство по Windows 10](quick_start/quick_start_windows_10.md)
 
 # Развертывание контейнеров Windows
-
 ## [Требования к системе](deployment/system_requirements.md)
-
-## [Контейнеры Windows Server](deployment/deployment.md)
-
-## [Контейнеры Nano Server](deployment/deployment_nano.md)
-
-## [Docker в Windows](deployment/docker_windows.md)
+## [Узел контейнера — Windows Server](deployment/deployment.md)
+## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
 
 # Управление контейнерами Windows
-
-## [Управление контейнерами](management/manage_containers.md)
-
 ## [Контейнеры Hyper-V](management/hyperv_container.md)
-
 ## [Образы контейнеров](management/manage_images.md)
-
 ## [Сетевые подключения контейнеров](management/container_networking.md)
-
-## [Общие папки контейнера](management/manage_data.md)
-
+## [Тома данных контейнера](management/manage_data.md)
 ## [Управление ресурсами контейнера](management/manage_resources.md)
 
-## [Совместимость средств управления](management/hcs_powershell.md)
+# Docker в Windows
+## [Подсистема Docker в Windows](deployment/docker_windows.md)
+## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
+## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
 
-# Примеры развертывания контейнера
-
-## [Создание образа контейнера с .Net 3.5](examples/dotnet35.md)
+# Примеры контейнеров
+## [Файлы Dockerfile — Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
+## [Файлы Dockerfile — Nano Server](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nanoserver)
 
 # Сообщество и поддержка
-
 ## [Форумы по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# Ссылка
-
-## [Справочник по PowerShell](https://technet.microsoft.com/en-us/library/mt433069.aspx)
-
-## [Сравнение PowerShell и Docker](reference/ps_docker_comparison.md)
-
+# Справочник
+## [Поставщик образов контейнеров](https://github.com/PowerShell/ContainerProvider)
 ## [Совместимость приложений](reference/app_compat.md)
+## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+# [Лицензионное соглашение конечного пользователя Windows Server](EULA.md)
+# [Лицензионное соглашение конечного пользователя Nano Server](Nano_EULA.md)
 
-# [Лицензионное соглашение Windows Server](EULA.md)
-
-# [Лицензионное соглашение Nano Server](Nano_EULA.md)
 
 
-<!--HONumber=Feb16_HO1-->
+<!--HONumber=Jun16_HO1-->
+
+
