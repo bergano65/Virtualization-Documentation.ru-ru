@@ -14,17 +14,17 @@
 ## [Узел контейнера — Windows Server](deployment/deployment.md)
 ## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
 
+# Docker в Windows
+## [Управляющая программа Docker в Windows](docker/configure_docker_daemon.md)
+## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
+## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
+
 # Управление контейнерами Windows
 ## [Контейнеры Hyper-V](management/hyperv_container.md)
 ## [Образы контейнеров](management/manage_images.md)
 ## [Сетевые подключения контейнеров](management/container_networking.md)
 ## [Тома данных контейнера](management/manage_data.md)
 ## [Управление ресурсами контейнера](management/manage_resources.md)
-
-# Docker в Windows
-## [Подсистема Docker в Windows](deployment/docker_windows.md)
-## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
-## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
 
 # Примеры контейнеров
 ## [Файлы Dockerfile — Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
@@ -42,6 +42,6 @@
 
 
 
-<!--HONumber=Jun16_HO1-->
+<!--HONumber=Jun16_HO2-->
 
 
