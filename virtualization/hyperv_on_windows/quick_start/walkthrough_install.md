@@ -1,3 +1,16 @@
+---
+title: &1549818006 Установка Hyper-V в Windows 10
+description: Установка Hyper-V в Windows 10
+keywords: windows 10, hyper-v
+author: neilpeterson
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &231473650 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
+---
+
 # Установка Hyper-V в Windows 10
 
 Чтобы создавать виртуальные машины в ОС Windows 10, необходимо включить роль Hyper-V. Это можно сделать с помощью панели управления Windows 10, PowerShell или средства обслуживания образов развертывания и управления ими (DISM). В этом документе последовательно описан каждый из указанных способов.
@@ -54,6 +67,6 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 
 
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=May16_HO1-->
 
 
