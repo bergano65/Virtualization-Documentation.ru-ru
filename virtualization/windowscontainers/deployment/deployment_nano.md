@@ -1,242 +1,194 @@
 ---
+title: Развертывание контейнеров Windows в Nano Server
+description: Развертывание контейнеров Windows в Nano Server
+keywords: docker, containers
 author: neilpeterson
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 ---
-
 
 # Развертывание узла контейнера — Nano Server
 
-**Это предварительное содержимое. Возможны изменения.**
+**Это предварительное содержимое. Возможны изменения.** 
 
-Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типов операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальной и физической). Действия, описанные в этом документе, используются для развертывания узла контейнера Windows в Nano Server в физической или виртуальной системе. Для установки узла контейнера Windows на Windows Server обратитесь к разделу [Развертывание узла контейнера — Windows Server](./deployment.md).
+Чтобы приступить к настройке контейнера Windows на в Server, потребуется система с Nano Server, а также удаленное подключение PowerShell к ней.
 
-Дополнительные сведения о требованиях к системе см. в разделе [Требования к системе узла контейнера Windows](./system_requirements.md).
+Дополнительные сведения о развертывании Nano Server и подключении к нему см. в статье [Приступая к работе с Nano Server]( https://technet.microsoft.com/en-us/library/mt126167.aspx).
 
-С помощью сценариев PowerShell можно автоматизировать развертывание узла контейнера Windows.
-- [Развертывание узла контейнера на новой виртуальной машине Hyper-V](../quick_start/container_setup.md)
-- [Развертывание узла контейнера в существующей системе](../quick_start/inplace_setup.md)
+Ознакомительную копию Nano Server можно получить [здесь](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/nano_eula).
 
+## Установка компонента контейнеров
 
-# Узел Nano Server
+Установите поставщик управления пакетами Nano Server.
 
-Действия, описанные в этой таблице, можно использовать для развертывания узла контейнера в Nano Server. Указаны также настройки, необходимые для контейнеров Windows Server и Hyper-V.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Действие развертывания</strong></td>
-<td width="70%"><strong>Подробности</strong></td>
-</tr>
-<tr>
-<td>[Подготовка Nano Server для использования контейнеров](#nano)</td>
-<td>Подготовка виртуального жесткого диска Nano Server с контейнером и возможностями Hyper-V.</td>
-</tr>
-<tr>
-<td>[Создание виртуального коммутатора](#vswitch)</td>
-<td>Контейнеры подключаются к виртуальному коммутатору для установления сетевого соединения.</td>
-</tr>
-<tr>
-<td>[Настройка преобразования сетевых адресов (NAT)](#nat)</td>
-<td>Если виртуальный коммутатор настроен с преобразованием сетевых адресов (NAT), необходимо настроить и NAT.</td>
-</tr>
-<tr>
-<td>[Установка образов ОС контейнера](#img)</td>
-<td>Образы ОС представляют собой основу для развертывания контейнера.</td>
-</tr>
-<tr>
-<td>[Установка Docker](#docker)</td>
-<td>Это дополнительный шаг, необходимый для создания контейнеров Windows и управления ими с помощью Docker. </td>
-</tr>
-</table>
-
-Эти шаги необходимо выполнить, если будут использоваться контейнеры Hyper-V. Обратите внимание, что шаги, помеченные звездочкой (*), необходимы только в том случае, если сам узел контейнера является виртуальной машиной Hyper-V.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Действие развертывания</strong></td>
-<td width="70%"><strong>Подробности</strong></td>
-</tr>
-<tr>
-<td>[Включение роли Hyper-V](#hypv) </td>
-<td>Hyper-V требуется, только если будут использоваться контейнеры Hyper-V.</td>
-</tr>
-<tr>
-<td>[Включение вложенной виртуализации*](#nest)</td>
-<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо включить вложенную виртуализацию.</td>
-</tr>
-<tr>
-<td>[Настройка виртуальных процессоров*](#proc)</td>
-<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо настроить по крайней мере два виртуальных процессора.</td>
-</tr>
-<tr>
-<td>[Отключение динамической памяти*](#dyn)</td>
-<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо отключить динамическую память.</td>
-</tr>
-<tr>
-<td>[Настройка спуфинга MAC-адресов*](#mac)</td>
-<td>Если узел контейнера виртуализирован, необходимо включить спуфинг MAC-адресов.</td>
-</tr>
-</table>
-
-## Шаги развертывания
-
-### <a name=nano></a> Подготовка Nano Server
-
-Развертывание Nano Server предусматривает создание подготовленного виртуального жесткого диска с операционной системой Nano Server и пакетов дополнительных компонентов. В этом руководстве кратко описывается подготовка виртуального жесткого диска Nano Server, который можно использовать для контейнеров Windows. Дополнительные сведения о Nano Server и описание различных вариантов развертывания Nano Server см. в [документации по Nano Server](https://technet.microsoft.com/en-us/library/mt126167.aspx).
-
-Создайте папку с именем `nano`.
-
-```powershell
-PS C:\> New-Item -ItemType Directory c:\nano
+```none
+Install-PackageProvider NanoServerPackage
 ```
 
-Найдите файлы `NanoServerImageGenerator.psm1` и `Convert-WindowsImage.ps1` в папке Nano Server на носителе Windows Server. Скопируйте их в папку `c:\nano`.
+После этого установите компонент контейнеров.
 
-```powershell
-#Set path to Windows Server 2016 Media
-PS C:\> $WindowsMedia = "C:\Users\Administrator\Desktop\TP4 Release Media"
-
-PS C:\> Copy-Item $WindowsMedia\NanoServer\Convert-WindowsImage.ps1 c:\nano
-
-PS C:\> Copy-Item $WindowsMedia\NanoServer\NanoServerImageGenerator.psm1 c:\nano
-```
-Чтобы создать виртуальный жесткий диск Nano Server, запустите указанную ниже команду. Параметр `-Containers` указывает, что будет установлен пакет контейнера, а параметр `-Compute` — что будет установлен пакет Hyper-V. Hyper-V требуется только при использовании контейнеров Hyper-V.
-
-```powershell
-PS C:\> Import-Module C:\nano\NanoServerImageGenerator.psm1
-
-PS C:\> New-NanoServerImage -MediaPath $WindowsMedia -BasePath c:\nano -TargetPath C:\nano\NanoContainer.vhdx -MaxSize 10GB -GuestDrivers -ReverseForwarders -Compute -Containers
-```
-По завершении создайте виртуальную машину с использованием файла `NanoContainer.vhdx`. На этой виртуальной машине будет запущена ОС Nano Server и дополнительные пакеты.
-
-### <a name=vswitch></a>Создание виртуального коммутатора
-
-Каждый контейнер необходимо подключить к виртуальному коммутатору для связи по сети. Виртуальный коммутатор можно создать с помощью команды `New-VMSwitch`. Контейнеры поддерживают виртуальные коммутаторы типа `внешний` или `NAT`. Подробные сведения о работе контейнеров в сети см. в разделе [Сетевые подключения контейнеров](../management/container_networking.md).
-
-В этом примере создается виртуальный коммутатор с именем "Virtual Switch" типа "NAT" и подсеть NAT 172.16.0.0/12.
-
-```powershell
-PS C:\> New-VMSwitch -Name "Virtual Switch" -SwitchType NAT -NATSubnetAddress "172.16.0.0/12"
+```none
+Install-NanoServerPackage -Name Microsoft-NanoServer-Containers-Package
 ```
 
-### <a name=nat></a>Настройка преобразования сетевых адресов (NAT)
+После установки этих компонентов потребуется перезагрузить узел Nano Server.
 
-Если тип коммутатора — NAT, в дополнение к виртуальному коммутатору необходимо создать объект NAT. Это можно сделать с помощью команды `New-NetNat`. В этом примере создается объект NAT с именем `ContainerNat`, а также префиксом адреса, соответствующим подсети NAT, назначенной для данного коммутатора контейнера.
+## Установка Docker
 
-```powershell
-PS C:\> New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. Установите управляющую программу Docker, выполнив приведенные ниже действия.
 
-Name                             : ContainerNat
-ExternalIPInterfaceAddressPrefix :
-InternalIPInterfaceAddressPrefix : 172.16.0.0/12
-IcmpQueryTimeout                 : 30
-TcpEstablishedConnectionTimeout  : 1800
-TcpTransientConnectionTimeout    : 120
-TcpFilteringBehavior             : AddressDependentFiltering
-UdpFilteringBehavior             : AddressDependentFiltering
-UdpIdleSessionTimeout            : 120
-UdpInboundRefresh                : False
-Store                            : Local
-Active                           : True
+Скачайте управляющую программу Docker и скопируйте ее в папку `$env:SystemRoot\system32\` на узле контейнера. Сейчас Nano Server не поддерживает `Invoke-Webrequest`, это потребуется сделать с удаленной системы.
+
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile .\dockerd.exe
 ```
 
-### <a name=img></a>Установка образов ОС
+Установите Docker в качестве службы Windows.
 
-Образ ОС используется как основа для любого контейнера Windows Server или Hyper-V. Образ используется для развертывания контейнера, который затем можно изменить и поместить в новый образ контейнера. Образы ОС были созданы с использованием Windows Server Core и Nano Server как основной операционной системы.
-
-Образы ОС контейнеров можно найти и установить с помощью модуля ContainerProvider PowerShell. Прежде чем использовать этот модуль, его необходимо установить. Для установки модуля можно использовать приведенные ниже команды.
-
-```powershell
-PS C:\> Install-PackageProvider ContainerProvider -Force
+```none
+dockerd.exe --register-service
 ```
 
-Воспользуйтесь командлетом `Find-ContainerImage`, чтобы получить список образов из диспетчера пакетов OneGet в PowerShell.
+Запустите службу Docker.
 
-```powershell
-PS C:\> Find-ContainerImage
-
-Name                 Version                 Description
-----                 -------                 -----------
-NanoServer           10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-```
-**Примечание**. В настоящее время с узлом контейнера Nano Server совместим только образ ОС Nano Server. Чтобы скачать и установить базовый образ Nano Server, выполните приведенную ниже команду.
-
-```powershell
-PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
-
-Downloaded in 0 hours, 0 minutes, 10 seconds.
+```none
+Start-Service Docker
 ```
 
-С помощью команды `Get-ContainerImage` убедитесь, что эти образы были установлены.
+## Установка базовых образов контейнеров
 
-```powershell
-PS C:\> Get-ContainerImage
+Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью поставщика образов контейнеров. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
 
-Name              Publisher    Version      IsOSImage
-----              ---------    -------      ---------
-NanoServer        CN=Microsoft 10.0.10586.0 True
+Для установки поставщика образов контейнеров можно использовать приведенную ниже команду.
+
+```none
+Install-PackageProvider ContainerImage -Force
 ```
-Дополнительные сведения об управлении образами контейнеров см. в статье [Образы контейнеров Windows](../management/manage_images.md).
 
+Чтобы скачать и установить базовый образ Nano Server, выполните следующую команду:
 
-### <a name=docker></a>Установка Docker
+```none
+Install-ContainerImage -Name NanoServer
+```
 
-Управляющая программа и интерфейс командной строки для Docker не поставляются вместе с Windows и не устанавливаются с помощью компонента контейнеров Windows. Docker не обязательно использовать для работы с контейнерами Windows. Чтобы установить Docker, следуйте инструкциям из статьи [Docker и Windows](./docker_windows.md).
+**Примечание**. Сейчас с узлом контейнера Nano Server совместим только базовый образ Nano Server.
 
-Вы можете использовать команду `Enter-PSSession` в узле управления Hyper-V, чтобы подключиться к узлу контейнера.
+Перезапустите службу Docker.
 
-```powershell
-PS C:\> Enter-PSSession -VMName <VM Name>
+```none
+Restart-Service Docker
+```
+
+Далее этот образ следует пометить как последнюю версию "latest". Для этого выполните следующую команду:
+
+```none
+docker tag nanoserver:10.0.14300.1010 nanoserver:latest
 ```
 
 ## Узел контейнера Hyper-V
 
-### <a name=hypv></a>Включение роли Hyper-V
+Чтобы развернуть контейнеры Hyper-V, необходима роль Hyper-V. Если сам узел контейнера Windows является виртуальной машиной Hyper-V, перед установкой роли Hyper-V необходимо включить вложенную виртуализацию. Дополнительные сведения о вложенной виртуализации см. в статье "Вложенная виртуализация".
 
-На сервере Nano Server это можно сделать совместно с созданием образа Nano Server. Инструкции см. в разделе [Подготовка Nano Server для использования контейнеров](#nano).
+### Вложенная виртуализация
 
-### <a name=nest></a>Вложенная виртуализация
+Приведенный ниже сценарий настраивает вложенную виртуализацию для узла контейнера. Он выполняется на компьютере Hyper-V, где размещается виртуальная машина узла контейнера. Перед запуском сценария убедитесь, что виртуальная машина узла контейнера отключена.
 
-Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, необходимо включить вложенную виртуализацию. Это можно сделать с помощью приведенной ниже команды PowerShell.
+```none
+#replace with the virtual machine name
+$vm = "<virtual-machine>"
 
-**Примечание**. При выполнении этой команды виртуальные машины должны быть отключены.
+#configure virtual processor
+Set-VMProcessor -VMName $vm -ExposeVirtualizationExtensions $true -Count 2
 
-```powershell
-PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
+#disable dynamic memory
+Set-VMMemory $vm -DynamicMemoryEnabled $false
+
+#enable mac spoofing
+Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
-### <a name=proc></a>Настройка виртуальных процессоров
+### Включение роли Hyper-V
 
-Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, для виртуальной машины требуется как минимум два процессора. Это можно настроить с помощью параметров виртуальной машины или указанной ниже команды.
-
-**Примечание**. При выполнении этой команды виртуальные машины должны быть отключены.
-
-```poweshell
-PS C:\> Set-VMProcessor -VMName <VM Name> -Count 2
+```none
+Install-NanoServerPackage Microsoft-NanoServer-Compute-Package
 ```
 
-### <a name=dyn></a>Отключение динамической памяти
+## Управление Docker в Nano Server
 
-Если узел контейнера сам является виртуальной машиной Hyper-V, необходимо отключить динамическую память на виртуальной машине этого узла контейнера. Это можно настроить с помощью параметров виртуальной машины или указанной ниже команды.
+**Подготовка управляющей программы Docker:**
 
-**Примечание**. При выполнении этой команды виртуальные машины должны быть отключены.
+Для получения наилучших результатов управляйте Docker в Nano Server с удаленной системы. Для этого необходимо выполнить приведенные ниже действия.
 
-```poweshell
-PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
+Создайте на узле контейнера правило брандмауэра для соединения Docker. Это будет порт `2375` для небезопасного соединения или порт `2376` для безопасного.
+
+```none
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
 ```
 
-### <a name=mac></a>Спуфинг MAC-адресов
+Настройте управляющую программу Docker для приема входящего подключения по протоколу TCP.
 
-Наконец, если узел контейнера работает на виртуальной машине Hyper-V, необходимо включить спуфинг MAC-адресов. Благодаря этому каждый контейнер получит IP-адрес. Чтобы включить спуфинг MAC-адресов, выполните приведенную ниже команду на узле Hyper-V. Свойством VMName будет имя узла контейнера.
+Сначала создайте файл `daemon.json` в каталоге `c:\ProgramData\docker\config\daemon.json`.
 
-```powershell
-PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
+```none
+new-item -Type File c:\ProgramData\docker\config\daemon.json
 ```
 
+Затем скопируйте в этот файл приведенный ниже объект JSON. Это настраивает управляющую программу Docker для приема входящих подключений по протоколу TCP через порт 2375. Это соединение не является безопасным, поэтому рекомендуется использовать его только при изолированном тестировании.
 
+```none
+{
+    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
+}
+```
 
+Следующий пример настраивает безопасное удаленное соединение. Потребуется создать сертификаты TLS и скопировать их в соответствующие расположения. Дополнительные сведения см. в статье [Управляющая программа Docker в Windows](./docker_windows.md).
 
+```none
+{
+    "hosts": ["tcp://0.0.0.0:2376", "npipe://"],
+    "tlsverify": true,
+    "tlscacert": "C:\\ProgramData\\docker\\certs.d\\ca.pem",
+    "tlscert": "C:\\ProgramData\\docker\\certs.d\\server-cert.pem",
+    "tlskey": "C:\\ProgramData\\docker\\certs.d\\server-key.pem",
+}
+```
 
+Перезапустите службу Docker.
 
-<!--HONumber=Mar16_HO3-->
+```none
+Restart-Service docker
+```
+
+**Подготовка клиента Docker:**
+
+Скачайте клиент Docker на удаленную систему управления.
+
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:SystemRoot\system32\docker.exe
+```
+
+После завершения процедуры можно получить доступ к управляющей программе Docker с помощью параметра `Docker -H`.
+
+```none
+docker -H tcp://10.0.0.5:2376 run -it nanoserver cmd
+```
+
+Можно создать переменную среды `DOCKER_HOST`, что устранит потребность в параметре `-H`. Это можно сделать с помощью следующей команды PowerShell:
+
+```none
+$env:DOCKER_HOST = "tcp://<ipaddress of server:2376"
+```
+
+После задания этой переменной команда будет выглядеть следующим образом:
+
+```none
+docker run -it nanoserver cmd
+```
+
+<!--HONumber=May16_HO5-->
 
 

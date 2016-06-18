@@ -1,38 +1,45 @@
-
-
-
+---
+title: Развертывание Docker в Windows
+description: Развертывание Docker в Windows
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: bdfa4545-2291-4827-8165-2d6c98d72d37
+---
 
 # Docker и Windows
 
-**Это предварительное содержимое. Возможны изменения.**
+**Это предварительное содержимое. Возможны изменения.** 
 
-Docker — платформа для развертывания контейнеров Linux и Windows, а также управления ими. С помощью Docker можно создавать и удалять контейнеры и образы контейнеров, а также управлять ими. Docker позволяет хранить образы контейнеров в общедоступном (Docker Hub) и частных реестрах (Docker Trusted Registries). Кроме того, Docker обеспечивает кластеризацию узлов контейнера с помощью Docker Swarm и автоматизацию развертывания с помощью Docker Compose. Дополнительные сведения о Docker и наборе инструментов Docker см. на сайте [Docker.com](https://www.docker.com/).
+Подсистема Docker не входит в состав Windows, потому ее нужно установить и настроить отдельно. Действия по запуску подсистемы Docker в Windows отличаются от аналогичных действий в Linux. Этот документ описывает установку и настройку подсистемы Docker в Windows Server 2016, Nano Server и клиенте Windows. Обратите внимание, что интерфейс командной строки и подсистема Docker недавно были разбиты на два файла. Этот документ содержит инструкции по установке их обоих.
 
-> Прежде чем использовать Docker для создания контейнеров Windows Server и Hyper-V, необходимо включить функцию контейнера Windows. Соответствующие инструкции см. в разделе [Руководство по развертыванию узлов контейнера](./docker_windows.md).
+Дополнительные сведения о Docker и наборе инструментов Docker см. на сайте [Docker.com](https://www.docker.com/). 
 
-## Windows Server
+> Прежде чем использовать Docker для создания контейнеров Windows, необходимо включить компонент контейнеров Windows. Соответствующие инструкции см. в [руководстве по развертыванию узлов контейнера](./docker_windows.md).
 
-### Установка Docker
+## Windows Server 2016
 
-Управляющая программа и интерфейс командной строки Docker не входят в комплект поставки Windows Server или Windows Server Core и не устанавливаются вместе с функцией контейнера Windows. Docker необходимо устанавливать отдельно. В этом документе описан процесс установки управляющей программы и клиента Docker вручную. Кроме того, приводятся способы автоматического выполнения этих задач.
+### Установка управляющей программы Docker <!--1-->
 
-Управляющая программа и интерфейс командной строки Docker написаны на языке Go. В настоящее время файл docker.exe не устанавливается как служба Windows. Создать службу Windows можно несколькими способами. В приведенном ниже примере используется программа `nssm.exe`.
+Скачайте файл dockerd.exe по адресу `https://aka.ms/tp5/dockerd` и поместите его в каталог System32 на узле контейнера.
 
-Загрузите файл docker.exe на странице `https://aka.ms/tp4/docker` и поместите его в каталог System32 на узле контейнера.
-
-```powershell
-PS C:\> wget https://aka.ms/tp4/docker -OutFile $env:SystemRoot\system32\docker.exe
+```none
+wget https://aka.ms/tp5/dockerd -OutFile $env:SystemRoot\system32\dockerd.exe
 ```
 
 Создайте каталог с именем `c:\programdata\docker`. В нем создайте файл с именем `runDockerDaemon.cmd`.
 
-```powershell
-PS C:\> New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
+```none
+New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-Скопируйте следующий текст в файл `runDockerDaemon.cmd`. Этот пакетный файл запускает управляющую программу Docker с помощью команды `docker daemon -D -b "виртуальный_коммутатор"`. Примечание. Имя виртуального коммутатора в этом файле должно совпадать с именем виртуального коммутатора, который контейнеры будут использовать для подключения к сети.
+Скопируйте в файл `runDockerDaemon.cmd` следующий текст:
 
-```powershell
+```none
 @echo off
 set certs=%ProgramData%\docker\certs.d
 
@@ -40,146 +47,256 @@ if exist %ProgramData%\docker (goto :run)
 mkdir %ProgramData%\docker
 
 :run
-if exist %certs%\server-cert.pem (goto :secure)
+if exist %certs%\server-cert.pem (if exist %ProgramData%\docker\tag.txt (goto :secure))
 
-docker daemon -D -b "Virtual Switch"
+if not exist %systemroot%\system32\dockerd.exe (goto :legacy)
+
+dockerd -H npipe:// 
+goto :eof
+
+:legacy
+docker daemon -H npipe:// 
 goto :eof
 
 :secure
-docker daemon -D -b "Virtual Switch" -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+if not exist %systemroot%\system32\dockerd.exe (goto :legacysecure)
+dockerd -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+goto :eof
+
+:legacysecure
+docker daemon -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
 ```
-Загрузите программу nssm.exe, архив которой расположен по адресу [https://nssm.cc/release/nssm-2.24.zip](https://nssm.cc/release/nssm-2.24.zip).
+Скачайте программу nssm.exe по адресу [https://nssm.cc/release/nssm-2.24.zip](https://nssm.cc/release/nssm-2.24.zip).
 
-```powershell
-PS C:\> wget https://nssm.cc/release/nssm-2.24.zip -OutFile $env:ALLUSERSPROFILE\nssm.zip
+```none
+wget https://nssm.cc/release/nssm-2.24.zip -OutFile $env:ALLUSERSPROFILE\nssm.zip
 ```
 
-Извлеките файлы и скопируйте файл `nssm-2.24\win64\nssm.exe` в каталог `c:\windows\system32`.
+Извлеките содержимое пакета.
 
-```powershell
-PS C:\> Expand-Archive -Path $env:ALLUSERSPROFILE\nssm.zip $env:ALLUSERSPROFILE
-PS C:\> Copy-Item $env:ALLUSERSPROFILE\nssm-2.24\win64\nssm.exe $env:SystemRoot\system32
+```none
+Expand-Archive -Path $env:ALLUSERSPROFILE\nssm.zip $env:ALLUSERSPROFILE
+```
+
+Скопируйте `nssm-2.24\win64\nssm.exe` в каталог `c:\windows\system32`.
+
+```none
+Copy-Item $env:ALLUSERSPROFILE\nssm-2.24\win64\nssm.exe $env:SystemRoot\system32
 ```
 Выполните команду `nssm install`, чтобы настроить службу Docker.
 
-```powershell
-PS C:\> start-process nssm install
+```none
+start-process nssm install
 ```
 
 Введите следующие данные в соответствующие поля в установщике службы NSSM.
 
 Вкладка "Приложение":
 
-- **Путь:** C:\Windows\System32\cmd.exe
+**Путь:** C:\Windows\System32\cmd.exe
 
-- **Каталог автозагрузки:** C:\Windows\System32
+**Каталог автозагрузки:** C:\Windows\System32
 
-- **Аргументы:** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
+**Аргументы:** /s /c C:\ProgramData\docker\runDockerDaemon.cmd < nul
 
-- **Имя службы:** Docker
+**Имя службы** - Docker
 
 ![](media/nssm1.png)
 
 Вкладка "Подробности":
 
-- **Отображаемое имя:** Docker
+**Отображаемое имя:** Docker
 
-- **Описание:** управляющая программа Docker позволяет управлять контейнерами с помощью клиентов Docker.
-
+**Описание:** управляющая программа Docker позволяет управлять контейнерами с помощью клиентов Docker.
 
 ![](media/nssm2.png)
 
 Вкладка "Ввод-вывод":
 
-- **Вывод (stdout):** C:\ProgramData\docker\daemon.log
+**Вывод (stdout):** C:\ProgramData\docker\daemon.log
 
-- **Ошибка (stderr):** C:\ProgramData\docker\daemon.log
-
+**Ошибка (stderr):** C:\ProgramData\docker\daemon.log
 
 ![](media/nssm3.png)
 
-По завершении нажмите кнопку `Установить службу`.
+По окончании нажмите кнопку `Install Service`.
 
-После этого при запуске Windows будет запускаться и управляющая программа (служба) Docker.
+Теперь управляющая программа Docker настроена как служба Windows.
 
-### Удаление Docker
+### Брандмауэр <!--1-->
 
-Если вы создали службу Windows из файла docker.exe, как описано в этом руководстве, следующая команда удалит ее.
+Если вы хотите использовать удаленное управление Docker, необходимо также открыть TCP-порт 2376.
 
-```powershell
-PS C:\> sc.exe delete Docker
+```none
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
+```
 
-[SC] DeleteService SUCESS
+### Удаление Docker <!--1-->
+
+Следующая команда удаляет службу Docker.
+
+```none
+sc.exe delete Docker
+```
+
+### Установка Docker CLI
+
+Скачайте файл docker.exe по адресу `https://aka.ms/tp5/docker` и поместите его в каталог System32 на узле контейнера или в любой другой системе, где вы собираетесь выполнять команды Docker.
+
+```none
+wget https://aka.ms/tp5/docker -OutFile $env:SystemRoot\system32\docker.exe
 ```
 
 ## Сервер Nano Server
 
-### Установка Docker
+### Установка Docker <!--2-->
 
-Загрузите файл docker.exe на странице `https://aka.ms/tp4/docker` и скопируйте его в папку `windows\system32` на узле контейнера Nano Server.
+Скачайте файл dockerd.exe по адресу `https://aka.ms/tp5/dockerd` и скопируйте его в папку `windows\system32` на узле контейнера Nano Server.
 
-Выполните следующую команду для запуска управляющей программы Docker. Это необходимо делать при каждом запуске узла контейнера. Эта команда запускает управляющую программу Docker, указывает виртуальный коммутатор для подключения к контейнеру и включает прослушивание порта 2375 для входящих запросов Docker. В этой конфигурации Docker можно управлять с удаленного компьютера.
+Создайте каталог с именем `c:\programdata\docker`. В нем создайте файл с именем `runDockerDaemon.cmd`.
 
-```powershell
-PS C:\> start-process cmd "/k docker daemon -D -b <Switch Name> -H 0.0.0.0:2375”
+```none
+New-Item -ItemType File -Path C:\ProgramData\Docker\runDockerDaemon.cmd -Force
 ```
 
-### Удаление Docker
+Скопируйте в файл `runDockerDaemon.cmd` следующий текст:
 
-Чтобы удалить управляющую программу и интерфейс командной строки Docker с сервера Nano Server, удалите файл `docker.exe` из каталога Windows\system32.
+```none
+@echo off
+set certs=%ProgramData%\docker\certs.d
 
-```powershell
-PS C:\> Remove-Item $env:SystemRoot\system32\docker.exe
+if exist %ProgramData%\docker (goto :run)
+mkdir %ProgramData%\docker
+
+:run
+if exist %certs%\server-cert.pem (if exist %ProgramData%\docker\tag.txt (goto :secure))
+
+if not exist %systemroot%\system32\dockerd.exe (goto :legacy)
+
+dockerd -H npipe:// 
+goto :eof
+
+:legacy
+docker daemon -H npipe:// 
+goto :eof
+
+:secure
+if not exist %systemroot%\system32\dockerd.exe (goto :legacysecure)
+dockerd -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+goto :eof
+
+:legacysecure
+docker daemon -H npipe:// -H 0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+```
+
+Следующий сценарий можно использовать для создания запланированной задачи, запускающей управляющую программу Docker при загрузке Windows.
+
+```none
+# Creates a scheduled task to start docker.exe at computer start up.
+
+$dockerData = "$($env:ProgramData)\docker"
+$dockerDaemonScript = "$dockerData\runDockerDaemon.cmd"
+$dockerLog = "$dockerData\daemon.log"
+$action = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c $dockerDaemonScript > $dockerLog 2>&1" -WorkingDirectory $dockerData
+$trigger = New-ScheduledTaskTrigger -AtStartup
+$settings = New-ScheduledTaskSettingsSet -Priority 5
+Register-ScheduledTask -TaskName Docker -Action $action -Trigger $trigger -Settings $settings -User SYSTEM -RunLevel Highest | Out-Null
+Start-ScheduledTask -TaskName Docker 
+```
+
+### Брандмауэр <!--2-->
+
+Если вы хотите использовать удаленное управление Docker, необходимо также открыть TCP-порт 2376.
+
+```none
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
 ```
 
 ### Интерактивный сеанс Nano
 
-> Сведения об удаленном управлении сервером Nano Server см. в разделе [Начало работы с Nano Server](https://technet.microsoft.com/en-us/library/mt126167.aspx#bkmk_ManageRemote).
+Управление Nano Server осуществляется через удаленный сеанс PowerShell. Дополнительные сведения об удаленном управлении сервером Nano Server см. в статье [Начало работы с Nano Server]( https://technet.microsoft.com/en-us/library/mt126167.aspx#bkmk_ManageRemote).
 
-Такая ошибка может возникнуть при интерактивном управлении контейнером на узле Nano Server.
+Через этот удаленный сеанс PowerShell можно выполнить не все операции Docker, например "docker attach". Чтобы обойти это ограничение, рекомендуется управлять Docker с удаленного клиента через безопасное TCP-соединение.
 
-```powershell
-docker : cannot enable tty mode on non tty input
-+ CategoryInfo          : NotSpecified: (cannot enable tty mode on non tty input:String) [], RemoteException
-+ FullyQualifiedErrorId : NativeCommandError 
+Для этого убедитесь, что управляющая программа Docker настроена для прослушивания TCP-порта и что интерфейс командной строки Docker доступен на компьютере удаленного клиента. После настройки команды Docker можно направлять на узел с помощью параметра -H. Дополнительные сведения о доступе к управляющей программе Docker с удаленного компьютера см. в статье о [параметрах сокетов управляющей программы на сайте Docker.com](https://docs.docker.com/engine/reference/commandline/daemon/#daemon-socket-option).
+
+Чтобы удаленно развернуть контейнер и войти в интерактивный сеанс, выполните следующую команду:
+
+```none
+docker -H tcp://<ipaddress of server>:2376 run -it nanoserver cmd
 ```
 
-Это может произойти при попытке запуска контейнера в интерактивном сеансе с помощью параметра -it:
+Можно создать переменную среды DOCKER_HOST, что устранит потребность в параметре -H. Это можно сделать с помощью следующей команды PowerShell:
 
-```powershell
-Docker run -it <image> <command>
-```
-Или при попытке присоединения запущенного контейнера:
-
-```powershell
-Docker attach <container name>
+```none
+$env:DOCKER_HOST = "tcp://<ipaddress of server:2376"
 ```
 
-Чтобы создать на узле Nano Server интерактивный сеанс с контейнером, созданным Docker, управляющая программа Docker должна управляться удаленно. Для этого загрузите docker.exe из [этого местоположения](https://aka.ms/ContainerTools) и скопируйте его на удаленную систему.
+После задания этой переменной команда будет выглядеть следующим образом:
 
-Сначала необходимо настроить управляющую программу Docker на Nano Server для прослушивания удаленных команд. Это можно сделать с помощью следующей команды на сервере Nano Server:
-
-```powershell
-docker daemon -D -H <ip address of Nano Server>:2375
+```none
+docker run -it nanoserver cmd
 ```
 
-Затем на вашем компьютере откройте сеанс PowerShell или CMD и выполните команды Docker, указывая удаленный узел в параметре `-H`.
+### Удаление Docker <!--2-->
 
-```powershell
-.\docker.exe -H tcp://<ip address of Nano Server>:2375
+Чтобы удалить управляющую программу и интерфейс командной строки Docker с сервера Nano Server, удалите файл `docker.exe` из каталога Windows\system32.
+
+```none
+Remove-Item $env:SystemRoot\system32\docker.exe
+``` 
+
+Выполните следующую команду для отмены регистрации запланированной задачи Docker:
+
+```none
+Get-ScheduledTask -TaskName Docker | UnRegister-ScheduledTask
 ```
 
-Например, для просмотра доступных образов выполните команду:
+### Установка Docker CLI
 
-```powershell
-.\docker.exe -H tcp://<ip address of Nano Server>:2375 images
+Скачайте файл docker.exe по адресу `https://aka.ms/tp5/docker` и скопируйте его в папку "windows\system32" на узле контейнера Nano Server.
+
+```none
+wget https://aka.ms/tp5/docker -OutFile $env:SystemRoot\system32\docker.exe
+```
+
+## Настройка запуска Docker
+
+Для управляющей программы Docker доступно несколько параметров запуска. В этом разделе рассматриваются некоторые из параметров, относящиеся к использованию управляющей программы Docker в Windows. Полный обзор всех параметров управляющей программы см. в [документации для управляющей программы Docker на сайте docker.com]( https://docs.docker.com/engine/reference/commandline/daemon/).
+
+### Прослушивание TCP-порта
+
+Управляющую программу Docker можно настроить для прослушивания входящих подключений локально по именованному каналу или удаленно через TCP-соединение. Поведение при запуске по умолчанию заключается в прослушивании только именованного канала, что препятствует установке удаленных подключений.
+
+```none
+docker daemon -D
+```
+
+С помощью приведенной ниже команды запуска такое поведение можно изменить, чтобы прослушивать безопасные входящие подключения. Дополнительные сведения о защите подключений см. в [документации по конфигурации безопасности на сайте docker.com](https://docs.docker.com/engine/security/https/).
+
+```none
+docker daemon -D -H npipe:// -H tcp://0.0.0.0:2376 --tlsverify --tlscacert=%certs%\ca.pem --tlscert=%certs%\server-cert.pem --tlskey=%certs%\server-key.pem
+``` 
+
+### Доступ к именованному каналу
+
+Команды Docker, выполняемые локально на узле контейнера, принимаются по именованному каналу. Для выполнения этих команд необходим доступ с правами администратора. Кроме того, можно задать группу, имеющую доступ к именованному каналу. В следующем примере такой доступ предоставляется группе Windows с именем `docker`.
+
+```none
+dockerd -H npipe:// -G docker
+```  
+
+
+### Среда выполнения по умолчанию
+
+Контейнеры Windows имеют два разных типа среды выполнения: Windows Server и Hyper-V. Управляющая программа Docker по умолчанию настроена для использования среды выполнения Windows Server, однако это можно изменить. Чтобы задать Hyper-V в качестве среды выполнения по умолчанию, укажите "—exec-opt isolation=hyperv" при инициализации управляющей программы Docker.
+
+```none
+docker daemon -D —exec-opt isolation=hyperv
 ```
 
 
 
-
-
-
-<!--HONumber=Feb16_HO4-->
+<!--HONumber=May16_HO5-->
 
 

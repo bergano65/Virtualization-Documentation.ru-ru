@@ -1,241 +1,134 @@
-
-
-
+---
+title: Развертывание контейнеров Windows в Windows Server
+description: Развертывание контейнеров Windows в Windows Server
+keywords: docker, containers
+author: neilpeterson
+manager: timlt
+ms.date: 05/26/2016
+ms.topic: article
+ms.prod: windows-containers
+ms.service: windows-containers
+ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
+---
 
 # Развертывание узла контейнера — Windows Server
 
-**Это предварительное содержимое. Возможны изменения.**
+**Это предварительное содержимое. Возможны изменения.** 
 
-Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типов операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальной и физической). Действия, описанные в этом документе, используются для развертывания узла контейнера Windows в Windows Server 2016 или Windows Server Core 2016 в физической или виртуальной системе. Для установки узла контейнера Windows на Nano Server обратитесь к разделу [Развертывание узла контейнера — Nano Server](./deployment_nano.md).
+Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типа операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальная и физическая). Этот документ описывает развертывание узла контейнера Windows в Windows Server 2016 или Windows Server Core 2016 в физической или виртуальной системе.
 
-Дополнительные сведения о требованиях к системе см. в разделе [Требования к системе узла контейнера Windows](./system_requirements.md).
+## Установка компонента контейнеров
 
-С помощью сценариев PowerShell также можно автоматизировать развертывание узла контейнера Windows.
-- [Развертывание узла контейнера на новой виртуальной машине Hyper-V](../quick_start/container_setup.md)
-- [Развертывание узла контейнера в существующей системе](../quick_start/inplace_setup.md)
+Чтобы начать работу с контейнерами Windows, требуется включить контейнер компонентов. Для этого выполните приведенную ниже команду в сеансе PowerShell с повышенными правами. 
 
-# Узел Windows Server
-
-Действия, приведенные в этой таблице, позволят развернуть узел контейнера в Windows Server 2016 и Windows Server 2016 Core. Указаны также настройки, необходимые для контейнеров Windows Server и Hyper-V.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Действие развертывания</strong></td>
-<td width="70%"><strong>Подробности</strong></td>
-</tr>
-<tr>
-<td>[Установка компонента контейнеров](#role)</td>
-<td>Компонент контейнеров позволяет использовать контейнеры Windows Server и Hyper-V.</td>
-</tr>
-<tr>
-<td>[Создание виртуального коммутатора](#vswitch)</td>
-<td>Контейнеры подключаются к виртуальному коммутатору для установления сетевого соединения.</td>
-</tr>
-<tr>
-<td>[Настройка преобразования сетевых адресов (NAT)](#nat)</td>
-<td>Если виртуальный коммутатор настроен с преобразованием сетевых адресов (NAT), необходимо настроить и NAT.</td>
-</tr>
-<tr>
-<td>[Установка образов ОС контейнера](#img)</td>
-<td>Образы ОС представляют собой основу для развертывания контейнера.</td>
-</tr>
-<tr>
-<td>[Установка Docker](#docker)</td>
-<td>Это дополнительный шаг, необходимый для создания контейнеров Windows и управления ими с помощью Docker.</td>
-</tr>
-</table>
-
-Эти шаги необходимо выполнить, если будут использоваться контейнеры Hyper-V. Обратите внимание, что шаги, помеченные звездочкой (*), необходимы только в том случае, если сам узел контейнера является виртуальной машиной Hyper-V.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="5" cellspacing="5">
-<tr valign="top">
-<td width="30%"><strong>Действие развертывания</strong></td>
-<td width="70%"><strong>Подробности</strong></td>
-</tr>
-<tr>
-<td>[Включение роли Hyper-V](#hypv) </td>
-<td>Hyper-V требуется, только если будут использоваться контейнеры Hyper-V.</td>
-</tr>
-<tr>
-<td>[Включение вложенной виртуализации*](#nest)</td>
-<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо включить вложенную виртуализацию.</td>
-</tr>
-<tr>
-<td>[Настройка виртуальных процессоров*](#proc)</td>
-<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо настроить по крайней мере два виртуальных процессора.</td>
-</tr>
-<tr>
-<td>[Отключение динамической памяти*](#dyn)</td>
-<td>Если узел контейнера — виртуальная машина Hyper-V, необходимо отключить динамическую память.</td>
-</tr>
-<tr>
-<td>[Настройка спуфинга MAC-адресов*](#mac)</td>
-<td>Если узел контейнера виртуализирован, необходимо включить спуфинг MAC-адресов.</td>
-</tr>
-</table>
-
-## Шаги развертывания
-
-### <a name=role></a>Установка компонента контейнеров
-
-Компонент контейнеров можно установить на Windows Server 2016 или Windows Server 2016 Core с помощью Windows Server Manager или PowerShell.
-
-Чтобы установить роль с помощью PowerShell, выполните следующую команду в сеансе PowerShell с повышенными правами.
-
-```powershell
-PS C:\> Install-WindowsFeature containers
-```
-Когда установка роли контейнера завершится, необходимо перезагрузить систему.
-
-```powershell
-PS C:\> shutdown /r 
-```
-После перезагрузки системы используйте команду `Get-ContainerHost`, чтобы убедиться, что роль контейнера успешно установлена:
-
-```powershell
-PS C:\> Get-ContainerHost
-
-Name            ContainerImageRepositoryLocation
-----            --------------------------------
-WIN-LJGU7HD7TEP C:\ProgramData\Microsoft\Windows\Hyper-V\Container Image Store
+```none
+Install-WindowsFeature containers
 ```
 
-### <a name=vswitch></a>Создание виртуального коммутатора
+После завершения установки компонента перезагрузите компьютер.
 
-Каждый контейнер необходимо подключить к виртуальному коммутатору для связи по сети. Виртуальный коммутатор можно создать с помощью команды `New-VMSwitch`. Контейнеры поддерживают виртуальные коммутаторы типа `внешний` или `NAT`. Подробные сведения о работе контейнеров в сети см. в разделе [Сетевые подключения контейнеров](../management/container_networking.md).
+## Установка Docker
 
-В этом примере создается виртуальный коммутатор с именем "Virtual Switch" типа "NAT" и подсеть NAT 172.16.0.0/12.
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента.
 
-```powershell
-PS C:\> New-VMSwitch -Name "Virtual Switch" -SwitchType NAT -NATSubnetAddress 172.16.0.0/12
+Создайте папку для исполняемых файлов Docker.
+
+```none
+New-Item -Type Directory -Path 'C:\Program Files\docker\'
 ```
 
-### <a name=nat></a>Настройка преобразования сетевых адресов (NAT)
+Скачайте управляющую программу Docker.
 
-Если тип коммутатора — NAT, в дополнение к виртуальному коммутатору необходимо создать объект NAT. Это можно сделать с помощью команды `New-NetNat`. В этом примере создается объект NAT с именем `ContainerNat`, а также префиксом адреса, соответствующим подсети NAT, назначенной для данного коммутатора контейнера.
-
-```powershell
-PS C:\> New-NetNat -Name ContainerNat -InternalIPInterfaceAddressPrefix "172.16.0.0/12"
-
-Name                             : ContainerNat
-ExternalIPInterfaceAddressPrefix :
-InternalIPInterfaceAddressPrefix : 172.16.0.0/12
-IcmpQueryTimeout                 : 30
-TcpEstablishedConnectionTimeout  : 1800
-TcpTransientConnectionTimeout    : 120
-TcpFilteringBehavior             : AddressDependentFiltering
-UdpFilteringBehavior             : AddressDependentFiltering
-UdpIdleSessionTimeout            : 120
-UdpInboundRefresh                : False
-Store                            : Local
-Active                           : True
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
 ```
 
-### <a name=img></a>Установка образов ОС
+Загрузите клиент Docker.
 
-Образ ОС используется как основа для любого контейнера Windows Server или Hyper-V. Образ используется для развертывания контейнера, который затем можно изменить и поместить в новый образ контейнера. Образы ОС были созданы с использованием Windows Server Core и Nano Server как основной операционной системы.
-
-Образы ОС контейнеров можно найти и установить с помощью модуля ContainerProvider PowerShell. Прежде чем использовать этот модуль, его необходимо установить. Для установки модуля можно использовать приведенные ниже команды.
-
-```powershell
-PS C:\> Install-PackageProvider ContainerProvider -Force
+```none
+Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
 ```
 
-Воспользуйтесь командлетом `Find-ContainerImage`, чтобы получить список образов из диспетчера пакетов OneGet в PowerShell.
-```powershell
-PS C:\> Find-ContainerImage
+Добавьте каталог Docker в системный путь.
 
-Name                 Version                 Description
-----                 -------                 -----------
-NanoServer           10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-WindowsServerCore    10.0.10586.0            Container OS Image of Windows Server 2016 Techn...
-```
-Чтобы скачать и установить базовый образ Nano Server, выполните приведенную ниже команду.
-
-```powershell
-PS C:\> Install-ContainerImage -Name NanoServer -Version 10.0.10586.0
-
-Downloaded in 0 hours, 0 minutes, 10 seconds.
+```none
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
-Кроме того, эта команда позволит скачать и установить базовый образ Windows Server Core.
+Перезапустите сеанс PowerShell для распознавания измененного пути.
 
-```powershell
-PS C:\> Install-ContainerImage -Name WindowsServerCore -Version 10.0.10586.0
+Чтобы установить Docker в качестве службы Windows, выполните следующую команду:
 
-Downloaded in 0 hours, 2 minutes, 28 seconds.
+```none
+dockerd --register-service
 ```
 
-**Проблема.** Командлеты Save-ContainerImage и Install-ContainerImage не работают с образом контейнера WindowsServerCore в сеансе удаленного взаимодействия PowerShell.<br /> **Обходной путь.** Войдите на этот компьютер с помощью удаленного рабочего стола и напрямую используйте командлет Save-ContainerImage.
+После установки эту службу можно запустить.
 
-С помощью команды `Get-ContainerImage` убедитесь, что эти образы были установлены.
-
-```powershell
-PS C:\> Get-ContainerImage
-
-Name              Publisher    Version      IsOSImage
-----              ---------    -------      ---------
-NanoServer        CN=Microsoft 10.0.10586.0 True
-WindowsServerCore CN=Microsoft 10.0.10586.0 True
+```none
+Start-Service Docker
 ```
-Дополнительные сведения об управлении образами контейнеров см. в статье [Образы контейнеров Windows](../management/manage_images.md).
 
+## Установка базовых образов контейнеров
 
-### <a name=docker></a>Установка Docker
+Перед развертыванием контейнера требуется скачать базовый образ ОС контейнера. Приведенный ниже пример кода скачивает базовый образ ОС Windows Server Core. Эту же процедуру можно использовать и для установки базового образа Nano Server. Эту же процедуру можно использовать и для установки базового образа Nano Server. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+    
+Сначала установите поставщик пакетов образов контейнеров.
 
-Управляющая программа и интерфейс командной строки для Docker не поставляются вместе с Windows и не устанавливаются с помощью компонента контейнеров Windows. Docker не обязательно использовать для работы с контейнерами Windows. Чтобы установить Docker, следуйте инструкциям из статьи [Docker и Windows](./docker_windows.md).
+```none
+Install-PackageProvider ContainerImage -Force
+```
 
+Затем установите образ Windows Server Core. Этот процесс может занять некоторое время, поэтому сделайте перерыв и возвращайтесь к работе после завершения скачивания.
+
+```none 
+Install-ContainerImage -Name WindowsServerCore    
+```
+
+После установки базового образа следует перезапустить службу Docker.
+
+```none
+Restart-Service docker
+```
+
+Далее этот образ следует пометить как последнюю версию "latest". Для этого выполните следующую команду:
+
+```none
+docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
+```
 
 ## Узел контейнера Hyper-V
 
-### <a name=hypv></a>Включение роли Hyper-V
+Чтобы развернуть контейнеры Hyper-V, необходима роль Hyper-V. Если сам узел контейнера Windows является виртуальной машиной Hyper-V, перед установкой роли Hyper-V необходимо включить вложенную виртуализацию. Дополнительные сведения о вложенной виртуализации см. в статье [Вложенная виртуализация]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
-Если будут развертываться контейнеры Hyper-V, роль Hyper-V должна быть включена на узле контейнера. Роль Hyper-V можно установить в Windows Server 2016 или Windows Server 2016 Core с помощью команды PowerShell `Install-WindowsFeature`. Если сам узел контейнера не является виртуальной машиной Hyper-V, необходимо сначала включить вложенную виртуализацию. Для этого см. раздел [Настройка вложенной виртуализации](#nest).
+### Вложенная виртуализация
 
-```powershell
-PS C:\> Install-WindowsFeature hyper-v
+Приведенный ниже сценарий настраивает вложенную виртуализацию для узла контейнера. Он выполняется на компьютере Hyper-V, где размещается виртуальная машина узла контейнера. Перед запуском сценария убедитесь, что виртуальная машина узла контейнера отключена.
+
+```none
+#replace with the virtual machine name
+$vm = "<virtual-machine>"
+
+#configure virtual processor
+Set-VMProcessor -VMName $vm -ExposeVirtualizationExtensions $true -Count 2
+
+#disable dynamic memory
+Set-VMMemory $vm -DynamicMemoryEnabled $false
+
+#enable mac spoofing
+Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
 
-### <a name=nest></a>Вложенная виртуализация
+### Включение роли Hyper-V
 
-Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, необходимо включить вложенную виртуализацию. Это можно сделать с помощью приведенной ниже команды PowerShell.
+Чтобы включить компонент Hyper-V с помощью PowerShell, выполните приведенную ниже команду в сеансе PowerShell с повышенными правами.
 
-**Примечание**. При выполнении этой команды виртуальные машины должны быть отключены.
-
-```powershell
-PS C:\> Set-VMProcessor -VMName <VM Name> -ExposeVirtualizationExtensions $true
-```
-
-### <a name=proc></a>Настройка виртуальных процессоров
-
-Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, для виртуальной машины требуется как минимум два процессора. Это можно настроить с помощью параметров виртуальной машины или указанной ниже команды.
-
-**Примечание**. При выполнении этой команды виртуальные машины должны быть отключены.
-
-```poweshell
-PS C:\> Set-VMProcessor -VMName <VM Name> -Count 2
-```
-
-### <a name=dyn></a>Отключение динамической памяти
-
-Если узел контейнера сам является виртуальной машиной Hyper-V, необходимо отключить динамическую память на виртуальной машине этого узла контейнера. Это можно настроить с помощью параметров виртуальной машины или указанной ниже команды.
-
-**Примечание**. При выполнении этой команды виртуальные машины должны быть отключены.
-
-```poweshell
-PS C:\> Set-VMMemory <VM Name> -DynamicMemoryEnabled $false
-```
-
-### <a name=mac></a>Спуфинг MAC-адресов
-
-Наконец, если узел контейнера работает на виртуальной машине Hyper-V, необходимо включить спуфинг MAC-адресов. Благодаря этому каждый контейнер получит IP-адрес. Чтобы включить спуфинг MAC-адресов, выполните приведенную ниже команду на узле Hyper-V. Свойством VMName будет имя узла контейнера.
-
-```powershell
-PS C:\> Get-VMNetworkAdapter -VMName <VM Name> | Set-VMNetworkAdapter -MacAddressSpoofing On
+```none
+Install-WindowsFeature hyper-v
 ```
 
 
 
+<!--HONumber=May16_HO4-->
 
 
-<!--HONumber=Feb16_HO4-->
