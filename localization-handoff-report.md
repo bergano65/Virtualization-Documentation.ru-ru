@@ -6,24 +6,24 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ef18b63c454b3c12a7067d3604ba142d55403226/virtualization/hyperv_on_windows/user_guide/nesting.md) | OutofSyncHandedBackSuccess | [Details](#2d1679ffe4876ddd4eefe1b457098e8797899492203)
+ [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6c09220d9aa06a68aca1b10738b3f69be02bf750/virtualization/windowscontainers/management/manage_images.md) | OutofSyncHandedBackSuccess | [Details](#b84b4b501ce18409561abfc5aae3ca0fa1c7c541255)
 
 ## Item Details
-##### <a name='2d1679ffe4876ddd4eefe1b457098e8797899492203'></a> Source: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ef18b63c454b3c12a7067d3604ba142d55403226/virtualization/hyperv_on_windows/user_guide/nesting.md)
+##### <a name='b84b4b501ce18409561abfc5aae3ca0fa1c7c541255'></a> Source: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6c09220d9aa06a68aca1b10738b3f69be02bf750/virtualization/windowscontainers/management/manage_images.md)
 * Status: OutofSyncHandedBackSuccess
 * Target File: 
-* Handoff File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/13a2f97dc06dfbb09bb928ed33f28b318204960a/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
-* Handoff Datetime: 2016-06-20 17:15:24
+* Handoff File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/8b53c915dd90cfbe8ff65cba11bbb41acdf9447e/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf)
+* Handoff Datetime: 2016-06-21 18:15:32
 * Handoff Reason: Include
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/1d33c4e7ca70777dc1a68d7e565892af9f83439e/virtualization/hyperv_on_windows/user_guide/nesting.md)
-* Current Handback File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/f79ae30b10c27e1470bf1cd5127e3c78e1ecbe11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
-* Current Handback Datetime: 2016-06-15 13:44:44
-* Bilingual File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/f79ae30b10c27e1470bf1cd5127e3c78e1ecbe11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
-* Bilingual Datetime: 2016-06-16 07:50:45
+* Current Target File: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/0dc96a2713e667edb7b3dcd8cf42544e29281139/virtualization/windowscontainers/management/manage_images.md)
+* Current Handback File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b379283028916aff5718df454943b38100963854/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf)
+* Current Handback Datetime: 2016-06-18 23:15:47
+* Bilingual File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b379283028916aff5718df454943b38100963854/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf)
+* Bilingual Datetime: 2016-06-18 23:17:47
 * [Back to Top](#report-top)
 
 
