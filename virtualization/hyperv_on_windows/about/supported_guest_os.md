@@ -1,3 +1,16 @@
+---
+title: Поддерживаемые гостевые ОС Windows
+description: Поддерживаемые гостевые ОС Windows.
+keywords: windows 10, hyper-v
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &800292699 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
+---
+
 # Поддерживаемые гостевые ОС Windows
 
 В этой статье приводится список сочетаний операционных систем, поддерживаемых в Hyper-V в Windows. В ней также рассматриваются службы интеграции и другие поддерживаемые факторы.
@@ -9,7 +22,7 @@
 Корпорация Майкрософт обеспечивает поддержку гостевых операционных систем следующим образом:
 * Устранение проблем, обнаруженных в операционных системах Майкрософт и в службах интеграции, поддерживается службой технической поддержки Майкрософт.
 * Поддержка по проблемам в других операционных системах, сертифицированных поставщиком операционной системы для выполнения в Hyper-V, обеспечивается поставщиком.
-* Если обнаруживаются проблемы в других операционных системах, корпорация Майкрософт отправляет описание проблемы в сообщество поддержки разных поставщиков [TSANet](http://www.tsanet.org/).
+* Если обнаруживаются проблемы в других операционных системах, корпорация Майкрософт отправляет описание проблемы в сообщество поддержки разных поставщиков <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">TSANet</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 
 Поддержка предоставляется, только если на узле Hyper-V и в гостевой операционной системе установлены все критические обновления, доступные через Центр обновления Windows.
 
@@ -39,15 +52,20 @@
 
 | Гостевая операционная система| |
 |:-----|:------|
-| [CentOS и Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx)| |
-| [Виртуальные машины Debian на узле Hyper-V](https://technet.microsoft.com/library/dn614985.aspx)| |
-| [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx)| |
-| [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)| |
-| [Ubuntu](https://technet.microsoft.com/en-us/library/dn531029.aspx)| |
-| [FreeBSD](https://technet.microsoft.com/library/dn848318.aspx)| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">CentOS и Red Hat Enterprise Linux </g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Виртуальные машины Debian на базе Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">SUSE</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Oracle Linux</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Ubuntu</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
+| <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">FreeBSD</g><g id="1CapsExtId3" ctype="x-title"></g></g>| |
 
-Дополнительные сведения, в том числе информацию о поддержке предыдущих версий Hyper-V, см. в статье [Виртуальные машины Linux и FreeBSD на узлах Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).
+Дополнительные сведения, в том числе информацию о поддержке предыдущих версий Hyper-V, см. в статье <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Виртуальные машины Linux и FreeBSD на базе Hyper-V</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 
 
+
+
+
+
+<!--HONumber=May16_HO1-->
 
 

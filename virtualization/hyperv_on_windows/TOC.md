@@ -1,62 +1,66 @@
-# О Hyper-V в Windows
+# Сведения о Hyper-V
 
-## [Hyper-V в Windows](./windows_welcome.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V в Windows</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Введение в Hyper-V](./about/hyperv_on_windows.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Введение в Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Новые возможности Windows 10](./about/whats_new.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Поддерживаемые гостевые ОС</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Поддерживаемые гостевые ОС](about/supported_guest_os.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Linux и FreeBSD на узле Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Linux и FreeBSD на узле Hyper-V](https://technet.microsoft.com/library/dn531030.aspx)
+# Краткое руководство по Hyper-V
 
-# Hyper-V для быстрого запуска Windows
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Требования к системе</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Требования к системе](quick_start/walkthrough_compatibility.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Установка Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Установка Hyper-V](quick_start/walkthrough_install.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Создание виртуального коммутатора</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Создание виртуального коммутатора](quick_start/walkthrough_virtual_switch.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Создание виртуальной машины</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Создание виртуальной машины](quick_start/walkthrough_create_vm.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Hyper-V и PowerShell</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Hyper-V и PowerShell](quick_start/walkthrough_powershell.md)
+# Управление виртуальными машинами с помощью Hyper-V
 
-# Управление Hyper-V в Windows
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Миграция и обновление виртуальных машин</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Миграция и обновление виртуальных машин](user_guide/migrating_vms.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Управление службами интеграции</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Управление службами интеграции](user_guide/managing_ics.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Работа с контрольными точками</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Работа с контрольными точками](user_guide/checkpoints.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Экспорт и импорт виртуальных машин</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Экспорт и импорт](user_guide/export_import.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Подключение с помощью PowerShell Direct</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [PowerShell Direct](user_guide/vmsession.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Создание виртуальных машин предварительной версии</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Удаленное управление](user_guide/remote_host_management.md)
+# Управление узлами Hyper-V
 
-## [Вложенная виртуализация](user_guide/nesting.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Управление удаленными узлами Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Диагностика](user_guide/troubleshooting.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Включение вложенной виртуализации</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Настройка сети NAT</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Создание службы интеграции</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 # Сообщество и поддержка
 
-## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Форумы по Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 # Ссылка
 
-## [PowerShell для Hyper-V](https://technet.microsoft.com/library/hh848559.aspx)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">PowerShell для Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Примеры PowerShell](develop/powershell_snippets.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Поставщик WMI для Hyper-V (V2)</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Создание службы интеграции](develop/make_mgmt_service.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Архитектура Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
-## [Поставщик WMI для Hyper-V (V2)](https://msdn.microsoft.com/library/hh850319.aspx)
-
-## [Архитектура Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
-
-## [Спецификации гипервизора](develop/tlfs.md)
+## <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Спецификации гипервизора</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 
-<!--HONumber=Mar16_HO2-->
+
+
+<!--HONumber=May16_HO1-->
+
+

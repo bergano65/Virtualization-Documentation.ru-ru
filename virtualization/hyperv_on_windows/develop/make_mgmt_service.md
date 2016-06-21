@@ -1,23 +1,36 @@
+---
+title: Создайте собственные службы интеграции
+description: Службы интеграции Windows 10.
+keywords: windows 10, hyper-v
+author: scooley
+manager: timlt
+ms.date: 05/02/2016
+ms.topic: article
+ms.prod: &81555379 windows-10-hyperv
+ms.service: windows-10-hyperv
+ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
+---
+
 # Создайте собственные службы интеграции
 
 Начиная с ОС Windows 10, любой пользователь может создать службу, практически аналогичную встроенным службам интеграции Hyper-V, с помощью нового канала связи на основе сокетов между узлом Hyper-V и запущенными на нем виртуальными машинами. С помощью этих сокетов Hyper-V службы могут работать независимо от сетевого стека и все данные остаются в той же физической памяти.
 
 В этой статье приведены пошаговые инструкции по созданию простого приложения, созданного на сокетах Hyper-V, и началу работы.
 
-[PowerShell Direct](../user_guide/vmsession.md) — это пример приложения (в данном случае службы, поставляемой с Windows), использующего для связи сокеты Hyper-V.
+<g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">PowerShell Direct</g><g id="1CapsExtId3" ctype="x-title"></g></g> — это пример приложения (в данном случае службы, поставляемой с Windows), использующего для связи сокеты Hyper-V.
 
-**Поддерживаемые операционные системы узла**
+<g id="1" ctype="x-strong">Поддерживаемые операционные системы узла</g>
 * Сборка 14290 системы Windows 10 и более поздние сборки
 * Windows Server Technical Preview 4 и более поздние версии
 * Будущие выпуски (Server 2016 +)
 
-**Поддерживаемые гостевые операционные системы**
+<g id="1" ctype="x-strong">Поддерживаемые гостевые операционные системы</g>
 * Windows 10
 * Windows Server Technical Preview 4 и более поздние версии
 * Будущие выпуски (Server 2016 +)
-* Гости Linux со службами интеграции Linux (см. раздел [Поддерживаемые виртуальные машины Linux и FreeBSD для Hyper-V в Windows](https://technet.microsoft.com/library/dn531030(ws.12).aspx)))
+* Гости Linux со службами интеграции Linux (см. раздел <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">Поддерживаемые виртуальные машины Linux и FreeBSD для Hyper-V в Windows</g><g id="2CapsExtId3" ctype="x-title"></g></g>)
 
-**Возможности и ограничения**
+<g id="1" ctype="x-strong">Возможности и ограничения</g>
 * Поддержка режима ядра или действий в режиме пользователя
 * Только поток данных
 * Нет блочной памяти (не подходит для резервного копирования и видео)
@@ -30,24 +43,24 @@
 В настоящий момент сокеты Hyper-V доступны в виде машинного кода (C/C++).
 
 Чтобы написать простое приложение, вам понадобится следующее:
-* Компилятор C. Если у вас его нет, см. раздел [Код Visual Studio](https://aka.ms/vs)
+* Компилятор C. Если у вас его нет, перейдите в <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">сообщество Visual Studio</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 * Компьютер, на котором работают Hyper-V и виртуальная машина.
   * В качестве гостевой операционной системы (виртуальная машина) и ОС узла должна использоваться Windows 10, Windows Server Technical Preview 3 или более поздней версии.
-* [Пакет SDK для Windows 10](http://aka.ms/flightingSDK) установлен на узле Hyper-V
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Пакет SDK для Windows 10</g><g id="1CapsExtId3" ctype="x-title"></g></g> установлен на узле Hyper-V
 
-**Сведения о Windows SDK**
+<g id="1" ctype="x-strong">Сведения о Windows SDK</g>
 
 Ссылки на пакет SDK для Windows:
-* [Пакет SDK для Windows 10 — предварительная версия для инсайдеров](http://aka.ms/flightingSDK)
-* [Пакет SDK для Windows 10](https://dev.windows.com/en-us/downloads/windows-10-sdk)
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Пакет SDK для Windows 10 — предварительная версия для инсайдеров</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Пакет SDK для Windows 10</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 Интерфейс API для сокетов Hyper-V стал доступен в Windows 10, начиная со сборки 14290, — скачиваемые файлы фокус-тестирования соответствуют последней сборке фокус-тестирования для инсайдеров.  
-При странностях в поведении сообщите нам через [форум TechNet](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home "Форумы TechNet"). В сообщение включите следующее.
+При странностях в поведении сообщите нам через <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">форум TechNet</g><g id="2CapsExtId3" ctype="x-title">Форумы TechNet</g></g>. В сообщение включите следующее.
 * Описание непредвиденного поведения.
 * Номера ОС и сборки для узла, виртуальной машины и пакета SDK.
 
   Номер сборки пакета SDK отображается в заголовке установщика для пакета SDK:  
-  ![](./media/flightingSDK.png)
+  <g id="1" ctype="x-linkText"></g>
 
 
 ## Регистрация нового приложения
@@ -73,7 +86,7 @@ $service.SetValue("ElementName", $friendlyName)
 $service.PSChildName | clip.exe
 ```
 
-** Расположение и сведения реестра **
+<g id="1" ctype="x-em">* Расположение и сведения реестра *</g>
 
 ``` 
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
@@ -81,8 +94,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 В этом расположении реестра есть несколько кодов GUID. Это и есть службы, поставляемые с Windows.
 
 Сведения в реестре для каждой службы:
-* `Service GUID`
-    * `ElementName (REG_SZ)` — понятное имя службы
+* <g id="1" ctype="x-code">Service GUID</g>
+    * <g id="1" ctype="x-code">ElementName (REG_SZ)</g> — понятное имя службы
 
 Чтобы зарегистрировать свою службу, создайте раздел реестра, используя свой код GUID и понятное имя.
 
@@ -97,7 +110,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
         ElementName REG_SZ  Your Service Friendly Name
 ```
 
-> ** Совет. ** Чтобы создать код GUID в PowerShell и скопировать его в буфер обмена, используйте следующую команду:
+> <g id="1" ctype="x-em">* Совет. *</g> Чтобы создать код GUID в PowerShell и скопировать его в буфер обмена, используйте следующую команду:
 ``` PowerShell
 (New-Guid).Guid | clip.exe
 ```
@@ -119,9 +132,9 @@ SOCKET WSAAPI socket(
 ```
 
 Для сокета Hyper-V:
-* Семейство адресов: `AF_HYPERV`
-* Тип — `SOCK_STREAM`
-* Протокол: `HV_PROTOCOL_RAW`
+* Семейство адресов: <g id="2" ctype="x-code">AF_HYPERV</g>
+* Тип — <g id="2" ctype="x-code">SOCK_STREAM</g>
+* Протокол: <g id="2" ctype="x-code">HV_PROTOCOL_RAW</g>
 
 
 Пример объявления или создания экземпляра:
@@ -134,7 +147,7 @@ SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 
 Привязка связывает сокет со сведениями о подключении.
 
-Определение данной функции скопировано ниже для удобства. Подробнее о привязке см. [здесь](https://msdn.microsoft.com/en-us/library/windows/desktop/ms737550.aspx).
+Определение данной функции скопировано ниже для удобства. Подробнее о привязке см. <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">здесь</g><g id="2CapsExtId3" ctype="x-title"></g></g>.
 
 ``` C
 int bind(
@@ -144,7 +157,7 @@ int bind(
 );
 ```
 
-В отличие от адреса сокета (sockaddr) для стандартного семейства адресов протокола IP (`AF_INET`), который состоит из IP-адреса хост-компьютера и номера порта на этом узле, адрес сокета для `AF_HYPERV` использует для подключения идентификатор виртуальной машины и описанный выше идентификатор приложения.
+В отличие от адреса сокета (sockaddr) для стандартного семейства адресов протокола IP (<g id="2" ctype="x-code">AF_INET</g>), который состоит из IP-адреса хост-компьютера и номера порта на этом узле, адрес сокета для <g id="4" ctype="x-code">AF_HYPERV</g> использует для подключения идентификатор виртуальной машины и описанный выше идентификатор приложения.
 
 Так как сокеты Hyper-V не зависят от сетевого стека, TCP/IP, DNS и т. д., для конечной точки сокета требуется формат, не использующий протокол IP и имя узла, но однозначно описывающий подключение.
 
@@ -165,7 +178,7 @@ struct SOCKADDR_HV
   ```PowerShell
   (Get-VM -Name $VMName).Id
   ```
-* Идентификатор службы — код GUID, [описанный выше](#RegisterANewApplication), под которым приложение зарегистрировано в реестре узла Hyper-V.
+* Идентификатор службы — код GUID, <g id="2CapsExtId1" ctype="x-link"><g id="2CapsExtId2" ctype="x-linkText">описанный выше</g><g id="2CapsExtId3" ctype="x-title"></g></g>, под которым приложение зарегистрировано в реестре узла Hyper-V.
 
 Кроме того, для идентификатора виртуальной машины доступен ряд подстановочных знаков.
 
@@ -181,7 +194,7 @@ struct SOCKADDR_HV
 | HV_GUID_PARENT| a42e7cda-d03f-480c-9cc2-a4de20abb878| Адрес родительского элемента.При использовании этого адреса выполняется подключение к родительскому разделу соединителя*.|
 
 
-*** HV_GUID_PARENT**  
+<g id="1" ctype="x-strong">* HV_GUID_PARENT</g>  
 Родительский элемент виртуальной машины — это ее узел. Родительский элемент контейнера — это узел контейнера.  
 При подключении из контейнера, запущенного в виртуальной машине, будет выполнено подключение к виртуальной машине, в которой размещен контейнер.  
 Прослушивание на этом идентификаторе виртуальной машины принимает подключение от:  
@@ -198,7 +211,7 @@ Send()
 Listen()
 Accept()
 
-[Полный API WinSock](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
+<g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Полный API WinSock</g><g id="1CapsExtId3" ctype="x-title"></g></g>
 
 ## Проблемы и их решение
 
@@ -210,6 +223,6 @@ Accept()
 
 
 
-<!--HONumber=Mar16_HO4-->
+<!--HONumber=May16_HO1-->
 
 
