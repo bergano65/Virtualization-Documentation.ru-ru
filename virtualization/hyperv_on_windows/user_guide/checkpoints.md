@@ -47,12 +47,12 @@ Hyper-V в Windows 10 включает два типа контрольных т
 Set-VM -Name <vmname> -CheckpointType Standard
 ```
 
-Задать рабочую контрольную точку. При сбое рабочей контрольной точки будет создана стандартная контрольная точка:
+Задать рабочую контрольную точку. При сбое рабочей контрольной точки создается стандартная контрольная точка:
 ```powershell
 Set-VM -Name <vmname> -CheckpointType Production
 ```
 
-Задать рабочую контрольную точку. При сбое рабочей контрольной точки не будет создана стандартная контрольная точка. 
+Задать рабочую контрольную точку. При сбое рабочей контрольной точки стандартная контрольная точка не создается. 
 ```powershell
 Set-VM -Name <vmname> -CheckpointType ProductionOnly
 ```
@@ -162,7 +162,7 @@ Remove-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name>
 
 **Использование PowerShell**
 ``` powershell
-Export-VMCheckpoint -VMName <virtual machine name>  -Name <checkpoint name> -Path <path for export>
+Export-VMCheckpoint -VMName <virtual machine name> -Name <checkpoint name> -Path <path for export>
 ```
 
 ## Включение и отключение контрольных точек
@@ -245,6 +245,6 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 2. Обратите внимание, что текстовый файл восстановлен, но, в отличие от стандартной контрольной точки, Блокнот закрыт.   
 
 
-<!--HONumber=May16_HO3-->
+<!--HONumber=Jun16_HO3-->
 
 

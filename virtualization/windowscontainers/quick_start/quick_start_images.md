@@ -48,6 +48,8 @@ echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.ht
 
 Перейдя на другую систему, введите IP-адрес узла контейнера в браузере. Должно открыться приложение "Hello, World".
 
+**Примечание.** Если вы работаете в Azure, потребуется правило группы безопасности сети, разрешающее передачу трафика через порт 80. Дополнительные сведения см. в разделе [Create Rule in a Network Security Group]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg) (Создание правила в группе безопасности сети).
+
 ![](media/hello.png)
 
 Вернитесь в контейнер и выйдите из интерактивного сеанса.
@@ -159,6 +161,6 @@ docker rm -f cranky_brown
 
 [Контейнеры Windows в Windows 10](./quick_start_windows_10.md)
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO2-->
 
 
