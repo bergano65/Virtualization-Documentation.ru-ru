@@ -108,7 +108,7 @@ RUN <command>
 ```none
 FROM windowsservercore
 
-RUN ["powershell","New-Item","c:/test"]
+RUN ["powershell", "New-Item", "c:/test"]
 ```
 
 Анализируя полученный образ, можно сделать вывод изображения, что была выполнена команда `powershell new-item c:/test`.
@@ -142,7 +142,7 @@ IMAGE               CREATED             CREATED BY                              
 В Windows при использовании инструкции `RUN` в формате исполняемого файла необходимо экранировать инструкции символы обратной косой черты.
 
 ```none
-RUN ["powershell","New-Item","c:\\test"]
+RUN ["powershell", "New-Item", "c:\\test"]
 ```
 
 **Примеры**
@@ -179,7 +179,7 @@ COPY ["<source>" "<destination>"]
 
 **Рекомендации для Windows**
  
-В Windows для путей назначения необходимо использовать символы косой черты. Например, здесь показаны допустимые инструкции `ADD`.
+В Windows для путей назначения необходимо использовать символы косой черты. Например, здесь показаны допустимые инструкции `COPY`.
 
 ```none
 COPY test1.txt /temp/
@@ -203,6 +203,8 @@ COPY source /sqlite/
 ```none
 COPY config* c:/temp/
 ```
+
+Подробные сведения об инструкции `COPY` см. в [справочнике по COPY на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#copy).
 
 ### ДОБАВИТЬ
 
@@ -297,7 +299,7 @@ WORKDIR c:\\Apache24\\bin
 ```none
 # exec form
 
-CMD ["<executable";"<param>"]
+CMD ["<executable", "<param>"]
 
 # shell form
 
@@ -311,7 +313,7 @@ CMD <command>
 ```none
 # exec form
 
-CMD ["c:\\Apache24\\bin\\httpd.exe","-w"]
+CMD ["c:\\Apache24\\bin\\httpd.exe", "-w"]
 
 # shell form
 
@@ -371,7 +373,7 @@ RUN powershell.exe -Command \
 
 В некоторых случаях может оказаться удобным скопировать сценарий в контейнеры, используемые при создании образа, и затем запустить их из контейнера. Примечание. Это ограничивает возможности кэширования слоев образов, а также ухудшает удобочитаемость файла Dockerfile.
 
-Этот пример копирует сценарий с компьютера сборки в контейнер с помощью инструкции `ADD`. Этот сценарий выполняется с помощью инструкции RUN.
+Этот пример копирует сценарий с компьютера сборки в контейнер с помощью инструкции `ADD`. Затем этот сценарий выполняется с помощью инструкции RUN.
 
 ```
 FROM windowsservercore
@@ -381,7 +383,7 @@ RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 
 ## Сборка Docker 
 
-После создания файла Dockerfile и сохранения его на диск можно запустить `docker build` для создания нового образа. Команда `docker build` принимает несколько необязательных параметров и путь к файлу Dockerfile. Полную документацию по Docker Build, включая список всех параметров сборки, см. в [описании команды Build на сайте Docker.com](https://docs.docker.com/engine/reference/commandline/build/#build-with).
+После создания файла Dockerfile и сохранения его на диск можно запустить `docker build` для создания нового образа. Команда `docker build` принимает несколько необязательных параметров и путь к файлу Dockerfile. Полную документацию по сборке Docker, включая список всех параметров сборки, см. в [описании сборки на сайте Docker.com](https://docs.docker.com/engine/reference/commandline/build/#build).
 
 ```none
 Docker build [OPTIONS] PATH
@@ -440,6 +442,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 [Справочник по файлам Dockerfile на сайте Docker.com](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=May16_HO4-->
+<!--HONumber=Jun16_HO3-->
 
 
