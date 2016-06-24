@@ -1630,8 +1630,8 @@
 * Archive Datetime: 2016-06-16 07:18:37
 * Handback File: [whats_new.dae7a7074466e85ccbefc13ff0f5e799912523e9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/320ca9e41a50cd3450bd4a3d90c259cfde98c1e2/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/whats_new.dae7a7074466e85ccbefc13ff0f5e799912523e9.ru-ru.xlf)
 * Handback Datetime: 2016-06-24 12:38:30
-* Bilingual File: [whats_new.dae7a7074466e85ccbefc13ff0f5e799912523e9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/38fb2d280b3bcb9945ea92c2edb6fdf38b9570e8/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/whats_new.dae7a7074466e85ccbefc13ff0f5e799912523e9.ru-ru.xlf)
-* Bilingual Datetime: 2016-06-21 14:18:14
+* Bilingual File: [whats_new.dae7a7074466e85ccbefc13ff0f5e799912523e9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/320ca9e41a50cd3450bd4a3d90c259cfde98c1e2/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/whats_new.dae7a7074466e85ccbefc13ff0f5e799912523e9.ru-ru.xlf)
+* Bilingual Datetime: 2016-06-24 12:40:51
 * [Back to Top](#report-top)
 
 ##### <a name='e7d6e4f44756f84fc324f2d4cb55f8762dcbba6b93'></a> Source: [virtualization\hyperv_on_windows\develop\make_mgmt_service.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e14ede0a2b13de08cea0a955b37a21a150fb88cf/virtualization/hyperv_on_windows/develop/make_mgmt_service.md)
