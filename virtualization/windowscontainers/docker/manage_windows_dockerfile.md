@@ -1,6 +1,6 @@
 ---
-title: Dockerfile и контейнеры Windows
-description: Создание файлов Dockerfile для контейнеров Windows.
+title: "Dockerfile и контейнеры Windows"
+description: "Создание файлов Dockerfile для контейнеров Windows."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,9 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
+ms.sourcegitcommit: 960b40e8c1eda9c19ebff0972df2c87e70c7e8f6
+ms.openlocfilehash: 71e0fb430498f8a5ae4ac5b297cf5e4a2c904098
+
 ---
 
 # Dockerfile в Windows
@@ -61,7 +64,7 @@ CMD [ "cmd" ]
 
 ## Инструкции
 
-Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile см. в [справочнике по файлам Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
+Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile см. в [Справочник по файлам Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
 
 ### FROM
 
@@ -327,6 +330,40 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 Подробные сведения об инструкции `CMD` см. в [справочнике по CMD на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#cmd). 
 
+## Escape-символ
+
+Во многих случаях инструкция Dockerfile должна занимать несколько строк. Этого можно добиться с помощью escape-символа. Escape-символ Dockerfile по умолчанию — обратная косая черта (`\`). Так как обратная косая черта также является разделителем путей файлов в Windows, это может вызвать проблемы. Чтобы изменить escape-символ по умолчанию, можно использовать директиву Parser. Дополнительные сведения о директивах Parser см. в разделе [Директивы Parser на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#parser-directives).
+
+В следующем примере показана инструкция RUN, которая занимает несколько строк и использует escape-символ по умолчанию.
+
+```none
+FROM windowsservercore
+
+RUN powershell.exe -Command \
+    $ErrorActionPreference = 'Stop'; \
+    wget https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe -OutFile c:\python-3.5.1.exe ; \
+    Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; \
+    Remove-Item c:\python-3.5.1.exe -Force
+```
+
+Чтобы изменить escape-символ, поместите директиву Parser для escape-символа на первую строку Dockerfile. Это показано в следующем примере.
+
+> Обратите внимание, что в качестве escape-символов можно использовать только два значения: `\` и `` ` ``.
+
+```none
+# escape=`
+
+FROM windowsservercore
+
+RUN powershell.exe -Command `
+    $ErrorActionPreference = 'Stop'; `
+    wget https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe -OutFile c:\python-3.5.1.exe ; `
+    Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait ; `
+    Remove-Item c:\python-3.5.1.exe -Force
+```
+
+Дополнительные сведения о директиве Parser для escape-символа см. в разделе [Директива Parser для escape-символов на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#escape).
+
 ## PowerShell в Dockerfile
 
 ### Команды PowerShell
@@ -442,6 +479,7 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 [Справочник по файлам Dockerfile на сайте Docker.com](https://docs.docker.com/engine/reference/builder/)
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 
