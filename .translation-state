@@ -1,6 +1,6 @@
 {
   "LastProcessedCommit": "7113f1dc1e9a0a18d4eb25e6d604e89f96f826c4",
-  "LastTranslatedCommit": "b82d9a70a52e363519310c1aadac71728fd8ed12",
+  "LastTranslatedCommit": "b598176a907aa065397ce3ca9ae712c42c099678",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
       "FileHash": "5090f6d60b5cbdce0990242d795d9e4e3736e791",
@@ -20898,14 +20898,14 @@
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
-      "TargetFileCommit": null,
-      "TargetFilePath": null,
-      "HandbackFilePath": null,
-      "HandbackFileCommit": null,
-      "HandbackDateTime": "0001-01-01T00:00:00",
+      "TargetFileCommit": "b598176a907aa065397ce3ca9ae712c42c099678",
+      "TargetFilePath": "virtualization\\hyperv_on_windows\\user_guide\\nesting.md",
+      "HandbackFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf",
+      "HandbackFileCommit": "794d3278e2ecb7d3fcd8cfe65ade585d570b0945",
+      "HandbackDateTime": "2016-06-27T13:06:39.067581Z",
       "HandbackException": null,
       "HandbackFailureTimes": 0,
-      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "UpdatedDateTime": "2016-06-27T13:06:39.067581Z",
       "ArchiveFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\archive\\nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf",
       "ArchiveFileCommit": "fcda2556ed0b848e60be6fda747b41d749c87cf1",
       "ArchiveFileDateTime": "2016-06-23T19:29:38.2221601Z",

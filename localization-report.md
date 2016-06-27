@@ -3037,9 +3037,9 @@
 * Archive Datetime: 0001-01-01 00:00:00
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/1d33c4e7ca70777dc1a68d7e565892af9f83439e/virtualization/hyperv_on_windows/user_guide/nesting.md)
-* Current Handback File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/f79ae30b10c27e1470bf1cd5127e3c78e1ecbe11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
-* Current Handback Datetime: 2016-06-15 13:44:44
+* Current Target File: [virtualization\hyperv_on_windows\user_guide\nesting.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/b598176a907aa065397ce3ca9ae712c42c099678/virtualization/hyperv_on_windows/user_guide/nesting.md)
+* Current Handback File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/794d3278e2ecb7d3fcd8cfe65ade585d570b0945/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
+* Current Handback Datetime: 2016-06-27 13:06:39
 * Bilingual File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/f79ae30b10c27e1470bf1cd5127e3c78e1ecbe11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
 * Bilingual Datetime: 2016-06-16 07:50:45
 * [Back to Top](#report-top)
