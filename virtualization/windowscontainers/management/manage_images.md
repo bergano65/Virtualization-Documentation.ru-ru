@@ -1,6 +1,6 @@
 ---
-title: Образы контейнеров Windows
-description: Создание образов контейнеров и управление ими с помощью контейнеров Windows.
+title: "Образы контейнеров Windows"
+description: "Создание образов контейнеров и управление ими с помощью контейнеров Windows."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,9 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: d8163185-9860-4ee4-9e96-17b40fb508bc
+ms.sourcegitcommit: 3db43b433e7b1a9484d530cf209ea80ef269a307
+ms.openlocfilehash: 505cc64fa19fb9fc8c2d5c109830f460f09332dd
+
 ---
 
 # Образы контейнеров Windows
@@ -197,7 +200,6 @@ IMAGE               CREATED             CREATED BY          SIZE                
 
 Большинство этих образов имеют версию Windows Server Core и Nano Server. Чтобы получить конкретную версию, просто добавьте тег ":windowsservercore" или ":nanoserver". Тег "latest" по умолчанию возвращает версию Windows Server Core, кроме случаев, когда доступна только версия Nano Server.
 
-> Образы, которые начинаются с "nano-", зависят от базового образа ОС Nano Server.
 
 ```none
 docker search *
@@ -219,7 +221,9 @@ microsoft/sample-ruby    Ruby installed in a Windows Server Core ba...   1      
 microsoft/sample-sqlite  SQLite installed in a Windows Server Core ...   1                    [OK]
 ```
 
-Чтобы скачать образ из Docker Hub, используйте команду `docker pull`.
+### Операция запроса в Docker
+
+Чтобы скачать образ из Docker Hub, используйте команду `docker pull`. Дополнительные сведения см. в статье [Docker Pull](https://docs.docker.com/engine/reference/commandline/pull/) (Операция запроса в Docker) на сайте Docker.com.
 
 ```none
 docker pull microsoft/aspnet
@@ -242,8 +246,50 @@ windowsservercore   10.0.14300.1000     6801d964fda5        2 weeks ago         
 windowsservercore   latest              6801d964fda5        2 weeks ago         0 B
 ```
 
+> При сбое операции запроса в Docker убедитесь, что к узлу контейнера были применены последние накопительные пакеты обновления. Обновление TP5 можно найти в [статье базы знаний 3157663]( https://support.microsoft.com/en-us/kb/3157663).
+
+### Операция отправки в Docker
+
+Образы контейнеров можно также отправить в Центр Docker или в доверенный реестр Docker. После отправки эти образы можно скачать и многократно использовать в разных средах контейнеров Windows.
+
+Чтобы отправить образ контейнера в Центр Docker, сначала войдите в реестр. Дополнительные сведения см. в статье [Docker Login]( https://docs.docker.com/engine/reference/commandline/login/) (Вход в Docker) на сайте Docker.com.
+
+```none
+docker login
+
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: username
+Password:
+
+Login Succeeded
+```
+
+После входа в Центр Docker или свой доверенный реестр Docker используйте команду `docker push` для отправки образа контейнера. На образ контейнера можно сослаться по имени или идентификатору. Дополнительные сведения см. в статье [Docker Push]( https://docs.docker.com/engine/reference/commandline/push/) (Операция отправки в Docker) на сайте Docker.com.
+
+```none
+docker push username/containername
+
+The push refers to a repository [docker.io/username/containername]
+b567cea5d325: Pushed
+00f57025c723: Pushed
+2e05e94480e9: Pushed
+63f3aa135163: Pushed
+469f4bf35316: Pushed
+2946c9dcfc7d: Pushed
+7bfd967a5e43: Pushed
+f64ea92aaebc: Pushed
+4341be770beb: Pushed
+fed398573696: Pushed
+latest: digest: sha256:ae3a2971628c04d5df32c3bbbfc87c477bb814d5e73e2787900da13228676c4f size: 2410
+```
+
+После этого образ контейнера станет доступен через команду `docker pull`.
 
 
-<!--HONumber=May16_HO4-->
+
+
+
+
+<!--HONumber=Jun16_HO3-->
 
 
