@@ -1,6 +1,6 @@
 ---
-title: Контейнеры Windows — проблемы и их решение
-description: Контейнеры Windows — проблемы и их решение
+title: "Контейнеры Windows — проблемы и их решение"
+description: "Контейнеры Windows — проблемы и их решение"
 keywords: docker, containers
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5d9f1cb4-ffb3-433d-8096-b085113a9d7b
+redirect_url: ../containers_welcome
+ms.sourcegitcommit: e3f5535594123f6b4f8931e41a91d92f3b837814
+ms.openlocfilehash: 085bb8c0158aedf4270cf2423114ec1901af1ebd
+
 ---
 
 # Проблемы и их решение
@@ -239,6 +243,7 @@ net use S: \\your\sources\here /User:shareuser [yourpassword]
 Мы активно ищем решения для поддержки таких типов сценариев.
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Часто задаваемые вопросы о контейнерах Windows
-description: Часто задаваемые вопросы о контейнерах Windows
+title: "Часто задаваемые вопросы о контейнерах Windows"
+description: "Часто задаваемые вопросы о контейнерах Windows"
 keywords: docker, containers
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: c3a7decaf087741c82419a8a541867ae01f0f4da
+
 ---
 
 # Часто задаваемые вопросы
@@ -79,6 +83,7 @@ Docker — это одновременно компания и группа пр
 Дополнительные сведения см. в записи блога [Новые контейнеры Windows Server и поддержка Docker в Azure](http://azure.microsoft.com/blog/2014/10/15/new-windows-server-containers-and-azure-support-for-docker/?WT.mc_id=Blog_ServerCloud_Announce_TTD).
 
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 

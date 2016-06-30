@@ -1,6 +1,6 @@
 ---
-title: Экосистема контейнеров
-description: Развитие экосистемы контейнеров.
+title: "Экосистема контейнеров"
+description: "Развитие экосистемы контейнеров."
 keywords: metadata, containers
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: about-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 29fbe13a-228a-4eaa-9d4d-90ae60da5965
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: 1aad093c2c4e1c64200fcc1c10cbdee6c93b80c5
+
 ---
 
 # Развитие экосистемы контейнеров
@@ -43,6 +47,7 @@ Docker обеспечивает отличную основу для разра�
 В ближайшие месяцы мы предоставим дополнительные сведения о партнерах в этой развивающейся экосистеме.
 
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 
