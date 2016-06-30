@@ -1,6 +1,6 @@
 ---
-title: Совместимость приложений в контейнерах Windows
-description: Совместимость приложений в контейнерах Windows.
+title: "Совместимость приложений в контейнерах Windows"
+description: "Совместимость приложений в контейнерах Windows."
 keywords: docker, containers
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3e524458-bd03-400e-913f-210335add8dc
+translationtype: Human Translation
+ms.sourcegitcommit: cfa3c14e932f8b86edf6667200ac028ea0a16b67
+ms.openlocfilehash: 2830dc81317311dd54dfcca45251b668f3d2cc29
+
 ---
 
 # Совместимость приложений в контейнерах Windows
@@ -85,6 +89,7 @@ ms.assetid: 3e524458-bd03-400e-913f-210335add8dc
 Чего-нибудь не хватает в этом списке?  Сообщайте нам о том, что успешно выполняется в вашей среде, а что нет, с помощью [форумов](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers).
 
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 
