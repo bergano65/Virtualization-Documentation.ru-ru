@@ -19,7 +19,7 @@
 * Archive File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3443666074a1b9897e3c6ba2e08c1eda466ae46e/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/archive/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf)
 * Archive Datetime: 2016-06-30 07:23:26
 * Handback File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b379283028916aff5718df454943b38100963854/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf)
-* Handback Datetime: 2016-06-30 12:40:39
+* Handback Datetime: 2016-06-30 13:09:38
 * Handback Error: [handback_transform_failed](#8deff9eeb66ebef03d6b96aa358cd9c1d4ebea4a272handback_transform_failed)
 * Bilingual File: [manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b379283028916aff5718df454943b38100963854/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_docker.d8787c7831358fa02dcde847d887fa29a1767ee5.ru-ru.xlf)
 * Bilingual Datetime: 2016-06-18 23:17:47
@@ -34,7 +34,7 @@
 * Archive File: [manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3443666074a1b9897e3c6ba2e08c1eda466ae46e/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/archive/manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.ru-ru.xlf)
 * Archive Datetime: 2016-06-30 07:23:26
 * Handback File: [manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b379283028916aff5718df454943b38100963854/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.ru-ru.xlf)
-* Handback Datetime: 2016-06-30 12:40:39
+* Handback Datetime: 2016-06-30 13:09:38
 * Handback Error: [handback_transform_failed](#3b788e7e393323d8f010b5c1a75a5cc20524c162273handback_transform_failed)
 * Bilingual File: [manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/b379283028916aff5718df454943b38100963854/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_docker_hyperv.ffb52dad11f941fa77d304027e357641bbe21dd9.ru-ru.xlf)
 * Bilingual Datetime: 2016-06-18 23:17:47
