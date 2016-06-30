@@ -1,6 +1,6 @@
 ---
-title: Тома данных контейнера
-description: Создание томов данных и управление ими с помощью контейнеров Windows.
+title: "Тома данных контейнера"
+description: "Создание томов данных и управление ими с помощью контейнеров Windows."
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
+translationtype: Human Translation
+ms.sourcegitcommit: 111a4ca9f5d693cd1159f7597110409d670f0f5c
+ms.openlocfilehash: b8eca51e347f17e787095b7e4349337cc3ae69a7
+
 ---
 
 # Тома данных контейнера
@@ -106,6 +110,7 @@ docker inspect backstabbing_kowalevski
 
 
 
-<!--HONumber=May16_HO4-->
+
+<!--HONumber=Jun16_HO4-->
 
 

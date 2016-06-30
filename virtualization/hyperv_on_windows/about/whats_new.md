@@ -1,5 +1,9 @@
 ---
 redirect_url: ../windows_welcome
+translationtype: Human Translation
+ms.sourcegitcommit: 3491d21a31a92f0a97de572afafc29ae8e661c12
+ms.openlocfilehash: 54b496f535b94f0b9aa83cce3ae5504830faee65
+
 ---
 
 ## Горячее добавление и удаление сетевых адаптеров и памяти
@@ -84,6 +88,7 @@ Update-VmConfigurationVersion <VMObject>
 
 > **Внимание!** VMCX — это двоичный формат файлов. Непосредственное редактирование файлов VMCX и VMRS не поддерживается.
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO4-->
 
 

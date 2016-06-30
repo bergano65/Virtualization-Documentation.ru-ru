@@ -1,6 +1,6 @@
 ---
-title: Сетевые подключения контейнеров Windows
-description: Настройка сетевого взаимодействия для контейнеров Windows.
+title: "Сетевые подключения контейнеров Windows"
+description: "Настройка сетевого взаимодействия для контейнеров Windows."
 keywords: docker, containers
 author: jmesser81
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
+translationtype: Human Translation
+ms.sourcegitcommit: cd344ef02f03149129171b99bfdd92338ffdf24f
+ms.openlocfilehash: 161aaeed6c625d92b45be59dde4357836934956b
+
 ---
 
 # Сетевые подключения контейнеров
@@ -333,6 +337,7 @@ bbf72109b1fc        windowsservercore   "cmd"               6 seconds ago       
  * --internal
  * --ip-range
 
-<!--HONumber=Jun16_HO1-->
+
+<!--HONumber=Jun16_HO4-->
 
 

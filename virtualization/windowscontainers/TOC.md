@@ -1,6 +1,5 @@
 # О контейнерах Windows
 ## [Общие сведения о контейнерах Windows](about/about_overview.md)
-## [Ведется работа](about/work_in_progress.md)
 ## [Часто задаваемые вопросы](about/faq.md)
 
 # Контейнеры: краткие руководства
@@ -42,6 +41,6 @@
 
 
 
-<!--HONumber=Jun16_HO2-->
+<!--HONumber=Jun16_HO4-->
 
 

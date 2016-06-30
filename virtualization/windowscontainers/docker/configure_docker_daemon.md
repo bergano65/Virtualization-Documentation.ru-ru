@@ -1,6 +1,6 @@
 ---
-title: Настройка Docker в Windows
-description: Настройка Docker в Windows
+title: "Настройка Docker в Windows"
+description: "Настройка Docker в Windows"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,7 +9,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
+ms.sourcegitcommit: 7113f1dc1e9a0a18d4eb25e6d604e89f96f826c4
+ms.openlocfilehash: 1fddaff6fc260c0cf91c8626a60d768a06995e53
+
 ---
+
+# Управляющая программа Docker в Windows
 
 Подсистема Docker не входит в состав Windows, потому ее нужно установить и настроить отдельно. Кроме того, управляющая программа Docker может принимать множество пользовательских конфигураций. Например, можно настроить то, как управляющая программа принимает входящие запросы, сетевые параметры по умолчанию и параметры ведения журнала и отладки. В ОС Windows эти конфигурации можно указать в файле конфигурации или с помощью диспетчера служб Windows. В этом документе описано, как установить и настроить управляющую программу Docker; также представлены примеры некоторых часто используемых конфигураций.
 
@@ -29,7 +34,7 @@ New-Item -Type Directory -Path 'C:\Program Files\docker\'
 Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
 ```
 
-Скачайте клиент Docker.
+Загрузите клиент Docker.
 
 ```none
 Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
@@ -151,6 +156,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 ```
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO4-->
 
 

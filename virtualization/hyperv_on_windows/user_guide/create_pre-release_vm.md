@@ -1,6 +1,6 @@
 ---
-title: Оценка функций предварительной версии Hyper-V
-description: Оценка функций предварительной версии Hyper-V
+title: "Оценка функций предварительной версии Hyper-V"
+description: "Оценка функций предварительной версии Hyper-V"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
+translationtype: Human Translation
+ms.sourcegitcommit: 7d97a2177a14f455ed5b54b0773e3003969303e2
+ms.openlocfilehash: 7dee9e53f0e95b0c3b0ec0afc5b9d510c1962dbc
+
 ---
 
 # Оценка функций предварительной версии Hyper-V
@@ -48,6 +52,7 @@ New-VM -Name <VM Name> -Prerelease
 - [Поддерживаемые версии конфигурации виртуальной машины](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions) — вы можете узнать, как проверить версию конфигурации виртуальной машины и какие версии поддерживаются корпорацией Майкрософт.
 
 
-<!--HONumber=May16_HO5-->
+
+<!--HONumber=Jun16_HO4-->
 
 

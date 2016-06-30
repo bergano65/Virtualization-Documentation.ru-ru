@@ -1,6 +1,6 @@
 ---
-title: Использование контрольных точек
-description: Использование контрольных точек
+title: "Использование контрольных точек"
+description: "Использование контрольных точек"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
+translationtype: Human Translation
+ms.sourcegitcommit: 4cdf81cace246c5de041d378391dca9b9d318dd5
+ms.openlocfilehash: bd0ee06f4e5eab4f33bb7e7c6dd71119dddde5c9
+
 ---
 
 # Восстановление предыдущего состояния виртуальных машин с помощью контрольных точек
@@ -245,6 +249,7 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 2. Обратите внимание, что текстовый файл восстановлен, но, в отличие от стандартной контрольной точки, Блокнот закрыт.   
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO4-->
 
 
