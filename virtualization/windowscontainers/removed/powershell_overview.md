@@ -1,6 +1,10 @@
+---
+author: scooley
+translationtype: Human Translation
+ms.sourcegitcommit: af065ec180f1b5de9e40ef269e7278a16b0c3b7f
+ms.openlocfilehash: 5463412d44bd7c657401c55558bb817df4cc1eb2
 
-
-
+---
 
 # PowerShell для контейнеров
 
@@ -9,11 +13,11 @@
 **ИМЯ**      
 Install-ContainerOSImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Устанавливает WIM-файл как образ ОС контейнера для использования с контейнерами Windows Server или Hyper-V.
 
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell  
 Install-ContainerOSImage [-WimPath] <String> [-Force] [< CommonParameters >]
 ```
@@ -21,7 +25,7 @@ Install-ContainerOSImage [-WimPath] <String> [-Force] [< CommonParameters >]
 **ОПИСАНИЕ**  
 Устанавливает основной образ из WIM-файла в общее центральное хранилище образов для контейнеров Windows Server и Hyper-V.
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**
 ``` PowerShell
     -WimPath <String>
         A path to the WIM file that will be installed.
@@ -67,17 +71,17 @@ PS C:\>Install-ContainerOSImage c:\baseimage.wim
 **ИМЯ**  
 Uninstall-ContainerOSImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Удаляет ранее установленный образ ОС контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**   
 ```PowerShell
 Uninstall-ContainerOSImage [-ImageName] <string> [-Force]  [< CommonParameters >]
 
 Uninstall-ContainerOSImage [-ContainerImage] <Object> [-Force]  [< CommonParameters >]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -ContainerImage <Object>
 
@@ -123,15 +127,15 @@ System.Object
 **ПСЕВДОНИМЫ**  
 Нет
 
-## Add-ContainerNetworkAdapter
+## Add-ContainerNetworkAdapter ##
 
 **ИМЯ**  
 Add-ContainerNetworkAdapter
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Добавляет новый сетевой адаптер в существующий контейнер.
 
-**СИНТАКСИС**
+**SYNTAX** 
 ``` PowerShell  
 Add-ContainerNetworkAdapter [-ContainerName] <string[]> [-CimSession <CimSession[]>] [-ComputerName <string[]>]
     [-Credential <pscredential[]>] [-SwitchName <string>] [-Name <string>] [-DynamicMacAddress] [-StaticMacAddress
@@ -141,7 +145,7 @@ Add-ContainerNetworkAdapter [-ContainerName] <string[]> [-CimSession <CimSession
     [-DynamicMacAddress] [-StaticMacAddress <string>] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -276,10 +280,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter
 **ИМЯ**  
 Connect-ContainerNetworkAdapter
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Подключает сетевой адаптер контейнера к виртуальному коммутатору.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Connect-ContainerNetworkAdapter [-ContainerName] <string[]> [[-Name] <string[]>] [-SwitchName] <string>
     [-Passthru] [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential <pscredential[]>] [-WhatIf]
@@ -289,7 +293,7 @@ Connect-ContainerNetworkAdapter
     [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -404,10 +408,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter
 **ИМЯ**  
 Disconnect-ContainerNetworkAdapter
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Отключает сетевой адаптер контейнера от виртуального коммутатора.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Disconnect-ContainerNetworkAdapter [-ContainerName] <string[]> [[-Name] <string[]>] [-CimSession <CimSession[]>]
     [-ComputerName <string[]>] [-Credential <pscredential[]>] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
@@ -416,7 +420,7 @@ Disconnect-ContainerNetworkAdapter
     [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -522,10 +526,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter
 **ИМЯ**  
 Export-ContainerImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Копирует образ контейнера из локального хранилища.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Export-ContainerImage [[-Name] <string>] [-Path] <string> [[-Version] <version>] [-CimSession <CimSession[]>]
     [-ComputerName <string[]>] [-Credential <pscredential[]>] [-AsJob] [-Passthru] [-WhatIf] [-Confirm]
@@ -535,7 +539,7 @@ Export-ContainerImage
     [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**
 ``` PowerShell
     -AsJob
 
@@ -668,10 +672,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerImage
 **ИМЯ**  
 Get-Container
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Перечисляет контейнеры в текущей системе.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Get-Container [[-Name] <string[]>] [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential
     <pscredential[]>]  [<CommonParameters>]
@@ -680,7 +684,7 @@ Get-Container
     <pscredential[]>]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -751,17 +755,17 @@ Microsoft.Containers.PowerShell.Objects.Container
 **ИМЯ**  
 Get-ContainerHost
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Возвращает объект узла контейнера
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Get-ContainerHost [[-ComputerName] <string[]>] [[-Credential] <pscredential[]>]  [<CommonParameters>]
 
     Get-ContainerHost [-CimSession] <CimSession[]>  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -815,16 +819,16 @@ Microsoft.Containers.PowerShell.Objects.ContainerHost
 **ИМЯ**  
 Get-ContainerImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Отображает список образов контейнеров на узле контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
 Get-ContainerImage [[-Name] <string>] [[-Publisher] <string>] [[-Version] <version>] [-ChildOf <ContainerImage>]
 [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential <pscredential[]>]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -ChildOf <ContainerImage>
 
@@ -912,10 +916,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerImage
 **ИМЯ**  
 Get-ContainerNetworkAdapter
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Отображает список сетевых адаптеров, связанных с контейнером.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Get-ContainerNetworkAdapter [-ContainerName] <string[]> [[-Name] <string>] [-CimSession <CimSession[]>]
     [-ComputerName <string[]>] [-Credential <pscredential[]>]  [<CommonParameters>]
@@ -923,7 +927,7 @@ Get-ContainerNetworkAdapter
     Get-ContainerNetworkAdapter [-Container] <Container[]> [[-Name] <string>]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -988,31 +992,31 @@ Get-ContainerNetworkAdapter
 
 **ВХОДНЫЕ ДАННЫЕ**  
 Microsoft.Containers.PowerShell.Objects.Container\[\]  
-System.String\[\]
+System.String\[\]  
 
 
 **ВЫХОДНЫЕ ДАННЫЕ**  
-Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter
+Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter  
 
 
 **ПСЕВДОНИМЫ**  
-Нет
+Нет  
 
 ## Import-ContainerImage
 
 **ИМЯ**  
 Import-ContainerImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Импортирует образ контейнера, экспортированный с другого компьютера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Import-ContainerImage [-Path] <string> [-AsJob] [-CimSession <CimSession[]>] [-ComputerName <string[]>]
     [-Credential <pscredential[]>] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -1100,16 +1104,16 @@ Microsoft.Containers.PowerShell.Objects.ContainerImage
 **ИМЯ**  
 Move-ContainerImageRepository
 
-**КРАТКИЕ СВЕДЕНИЯ**  
-Изменяет место, где хранятся образы контейнеров. Это должно быть место на локальном диске. Его можно изменить только при отсутствии образов в системе.
+**КРАТКИЙ ОБЗОР**  
+Изменяет место, где хранятся образы контейнеров.  Это должно быть место на локальном диске.  Его можно изменить только при отсутствии образов в системе.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Move-ContainerImageRepository [-Path] <string> [-AsJob] [-Passthru] [-CimSession <CimSession[]>] [-ComputerName
     <string[]>] [-Credential <pscredential[]>] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -1198,18 +1202,17 @@ Move-ContainerImageRepository
 Microsoft.HyperV.PowerShell.VMHost
 
 
-**ПСЕВДОНИМЫ**
-Нет
+**ПСЕВДОНИМЫ** — нет
 
 ## New-Container
 
 **ИМЯ**  
 New-Container
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Создает контейнер.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     New-Container [[-Name] <string>] -ContainerImageName <string> [-ContainerImagePublisher <string>]
     [-ContainerImageVersion <version>] [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential
@@ -1220,7 +1223,7 @@ New-Container
     <string>] [-Path <string>] [-AsJob] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -1371,10 +1374,10 @@ Microsoft.Containers.PowerShell.Objects.Container
 **ИМЯ**  
 New-ContainerImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Создает образ контейнера на основе существующего контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     New-ContainerImage [-ContainerName] <string> [-Name] <string> [-Publisher] <string> [-Version] <version>
     [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential <pscredential[]>] [-WhatIf] [-Confirm]
@@ -1388,7 +1391,7 @@ New-ContainerImage
     [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -1512,10 +1515,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerImage
 **ИМЯ**  
 Remove-Container
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Удаляет существующий контейнер из системы.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Remove-Container [-Name] <string[]> [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential
     <pscredential[]>] [-Force] [-AsJob] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
@@ -1524,7 +1527,7 @@ Remove-Container
     [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -1640,10 +1643,10 @@ Microsoft.Containers.PowerShell.Objects.Container
 **ИМЯ**  
 Remove-ContainerImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Удаляет образ контейнера из узла контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Remove-ContainerImage [[-Name] <string>] [[-Publisher] <string>] [[-Version] <version>] [-CimSession
     <CimSession[]>] [-ComputerName <string[]>] [-Credential <pscredential[]>] [-Force] [-WhatIf] [-Confirm]
@@ -1652,7 +1655,7 @@ Remove-ContainerImage
     Remove-ContainerImage [-Image] <ContainerImage> [-Force] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -1766,10 +1769,10 @@ System.Object
 **ИМЯ**  
 Remove-ContainerNetworkAdapter
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Удаляет сетевой адаптер из контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Remove-ContainerNetworkAdapter [-ContainerName] <string[]> [-CimSession <CimSession[]>] [-ComputerName <string[]>]
     [-Credential <pscredential[]>] [-Name <string>] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
@@ -1781,7 +1784,7 @@ Remove-ContainerNetworkAdapter
     [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -1898,10 +1901,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter
 **ИМЯ**  
 Set-ContainerNetworkAdapter
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Задает MAC-адрес сетевого адаптера в контейнере.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Set-ContainerNetworkAdapter [-ContainerName] <string> [-CimSession <CimSession[]>] [-ComputerName <string[]>]
     [-Credential <pscredential[]>] [-Name <string>] [-DynamicMacAddress] [-StaticMacAddress <string>] [-Passthru]
@@ -1914,7 +1917,7 @@ Set-ContainerNetworkAdapter
     <string>] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -CimSession <CimSession[]>
 
@@ -2049,10 +2052,10 @@ Microsoft.Containers.PowerShell.Objects.ContainerNetworkAdapter
 **ИМЯ**  
 Start-Container
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Запускает контейнер.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Start-Container [-Name] <string[]> [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential
     <pscredential[]>] [-AsJob] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
@@ -2060,7 +2063,7 @@ Start-Container
     Start-Container [-Container] <Container[]> [-AsJob] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -2167,10 +2170,10 @@ Microsoft.Containers.PowerShell.Objects.Container
 **ИМЯ**  
 Stop-Container
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Прекращает работу контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Stop-Container [-Name] <string[]> [-CimSession <CimSession[]>] [-ComputerName <string[]>] [-Credential
     <pscredential[]>] [-TurnOff] [-AsJob] [-Passthru] [-WhatIf] [-Confirm]  [<CommonParameters>]
@@ -2179,7 +2182,7 @@ Stop-Container
     [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -2295,10 +2298,10 @@ Microsoft.Containers.PowerShell.Objects.Container
 **ИМЯ**  
 Test-ContainerImage
 
-**КРАТКИЕ СВЕДЕНИЯ**  
+**КРАТКИЙ ОБЗОР**  
 Проверяет образ контейнера в системе узла контейнера.
 
-**СИНТАКСИС**
+**SYNTAX**  
 ``` PowerShell
     Test-ContainerImage [[-Name] <string>] [[-Publisher] <string>] [[-Version] <version>] [-CimSession <CimSession[]>]
     [-ComputerName <string[]>] [-Credential <pscredential[]>] [-AsJob] [-WhatIf] [-Confirm]  [<CommonParameters>]
@@ -2306,7 +2309,7 @@ Test-ContainerImage
     Test-ContainerImage [-Image] <ContainerImage> [-AsJob] [-WhatIf] [-Confirm]  [<CommonParameters>]
 ```
 
-**ПАРАМЕТРЫ**
+**PARAMETERS**  
 ``` PowerShell
     -AsJob
 
@@ -2417,9 +2420,6 @@ Microsoft.Containers.PowerShell.Objects.ContainerImageReport
 Нет
 
 
-
-
-
-<!--HONumber=Feb16_HO3-->
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Контейнеры Windows в Windows Server
-description: Краткое руководство по развертыванию контейнеров
+title: "Контейнеры Windows в Windows Server"
+description: "Краткое руководство по развертыванию контейнеров"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
+translationtype: Human Translation
+ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
+ms.openlocfilehash: 40b55028820472aadc5d70d338de417616c653d3
+
 ---
 
 # Контейнеры Windows в Windows Server
@@ -21,7 +25,13 @@ ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 
 **Предварительные требования:**
 
-- Одна компьютерная система (физическая или виртуальная), работающая под управлением [Windows Server 2016 Technical Preview 5](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview).
+Одна компьютерная система (физическая или виртуальная), работающая под управлением [Windows Server 2016 Technical Preview 5](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-technical-preview).
+
+Полностью настроенный образ Windows Server доступен в Azure. Чтобы использовать этот образ, разверните виртуальную машину, нажав кнопку ниже. Развертывание займет около 10 минут. После его завершения войдите в виртуальную машину Azure и перейдите к шагу четыре этого руководства. 
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 ## 1. Установка компонента контейнеров
 
@@ -50,13 +60,13 @@ New-Item -Type Directory -Path 'C:\Program Files\docker\'
 Скачайте управляющую программу Docker.
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe
+Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile $env:ProgramFiles\docker\dockerd.exe -UseBasicParsing
 ```
 
 Загрузите клиент Docker.
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe
+Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile $env:ProgramFiles\docker\docker.exe -UseBasicParsing
 ```
 
 Добавьте каталог Docker в системный путь. По завершении перезапустите сеанс PowerShell, чтобы был распознан измененный путь.
@@ -179,7 +189,7 @@ CONTAINER ID    IMAGE                             COMMAND               CREATED 
 
 На другом компьютере откройте браузер и введите IP-адрес узла контейнера. Если все настроено правильно, отображается экран-заставка IIS. Он предоставляется из экземпляра IIS, размещенного в контейнере Windows.
 
-**Примечание.** Если вы работаете в Azure, потребуется правило группы безопасности сети, разрешающее передачу трафика через порт 80. Дополнительные сведения см. в разделе [Create Rule in a Network Security Group]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg) (Создание правила в группе безопасности сети).
+**Примечание.** Если вы работаете в Azure, потребуется внешний IP-адрес виртуальной машины и настроенная безопасность сети. Дополнительные сведения см. в разделе [Create Rule in a Network Security Group]( https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg) (Создание правила в группе безопасности сети).
 
 ![](media/iis1.png)
 
@@ -195,6 +205,7 @@ docker rm -f grave_jang
 [Контейнеры Windows в Windows 10](./quick_start_windows_10.md)
 
 
-<!--HONumber=Jun16_HO3-->
+
+<!--HONumber=Jun16_HO5-->
 
 

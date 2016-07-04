@@ -1,14 +1,18 @@
 ---
-title: &488045633 Требования к системе для Hyper-V в Windows 10
-description: Требования к системе для Hyper-V в Windows 10
+title: "Требования к системе для Hyper-V в Windows 10"
+description: "Требования к системе для Hyper-V в Windows 10"
 keywords: windows 10, hyper-v
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &74464446 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 6364ecd2df13f5abc96fc22da03c9bca65d353b2
+
 ---
 
 # Требования к системе для Hyper-V в Windows 10
@@ -23,18 +27,18 @@ Hyper-V в Windows 10 работает только с определенным
 - Windows 10 Профессиональная
 - Windows 10 для образовательных учреждений
 
-Роль Hyper-V <g id="2" ctype="x-strong">невозможно</g> установить в следующих версиях:
+Роль Hyper-V **невозможно** установить в следующих версиях:
 
 - Windows 10 Домашняя
 - Windows 10 Mobile
 - Windows 10 Mobile Корпоративная
 
->ОС Windows 10 Домашняя можно обновить до версии Windows 10 Профессиональная. Для этого перейдите в раздел <g id="2" ctype="x-strong">Параметры</g> > <g id="4" ctype="x-strong">Обновление и безопасность</g> > <g id="6" ctype="x-strong">Активация</g>. Здесь вы можете посетить Магазин Windows и приобрести обновление.
+>ОС Windows 10 Домашняя можно обновить до версии Windows 10 Профессиональная. Для этого перейдите в раздел **Параметры** > **Обновление и безопасность** > **Активация**. Здесь вы можете посетить Магазин Windows и приобрести обновление.
 
 ## Требования к оборудованию
 
 Хотя в этом документе не приводится полный список оборудования, совместимого с Hyper-V, укажем следующие обязательные требования:
-
+    
 - 64-разрядный процессор с поддержкой преобразования адресов второго уровня (SLAT).
 - Поддержка расширения режима мониторинга виртуальной машины (технология VT-c на компьютерах с процессорами Intel).
 - Не менее 4 ГБ оперативной памяти. Так как виртуальные машины и узел Hyper-V используют память совместно, необходимо обеспечить достаточный объем памяти для обработки предполагаемой рабочей нагрузки на виртуальной машине.
@@ -45,25 +49,21 @@ Hyper-V в Windows 10 работает только с определенным
 
 ## Проверка совместимости оборудования
 
-Чтобы проверить совместимость, откройте PowerShell или командную строку (cmd.exe) и введите <g id="2" ctype="x-strong">systeminfo.exe</g>. Если все указанные требования Hyper-V имеют значение <g id="2" ctype="x-strong">Yes</g>, ваша система поддерживает роль Hyper-V. Если хотя бы один элемент имеет значение <g id="2" ctype="x-strong">No</g>, проверьте указанные выше требования и внесите необходимые изменения.
+Чтобы проверить совместимость, откройте PowerShell или командную строку (cmd.exe) и введите **systeminfo.exe**. Если все указанные требования Hyper-V имеют значение **Да**, ваша система поддерживает роль Hyper-V. Если хотя бы один элемент имеет значение **Нет**, проверьте указанные выше требования и внесите необходимые изменения.
 
-<g id="1" ctype="x-linkText"></g>
+![](media/SystemInfo_upd.png)
 
-Если команда <g id="2" ctype="x-strong">systeminfo.exe</g> выполняется на существующем узле Hyper-V, в разделе Hyper-V Requirements отображается следующее сообщение:
+Если команда **systeminfo.exe** выполняется на существующем узле Hyper-V, в разделе "Требования Hyper-V" отображается следующее сообщение:
 
 ```
 Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V are not be displayed.
 ```
 
 ## Далее: установка Hyper-V
-
-<g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Установка Hyper-V</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-
+[Установка Hyper-V](walkthrough_install.md)
 
 
 
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

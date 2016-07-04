@@ -1,21 +1,25 @@
 ---
-title: &1198446115 Hyper-V в Windows 10
-description: Hyper-V в Windows 10
+title: "Hyper-V в Windows 10"
+description: "Hyper-V в Windows 10"
 keywords: windows 10, hyper-v
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &1226626815 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 4d5c2ad7515b8b536da30ad2dd3b4ffc2cee5832
+
 ---
 
-# Hyper-V в Windows 10
+# Hyper-V в Windows 10 
 
 Технология виртуализации Hyper-V включена во многие версии Windows 10. Hyper-V позволяет запускать виртуализированные компьютерные системы поверх физического узла. Эти виртуализированные системы можно использовать и контролировать как физические компьютерные системы, но они находятся в виртуализированной и изолированной среде. Специальное программное обеспечение, называемое низкоуровневой оболочкой, управляет доступом между виртуальными системами и физическими аппаратными ресурсами. Виртуализация обеспечивает быстрое развертывание компьютерных систем, быстрое восстановление системы до предыдущего рабочего состояния и возможность миграции систем между физическими узлами.
 
-В следующих документах подробно описывается функция Hyper-V в Windows 10, приводится краткое интерактивное руководство и содержатся ссылки на дополнительные ресурсы и форумы сообщества.
+В следующих документах подробно описывается функция Hyper-V в Windows 10, приводится краткое интерактивное руководство и содержатся ссылки на дополнительные ресурсы и форумы сообщества. 
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="15" cellspacing="3">
     <tr valign="top">
@@ -25,7 +29,7 @@ ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
             <p>Следующие статьи содержат введение в Hyper-V в ОС Windows и сведения об этой технологии.</p>
             <ul>
                 <li class="unordered">[Введение в Hyper-V](./about/hyperv_on_windows.md)<br /><br /></li>
-                <li class="unordered">[Поддерживаемые операционные системы на виртуальных машинах](about\supported_guest_os.md)<br /><br /></li>
+                <li class="unordered">[Поддерживаемые гостевые операционные системы](about\supported_guest_os.md)<br /><br /></li>
             </ul>   
         </td>
     </tr>
@@ -58,9 +62,6 @@ ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
 
 
 
-
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

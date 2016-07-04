@@ -1,21 +1,25 @@
 ---
-title: &1549818006 Установка Hyper-V в Windows 10
-description: Установка Hyper-V в Windows 10
+title: "Установка Hyper-V в Windows 10"
+description: "Установка Hyper-V в Windows 10"
 keywords: windows 10, hyper-v
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
-ms.prod: &231473650 windows-10-hyperv
+ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
+translationtype: Human Translation
+ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
+ms.openlocfilehash: 9e2b16f3e6c9882246a5a4c21683112eaa089ce8
+
 ---
 
 # Установка Hyper-V в Windows 10
 
 Чтобы создавать виртуальные машины в ОС Windows 10, необходимо включить роль Hyper-V. Это можно сделать с помощью панели управления Windows 10, PowerShell или средства обслуживания образов развертывания и управления ими (DISM). В этом документе последовательно описан каждый из указанных способов.
 
-> Перед включением Hyper-V убедитесь в совместимости вашей системы. Дополнительные сведения см. в статье [Требования к системе для Hyper-V в Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
+> Перед включением Hyper-V убедитесь в совместимости вашей системы. Дополнительные сведения см. в статье [Требования к системе для Hyper-V в Windows 10](https://msdn.microsoft.com/virtualization/hyperv_on_windows/quick_start/walkthrough_compatibility).
 
 ## Установка роли Hyper-V вручную
 
@@ -23,7 +27,7 @@ ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
 
 2. Выберите пункт **Включение или отключение компонентов Windows**.
 
-3. Выберите **Hyper-V** и нажмите кнопку **ОК**.
+3. Выберите **Hyper-V** и нажмите кнопку **ОК**.  
 
 ![](media/enable_role_upd.png)
 
@@ -59,14 +63,10 @@ DISM /Online /Enable-Feature /All /FeatureName:Microsoft-Hyper-V
 
 
 ## Следующий шаг — создание виртуального коммутатора
-
 [Создание виртуального коммутатора](walkthrough_virtual_switch.md)
 
 
 
-
-
-
-<!--HONumber=May16_HO1-->
+<!--HONumber=Jun16_HO4-->
 
 

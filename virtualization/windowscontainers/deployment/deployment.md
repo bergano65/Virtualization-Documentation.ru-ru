@@ -1,6 +1,6 @@
 ---
-title: Развертывание контейнеров Windows в Windows Server
-description: Развертывание контейнеров Windows в Windows Server
+title: "Развертывание контейнеров Windows в Windows Server"
+description: "Развертывание контейнеров Windows в Windows Server"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,6 +9,10 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
+translationtype: Human Translation
+ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
+ms.openlocfilehash: cbbff2bf4a68ee348bcc33979ef4469daf54a8a7
+
 ---
 
 # Развертывание узла контейнера — Windows Server
@@ -16,6 +20,14 @@ ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 **Это предварительное содержимое. Возможны изменения.**
 
 Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типа операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальная и физическая). Этот документ описывает развертывание узла контейнера Windows в Windows Server 2016 или Windows Server Core 2016 в физической или виртуальной системе.
+
+## Образ Azure 
+
+Полностью настроенный образ Windows Server доступен в Azure. Чтобы использовать этот образ, разверните виртуальную машину, нажав кнопку ниже. При развертывании системы контейнеров Windows в Azure с помощью этого шаблона оставшуюся часть документа можно пропустить.
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 ## Установка компонента контейнеров
 
@@ -132,6 +144,7 @@ Install-WindowsFeature hyper-v
 ```
 
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO5-->
 
 

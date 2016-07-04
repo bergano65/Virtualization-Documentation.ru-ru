@@ -1,64 +1,63 @@
 ---
 author: scooley
 redirect_url: ./manage_docker
+translationtype: Human Translation
+ms.sourcegitcommit: 745b0b26e15ec1179e8b55cd1b3d2ab3e3fe34d2
+ms.openlocfilehash: f01125a9e6f8a952ae6a82fb2d1df20bb5f6c900
+
 ---
 
 # Сравнение Docker и PowerShell как средств управления контейнерами Windows
 
 Управлять контейнерами Windows можно с помощью средств, поставляемых с Windows (в этой предварительной версии — PowerShell), и средств с открытым исходным кодом, например Docker.  
 Отдельные руководства по каждому из этих средств можно найти здесь:
-* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Управление контейнерами Windows с помощью Docker</g><g id="1CapsExtId3" ctype="x-title"></g></g>
-* <g id="1CapsExtId1" ctype="x-link"><g id="1CapsExtId2" ctype="x-linkText">Управление контейнерами Windows с помощью PowerShell</g><g id="1CapsExtId3" ctype="x-title"></g></g>
+* [Управление контейнерами Windows с помощью Docker](../quick_start/manage_docker.md)
+* [Управление контейнерами Windows с помощью PowerShell](../quick_start/manage_powershell.md) 
 
 В этой статье основное внимание уделяется сравнению средств управления Docker и PowerShell.
 
 ## PowerShell для контейнеров и виртуальные машины Hyper-V
-
 Создавать и запускать контейнеры Windows, а также взаимодействовать с ними можно с помощью командлетов PowerShell. Все, что вам нужно для работы, уже встроено в систему.
 
-Если вы использовали PowerShell для Hyper-V, то структура командлетов должна быть вам знакома. Рабочий процесс в целом аналогичен управлению виртуальной машиной с помощью модуля Hyper-V. Вместо командлетов <g id="2" ctype="x-code">New-VM</g>, <g id="4" ctype="x-code">Get-VM</g>, <g id="6" ctype="x-code">Start-VM</g> и <g id="8" ctype="x-code">Stop-VM</g> используются командлеты <g id="10" ctype="x-code">New-Container</g>, <g id="12" ctype="x-code">Get-Container</g>, <g id="14" ctype="x-code">Start-Container</g> и <g id="16" ctype="x-code">Stop-Container</g>. Существует довольно много командлетов и параметров для контейнеров, но управление контейнером Windows и виртуальной машиной Hyper-V, а также их общий жизненный цикл очень похожи.
+Если вы использовали PowerShell для Hyper-V, то структура командлетов должна быть вам знакома. Рабочий процесс в целом аналогичен управлению виртуальной машиной с помощью модуля Hyper-V. Вместо `New-VM`, `Get-VM`, `Start-VM` и `Stop-VM` у вас есть `New-Container`, `Get-Container`, `Start-Container` и `Stop-Container`.  Существует довольно много командлетов и параметров для контейнеров, но управление контейнером Windows и виртуальной машиной Hyper-V, а также их общий жизненный цикл очень похожи.
 
-## Сравнение средств управления PowerShell и Docker
-
+## Сравнение средств управления PowerShell и Docker 
 Командлеты PowerShell для контейнеров предоставляют API, который немного отличается от API Docker. Как правило, командлеты более специализированы. Некоторые команды Docker имеют довольно явные параллели с командлетами PowerShell:
 
-| Команда Docker| Командлет PowerShell|
+| Команда Docker |  Командлет PowerShell |
 |----|----|
-| <g id="1" ctype="x-code">docker ps -a</g>| <g id="1" ctype="x-code">Get-Container</g>|
-| <g id="1" ctype="x-code">docker images</g>| <g id="1" ctype="x-code">Get-ContainerImage</g>|
-| <g id="1" ctype="x-code">docker rm</g>| <g id="1" ctype="x-code">Remove-Container</g>|
-| <g id="1" ctype="x-code">docker rmi</g>| <g id="1" ctype="x-code">Remove-ContainerImage</g>|
-| <g id="1" ctype="x-code">docker create</g>| <g id="1" ctype="x-code">New-Container</g>|
-| <g id="1" ctype="x-code">docker commit <container ID></g>| <g id="1" ctype="x-code">New-ContainerImage -Container &lt;container&gt;</g>|
-| <g id="1" ctype="x-code">docker load &lt;tarball&gt;</g>| <g id="1" ctype="x-code">Import-ContainerImage <AppX package></g>|
-| <g id="1" ctype="x-code">docker save</g>| <g id="1" ctype="x-code">Export-ContainerImage</g>|
-| <g id="1" ctype="x-code">docker start</g>| <g id="1" ctype="x-code">Start-Container</g>|
-| <g id="1" ctype="x-code">docker stop</g>| <g id="1" ctype="x-code">Stop-Container</g>|
+| `docker ps -a`    | `Get-Container` |
+| `docker images`   | `Get-ContainerImage` |
+| `docker rm`   | `Remove-Container` |
+| `docker rmi` | `Remove-ContainerImage` |
+| `docker create`   | `New-Container` |
+| `docker commit <container ID>` | `New-ContainerImage -Container <container>` |
+| `docker load <tarball>` | `Import-ContainerImage <AppX package>` |
+| `docker save` |   `Export-ContainerImage` |
+| `docker start` |  `Start-Container` |
+| `docker stop` |   `Stop-Container` |
 
-Командлеты PowerShell не являются точными аналогами. Кроме того, у некоторых команд нет аналогов в PowerShell* (например, <g id="2" ctype="x-code">docker build</g> и <g id="4" ctype="x-code">docker cp</g>). Но сразу бросается в глаза то, что нет однострочного аналога для команды <g id="2" ctype="x-code">docker run</g>.
+Командлеты PowerShell не являются точными аналогами команд Docker. Кроме того, у некоторых команд Docker нет аналогов в PowerShell* (например, `docker build` и `docker cp`). Но сразу бросается в глаза то, что нет однострочного аналога для команды `docker run`.
 
 \* Может измениться.
 
-### Но что делать, если мне нужна команда docker run?
-
+### Но что делать, если мне нужна команда docker run?  
 Мы стремимся сделать модель взаимодействия чуть более привычной для пользователей, которые уже знакомы с работой в PowerShell. Конечно, если вы привыкли к работе в Docker, вам это покажется несколько нестандартным.
 
-1.  Жизненный цикл контейнера в модели PowerShell немного отличается. В модуле PowerShell для контейнеров мы предоставляем более специализированные командлеты <g id="2" ctype="x-code">New-Container</g> (создает остановленный контейнер) и <g id="4" ctype="x-code">Start-Container</g>.
-
+1.  Жизненный цикл контейнера в модели PowerShell немного отличается. В модуле "Контейнеры" PowerShell мы предоставляем более специализированные операции: `New-Container` (создает новый остановленный контейнер) и `Start-Container`.
+  
   Между созданием и запуском контейнера можно также настроить его параметры. Кроме того, в версии Technical Preview 3 мы планируем предоставить возможность установки сетевого подключения для контейнера с помощью командлетов (Add/Remove/Connect/Disconnect/Get/Set)-ContainerNetworkAdapter.
 
-2.  В настоящее время невозможно передать команду в контейнер при запуске. Однако можно начать интерактивный сеанс PowerShell с запущенным контейнером с помощью команды <g id="2" ctype="x-code">Enter-PSSession -ContainerId <идентификатор запущенного контейнера></g>, а затем выполнить в нем команду с помощью команды <g id="4" ctype="x-code">Invoke-Command -ContainerId <идентификатор контейнера> -ScriptBlock { код, запускаемый внутри контейнера }</g> или <g id="6" ctype="x-code">Invoke-Command -ContainerId <идентификатор контейнера> -FilePath <путь к сценарию></g>.  
-С обеими командами можно использовать необязательный флаг <g id="2" ctype="x-code">-RunAsAdministrator</g> для действий с повышенными правами.
+2.  В настоящее время невозможно передать команду в контейнер при запуске. Тем не менее вы все равно можете создать интерактивный сеанс PowerShell с запущенным контейнером с помощью `Enter-PSSession -ContainerId <ID of a running container>` и выполнить команду внутри контейнера с помощью `Invoke-Command -ContainerId <container id> -ScriptBlock { code to run inside the container }` или `Invoke-Command -ContainerId <container id> -FilePath <path to script>`.  
+С обеими командами можно использовать необязательный флаг `-RunAsAdministrator` для повышения привилегий.  
 
 
 ## Предупреждения и известные проблемы
-
 1.  В настоящее время командлеты для контейнеров не работают с контейнерами и образами, созданными с помощью Docker. Так же и команды Docker не взаимодействуют с контейнерами и образами, созданными с помощью PowerShell. Управлять контейнером следует с помощью того средства, в котором он был создан — или Docker, или PowerShell.
 
 2.  Мы запланировали много улучшений, чтобы сделать работу пользователей более удобной. Они коснутся сообщений об ошибках, отчетов о ходе выполнения, недопустимых строк событий и т. д. Если вы столкнулись с ситуацией, когда вам не хватает необходимой информации, оставьте свои предложения на форумах.
 
 ## Краткий обзор
-
 Рассмотрим некоторые из стандартных рабочих процессов.
 
 Предполагается, что вы установили образ контейнера ОС с именем ServerDatacenterCore и создали виртуальный коммутатор с именем Virtual Switch (с помощью командлета New-VMSwitch).
@@ -152,15 +151,14 @@ Start-Container -Container $container2
 ```
 
 ### Создание собственного образца
+Для просмотра всех командлетов модуля "Контейнеры" воспользуйтесь командой `Get-Command -Module Containers`.  Некоторые командлеты здесь не описаны. Узнать о них вы можете самостоятельно.    
+**Примечание**. Эта команда не возвращает командлеты `Enter-PSSession` и `Invoke-Command`, которые относятся к базовым командлетам PowerShell.
 
-Все командлеты для контейнеров можно просмотреть с помощью команды <g id="2" ctype="x-code">Get-Command -Module Containers</g>. Некоторые командлеты здесь не описаны. Узнать о них вы можете самостоятельно.    
-<g id="1" ctype="x-strong">Примечание.</g> Эта команда не возвращает командлеты <g id="3" ctype="x-code">Enter-PSSession</g> и <g id="5" ctype="x-code">Invoke-Command</g>, которые являются частью базы PowerShell.
-
-Кроме того, справку по командлету можно получить с помощью команды <g id="2" ctype="x-code">Get-Help [имя командлета]</g> или ее эквивалента <g id="4" ctype="x-code">[имя командлета] -?</g>. В настоящее время справка создается автоматически и просто содержит синтаксис команд. Мы будем добавлять дополнительную документацию по мере доработки структуры командлетов.
+Кроме того, вы можете получить справку по любому командлету с помощью команды `Get-Help [cmdlet name]` или эквивалентной команды `[cmdlet name] -?`.  В настоящее время справка создается автоматически и просто содержит синтаксис команд. Мы будем добавлять дополнительную документацию по мере доработки структуры командлетов.
 
 Нагляднее синтаксис представлен в интегрированной среде сценариев PowerShell, с которой вы, возможно, не сталкивались, если не использовали активно PowerShell. Если ваша система позволяет, запустите интегрированную среду сценариев, откройте панель команд и выберите модуль "Контейнеры", в нем вы найдете графическое представление командлетов и наборов их параметров.
 
-P.S. Чтобы доказать осуществимость такого сценария, приведем функцию PowerShell, которая состоит из некоторых командлетов, уже известных нам, и может заменить команду <g id="2" ctype="x-code">docker run</g>. (Уточним, что этот пример доказывает саму возможность замены, которая пока не находится в активной разработке.)
+P.S. Чтобы доказать осуществимость такого сценария, приведем функцию PowerShell, которая состоит из некоторых командлетов, уже известных нам, и может заменить команду `docker run`. (Уточним, что этот пример доказывает саму возможность замены, которая пока не находится в активной разработке.)
 
 ``` PowerShell
 function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name", [switch]$Remove, [switch]$Interactive, [scriptblock]$Command) {
@@ -183,18 +181,14 @@ function Run-Container ([string]$ContainerImageName, [string]$Name="fancy_name",
 ```
 
 ## Docker
+Контейнерами Windows можно управлять с помощью команд Docker.  Контейнеры Windows и Linux аналогичны и имеют одни и те же принципы управления в Docker, но некоторые команды Docker просто не применимы к контейнерам Windows.  Другие пока даже не тестировались (планируется в ближайшем будущем).
 
-Контейнерами Windows можно управлять с помощью команд Docker. Контейнеры Windows и Linux аналогичны и имеют одни и те же принципы управления в Docker, но некоторые команды Docker просто не применимы к контейнерам Windows. Другие пока даже не тестировались (планируется в ближайшем будущем).
-
-Чтобы не дублировать документацию по API, доступную в Docker, <g id="2" ctype="x-html"></g>приведем<g id="4" ctype="x-html"></g> ссылку на API-интерфейсы управления. этих API управления.
+Чтобы не дублировать документацию по API, доступную в Docker, <a href="https://docs.docker.com/engine/reference/commandline/cli/" >приведем</a> ссылку на интерфейсы API управления.  этих API управления.
 
 В настоящее время мы работаем над документом "Проблемы и их решение", в котором рассматриваются возможности и ограничения работы с API Docker.
 
 
 
-
-
-
-<!--HONumber=Apr16_HO4-->
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,14 +1,18 @@
 ---
-title: Контейнер Windows в Windows 10
-description: Краткое руководство по развертыванию контейнеров
+title: "Контейнер Windows в Windows 10"
+description: "Краткое руководство по развертыванию контейнеров"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 06/28/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
+translationtype: Human Translation
+ms.sourcegitcommit: 3fc388632dee4d714ab5a7869fa852c079c11910
+ms.openlocfilehash: e2d86c6f1aba07c7c40d1f932b3884c99bfd8f0a
+
 ---
 
 # Контейнеры Windows в Windows 10
@@ -39,6 +43,10 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 ```
 
 После завершения установки перезагрузите компьютер.
+
+```none
+Restart-Computer -Force
+```
 
 ## 2. Установка Docker
 
@@ -116,13 +124,13 @@ Restart-Service docker
 docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1010     cb48429c84fa        8 weeks ago         817.1 MB
+nanoserver          10.0.14300.1016     3f5112ddd185        3 weeks ago         810.2 MB
 ```
 
 Перед продолжением этот образ следует пометить как последнюю версию "latest". Для этого выполните следующую команду:
 
 ```none
-docker tag nanoserver:10.0.14300.1010 nanoserver:latest
+docker tag nanoserver:10.0.14300.1016 nanoserver:latest
 ```
 
 Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
@@ -143,9 +151,9 @@ docker pull microsoft/sample-dotnet
 docker images
 
 REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
-microsoft/sample-dotnet   latest              289f9cdaf773        32 minutes ago      929.9 MB
-nanoserver               10.0.14300.1010     cb48429c84fa        8 weeks ago         817.1 MB
-nanoserver               latest              cb48429c84fa        8 weeks ago         817.1 MB
+microsoft/sample-dotnet  latest              28da49c3bff4        41 hours ago        918.3 MB
+nanoserver               10.0.14300.1016     3f5112ddd185        3 weeks ago         810.2 MB
+nanoserver               latest              3f5112ddd185        3 weeks ago         810.2 MB
 ```
 
 Запустите контейнер с помощью команды `docker run`. Следующий пример задает параметр `--rm`, давая подсистеме Docker указание удалить контейнер после завершения его работы. 
@@ -156,7 +164,13 @@ nanoserver               latest              cb48429c84fa        8 weeks ago    
 docker run --isolation=hyperv --rm microsoft/sample-dotnet
 ```
 
-В результате выполнения этой команды создается контейнер Hyper-V из примера образа dotnet, затем образец приложения (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется. В последующих кратких руководствах, посвященных Windows 10 и контейнерам, будет подробно описано создание и развертывание приложений в контейнерах на базе Windows 10.
+**Примечание**. При возникновении ошибки, указывающей на истечение времени ожидания, запустите следующий скрипт PowerShell и повторите операцию.
+
+```none
+Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
+```
+
+В результате выполнения команды `docker run` создается контейнер Hyper-V из примера образа dotnet, затем запускается образец приложения (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется. В последующих кратких руководствах, посвященных Windows 10 и контейнерам, будет подробно описано создание и развертывание приложений в контейнерах на базе Windows 10.
 
 ## Дальнейшие шаги
 
@@ -165,6 +179,7 @@ docker run --isolation=hyperv --rm microsoft/sample-dotnet
 
 
 
-<!--HONumber=May16_HO5-->
+
+<!--HONumber=Jun16_HO4-->
 
 

@@ -1,6 +1,6 @@
 ---
-title: Краткое руководство по развертыванию контейнеров — образы
-description: Краткое руководство по развертыванию контейнеров
+title: "Краткое руководство по развертыванию контейнеров — образы"
+description: "Краткое руководство по развертыванию контейнеров"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
@@ -9,13 +9,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
+translationtype: Human Translation
+ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
+ms.openlocfilehash: ac9596d210e72b9fd576f728e8e6bbdc293597d7
+
 ---
 
 # Образы контейнеров в Windows Server
 
 **Это предварительное содержимое. Возможны изменения.** 
 
-В предыдущем кратком руководстве по Windows Server контейнер Windows создавался из существующего образа контейнера. В этом упражнении подробно описывается создание образов контейнера вручную, а также создание образов с помощью Dockerfile.
+В предыдущем кратком руководстве по Windows Server контейнер Windows создавался из существующего образа контейнера. В этом упражнении подробно описывается создание пользовательских образов контейнера вручную, а также с помощью Dockerfile.
 
 В этом кратком руководстве рассматриваются контейнеры Windows Server в Windows Server 2016. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы. 
 
@@ -161,6 +165,7 @@ docker rm -f cranky_brown
 
 [Контейнеры Windows в Windows 10](./quick_start_windows_10.md)
 
-<!--HONumber=Jun16_HO2-->
+
+<!--HONumber=Jun16_HO5-->
 
 
