@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "e035a45e22eee04263861d935b338089d8009e92",
+  "LastProcessedCommit": "fec3dc5a03ca45601cdd2ac41a99bd8ce08fab27",
   "LastTranslatedCommit": "69b64738dd9268cfa1a9a48864ef3933464f09e7",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -22088,6 +22088,41 @@
       "ArchiveFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\archive\\manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf",
       "ArchiveFileCommit": "b059c2833a316629e244ddcb065770f4f31375a6",
       "ArchiveFileDateTime": "2016-07-07T07:10:56.1339252Z",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualException": null
+    },
+    "926c79a41f44072c9b0a24526c69aa656229327c": {
+      "FileHash": "926c79a41f44072c9b0a24526c69aa656229327c",
+      "SourceFileCommit": "fec3dc5a03ca45601cdd2ac41a99bd8ce08fab27",
+      "SourceFilePath": "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\quick_start_windows_10.5f887ea7d45d865c81fe971abab095fb8e272cc8.ru-ru.xlf",
+      "HandoffFileCommit": "98adf11b71920fa8166a0e92cc3b5d1e39697b62",
+      "HandoffDateTime": "2016-07-07T22:13:38.3989017Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
       "ArchiveException": null,
       "BilingualFilePath": null,
       "BilingualFileCommit": null,
