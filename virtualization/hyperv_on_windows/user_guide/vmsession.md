@@ -1,7 +1,7 @@
 ---
 title: "Управление виртуальными машинами Windows с помощью PowerShell Direct"
 description: "Управление виртуальными машинами Windows с помощью PowerShell Direct"
-keywords: windows 10, hyper-v
+keywords: windows 10, hyper-v, powershell, integration services, integration components, automation, powershell direct
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,14 +10,14 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: 6eb26eda92217917a3abe7d9dd4c77c48283c8dc
-ms.openlocfilehash: 91927b751021efa9ba2cf696516ba50af28c6e05
+ms.sourcegitcommit: 87f8fb2ae8958c9c6177f6eda90678708054fce7
+ms.openlocfilehash: 75186d48346efbaaac264b00f0f92fe82fcfe424
 
 ---
 
-# Управление виртуальными машинами Windows с помощью PowerShell Direct
+# Автоматизация виртуальных машин и управление ими с помощью PowerShell
  
-PowerShell Direct позволяет удаленно управлять виртуальной машиной Windows 10 или Windows Server Technical Preview с узла Hyper-V под управлением соответствующих операционных систем. С помощью PowerShell Direct можно управлять виртуальной машиной средствами PowerShell независимо от конфигурации сети и параметров удаленного управления на узле Hyper-V или виртуальной машине. Это позволяет администраторам Hyper-V автоматизировать управление и настройку с помощью сценариев.
+С помощью PowerShell Direct можно запускать произвольный код PowerShell на виртуальной машине с Windows 10 или Windows Server Technical Preview с узла Hyper-V независимо от конфигурации сети и параметров удаленного управления.
 
 **Запустить PowerShell Direct можно разными способами:**  
 * Интерактивный сеанс: [щелкните здесь](vmsession.md#create-and-exit-an-interactive-powershell-session), чтобы создать и завершить интерактивный сеанс PowerShell с помощью Enter-PSSession.
@@ -281,6 +281,6 @@ PowerShell Direct поддерживает JEA (Just Enough Administration).  Ч
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 

@@ -1,7 +1,7 @@
 ---
 title: "Управление службами интеграции Hyper-V"
 description: "Управление службами интеграции Hyper-V"
-keywords: windows 10, hyper-v
+keywords: windows 10, hyper-v, integration services, integration components
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,16 +10,18 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 translationtype: Human Translation
-ms.sourcegitcommit: ef9ce04b2532fd314a21920b9cc5c28459c9a438
-ms.openlocfilehash: d2fbf3b714ac70e096ba80aadd9533c62cf0c34e
+ms.sourcegitcommit: 852f7fafe7192d85b0e9840ea3767a1206a1c285
+ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
 
 ---
 
 # Управление службами интеграции Hyper-V
 
-Службы интеграции (часто называемые компонентами интеграции) — это службы, позволяющие виртуальной машине связываться с узлом Hyper-V. Многие из этих служб используются для удобства (например, копирования файлов гостевой ОС), а другие могут быть достаточно важны для правильной работы гостевой ОС (синхронизация времени).
+Службы интеграции (часто называемые компонентами интеграции) — это службы, позволяющие виртуальной машине связываться с узлом Hyper-V. Многие из этих служб используются для удобства (например, для копирования файлов гостевой ОС), а другие могут быть достаточно важны для правильной работы виртуальной машины (синхронизация времени).
 
-В этой статье подробно рассматривается управление службами интеграции с помощью диспетчера Hyper-V и оболочки PowerShell в Windows 10. Дополнительные сведения о каждой отдельной службе интеграции см. в статье [Службы интеграции]( https://technet.microsoft.com/en-us/library/dn798297.aspx).
+В этой статье подробно рассматривается управление службами интеграции с помощью диспетчера Hyper-V и оболочки PowerShell в Windows 10.  
+
+Дополнительные сведения о каждой отдельной службе интеграции см. в статье [Службы интеграции](../reference/ic_info.md).
 
 ## Включение и отключение служб интеграции с помощью диспетчера Hyper-V
 
@@ -41,33 +43,33 @@ ms.openlocfilehash: d2fbf3b714ac70e096ba80aadd9533c62cf0c34e
 1. Узнайте, какие службы интеграции запущены.
   
   ``` PowerShell
-  Get-VMIntegrationService -VMName "demovm"
+  Get-VMIntegrationService -VMName "DemoVM"
   ```
 
   Результат будет выглядеть так:  
   ``` PowerShell
   VMName      Name                    Enabled PrimaryStatusDescription SecondaryStatusDescription
   ------      ----                    ------- ------------------------ --------------------------
-  demovm      Guest Service Interface False   OK
-  demovm      Heartbeat               True    OK                       OK
-  demovm      Key-Value Pair Exchange True    OK
-  demovm      Shutdown                True    OK
-  demovm      Time Synchronization    True    OK
-  demovm      VSS                     True    OK
+  DemoVM      Guest Service Interface False   OK
+  DemoVM      Heartbeat               True    OK                       OK
+  DemoVM      Key-Value Pair Exchange True    OK
+  DemoVM      Shutdown                True    OK
+  DemoVM      Time Synchronization    True    OK
+  DemoVM      VSS                     True    OK
   ```
 
 2. Включение службы интеграции `Guest Service Interface`
 
    ``` PowerShell
-   Enable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
+   Enable-VMIntegrationService -VMName "DemoVM" -Name "Guest Service Interface"
    ```
    
-   Если вы запустите командлет `Get-VMIntegrationService -VMName "demovm"`, то увидите, что служба интеграции интерфейса гостевой службы будет включена.
+   Если вы запустите командлет `Get-VMIntegrationService -VMName "DemoVM"`, то увидите, что служба интеграции "Интерфейс гостевой службы" будет включена.
  
 3. Отключение службы интеграции `Guest Service Interface`
 
    ``` PowerShell
-   Disable-VMIntegrationService -VMName "demovm" -Name "Guest Service Interface"
+   Disable-VMIntegrationService -VMName "DemoVM" -Name "Guest Service Interface"
    ```
    
 Службы интеграции работают, только если они включены и на узле, и в гостевой операционной системе.  Все службы интеграции в гостевых ОС Windows включены по умолчанию, но их можно отключить.  Инструкции приведены в следующем разделе.
@@ -193,7 +195,9 @@ sudo hv_kvp_daemon
 
 ## Обслуживание служб интеграции
 
-Для максимальной производительности и функциональности виртуальной машины требуется регулярное обновление служб интеграции.
+Обслуживание службы интеграции в Windows 10 осуществляется по умолчанию, при условии, что виртуальные машины могут получать важные обновления из Центра обновления Windows.  
+
+Для обеспечения максимальной производительности и функциональности виртуальной машины требуется регулярное обновление служб интеграции.
 
 **Для виртуальных машин, работающих на узлах под управлением Windows 10:**
 
@@ -226,19 +230,19 @@ sudo hv_kvp_daemon
 |:---------|:---------|:---------|
 | Windows 10 | Центр обновления Windows | |
 | Windows 8.1 | Центр обновления Windows | |
-| Windows 8 | Диск со службами интеграции | |
-| Windows 7 | Диск со службами интеграции | |
-| Windows Vista с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
-| Windows XP с пакетами обновления 2 и 3 (SP2, SP3) | Диск со службами интеграции | |
+| Windows 8 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 7 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Vista с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows XP с пакетами обновления 2 и 3 (SP2, SP3) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
 | Windows Server 2012 R2 | Центр обновления Windows | |
-| Windows Server 2012 | Диск со службами интеграции | |
-| Windows Server 2008 R2 | Диск со службами интеграции | |
-| Windows Server 2008 с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
-| Windows Home Server 2011 | Диск со службами интеграции | |
-| Windows Small Business Server 2011 | Диск со службами интеграции | |
-| Windows Server 2003 R2 с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
-| Windows Server 2003 с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
+| Windows Server 2012 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2008 R2 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2008 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Home Server 2011 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Small Business Server 2011 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2003 R2 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2003 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
 | Гостевые ОС Linux | диспетчер пакетов | Компоненты интеграции для Linux уже встроены в дистрибутив. Могут быть доступны необязательные обновления. ** |
 
@@ -248,29 +252,26 @@ sudo hv_kvp_daemon
 | Гостевая ОС | Механизм обновления | Заметки |
 |:---------|:---------|:---------|
 | Windows 8.1 | Центр обновления Windows | |
-| Windows 8 | Диск со службами интеграции | |
-| Windows 7 | Диск со службами интеграции | |
-| Windows Vista с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
-| Windows XP с пакетами обновления 2 и 3 (SP2, SP3) | Диск со службами интеграции | |
+| Windows 8 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 7 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Vista с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows XP с пакетами обновления 2 и 3 (SP2, SP3) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
 | Windows Server 2012 R2 | Центр обновления Windows | |
-| Windows Server 2012 | Диск со службами интеграции | |
-| Windows Server 2008 R2 | Диск со службами интеграции | |
-| Windows Server 2008 с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
-| Windows Home Server 2011 | Диск со службами интеграции | |
-| Windows Small Business Server 2011 | Диск со службами интеграции | |
-| Windows Server 2003 R2 с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
-| Windows Server 2003 с пакетом обновления 2 (SP2) | Диск со службами интеграции | |
+| Windows Server 2012 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2008 R2 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4).|
+| Windows Server 2008 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Home Server 2011 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Small Business Server 2011 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2003 R2 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2003 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
 | Гостевые ОС Linux | диспетчер пакетов | Компоненты интеграции для Linux уже встроены в дистрибутив. Могут быть доступны необязательные обновления. ** |
-
-
-Инструкции по обновлению с помощью диска служб интеграции для Windows 8 и Windows 8.1 доступны [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4).
 
  > ** Дополнительные сведения о гостевых ОС Linux см. [здесь](https://technet.microsoft.com/en-us/library/dn531030.aspx). 
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO1-->
 
 

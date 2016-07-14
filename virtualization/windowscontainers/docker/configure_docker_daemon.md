@@ -9,8 +9,9 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.sourcegitcommit: 7113f1dc1e9a0a18d4eb25e6d604e89f96f826c4
-ms.openlocfilehash: 1fddaff6fc260c0cf91c8626a60d768a06995e53
+translationtype: Human Translation
+ms.sourcegitcommit: 2d6f2c24624883457302c925c2bb47e6c867b730
+ms.openlocfilehash: 533f3a3277e3d9654f0d425c9c0f442c93e2d24a
 
 ---
 
@@ -156,7 +157,20 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 ```
 
 
+## Сбор журналов
+Управляющая программа Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
 
-<!--HONumber=Jun16_HO4-->
+Например, следующая команда выведет записи журнала управляющей программы Docker за последние 5 минут начиная с самой ранней.
+```
+Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
+```
+
+Эти записи легко перенаправить в CSV-файл, чтобы открыть их в другой программе или редакторе электронных таблиц.
+```
+Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
+
+
+
+<!--HONumber=Jul16_HO1-->
 
 

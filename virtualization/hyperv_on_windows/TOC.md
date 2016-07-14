@@ -26,10 +26,11 @@
 # Ссылка
 ## [PowerShell для Hyper-V](https://technet.microsoft.com/library/hh848559.aspx)
 ## [Поставщик WMI для Hyper-V (версия 2)](https://msdn.microsoft.com/library/hh850319.aspx)
+## [Службы интеграции Hyper-V](reference/ic_info.md)
 ## [Архитектура Hyper-V](https://msdn.microsoft.com/en-us/library/cc768520(v=bts.10).aspx)
-## [Спецификации гипервизора](develop/tlfs.md)
+## [Спецификации гипервизора](reference/tlfs.md)
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jun16_HO5-->
 
 
