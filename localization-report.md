@@ -1471,41 +1471,41 @@
 
 ##### <a name='c368db13f720190f3fb4a8fbdb2301c6a8148cc880'></a> Source: [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/23cc84f27047bb3eddac2aaf4cece2eb9636c942/virtualization/community/media/GitHubCreatePR.png)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/69b64738dd9268cfa1a9a48864ef3933464f09e7/virtualization/community/media/GitHubCreatePR.png)
+* Target File: [virtualization\community\media\GitHubCreatePR.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/5e62955a0ca668ea0b1e37b0a4a9c9ebeceef1a6/virtualization/community/media/GitHubCreatePR.png)
 * Handoff File: [c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/be22426e34ec3038770f928e11db43373a377fd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png)
 * Handoff Datetime: 2016-06-28 17:49:03
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fe0c6b1ea2ec1ab76c27a736f837bec8d2d77f5d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png)
-* Handback Datetime: 2016-07-07 10:15:19
+* Handback File: [c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/aa8ceab84873da1796a449f26c33d63462c04715/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/c368db13f720190f3fb4a8fbdb2301c6a8148cc8.png)
+* Handback Datetime: 2016-07-21 18:06:50
 * [Back to Top](#report-top)
 
 ##### <a name='85d871f168742e3e1fcb2d260e42863b96c3f1f981'></a> Source: [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubEdit.png)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/69b64738dd9268cfa1a9a48864ef3933464f09e7/virtualization/community/media/GitHubEdit.png)
+* Target File: [virtualization\community\media\GitHubEdit.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/5e62955a0ca668ea0b1e37b0a4a9c9ebeceef1a6/virtualization/community/media/GitHubEdit.png)
 * Handoff File: [85d871f168742e3e1fcb2d260e42863b96c3f1f9.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/be22426e34ec3038770f928e11db43373a377fd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/85d871f168742e3e1fcb2d260e42863b96c3f1f9.png)
 * Handoff Datetime: 2016-06-28 17:49:03
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [85d871f168742e3e1fcb2d260e42863b96c3f1f9.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fe0c6b1ea2ec1ab76c27a736f837bec8d2d77f5d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/85d871f168742e3e1fcb2d260e42863b96c3f1f9.png)
-* Handback Datetime: 2016-07-07 10:15:19
+* Handback File: [85d871f168742e3e1fcb2d260e42863b96c3f1f9.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/aa8ceab84873da1796a449f26c33d63462c04715/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/85d871f168742e3e1fcb2d260e42863b96c3f1f9.png)
+* Handback Datetime: 2016-07-21 18:06:50
 * [Back to Top](#report-top)
 
 ##### <a name='9c6a41fac79a6f72b721a2b2928aef0f10cb938382'></a> Source: [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c568292104446fd18fc82c20687d7ef4de363e21/virtualization/community/media/GitHubEditor.png)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/69b64738dd9268cfa1a9a48864ef3933464f09e7/virtualization/community/media/GitHubEditor.png)
+* Target File: [virtualization\community\media\GitHubEditor.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/5e62955a0ca668ea0b1e37b0a4a9c9ebeceef1a6/virtualization/community/media/GitHubEditor.png)
 * Handoff File: [9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/be22426e34ec3038770f928e11db43373a377fd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png)
 * Handoff Datetime: 2016-06-28 17:49:03
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fe0c6b1ea2ec1ab76c27a736f837bec8d2d77f5d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png)
-* Handback Datetime: 2016-07-07 10:15:19
+* Handback File: [9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/aa8ceab84873da1796a449f26c33d63462c04715/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/9c6a41fac79a6f72b721a2b2928aef0f10cb9383.png)
+* Handback Datetime: 2016-07-21 18:06:50
 * [Back to Top](#report-top)
 
 ##### <a name='cc076518815cc7ac821ae2cd3b1c52e7de60b18d83'></a> Source: [virtualization\community\media\GitHubPR.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6f1d9c09774adde047508835caf9dcf54deab9d2/virtualization/community/media/GitHubPR.png)
@@ -1522,28 +1522,28 @@
 
 ##### <a name='691e0ac052b6fbf09f2245ceb2eea32dac6621a584'></a> Source: [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/722053b7db662b0d046f6eea87b7569fac0ee125/virtualization/community/media/GitHubProposeChange.png)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/69b64738dd9268cfa1a9a48864ef3933464f09e7/virtualization/community/media/GitHubProposeChange.png)
+* Target File: [virtualization\community\media\GitHubProposeChange.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/5e62955a0ca668ea0b1e37b0a4a9c9ebeceef1a6/virtualization/community/media/GitHubProposeChange.png)
 * Handoff File: [691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/be22426e34ec3038770f928e11db43373a377fd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png)
 * Handoff Datetime: 2016-06-28 17:49:03
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fe0c6b1ea2ec1ab76c27a736f837bec8d2d77f5d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png)
-* Handback Datetime: 2016-07-07 10:15:19
+* Handback File: [691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/aa8ceab84873da1796a449f26c33d63462c04715/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/691e0ac052b6fbf09f2245ceb2eea32dac6621a5.png)
+* Handback Datetime: 2016-07-21 18:06:50
 * [Back to Top](#report-top)
 
 ##### <a name='065cffd9e2e4355f0c575a80c81537e77ee7a10a85'></a> Source: [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/3159040b68e16ad8fd1c001ef5d195d40f1dea7c/virtualization/community/media/GitHubView.png)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/69b64738dd9268cfa1a9a48864ef3933464f09e7/virtualization/community/media/GitHubView.png)
+* Target File: [virtualization\community\media\GitHubView.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/5e62955a0ca668ea0b1e37b0a4a9c9ebeceef1a6/virtualization/community/media/GitHubView.png)
 * Handoff File: [065cffd9e2e4355f0c575a80c81537e77ee7a10a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/be22426e34ec3038770f928e11db43373a377fd8/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/065cffd9e2e4355f0c575a80c81537e77ee7a10a.png)
 * Handoff Datetime: 2016-06-28 17:49:03
 * Handoff Reason: IsDependency
 * Dependency From: virtualization\community\contribute_to_docs.md
 * Archive File: 
 * Archive Datetime: 0001-01-01 00:00:00
-* Handback File: [065cffd9e2e4355f0c575a80c81537e77ee7a10a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fe0c6b1ea2ec1ab76c27a736f837bec8d2d77f5d/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/065cffd9e2e4355f0c575a80c81537e77ee7a10a.png)
-* Handback Datetime: 2016-07-07 10:15:19
+* Handback File: [065cffd9e2e4355f0c575a80c81537e77ee7a10a.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/aa8ceab84873da1796a449f26c33d63462c04715/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/065cffd9e2e4355f0c575a80c81537e77ee7a10a.png)
+* Handback Datetime: 2016-07-21 18:06:50
 * [Back to Top](#report-top)
 
 ##### <a name='53f32345480e69c09324a8965ed62988423e4abe86'></a> Source: [virtualization\community\media\HyperVPMs.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/6f1d9c09774adde047508835caf9dcf54deab9d2/virtualization/community/media/HyperVPMs.png)
