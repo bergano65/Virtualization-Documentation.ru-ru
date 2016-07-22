@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 translationtype: Human Translation
-ms.sourcegitcommit: 111a4ca9f5d693cd1159f7597110409d670f0f5c
-ms.openlocfilehash: b8eca51e347f17e787095b7e4349337cc3ae69a7
+ms.sourcegitcommit: 493b669bc47fc589486a82cfea73a0bb1e88cf79
+ms.openlocfilehash: 26c010e79a4913b2e138f6d1d78f9406dbacbc6b
 
 ---
 
@@ -73,6 +73,20 @@ c:\container-share>dir
 
 Дополнительные сведения о подключении отдельных файлов см. в описании [управления данными в контейнерах на сайте docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume).
 
+### Подключение целого диска
+
+Целый диск можно подключить с помощью примерно такой команды. Обратите внимание, что не следует добавлять обратную косую черту.
+
+```none
+docker run -it -v d: windowsservercore cmd
+```
+
+Сейчас подключение части второго диска не работает. Например, невозможно выполнить следующее.
+
+```none
+docker run -it -v d:\source:d:\destination windowsservercore cmd
+```
+
 ### Контейнеры томов данных
 
 Тома данных можно наследовать от других запущенных контейнеров с помощью параметра `--volumes-from` команды `docker run`. Благодаря такому наследованию можно создать специальный контейнер, чтобы размещать тома данных для контейнерных приложений. 
@@ -111,6 +125,6 @@ docker inspect backstabbing_kowalevski
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Jul16_HO3-->
 
 

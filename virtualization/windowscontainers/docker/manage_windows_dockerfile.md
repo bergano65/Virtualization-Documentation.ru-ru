@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: daf82c943f9e19ec68e37207bba69fb0bf46f46f
-ms.openlocfilehash: ace5fd12856cdcff3a380eb35e4982c4c1ce4c5a
+ms.sourcegitcommit: 97a7d5fdd25f755d73e05bfc5f3c4a80a7b6b8c5
+ms.openlocfilehash: 84baad10511eb070e654f1ee7d71eb547d3f2ee7
 
 ---
 
@@ -158,17 +158,11 @@ RUN ["powershell", "New-Item", "c:\\test"]
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 ```
 
-Этот пример устанавливает распространяемый пакет Visual Studio.
-```none
-RUN powershell.exe -Command c:\vcredist_x86.exe /quiet
-``` 
+Этот пример устанавливает распространяемый пакет Visual Studio. Обратите внимание, что `start-process` и параметр `-wait` используются для запуска программы установки. Это гарантирует, что установка будет завершена до перехода к следующему шагу в Dockerfile.
 
-В этом примере устанавливается пакет для разработчиков .NET Framework 4.5.2 Developer Pack. Для этого сначала извлекаются установочные файлы и затем запускается сам установщик. 
 ```none
-RUN start /wait C:\temp\NDP452-KB2901951-x86-x64-DevPack.exe /q /x:C:\temp\NDP452DevPackSetupDir && \
-    start /wait C:\temp\NDP452DevPackSetupDir\Setup.exe /norestart /q /log %TEMP%\ndp452_install_log.txt && \
-    rmdir /s /q C:\temp\NDP452DevPackSetupDir
-```
+RUN start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+``` 
 
 Подробные сведения об инструкции RUN см. в [справочнике по RUN на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#run). 
 
@@ -490,6 +484,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO3-->
 
 

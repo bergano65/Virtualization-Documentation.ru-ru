@@ -4,14 +4,14 @@ description: "Настройка Docker в Windows"
 keywords: docker, containers
 author: neilpeterson
 manager: timlt
-ms.date: 06/02/2016
+ms.date: 07/15/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 2d6f2c24624883457302c925c2bb47e6c867b730
-ms.openlocfilehash: 533f3a3277e3d9654f0d425c9c0f442c93e2d24a
+ms.sourcegitcommit: 475240afdf97af117519cfaa287f1e4fec8837a5
+ms.openlocfilehash: 5b86442643fb5937b62a67d144ae0d1c98373b41
 
 ---
 
@@ -121,8 +121,6 @@ Start-Service Docker
 }
 ```
 
-
-
 ## Диспетчер управления службами
 
 Управляющую программу Docker можно также настроить, изменив службу Docker с помощью `sc config`. При использовании этого способа флаги управляющей программы Docker задаются непосредственно в службе Docker.
@@ -156,6 +154,21 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 }
 ```
 
+## Настройка прокси-сервера
+
+Чтобы задать данные о прокси-сервере для `docker search` и `docker pull`, создайте переменную среды Windows с именем `HTTP_PROXY` или `HTTPS_PROXY` и значением, содержащим данные о прокси-сервере. Это можно сделать в PowerShell, используя команду следующего вида:
+
+```none
+[Environment]::SetEnvironmentVariable("HTTP_PROXY”, “http://username:password@proxy:port/”, [EnvironmentVariableTarget]::Machine)
+```
+
+После задания переменной перезапустите службу Docker.
+
+```none
+restart-service docker
+```
+
+Дополнительные сведения см. в статье [Daemon Socket Options](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option) (Параметры сокетов управляющей программы) на Docker.com.
 
 ## Сбор журналов
 Управляющая программа Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
@@ -171,6 +184,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Jul16_HO3-->
 
 
