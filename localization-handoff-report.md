@@ -1,31 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5cb7dca9469a687add1348753d89d04dc4a633b7/virtualization/windowscontainers/management/container_networking.md) | OutofSyncHandedBackSuccess | [Details](#406966a2bc80cdfc6fbe7461bf478fab317ed7e5251)
 
 ## Item Details
-##### <a name='406966a2bc80cdfc6fbe7461bf478fab317ed7e5251'></a> Source: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5cb7dca9469a687add1348753d89d04dc4a633b7/virtualization/windowscontainers/management/container_networking.md)
-* Status: OutofSyncHandedBackSuccess
-* Target File: 
-* Handoff File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/1221bb880464bb47a37058fc9df3f23bc9a098af/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf)
-* Handoff Datetime: 2016-07-29 20:11:34
-* Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\windowscontainers\management\container_networking.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/f256bea5098d53baa3e588c7eac726da3a10782a/virtualization/windowscontainers/management/container_networking.md)
-* Current Handback File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/bba8d436c25bb968a759a274640c7258fadcf4c5/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf)
-* Current Handback Datetime: 2016-06-30 14:18:41
-* Bilingual File: [container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/bba8d436c25bb968a759a274640c7258fadcf4c5/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf)
-* Bilingual Datetime: 2016-06-30 14:20:27
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
