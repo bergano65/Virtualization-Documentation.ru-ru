@@ -1,7 +1,7 @@
 ---
 title: "Контейнер Windows в Windows 10"
 description: "Краткое руководство по развертыванию контейнеров"
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 07/13/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: edf2c2597e57909a553eb5e6fcc75cdb820fce68
-ms.openlocfilehash: b37d402f2e6c950db061f5de0c86f0e9aace62b4
+ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
+ms.openlocfilehash: bd93f5a73268b552710304d7da568e1497239679
 
 ---
 
@@ -58,22 +58,16 @@ Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtua
 
 Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента. Для этого выполните приведенные ниже команды. 
 
-Создайте папку для исполняемых файлов Docker.
+Скачайте подсистему Docker и клиент в виде ZIP-архива.
 
 ```none
-New-Item -Type Directory -Path $env:ProgramFiles\docker\
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-Скачайте управляющую программу Docker.
+Разархивируйте ZIP-архив в Program Files; содержимое архива уже находится в каталоге Docker.
 
 ```none
-Invoke-WebRequest https://master.dockerproject.org/windows/amd64/dockerd.exe -OutFile $env:ProgramFiles\docker\dockerd.exe
-```
-
-Загрузите клиент Docker.
-
-```none
-Invoke-WebRequest https://master.dockerproject.org/windows/amd64/docker.exe -OutFile $env:ProgramFiles\docker\docker.exe
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Добавьте каталог Docker в системный путь.
@@ -87,7 +81,7 @@ Invoke-WebRequest https://master.dockerproject.org/windows/amd64/docker.exe -Out
 Чтобы установить Docker в качестве службы Windows, выполните следующую команду:
 
 ```none
-dockerd --register-service
+& $env:ProgramFiles\docker\dockerd.exe --register-service
 ```
 
 После установки эту службу можно запустить.
@@ -187,6 +181,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Jul16_HO2-->
+<!--HONumber=Aug16_HO1-->
 
 
