@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
-ms.openlocfilehash: 4e7123dcff2564bd264c91f228941e86a0723674
+ms.sourcegitcommit: b3f273d230344cff28d4eab7cebf96bac14f68c2
+ms.openlocfilehash: 808436ba179daa09fbc45ee7f7708a505bd1b4c8
 
 ---
 
@@ -83,42 +83,24 @@ Start-Service docker
 
 ## 3. Установка базовых образов контейнеров
 
-Контейнеры Windows развертываются из шаблонов или образов. Перед развертыванием контейнера требуется загрузить базовый образ ОС. Приведенные ниже команды скачивают базовый образ Windows Server Core.
-
-Сначала установите поставщик пакетов образов контейнеров.
+Контейнеры Windows развертываются из шаблонов или образов. Перед развертыванием контейнера требуется загрузить базовый образ ОС. Следующая команда скачает базовый образ Windows Server Core.
 
 ```none
-Install-PackageProvider ContainerImage -Force
+docker pull microsoft/windowsservercore
 ```
 
-Затем установите образ Windows Server Core. Этот процесс может занять некоторое время, поэтому сделайте перерыв и возвращайтесь к работе после скачивания.
+Этот процесс может занять некоторое время, поэтому сделайте перерыв и возвращайтесь к работе после скачивания.
 
-```none
-Install-ContainerImage -Name WindowsServerCore    
-```
-
-После установки базового образа следует перезапустить службу Docker.
-
-```none
-Restart-Service docker
-```
-
-На этом этапе выполнение `docker images` возвращает список установленных образов — в данном случае это образ Windows Server Core.
+На этом этапе выполнение команды `docker images` возвращает список установленных образов. В данном случае будет отображен образ Windows Server Core.
 
 ```none
 docker images
 
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-windowsservercore   10.0.14300.1000     dbfee88ee9fd        7 weeks ago         9.344 GB
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+microsoft/windowsservercore   latest              02cb7f65d61b        7 weeks ago         7.764 GB
 ```
 
-Перед продолжением этот образ следует пометить как последнюю версию "latest". Для этого выполните следующую команду:
-
-```none
-docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
-```
-
-Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+Подробную информацию об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
 
 ## 4. Развертывание первого контейнера
 
@@ -192,7 +174,7 @@ CONTAINER ID    IMAGE                             COMMAND               CREATED 
 ```none
 docker rm -f grave_jang
 ```
-## Дальнейшие шаги
+## Дальнейшие действия
 
 [Образы контейнеров в Windows Server](./quick_start_images.md)
 

@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
-ms.openlocfilehash: bd93f5a73268b552710304d7da568e1497239679
+ms.sourcegitcommit: 9aa443b24e5c8a004b08203f67e578dd2d104746
+ms.openlocfilehash: 0ee1231b923e25975a4dfddb70c16366a86c9565
 
 ---
 
@@ -54,6 +54,8 @@ Restart-Computer -Force
 Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
 ```
 
+> В текущих выпусках нужно отключить нежесткие блокировки, чтобы использовать контейнеры Hyper-V без проблем. Чтобы повторно включить их, используйте следующую команду.  `Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 0 -Force`
+
 ## 2. Установка Docker
 
 Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента. Для этого выполните приведенные ниже команды. 
@@ -93,37 +95,23 @@ Start-Service Docker
 ## 3. Установка базовых образов контейнеров
 
 Контейнеры Windows развертываются из шаблонов или образов. Перед развертыванием контейнера требуется скачать базовый образ ОС контейнера. Приведенные ниже команды скачивают базовый образ Nano Server.
-    
-> Эта процедура относится к более поздней, чем 14372, версии сборки для участников программы предварительной оценки Windows и является временной до начала работы Docker Pull.
 
-Скачайте базовый образ Nano Server. 
+Получите базовый образ Nano Server. 
 
 ```none
-Start-BitsTransfer https://aka.ms/tp5/6b/docker/nanoserver -Destination nanoserver.tar.gz
+docker pull microsoft/nanoserver
 ```
 
-Установите базовый образ.
-
-```none  
-docker load -i nanoserver.tar.gz
-```
-
-На этом этапе выполнение `docker images` возвращает список установленных образов — в данном случае это образ Nano Server.
+После его получения выполните команду `docker images`, чтобы вывести список установленных образов. В данном случае будет отображен образ Nano Server.
 
 ```none
 docker images
 
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1030     3f5112ddd185        3 weeks ago         810.2 MB
+REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+microsoft/nanoserver   latest              3a703c6e97a2        7 weeks ago         969.8 MB
 ```
 
-Перед продолжением этот образ следует пометить как последнюю версию "latest". Для этого выполните следующую команду:
-
-```none
-docker tag microsoft/nanoserver:10.0.14300.1030 nanoserver:latest
-```
-
-Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+Подробную информацию об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
 
 ## 4. Развертывание первого контейнера
 
@@ -173,7 +161,7 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 В результате выполнения команды `docker run` создается контейнер Hyper-V из образа "Привет мир", затем запускается скрипт-пример "Привет мир" (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется. В последующих кратких руководствах, посвященных Windows 10 и контейнерам, будет подробно описано создание и развертывание приложений в контейнерах на базе Windows 10.
 
-## Дальнейшие шаги
+## Дальнейшие действия
 
 [Контейнеры Windows в Windows Server](./quick_start_windows_server.md)
 
