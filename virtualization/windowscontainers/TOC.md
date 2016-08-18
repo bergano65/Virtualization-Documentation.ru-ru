@@ -14,7 +14,7 @@
 ## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
 
 # Docker в Windows
-## [Управляющая программа Docker в Windows](docker/configure_docker_daemon.md)
+## [Подсистема Docker в Windows](docker/configure_docker_daemon.md)
 ## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
 ## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
 
@@ -41,6 +41,6 @@
 
 
 
-<!--HONumber=Jun16_HO5-->
+<!--HONumber=Aug16_HO3-->
 
 
