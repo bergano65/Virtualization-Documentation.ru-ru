@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "72d8a1381ea33175a039e1fdc71d85bcad6d318f",
+  "LastProcessedCommit": "ea3a8ec35174c9e2d1961d4b55c5b69a2b018063",
   "LastTranslatedCommit": "fbd4c85fc29c6cd8e6053b56532ef8ec92b8da18",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -23396,6 +23396,41 @@
       "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\container_networking.7cf72391b3aa727681997232feeeb0a32d363edc.ru-ru.xlf",
       "HandoffFileCommit": "856721b8596dab1d81201ef496988eee27e584fa",
       "HandoffDateTime": "2016-08-22T18:19:43.7184267Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualException": null
+    },
+    "61c54210e683032184503103f689938cc576ea4c": {
+      "FileHash": "61c54210e683032184503103f689938cc576ea4c",
+      "SourceFileCommit": "ea3a8ec35174c9e2d1961d4b55c5b69a2b018063",
+      "SourceFilePath": "virtualization\\windowscontainers\\management\\manage_images.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\management\\manage_images.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf",
+      "HandoffFileCommit": "041ad4994d99a1352ee8c0dafe7c9c92caf4a405",
+      "HandoffDateTime": "2016-08-22T21:50:18.1904641Z",
       "HandoffPriority": "",
       "HandoffException": null,
       "HandoffFailureTimes": 0,
