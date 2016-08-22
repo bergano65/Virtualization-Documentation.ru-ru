@@ -1,7 +1,7 @@
 ---
 title: "Развертывание контейнеров Windows в Nano Server"
 description: "Развертывание контейнеров Windows в Nano Server"
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 07/06/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: e035a45e22eee04263861d935b338089d8009e92
-ms.openlocfilehash: 876ffb4f4da32495fb77b735391203c33c78cff3
+ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
+ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
 
 ---
 
@@ -74,7 +74,7 @@ Restart-Computer
 
 ## Установка Docker
 
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. Установите управляющую программу и клиент Docker, выполнив приведенные ниже действия.
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. Установите подсистему и клиент Docker, выполнив следующие действия.
 
 Создайте папку на узле Nano Server для исполняемых файлов Docker.
 
@@ -82,7 +82,7 @@ Docker необходим для работы с контейнерами Window
 New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
 ```
 
-Скачайте управляющую программу и клиент Docker, а затем скопируйте их в папку "C:\Program Files\docker" узла контейнера. \' 
+Скачайте подсистему и клиент Docker, а затем скопируйте их в папку "C:\Program Files\docker\'" узла контейнера. 
 
 **Примечание**. Сервер Nano Server сейчас не поддерживает `Invoke-WebRequest`, поэтому необходимо скачивать файлы в удаленной системе и затем копировать их на узел Nano Server.
 
@@ -96,7 +96,7 @@ Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile .\dockerd.exe
 Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile .\docker.exe
 ```
 
-После скачивания управляющей программы и клиента Docker скопируйте их в папку "C:\Program Files\docker\'" на узле контейнера Nano Server. В брандмауэре сервера Nano Server необходимо разрешить входящие подключения SMB. Это можно сделать с помощью PowerShell или консоли восстановления сервера Nano Server. 
+После скачивания подсистемы и клиента Docker скопируйте их в папку "C:\Program Files\docker\'" на узле контейнера Nano Server. В брандмауэре сервера Nano Server необходимо разрешить входящие подключения SMB. Это можно сделать с помощью PowerShell или консоли восстановления сервера Nano Server. 
 
 ```none
 Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
@@ -158,7 +158,7 @@ Restart-Service Docker
 netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
 ```
 
-Настройте управляющую программу Docker для приема входящего подключения по протоколу TCP.
+Настройте подсистему Docker на прием входящего подключения по протоколу TCP.
 
 Сначала создайте файл `daemon.json` в папке `c:\ProgramData\docker\config\daemon.json` на узле сервера Nano Server.
 
@@ -166,7 +166,7 @@ netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow pr
 new-item -Type File c:\ProgramData\docker\config\daemon.json
 ```
 
-Затем выполните следующую команду, чтобы добавить конфигурацию подключения в файл `daemon.json`. Это настраивает управляющую программу Docker для приема входящих подключений по протоколу TCP через порт 2375. Это подключение не является защищенным, поэтому рекомендуется использовать его только при изолированном тестировании. Дополнительные сведения о защите этого подключения см. в статье [Protect the Docker Daemon](https://docs.docker.com/engine/security/https/) (Защита управляющей программы Docker) на сайте Docker.com.
+Затем выполните следующую команду, чтобы добавить конфигурацию подключения в файл `daemon.json`. Это настраивает подсистему Docker на прием входящих подключений по протоколу TCP через порт 2375. Это подключение не является защищенным, поэтому рекомендуется использовать его только при изолированном тестировании. Дополнительные сведения о защите этого подключения см. в статье [Protect the Docker Daemon](https://docs.docker.com/engine/security/https/) (Защита управляющей программы Docker) на сайте Docker.com.
 
 ```none
 Add-Content 'c:\programdata\docker\config\daemon.json' '{ "hosts": ["tcp://0.0.0.0:2375", "npipe://"] }'
@@ -238,6 +238,6 @@ Restart-Computer
 ```
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Aug16_HO3-->
 
 
