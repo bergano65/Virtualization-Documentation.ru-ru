@@ -1,7 +1,7 @@
 ---
 title: "Краткое руководство по развертыванию контейнеров — образы"
 description: "Краткое руководство по развертыванию контейнеров"
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
 translationtype: Human Translation
-ms.sourcegitcommit: eae45c2c81c7edc94d963da69dcdee2b6f08f37d
-ms.openlocfilehash: ac9596d210e72b9fd576f728e8e6bbdc293597d7
+ms.sourcegitcommit: f2a3eec656acf5a3cd48a2be71169b76ce25400b
+ms.openlocfilehash: a9bc0b1511e161ef9b648bfafd4d0456966d8f9f
 
 ---
 
@@ -35,7 +35,7 @@ ms.openlocfilehash: ac9596d210e72b9fd576f728e8e6bbdc293597d7
 Первый этап ручного создания образа контейнера заключается в развертывании контейнера. В рамках этого примера разверните контейнер IIS из готового образа IIS. После развертывания контейнера вы будете работать в сеансе оболочки из контейнера. Интерактивный сеанс инициируется с помощью с флага `-it`. Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com]( https://docs.docker.com/engine/reference/run/). 
 
 ```none
-docker run -it -p 80:80 microsoft/iis:windowsservercore cmd
+docker run -it -p 80:80 microsoft/iis cmd
 ```
 
 Далее в контейнер будут внесены изменения. Выполните приведенную ниже команду для удаления экрана-заставки IIS.
@@ -68,7 +68,7 @@ exit
 docker ps -a
 
 CONTAINER ID     IMAGE                             COMMAND   CREATED             STATUS   PORTS   NAMES
-489b0b447949     microsoft/iis:windowsservercore   "cmd"     About an hour ago   Exited           pedantic_lichterman
+489b0b447949     microsoft/iis   "cmd"     About an hour ago   Exited           pedantic_lichterman
 ```
 
 Чтобы создать образ контейнера, используйте команду `docker commit`. Команда Docker commit принимает вид "docker commit имя_контейнера имя_нового_образа". Примечание. Замените имя контейнера в данном примере на используемое вами.
@@ -112,7 +112,7 @@ notepad c:\build\Dockerfile
 Дополнительные сведения о файлах Dockerfile см. в статье [Файлы Dockerfile в Windows](../docker/manage_windows_dockerfile.md).
 
 ```none
-FROM microsoft/iis:windowsservercore
+FROM microsoft/iis
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
@@ -161,11 +161,12 @@ c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up Ab
 docker rm -f cranky_brown
 ```
 
-## Дальнейшие шаги
+## Дальнейшие действия
 
 [Контейнеры Windows в Windows 10](./quick_start_windows_10.md)
 
 
-<!--HONumber=Jun16_HO5-->
+
+<!--HONumber=Aug16_HO3-->
 
 

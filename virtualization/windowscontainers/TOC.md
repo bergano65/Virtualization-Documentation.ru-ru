@@ -12,6 +12,7 @@
 ## [Требования к системе](deployment/system_requirements.md)
 ## [Узел контейнера — Windows Server](deployment/deployment.md)
 ## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
+## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # Docker в Windows
 ## [Подсистема Docker в Windows](docker/configure_docker_daemon.md)
@@ -30,17 +31,13 @@
 ## [Файлы Dockerfile — Nano Server](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nanoserver)
 
 # Сообщество и поддержка
-## [Форумы по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# Справочник
-## [Поставщик образов контейнеров](https://github.com/PowerShell/ContainerProvider)
-## [Совместимость приложений](reference/app_compat.md)
-## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 # [Лицензионное соглашение конечного пользователя Windows Server](EULA.md)
 # [Лицензионное соглашение конечного пользователя Nano Server](Nano_EULA.md)
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 
