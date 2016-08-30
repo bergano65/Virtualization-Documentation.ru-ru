@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
-ms.openlocfilehash: 57d35f9e871bdd3bd0798833bcbaf6a7948a65f2
+ms.sourcegitcommit: 2319649d1dd39677e59a9431fbefaf82982492c6
+ms.openlocfilehash: 8d3c8263819688d1a47893726619458ee44be59b
 
 ---
 
@@ -25,7 +25,7 @@ ms.openlocfilehash: 57d35f9e871bdd3bd0798833bcbaf6a7948a65f2
 
 **Предварительные требования:**
 
-- Одна физическая компьютерная система под управлением [выпуск Windows 10 для предварительной оценки](https://insider.windows.com/).   
+- Одна физическая компьютерная система под управлением Windows 10 Anniversary Edition (Профессиональная или Корпоративная).   
 - Это краткое руководство можно выполнять на виртуальной машине Windows 10, однако при этом нужно включить вложенную виртуализацию. Дополнительные сведения см. в [руководстве по вложенной виртуализации](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
 ## 1. Установка компонента контейнеров
@@ -63,19 +63,23 @@ Docker необходим для работы с контейнерами Window
 Скачайте подсистему Docker и клиент в виде ZIP-архива.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
+Invoke-WebRequest "https://master.dockerproject.org/windows/amd64/docker-1.13.0-dev.zip" -OutFile "$env:TEMP\docker-1.13.0-dev.zip" -UseBasicParsing
 ```
 
 Разархивируйте ZIP-архив в Program Files; содержимое архива уже находится в каталоге Docker.
 
 ```none
-Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker-1.13.0-dev.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Добавьте каталог Docker в системный путь.
 
 ```none
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";$env:ProgramFiles\docker\", [EnvironmentVariableTarget]::Machine)
+# for quick use, does not require shell to be restarted
+$env:path += ";c:\program files\docker"
+
+# for persistent use, will apply even after a reboot 
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
 Перезапустите сеанс PowerShell для распознавания измененного пути.
@@ -83,7 +87,7 @@ Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:Program
 Чтобы установить Docker в качестве службы Windows, выполните следующую команду:
 
 ```none
-& $env:ProgramFiles\docker\dockerd.exe --register-service
+dockerd --register-service
 ```
 
 После установки эту службу можно запустить.
@@ -120,7 +124,7 @@ microsoft/nanoserver   latest              3a703c6e97a2        7 weeks ago      
 Сначала запустите контейнер с помощью интерактивного сеанса из образа `nanoserver`. После запуска контейнера в его рамках появится командная оболочка.  
 
 ```none
-docker run -it nanoserver cmd
+docker run -it microsoft/nanoserver cmd
 ```
 
 Внутри контейнера создайте простой скрипт "Привет мир".
@@ -169,6 +173,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 

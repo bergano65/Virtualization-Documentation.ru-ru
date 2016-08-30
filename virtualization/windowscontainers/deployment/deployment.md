@@ -4,14 +4,14 @@ description: "Развертывание контейнеров Windows в Windo
 keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 05/26/2016
+ms.date: 08/22/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: 6c7ce9f1767c6c6391cc6d33a553216bd815ff72
-ms.openlocfilehash: ce387b29f1bd311c70c17f3e7a98ae4f625bd3c2
+ms.sourcegitcommit: 2319649d1dd39677e59a9431fbefaf82982492c6
+ms.openlocfilehash: b60329a09ea0f119446fa2aa20de68e3edc2b245
 
 ---
 
@@ -59,9 +59,13 @@ Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zi
 Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
-Добавьте каталог Docker в системный путь.
+Чтобы добавить системный путь в каталог Docker, выполните следующие две команды.
 
 ```none
+# for quick use, does not require shell to be restarted
+$env:path += ";c:\program files\docker"
+
+# for persistent use, will apply even after a reboot 
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -70,7 +74,7 @@ Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:Program
 Чтобы установить Docker в качестве службы Windows, выполните следующую команду:
 
 ```none
-& $env:ProgramFiles\docker\dockerd.exe --register-service
+dockerd --register-service
 ```
 
 После установки эту службу можно запустить.
@@ -81,30 +85,18 @@ Start-Service Docker
 
 ## Установка базовых образов контейнеров
 
-Перед развертыванием контейнера требуется скачать базовый образ ОС контейнера. Приведенный ниже пример кода скачивает базовый образ ОС Windows Server Core. Эту же процедуру можно использовать и для установки базового образа Nano Server. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+Перед началом работы с контейнерами Windows необходимо установить базовый образ. Базовые образы доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
 
-Сначала установите поставщик пакетов образов контейнеров.
+Чтобы установить базовый образ Windows Server Core, выполните следующую команду:
 
 ```none
-Install-PackageProvider ContainerImage -Force
+docker pull microsoft/windowsservercore
 ```
 
-Затем установите образ Windows Server Core. Этот процесс может занять некоторое время, поэтому сделайте перерыв и возвращайтесь к работе после скачивания.
+Чтобы установить базовый образ Nano Server, выполните следующую команду:
 
 ```none
-Install-ContainerImage -Name WindowsServerCore    
-```
-
-После установки базового образа следует перезапустить службу Docker.
-
-```none
-Restart-Service docker
-```
-
-Далее этот образ следует пометить как последнюю версию "latest". Для этого выполните следующую команду:
-
-```none
-docker tag windowsservercore:10.0.14300.1000 windowsservercore:latest
+docker pull microsoft/nanoserver
 ```
 
 ## Узел контейнера Hyper-V
@@ -139,6 +131,6 @@ Install-WindowsFeature hyper-v
 
 
 
-<!--HONumber=Aug16_HO1-->
+<!--HONumber=Aug16_HO4-->
 
 
