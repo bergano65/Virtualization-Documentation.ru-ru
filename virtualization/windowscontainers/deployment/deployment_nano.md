@@ -4,14 +4,14 @@ description: "Развертывание контейнеров Windows в Nano 
 keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 07/06/2016
+ms.date: 08/23/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: fac57150de3ffd6c7d957dd628b937d5c41c1b35
-ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
+ms.sourcegitcommit: 2319649d1dd39677e59a9431fbefaf82982492c6
+ms.openlocfilehash: a79469987879656117812ff6f9563046584172c0
 
 ---
 
@@ -29,22 +29,20 @@ ms.openlocfilehash: d2f19e96f06ba18ab7e23e62652f569265c6f43f
 
 Сначала скачайте ознакомительный виртуальный жесткий диск Nano Server [отсюда](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/nano_eula). Создайте виртуальную машину с использованием этого виртуального жесткого диска, запустите виртуальную машину и подключитесь к ней с помощью Hyper-V или равнозначного варианта подключения (в зависимости от используемой платформы виртуализации).
 
-После этого необходимо будет указать пароль администратора. Для этого выполните команду `F11` в консоли восстановления сервера Nano Server. Появится диалоговое окно смены пароля.
-
 ### Создание удаленного сеанса PowerShell
 
-Так как сервер Nano Server не обладает возможностью интерактивного входа, все операции управления будут выполняться из удаленного сеанса PowerShell. Чтобы создать удаленный сеанс, получите IP-адрес системы с помощью консоли восстановления сервера Nano Server и затем выполните следующие команды на удаленном узле. Замените IPADDRESS фактическим IP-адресом системы Nano Server.
+Так как сервер Nano Server не обладает возможностью интерактивного входа, все операции управления будут выполняться из удаленной системы с использованием PowerShell.
 
-Добавьте систему Nano Server в доверенные узлы.
+Добавьте систему Nano Server в доверенные узлы удаленной системы. Замените IP-адрес IP-адресом сервера Nano Server.
 
 ```none
-set-item WSMan:\localhost\Client\TrustedHosts IPADDRESS -Force
+Set-Item WSMan:\localhost\Client\TrustedHosts 192.168.1.50 -Force
 ```
 
 Создайте удаленный сеанс PowerShell.
 
 ```none
-Enter-PSSession -ComputerName IPADDRESS -Credential ~\Administrator
+Enter-PSSession -ComputerName 192.168.1.50 -Credential ~\Administrator
 ```
 
 После выполнения этих действий у вас появился удаленный сеанс PowerShell с системой Nano Server. Оставшаяся часть этого документа, если не указано иначе, происходит в удаленном сеансе.
@@ -74,7 +72,13 @@ Restart-Computer
 
 ## Установка Docker
 
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. Установите подсистему и клиент Docker, выполнив следующие действия.
+Подсистема Docker требуется для работы с контейнерами Windows. Установите подсистему Docker, выполнив следующие действия.
+
+Сначала необходимо настроить брандмауэр сервера Nano Server для SMB. Для этого нужно выполнить на узле сервера Nano Server следующую команду.
+
+```none
+Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
+```
 
 Создайте папку на узле Nano Server для исполняемых файлов Docker.
 
@@ -84,30 +88,34 @@ New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
 
 Скачайте подсистему и клиент Docker, а затем скопируйте их в папку "C:\Program Files\docker\'" узла контейнера. 
 
-**Примечание**. Сервер Nano Server сейчас не поддерживает `Invoke-WebRequest`, поэтому необходимо скачивать файлы в удаленной системе и затем копировать их на узел Nano Server.
+> Сейчас Nano Server не поддерживает `Invoke-WebRequest`. Подсистему Docker необходимо скачать на удаленную систему, а затем копировать файлы на узел сервера Nano Server.
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/dockerd -OutFile .\dockerd.exe
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile .\docker-1.12.0.zip -UseBasicParsing
 ```
 
-Загрузите клиент Docker.
+Извлеките скачанный пакет. В результате у вас будет каталог, содержащий файл **dockerd.exe** и **docker.exe**. Скопируйте эти файлы в папку **C:\Program Files\docker\** на узле контейнера Nano Server. 
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile .\docker.exe
+Expand-Archive .\docker-1.12.0.zip
 ```
 
-После скачивания подсистемы и клиента Docker скопируйте их в папку "C:\Program Files\docker\'" на узле контейнера Nano Server. В брандмауэре сервера Nano Server необходимо разрешить входящие подключения SMB. Это можно сделать с помощью PowerShell или консоли восстановления сервера Nano Server. 
+Добавьте каталог Docker в системный путь на узле сервера Nano Server.
+
+> Обязательно переключитесь обратно на удаленный сеанс Nano Server.
 
 ```none
-Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
+# for quick use, does not require shell to be restarted
+$env:path += “;C:\program files\docker”
+
+# for persistent use, will apply even after a reboot 
+setx PATH $env:path /M
 ```
 
-Теперь можно копировать файлы с помощью стандартных методов копирования файлов SMB.
-
-Скопировав на узел файл dockerd.exe, выполните следующую команду, чтобы установить Docker в качестве службы Windows.
+Установите Docker в качестве службы Windows.
 
 ```none
-& $env:ProgramFiles'\docker\dockerd.exe' --register-service
+dockerd --register-service
 ```
 
 Запустите службу Docker.
@@ -118,33 +126,15 @@ Start-Service Docker
 
 ## Установка базовых образов контейнеров
 
-Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью поставщика образов контейнеров. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
-
-Для установки поставщика образов контейнеров можно использовать приведенную ниже команду.
-
-```none
-Install-PackageProvider ContainerImage -Force
-```
+Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью `docker pull`. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
 
 Чтобы скачать и установить базовый образ Nano Server, выполните следующую команду:
 
 ```none
-Install-ContainerImage -Name NanoServer
+docker pull microsoft/nanoserver
 ```
 
-**Примечание**. Сейчас с узлом контейнера Nano Server совместим только базовый образ Nano Server.
-
-Перезапустите службу Docker.
-
-```none
-Restart-Service Docker
-```
-
-Пометьте базовый образ Nano Server как новейший.
-
-```none
-& $env:ProgramFiles'\docker\docker.exe' tag nanoserver:10.0.14300.1016 nanoserver:latest
-```
+> Сейчас с узлом контейнера Nano Server совместим только базовый образ Nano Server.
 
 ## Управление Docker в Nano Server
 
@@ -155,7 +145,7 @@ Restart-Service Docker
 Создайте на узле контейнера правило брандмауэра для подключения Docker. Это будет порт `2375` для незащищенного подключения или порт `2376` для защищенного подключения.
 
 ```none
-netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2376
+netsh advfirewall firewall add rule name="Docker daemon " dir=in action=allow protocol=TCP localport=2375
 ```
 
 Настройте подсистему Docker на прием входящего подключения по протоколу TCP.
@@ -180,25 +170,27 @@ Restart-Service docker
 
 ### Подготовка удаленного клиента
 
-На удаленном компьютере, на котором вы будете работать, создайте каталог для размещения клиента Docker.
+На удаленном компьютере, на котором вы будете работать, скачайте клиент Docker.
 
 ```none
-New-Item -Type Directory -Path 'C:\Program Files\docker\'
+Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
 ```
 
-Скачайте клиент Docker в этот каталог.
+Извлеките содержимое пакета.
 
 ```none
-Invoke-WebRequest https://aka.ms/tp5/b/docker -OutFile "$env:ProgramFiles\docker\docker.exe"
+Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
 ```
 
-Добавьте каталог Docker в системный путь.
+Чтобы добавить системный путь в каталог Docker, выполните следующие две команды.
 
 ```none
-$env:Path += ";$env:ProgramFiles\Docker"
-```
+# for quick use, does not require shell to be restarted
+$env:path += ";c:\program files\docker"
 
-Перезапустите сеанс PowerShell или команд, чтобы измененный путь был распознан.
+# for persistent use, will apply even after a reboot 
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
+```
 
 После завершения процедуры к удаленному узлу Docker можно обращаться с использованием параметра `docker -H`.
 
@@ -238,6 +230,6 @@ Restart-Computer
 ```
 
 
-<!--HONumber=Aug16_HO3-->
+<!--HONumber=Aug16_HO4-->
 
 
