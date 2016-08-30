@@ -179,12 +179,6 @@
   "b60329a09ea0f119446fa2aa20de68e3edc2b245": [
     "virtualization\\windowscontainers\\deployment\\deployment.md"
   ],
-  "14bf0bf69c4e3a1bd1f86676916866bfa41ecb0d": [
-    "virtualization\\windowscontainers\\deployment\\deployment.md"
-  ],
-  "ce387b29f1bd311c70c17f3e7a98ae4f625bd3c2": [
-    "virtualization\\windowscontainers\\deployment\\deployment.md"
-  ],
   "387789ee9169d2affb9b9ed8e4e0e607071ac29b": [
     "virtualization\\windowscontainers\\deployment\\docker_windows.md"
   ],
@@ -359,15 +353,6 @@
   "8d3c8263819688d1a47893726619458ee44be59b": [
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
   ],
-  "aa3117d05870c832e373a8d2a2333a9a288c5b07": [
-    "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
-  ],
-  "9e7a5846887b297632d55438a7e12641e751626b": [
-    "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
-  ],
-  "57d35f9e871bdd3bd0798833bcbaf6a7948a65f2": [
-    "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md"
-  ],
   "6fae5625731c936903c808e286dbb9b4abcddd06": [
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md"
   ],
@@ -384,9 +369,6 @@
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md"
   ],
   "6ae49d82a89b2f30198de05aa4915726853172f5": [
-    "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md"
-  ],
-  "7ba03dbcedbe42d54c955ff321e9f3f180a5a674": [
     "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md"
   ],
   "a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6": [
