@@ -1,17 +1,17 @@
 ---
 title: "Образы контейнеров Windows"
 description: "Создание образов контейнеров и управление ими с помощью контейнеров Windows."
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 05/02/2016
+ms.date: 08/22/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: d8163185-9860-4ee4-9e96-17b40fb508bc
 translationtype: Human Translation
-ms.sourcegitcommit: 3db43b433e7b1a9484d530cf209ea80ef269a307
-ms.openlocfilehash: 505cc64fa19fb9fc8c2d5c109830f460f09332dd
+ms.sourcegitcommit: 7b5cf299109a967b7e6aac839476d95c625479cd
+ms.openlocfilehash: 8b9ec6370d1f9f9187fbb6d74168e9e88391b657
 
 ---
 
@@ -19,148 +19,34 @@ ms.openlocfilehash: 505cc64fa19fb9fc8c2d5c109830f460f09332dd
 
 **Это предварительное содержимое. Возможны изменения.** 
 
-Образы контейнеров используются для развертывания контейнеров. Эти образы могут содержать операционную систему, приложения и все зависимости приложений. Например, можно создать образ контейнера, который предварительно настроен с использованием Nano Server, IIS и приложения, работающего в IIS. Этот образ контейнера можно хранить в реестре контейнеров для создания нового образа контейнера на его основе или для дальнейшего использования. При этом выполняется его развертывание на любом узле контейнера Windows (локально, в облаке или даже в службе контейнеров).
+>Управление контейнерами Windows осуществляется с помощью Docker. Документация по контейнерам Windows дополняет документацию, размещенную на сайте [docker.com](https://www.docker.com/).
 
-Существует два типа образов контейнеров.
-
-**Базовые образы ОС** предоставляются корпорацией Майкрософт и включают в себя основные компоненты ОС. 
-
-**Образы контейнеров** — пользовательские образы, созданные на основе базовых образов ОС.
-
-## Базовые образы ОС
+Образы контейнеров используются для развертывания контейнеров. Эти образы могут содержать приложения и все зависимости приложений. Например, можно создать образ контейнера, который предварительно настроен с использованием Nano Server, IIS и приложения, работающего в IIS. Этот образ контейнера можно хранить в реестре контейнеров для создания нового образа контейнера на его основе или для дальнейшего использования. При этом выполняется его развертывание на любом узле контейнера Windows (локально, в облаке или даже в службе контейнеров).
 
 ### Установка образа
 
-Образы ОС контейнеров можно найти и установить с помощью модуля ContainerImage PowerShell. Чтобы использовать этот модуль, его необходимо установить. Для установки модуля можно использовать приведенную ниже команду. Дополнительные сведения об использовании модуля OneGet PowerShell для образов контейнеров см. в статье [Поставщик образов контейнеров](https://github.com/PowerShell/ContainerProvider). 
+Перед началом работы с контейнерами Windows необходимо установить базовый образ. Базовые образы доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы. Сведения о поддерживаемых конфигурациях см. в статье [Требования к контейнеру Windows](../deployment/system_requirements.md).
+
+Чтобы установить базовый образ Windows Server Core, выполните следующую команду:
 
 ```none
-Install-PackageProvider ContainerImage -Force
+docker pull microsoft/windowsservercore
 ```
 
-После установки можно вернуть список базовых образов ОС с помощью команды `Find-ContainerImage`.
+Чтобы установить базовый образ Nano Server, выполните следующую команду:
 
 ```none
-Find-ContainerImage
-
-Name                 Version          Source           Summary
-----                 -------          ------           -------
-NanoServer           10.0.14300.1010  ContainerImag... Container OS Image of Windows Server 2016 Technical...
-WindowsServerCore    10.0.14300.1000  ContainerImag... Container OS Image of Windows Server 2016 Technical...
+docker pull microsoft/nanoserver
 ```
-
-Чтобы скачать и установить базовый образ Nano Server, выполните приведенную ниже команду. Параметр `-version` не является обязательным. Если не указана базовая версия образа ОС, будет установлена последняя версия.
-
-```none
-Install-ContainerImage -Name NanoServer -Version 10.0.14300.1010
-```
-
-Эта команда также позволяет скачать и установить базовый образ ОС Windows Server Core. Параметр `-version` не является обязательным. Если не указана базовая версия образа ОС, будет установлена последняя версия.
-
-```none
-Install-ContainerImage -Name WindowsServerCore -Version 10.0.14300.1000
-```
-
-С помощью команды `docker images` убедитесь, что образы были установлены. 
-
-```none
-docker images
-
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1010     40356b90dc80        2 weeks ago         793.3 MB
-windowsservercore   10.0.14304.1000     7837d9445187        2 weeks ago         9.176 GB
-```  
-
-После установки может потребоваться пометить образы тегом "latest". Соответствующие инструкции приведены в разделе о тегах ниже.
-
-> Если базовый образ ОС скачивается, но не отображается при выполнении `docker images`, перезапустите службу Docker с помощью приложения панели управления службами или с помощью команд "sc stop docker" и "sc start docker".
-
-### Пометка образов тегами
-
-При ссылке на образ контейнера по имени подсистема Docker будет искать последнюю версию образа. Если последнюю версию невозможно определить, появится следующая ошибка.
-
-```none
-docker run -it windowsservercore cmd
-
-Unable to find image 'windowsservercore:latest' locally
-Pulling repository docker.io/library/windowsservercore
-C:\Windows\system32\docker.exe: Error: image library/windowsservercore not found.
-```
-
-После установки базовых образов ОС Windows Server Core или Nano Server их потребуется пометить тегами с версией "последняя". Для этого используйте команду `docker tag`. 
-
-Дополнительные сведения о `docker tag` см. в статье о [тегах, принудительной отправке и извлечении образов на сайте docker.com](https://docs.docker.com/mac/step_six/). 
-
-```none
-docker tag <image id> windowsservercore:latest
-```
-
-При назначении тегов в выходных данных `docker images` отображаются две версии одного образа: с тегом версии образа и с тегом "latest" (последняя). Теперь на образ можно ссылаться по имени.
-
-```none
-docker images
-
-REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
-nanoserver          10.0.14300.1010     df03a4b28c50        2 days ago          783.2 MB
-windowsservercore   10.0.14300.1000     290ab6758cec        2 days ago          9.148 GB
-windowsservercore   latest              290ab6758cec        2 days ago          9.148 GB
-```
-
-### Автономная установка
-
-Базовые образы ОС также можно установить без подключения к Интернету. Для этого скачайте образ на компьютер с подключением к Интернету, скопируйте его в целевую систему, а затем импортируйте с помощью команды `Install-ContainerOSImages`.
-
-Перед скачиванием базового образа ОС подготовьте **подключенную к Интернету** систему с поставщиком образа контейнера, запустив следующую команду.
-
-```none
-Install-PackageProvider ContainerImage -Force
-```
-
-Чтобы вернуть список образов из диспетчера пакетов OneGet в PowerShell:
-
-```none
-Find-ContainerImage
-```
-
-Вывод:
-
-```none
-Name                 Version                 Description
-----                 -------                 -----------
-NanoServer           10.0.14300.1010         Container OS Image of Windows Server 2016 Techn...
-WindowsServerCore    10.0.14300.1000         Container OS Image of Windows Server 2016 Techn...
-```
-
-Чтобы скачать образ, используйте команду `Save-ContainerImage`.
-
-```none
-Save-ContainerImage -Name NanoServer -Path c:\container-image
-```
-
-После этого скачанный образ контейнера можно скопировать на **автономный узел контейнера** и установить с помощью команды `Install-ContainerOSImage`.
-
-```none
-Install-ContainerOSImage -WimPath C:\container-image\NanoServer.wim -Force
-```
-
-### Удаление образа ОС
-
-Базовые образы ОС можно удалить с помощью команды `Uninstall-ContainerOSImage`. В следующем примере будет удален базовый образ ОС NanoServer.
-
-```none
-Uninstall-ContainerOSImage -FullName CN=Microsoft_NanoServer_10.0.14304.1003
-```
-
-## Образы контейнеров
 
 ### Образы списков
 
 ```none
 docker images
 
-REPOSITORY             TAG                 IMAGE ID            CREATED              VIRTUAL SIZE
-windowsservercoreiis   latest              ca40b33453f8        About a minute ago   44.88 MB
-windowsservercore      10.0.14300.1000     6801d964fda5        2 weeks ago          0 B
-nanoserver             10.0.14300.1010     8572198a60f1        2 weeks ago          0 B
+REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+microsoft/windowsservercore   latest              02cb7f65d61b        9 weeks ago         7.764 GB
+microsoft/nanoserver          latest              3a703c6e97a2        9 weeks ago         969.8 MB
 ```
 
 ### Создание образа
@@ -291,6 +177,6 @@ latest: digest: sha256:ae3a2971628c04d5df32c3bbbfc87c477bb814d5e73e2787900da1322
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO4-->
 
 
