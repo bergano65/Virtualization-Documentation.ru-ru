@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "08f893b646046d18def65602eb926bc0ea211804",
+  "LastProcessedCommit": "d186ef1b6da8e32d8de2cde9560113e3932785b6",
   "LastTranslatedCommit": "bc9e93cb6ce79871ad0d25ac32abea8afd8e92a3",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -24145,6 +24145,41 @@
       "ArchiveFilePath": "ol-archive\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf",
       "ArchiveFileCommit": "789885826137bd9682bf4c9238cabb5d601aff40",
       "ArchiveFileDateTime": "2016-09-07T00:10:00.9696739Z",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualException": null
+    },
+    "20b80a71fcfdec1c1fa177e9d8c0257db667a102": {
+      "FileHash": "20b80a71fcfdec1c1fa177e9d8c0257db667a102",
+      "SourceFileCommit": "d186ef1b6da8e32d8de2cde9560113e3932785b6",
+      "SourceFilePath": "virtualization\\windowscontainers\\management\\manage_data.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\management\\manage_data.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf",
+      "HandoffFileCommit": "e61194940274bf131b0cf61832992b0844e12d65",
+      "HandoffDateTime": "2016-09-08T20:42:03.2992716Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
       "ArchiveException": null,
       "BilingualFilePath": null,
       "BilingualFileCommit": null,
