@@ -5,9 +5,9 @@
  -------- | ----- 
  Total Files | 471
 [ Handoff Failed Files ](#handoff-failed-list)| 0
-[ Handoff Success Files ](#handoff-success-list)| 1
+[ Handoff Success Files ](#handoff-success-list)| 0
 [ Archive Failed Files ](#archive-failed-list)| 0
-[ Archive Success Files ](#archive-success-list)| 5
+[ Archive Success Files ](#archive-success-list)| 6
 [ Handback Failed Files ](#handback-failed-list)| 2
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
 [ In Sync Handback Files ](#insync-handback-success-list)| 130
@@ -16,9 +16,6 @@
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
 ## <a name='handoff-success-list'></a> Handoff Success File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960f523b7ff72bbb1eff6db5172c20b253fc7182/virtualization/windowscontainers/management/manage_data.md) | HandedOffSuccess | [Details](#bd7e6af1dabadce2b89a48b916596849371026a8256)
 
 ## <a name='archive-failed-list'></a> Archive Failed File List
 
@@ -29,6 +26,7 @@
  [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/deployment/docker_windows.md) | ArchivedSuccess | [Details](#387789ee9169d2affb9b9ed8e4e0e607071ac29b229)
  [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7ebd83d5d3a098fc8760f5dfba7e350c3f167232/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md) | ArchivedSuccess | [Details](#19a363aa013b51e0c80d56572de77e94f27e546f249)
  [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/18571fc02ecbb37c5db596a610124727f6d5bb90/virtualization/windowscontainers/management/hyperv_container.md) | ArchivedSuccess | [Details](#2677b9228371b4a4ba72c249509cd9ccacc89473254)
+ [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960f523b7ff72bbb1eff6db5172c20b253fc7182/virtualization/windowscontainers/management/manage_data.md) | ArchivedSuccess | [Details](#bd7e6af1dabadce2b89a48b916596849371026a8256)
  [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/eccce83d7e376be592694162f54ccb67be9d3c12/virtualization/windowscontainers/management/manage_images.md) | ArchivedSuccess | [Details](#bb99d0c15d6d1dd9e126fde05207431153b4f94a257)
 
 ## <a name='handback-failed-list'></a> Handback Failed File List
@@ -3748,13 +3746,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='bd7e6af1dabadce2b89a48b916596849371026a8256'></a> Source: [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960f523b7ff72bbb1eff6db5172c20b253fc7182/virtualization/windowscontainers/management/manage_data.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/1f7a19c6c76c19f64ed70bc816222f95bd41156e/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf)
 * Handoff Datetime: 2016-09-08 22:12:35
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/c10b7cad5d62eb01f818760e15b4f2e54facf947/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf)
+* Archive Datetime: 2016-09-09 00:10:58
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/032e76594b2fc9f59fc701cde934ee5e07290bd7/virtualization/windowscontainers/management/manage_data.md)
