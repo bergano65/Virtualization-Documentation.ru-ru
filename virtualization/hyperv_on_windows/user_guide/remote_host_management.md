@@ -1,7 +1,7 @@
 ---
 title: "Управление удаленными узлами Hyper-V с помощью диспетчера Hyper-V"
 description: "Управление удаленными узлами Hyper-V с помощью диспетчера Hyper-V"
-keywords: windows 10, hyper-v
+keywords: "windows 10, hyper-v"
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: eb6c8e904b9cd2c5d1ed25583ffbcdbdf0b9139c
-ms.openlocfilehash: fee2b24469b45efae982f4dfca4afb9f737b5bdf
+ms.sourcegitcommit: 07a07c790484c05ea49229a770ef75c80fad3cfa
+ms.openlocfilehash: 8a84da80199479907c3bf4cf0c7b1cfb1b44bf9d
 
 ---
 
@@ -29,14 +29,14 @@ ms.openlocfilehash: fee2b24469b45efae982f4dfca4afb9f737b5bdf
 Диспетчер Hyper-V в Windows 10 позволяет управлять следующими узлами Hyper-V:
 * Windows 10
 * Windows 8.1
-* Windows 8
+* Windows 8
 * Windows Server 2016 с Windows Server Core, Nano Server и Hyper-V Server
 * Windows Server 2012 R2 с Windows Server Core, Datacenter и Hyper-V Server
 * Windows 2012 с Windows Server Core, Datacenter и Hyper-V Server
 
 Диспетчер Hyper-V в Windows 8.1 и Windows Server 2012 R2 позволяет управлять следующими узлами:
 * Windows 8.1
-* Windows 8
+* Windows 8
 * Windows Server 2012 R2 с Windows Server Core, Datacenter и Hyper-V Server
 * Windows 2012 с Windows Server Core, Datacenter и Hyper-V Server
 
@@ -117,12 +117,12 @@ winrm quickconfig
 2. [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer "полное_доменное_имя_узла_hyper-v"
   * Кроме того, вы можете разрешить управление всеми узлами с помощью такой команды:
   * [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer *
-3. Кроме того, вам может потребоваться настроить следующую групповую политику: ** Конфигурация компьютера | Административные шаблоны | Система | Делегирование учетных данных | Разрешить использование новых учетных данных с проверкой подлинности сервера только для NTLM **
+3. Кроме того, вам может потребоваться настроить следующую групповую политику: ** Конфигурация компьютера | Административные шаблоны | Система | Передача учетных данных | Разрешить передачу новых учетных данных с проверкой подлинности сервера «только NTLM»**.
     * Щелкните **Включить** и добавьте *wsman/полное_доменное_имя_узла_hyper-v*
     * Кроме того, вы можете разрешить управление всеми узлами, добавив _wsman/*_
 
 
 
-<!--HONumber=Jun16_HO5-->
+<!--HONumber=Aug16_HO5-->
 
 

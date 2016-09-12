@@ -1,7 +1,7 @@
 ---
 title: "Оптимизация файлов Dockerfile в Windows"
 description: "Оптимизация файлов Dockerfile для контейнеров Windows."
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
 translationtype: Human Translation
-ms.sourcegitcommit: cc216f56acd5e547d05a48beea57450ba5fcb28b
-ms.openlocfilehash: 4822ff2f0248b2d7752299ea55b08e3499e2e2f7
+ms.sourcegitcommit: 7ebd83d5d3a098fc8760f5dfba7e350c3f167232
+ms.openlocfilehash: 19a363aa013b51e0c80d56572de77e94f27e546f
 
 ---
 # Оптимизация файлов Dockerfile в Windows
@@ -65,7 +65,7 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 
 Два следующих примера демонстрируют выполнение одной операции. При этом получаются образы контейнеров с идентичными возможностями, однако используются два разных файла Dockerfile. Итоговые образы также сравниваются.  
 
-Первый пример скачивает, извлекает и очищает распространяемый пакет Visual Studio. Каждое из этих действий выполняется в своей собственной инструкции `RUN`.
+В первом примере Python для Windows скачивается, устанавливается и очищается путем удаления скачанного файла установки. Каждое из этих действий выполняется в своей собственной инструкции `RUN`.
 
 ```none
 FROM windowsservercore
@@ -305,6 +305,6 @@ RUN powershell -Command \
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Aug16_HO5-->
 
 
