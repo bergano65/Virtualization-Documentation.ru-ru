@@ -5,9 +5,9 @@
  -------- | ----- 
  Total Files | 471
 [ Handoff Failed Files ](#handoff-failed-list)| 0
-[ Handoff Success Files ](#handoff-success-list)| 1
+[ Handoff Success Files ](#handoff-success-list)| 0
 [ Archive Failed Files ](#archive-failed-list)| 0
-[ Archive Success Files ](#archive-success-list)| 4
+[ Archive Success Files ](#archive-success-list)| 5
 [ Handback Failed Files ](#handback-failed-list)| 2
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
 [ In Sync Handback Files ](#insync-handback-success-list)| 131
@@ -16,15 +16,13 @@
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
 ## <a name='handoff-success-list'></a> Handoff Success File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/939a1b69f159504b998792adb95ccabc326db333/virtualization/windowscontainers/deployment/deployment_nano.md) | HandedOffSuccess | [Details](#538fb27d6170f0a8dab5c189b90040e40c546e14228)
 
 ## <a name='archive-failed-list'></a> Archive Failed File List
 
 ## <a name='archive-success-list'></a> Archive Success File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
+ [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/939a1b69f159504b998792adb95ccabc326db333/virtualization/windowscontainers/deployment/deployment_nano.md) | ArchivedSuccess | [Details](#538fb27d6170f0a8dab5c189b90040e40c546e14228)
  [virtualization\windowscontainers\deployment\docker_windows.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/cb689563fac8479fe9012cf41b183c1d1ef76657/virtualization/windowscontainers/deployment/docker_windows.md) | ArchivedSuccess | [Details](#387789ee9169d2affb9b9ed8e4e0e607071ac29b229)
  [virtualization\windowscontainers\management\hyperv_container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/18571fc02ecbb37c5db596a610124727f6d5bb90/virtualization/windowscontainers/management/hyperv_container.md) | ArchivedSuccess | [Details](#2677b9228371b4a4ba72c249509cd9ccacc89473254)
  [virtualization\windowscontainers\management\manage_data.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/960f523b7ff72bbb1eff6db5172c20b253fc7182/virtualization/windowscontainers/management/manage_data.md) | ArchivedSuccess | [Details](#bd7e6af1dabadce2b89a48b916596849371026a8256)
@@ -3367,13 +3365,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='538fb27d6170f0a8dab5c189b90040e40c546e14228'></a> Source: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/939a1b69f159504b998792adb95ccabc326db333/virtualization/windowscontainers/deployment/deployment_nano.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/06bb3eab3e8342b5d44c9b838d629479e4591e75/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.ru-ru.xlf)
 * Handoff Datetime: 2016-09-12 16:38:41
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e2b4fb852eaf8b8b0d9951e9e84a0bafcf760da0/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.ru-ru.xlf)
+* Archive Datetime: 2016-09-13 00:14:29
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/bc9e93cb6ce79871ad0d25ac32abea8afd8e92a3/virtualization/windowscontainers/deployment/deployment_nano.md)
