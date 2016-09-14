@@ -1,7 +1,7 @@
 ---
 title: "Тома данных контейнера"
 description: "Создание томов данных и управление ими с помощью контейнеров Windows."
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: f5998534-917b-453c-b873-2953e58535b1
 translationtype: Human Translation
-ms.sourcegitcommit: 493b669bc47fc589486a82cfea73a0bb1e88cf79
-ms.openlocfilehash: 26c010e79a4913b2e138f6d1d78f9406dbacbc6b
+ms.sourcegitcommit: 08f893b646046d18def65602eb926bc0ea211804
+ms.openlocfilehash: a175091c943cf596b2a810245b1b73b8baddb0c6
 
 ---
 
@@ -49,29 +49,17 @@ docker run -it -v c:\source:c:\destination windowsservercore cmd
 
 ### Подключение отдельных файлов
 
-Для подключения к контейнеру отдельного файла можно явно указать его имя. В этом примере каталог, находящийся в общем доступе, содержит множество файлов, однако внутри контейнера доступен только файл "config.ini". 
+Один файл невозможно подключить к контейнеру Windows. Выполнение следующей команды не завершится сбоем, но полученный контейнер не будет содержать файл. 
 
 ```none
-docker run -it -v c:\container-share\config.ini windowsservercore cmd
+docker run -it -v c:\config\config.ini microsoft/windowsservercore cmd
 ```
 
-Внутри запущенного контейнера виден только файл config.ini.
+В качестве обходного решения подключать файлы к контейнеру следует из каталога.
 
 ```none
-c:\container-share>dir
- Volume in drive C has no label.
- Volume Serial Number is 7CD5-AC14
-
- Directory of c:\container-share
-
-04/04/2016  12:53 PM    <DIR>          .
-04/04/2016  12:53 PM    <DIR>          ..
-04/04/2016  12:53 PM    <SYMLINKD>     config.ini
-               0 File(s)              0 bytes
-               3 Dir(s)  21,184,208,896 bytes free
+docker run -it -v c:\config:c:\config microsoft/windowsservercore cmd
 ```
-
-Дополнительные сведения о подключении отдельных файлов см. в описании [управления данными в контейнерах на сайте docker.com](https://docs.docker.com/engine/userguide/containers/dockervolumes/#mount-a-host-directory-as-a-data-volume).
 
 ### Подключение целого диска
 
@@ -125,6 +113,6 @@ docker inspect backstabbing_kowalevski
 
 
 
-<!--HONumber=Jul16_HO3-->
+<!--HONumber=Sep16_HO1-->
 
 
