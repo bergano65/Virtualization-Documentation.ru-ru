@@ -1,14 +1,18 @@
 ---
-title: Контейнеры Hyper-V
-description: Развертывание контейнеров Hyper-V.
-keywords: docker, containers
+title: "Контейнеры Hyper-V"
+description: "Развертывание контейнеров Hyper-V."
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 05/02/2016
+ms.date: 09/13/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
+translationtype: Human Translation
+ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
+ms.openlocfilehash: ca15f64ec114a5763e54f1891a4045b43a5fa286
+
 ---
 
 # Контейнеры Hyper-V
@@ -28,7 +32,7 @@ ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
 Управление контейнерами Hyper-V и Windows Server с помощью Docker почти ничем не отличается. При создании контейнера Hyper-V с помощью Docker используется параметр `--isolation=hyperv`.
 
 ```none
-docker run -it --isolation=hyperv windowsservercore cmd
+docker run -it --isolation=hyperv nanoserver cmd
 ```
 
 ### Пояснения по изоляции
@@ -97,6 +101,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 ```
 
 
-<!--HONumber=May16_HO3-->
+
+<!--HONumber=Sep16_HO2-->
 
 
