@@ -1,7 +1,7 @@
 ---
 title: "Документация по контейнерам Windows"
 description: "Документация по контейнерам Windows"
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 9070126c8cc944f9db0f8bacee8dbf135a3a23db
-ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
+ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
+ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
 
 ---
 
@@ -40,24 +40,25 @@ ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
 <li>[Требования к системе](deployment/system_requirements.md)<br /><br /></li>
 <li>[Развертывание узла контейнера — Windows Server](deployment/deployment.md)<br /><br /></li>
 <li>[Развертывание узла контейнера — Nano Server](deployment/deployment_nano.md)<br /><br /></li>
-
+<li>[Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
 </ul>
 </td>
 </tr>
 
 <tr>
 <td ><center>![](media/explore.png)</center></td>
-<td>**Management**<br /><br />
-Узнайте о том, как управлять контейнером Windows в Windows Server 2016 и на сервере Nano.<br /><br />
+<td>**Docker в Windows**<br /><br />
+Дополнительные сведения об управлении Docker в Windows.<br /><br />
 <ul>
-<li>[Управление образами](management/manage_images.md)<br /><br /></li>
-<li>[Управление сетью](management/container_networking.md)<br /><br /></li>
+<li>[Подсистема Docker в Windows](docker/configure_docker_daemon.md)<br /><br /></li>
+<li>[Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)<br /><br /></li>
 <li>[Управление данными контейнера](management/manage_data.md)<br /><br /></li>
-<li>[Управление контейнерами Hyper-V](management/hyperv_container.md)<br /><br /></li>
-<li>[Управление ресурсами контейнера](management/manage_resources.md)<br /><br /></li>
+<li>[Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)<br /><br /></li>
+<li>[Сетевые подключения контейнеров](management/container_networking.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
+
 <tr>
 <td ><center>![](media/video.png)</center></td>
 <td>**Посмотрите**<br /><br />
@@ -68,6 +69,7 @@ ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
 <br />
 </td>
 </tr>
+
 <tr>
 <td ><center>![](media/question.png)</center></td>
 <td>**Сообщество**<br /><br />
@@ -82,6 +84,6 @@ ms.openlocfilehash: b50c27e723fb8db13adec37d6b969e93d607243e
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Sep16_HO2-->
 
 

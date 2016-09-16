@@ -14,17 +14,11 @@
 ## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
-# Docker в Windows
+# Управление Docker в Windows
 ## [Подсистема Docker в Windows](docker/configure_docker_daemon.md)
 ## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
 ## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
-
-# Управление контейнерами Windows
-## [Контейнеры Hyper-V](management/hyperv_container.md)
-## [Образы контейнеров](management/manage_images.md)
 ## [Сетевые подключения контейнеров](management/container_networking.md)
-## [Тома данных контейнера](management/manage_data.md)
-## [Управление ресурсами контейнера](management/manage_resources.md)
 
 # Примеры контейнеров
 ## [Файлы Dockerfile — Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
@@ -38,6 +32,6 @@
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO2-->
 
 
