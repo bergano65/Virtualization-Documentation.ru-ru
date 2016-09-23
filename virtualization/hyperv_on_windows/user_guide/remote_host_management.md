@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: 07a07c790484c05ea49229a770ef75c80fad3cfa
-ms.openlocfilehash: 8a84da80199479907c3bf4cf0c7b1cfb1b44bf9d
+ms.sourcegitcommit: c73e1fa48b21a4daf2821ba3aae756d9a46e9f94
+ms.openlocfilehash: 3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd
 
 ---
 
@@ -30,23 +30,27 @@ ms.openlocfilehash: 8a84da80199479907c3bf4cf0c7b1cfb1b44bf9d
 * Windows 10
 * Windows 8.1
 * Windows 8
-* Windows Server 2016 с Windows Server Core, Nano Server и Hyper-V Server
-* Windows Server 2012 R2 с Windows Server Core, Datacenter и Hyper-V Server
-* Windows 2012 с Windows Server Core, Datacenter и Hyper-V Server
+* Windows Server 2016 — всеми выпусками и вариантами установки, включая Nano Server, и соответствующую версию Hyper-V Server.
+* Windows Server 2012 R2 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
+* Windows Server 2012 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
 
-Диспетчер Hyper-V в Windows 8.1 и Windows Server 2012 R2 позволяет управлять следующими узлами:
+Диспетчер Hyper-V в Windows 8.1 и Windows Server 2012 R2 позволяет управлять следующим:
 * Windows 8.1
 * Windows 8
-* Windows Server 2012 R2 с Windows Server Core, Datacenter и Hyper-V Server
-* Windows 2012 с Windows Server Core, Datacenter и Hyper-V Server
+* Windows Server 2012 R2 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
+* Windows Server 2012 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
 
-Диспетчер Hyper-V в Windows 8 и Windows Server 2012 позволяет управлять следующими узлами:
-* Windows 8
-* Windows 2012 с Windows Server Core, Datacenter и Hyper-V Server
+Диспетчер Hyper-V в Windows 8 и Windows Server 2012 позволяет управлять следующим:
+* Windows 8
+* Windows Server 2012 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
 
-Компонент Hyper-V появился в Windows 8.  До Windows 8.1 и Windows Server 2012 диспетчер Hyper-V позволял управлять только соответствующими версиями Hyper-V.
+Диспетчер Hyper-V в Windows 7 и Windows Server 2008 R2 позволяет управлять следующим:
+* Windows Server 2008 R2 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
 
-> **Примечание.** Функциональность диспетчера Hyper-V соответствует функциональности управляемой версии.  Другими словами, если вы управляете удаленным узлом Server 2012 из Server 2012 R2, то новые возможности диспетчера Hyper-V версии 2012 R2 будут недоступны.
+Диспетчер Hyper-V в Windows Vista и Windows Server 2008 позволяет управлять следующим:
+* Windows Server 2008 — всеми выпусками и вариантами установки, а также соответствующей версией Hyper-V Server.
+
+> **Примечание.** Функциональность диспетчера Hyper-V соответствует функциональности управляемой версии. Другими словами, если вы управляете удаленным узлом Windows Server 2012 из Windows Server 2012 R2, то новые возможности диспетчера Hyper-V из Windows Server 2012 R2 будут недоступны.
 
 ## Управление локальным узлом ##
 Чтобы добавить локальный узел в диспетчер Hyper-V в качестве узла Hyper-V, выберите пункт **Локальный компьютер** в диалоговом окне **Выбор компьютера**.
@@ -70,7 +74,7 @@ ms.openlocfilehash: 8a84da80199479907c3bf4cf0c7b1cfb1b44bf9d
 Для этого выберите пункты `System Properties -> Remote Management Settings` или выполните от имени администратора следующую команду PowerShell:  
 
 ``` PowerShell
-winrm quickconfig
+Enable-PSRemoting
 ```
 
 Если ваша текущая учетная запись пользователя соответствует учетной записи администратора Hyper-V на удаленном узле, нажмите кнопку **ОК**, чтобы подключиться.  
@@ -83,7 +87,7 @@ winrm quickconfig
 
 
 ### Подключение к удаленному узлу от имени другого пользователя
-> Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
+> Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
 
 В Windows 10, если ваша учетная запись пользователя не позволяет управлять удаленным узлом, вы можете подключиться от имени другого пользователя с альтернативными учетными данными.
 
@@ -93,15 +97,15 @@ winrm quickconfig
 
 
 ### Подключение к удаленному узлу с помощью IP-адреса
-> Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
+> Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
 
-Иногда проще подключиться, используя IP-адрес, а не имя узла.  В Windows 10 это возможно.
+Иногда проще подключиться, используя IP-адрес, а не имя узла. В Windows 10 вы можете это сделать.
 
 Чтобы подключиться с помощью IP-адреса, введите IP-адрес в текстовое поле **Другой компьютер**.
 
 
 ## Управление узлом Hyper-V за пределами домена (или без домена) ##
-> Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
+> Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
 
 На управляемом узле Hyper-V выполните следующие команды от имени администратора:
 
@@ -123,6 +127,6 @@ winrm quickconfig
 
 
 
-<!--HONumber=Aug16_HO5-->
+<!--HONumber=Sep16_HO3-->
 
 

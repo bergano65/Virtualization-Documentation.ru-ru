@@ -10,16 +10,16 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 39e480b8bf3f90cfe9b7d4d17141b9dbec5f93e5
-ms.openlocfilehash: 78c67351f3e5606b8225c71d221a871e58530e57
+ms.sourcegitcommit: 16630b534367791114a4844c3c1f582f13d09d6d
+ms.openlocfilehash: 02b4e01e404fe5ab3a6fadbb3481c741cb4aa563
 
 ---
 
 # Контейнеры Windows в Windows 10
 
-**Это предварительное содержимое. Возможны изменения.** 
+**Это предварительное содержимое. Возможны изменения.**
 
-Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows 10 Professional и Windows 10 Корпоративная (Anniversary Edition). В его рамках вы установите роль контейнера и развернете простой контейнер Hyper-V. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./quick_start.md). 
+Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows 10 Professional и Windows 10 Корпоративная (Anniversary Edition). В его рамках вы установите роль контейнера и развернете простой контейнер Hyper-V. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./quick_start.md).
 
 В этом кратком руководстве рассматриваются контейнеры Hyper-V в Windows 10. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы.
 
@@ -30,7 +30,7 @@ ms.openlocfilehash: 78c67351f3e5606b8225c71d221a871e58530e57
 
 ## 1. Установка компонента контейнеров
 
-Чтобы начать работу с контейнерами Windows, требуется включить контейнер компонентов. Для этого выполните приведенную ниже команду в сеансе PowerShell с повышенными правами. 
+Чтобы начать работу с контейнерами Windows, требуется включить контейнер компонентов. Для этого выполните приведенную ниже команду в сеансе PowerShell с повышенными правами.
 
 ```none
 Enable-WindowsOptionalFeature -Online -FeatureName containers -All
@@ -48,7 +48,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Restart-Computer -Force
 ```
 
-После перезагрузки выполните следующую команду, чтобы устранить известную проблему с версией Technical Preview контейнеров Windows.  
+После резервного копирования выполните следующую команду, чтобы устранить известную проблему с контейнерами Windows в Windows 10.  
 
  ```none
 Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
@@ -58,7 +58,7 @@ Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtua
 
 ## 2. Установка Docker
 
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента. Для этого выполните приведенные ниже команды. 
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента. Для этого выполните приведенные ниже команды.
 
 Скачайте подсистему Docker и клиент в виде ZIP-архива.
 
@@ -78,7 +78,7 @@ Expand-Archive -Path "$env:TEMP\docker-1.13.0-dev.zip" -DestinationPath $env:Pro
 # For quick use, does not require shell to be restarted.
 $env:path += ";c:\program files\docker"
 
-# For persistent use, will apply even after a reboot. 
+# For persistent use, will apply even after a reboot.
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -100,7 +100,7 @@ Start-Service Docker
 
 Контейнеры Windows развертываются из шаблонов или образов. Перед развертыванием контейнера требуется скачать базовый образ ОС контейнера. Приведенные ниже команды скачивают базовый образ Nano Server.
 
-Получите базовый образ Nano Server. 
+Получите базовый образ Nano Server.
 
 ```none
 docker pull microsoft/nanoserver
@@ -163,7 +163,8 @@ docker images
 docker run --rm helloworld powershell c:\helloworld.ps1
 ```
 
-В результате выполнения команды `docker run` создается контейнер Hyper-V из образа "Привет мир", затем запускается скрипт-пример "Привет мир" (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется. В последующих кратких руководствах, посвященных Windows 10 и контейнерам, будет подробно описано создание и развертывание приложений в контейнерах на базе Windows 10.
+В результате выполнения команды `docker run` создается контейнер Hyper-V из образа "Привет мир", затем запускается скрипт-пример "Привет мир" (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется.
+В последующих кратких руководствах, посвященных Windows 10 и контейнерам, будет подробно описано создание и развертывание приложений в контейнерах на базе Windows 10.
 
 ## Дальнейшие действия
 
@@ -171,8 +172,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-
-
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO3-->
 
 

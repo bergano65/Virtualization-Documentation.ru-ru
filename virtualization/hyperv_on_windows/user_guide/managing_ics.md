@@ -1,7 +1,7 @@
 ---
 title: "Управление службами интеграции Hyper-V"
 description: "Управление службами интеграции Hyper-V"
-keywords: windows 10, hyper-v, integration services, integration components
+keywords: "windows 10, hyper-v, службы интеграции, компоненты интеграции"
 author: scooley
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 translationtype: Human Translation
-ms.sourcegitcommit: 852f7fafe7192d85b0e9840ea3767a1206a1c285
-ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
+ms.sourcegitcommit: 22d29dbde56319a2a9d7fbc8afd041d1dc224101
+ms.openlocfilehash: 0779ef5b3f83bcf99f5681c13d445bcd33720dc6
 
 ---
 
@@ -32,7 +32,9 @@ ms.openlocfilehash: e7abf05c899e2acca07312813b7808a5db00a9f7
   
   ![](./media/HyperVManager-IntegrationServices.png)
   
-  Здесь указаны все службы интеграции, доступные на этом узле Hyper-V.  Обратите внимание, что гостевая операционная система может поддерживать не все указанные службы интеграции.
+  Здесь указаны все службы интеграции, доступные на этом узле Hyper-V.  Обратите внимание, что гостевая операционная система может поддерживать не все указанные службы интеграции. Чтобы узнать данные о версии для гостевой операционной системы, войдите в нее и выполните следующую команду из командной строки.
+
+REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
 ## Включение и отключение служб интеграции с помощью PowerShell
 
@@ -203,16 +205,16 @@ sudo hv_kvp_daemon
 
 > **Примечание.** ISO-файл образа, vmguest.iso, больше не требуется для обновления компонентов интеграции. Он не входит в Hyper-V в Windows 10.
 
-| Гостевая ОС | Механизм обновления | Заметки |
+| Гостевая ОС | Механизм обновления | Примечания |
 |:---------|:---------|:---------|
 | Windows 10 | Центр обновления Windows | |
 | Windows 8.1 | Центр обновления Windows | |
-| Windows 8 | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
-| Windows 7 | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
+| Windows 8 | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
+| Windows 7 | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
 | Windows Vista с пакетом обновления 2 (SP2) | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
 | - | | |
-| Windows Server 2012 R2 | Центр обновления Windows | |
-| Windows Server 2012 | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
+| Windows Server 2012 R2 | Центр обновления Windows | |
+| Windows Server 2012 | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
 | Windows Server 2008 R2 с пакетом обновления 1 (SP1) | Центр обновления Windows | Требуется служба интеграции для обмена данными.* |
 | Windows Server 2008 с пакетом обновления 2 (SP2) | Центр обновления Windows | Расширенная поддержка предоставляется только по Windows Server 2016 ([подробности](https://support.microsoft.com/en-us/lifecycle?p1=12925)). |
 | Windows Home Server 2011 | Центр обновления Windows | Не поддерживается в Windows Server 2016 ([подробности](https://support.microsoft.com/en-us/lifecycle?p1=15820)). |
@@ -226,17 +228,17 @@ sudo hv_kvp_daemon
 
 **Для виртуальных машин, работающих на узлах под управлением Windows 8.1:**
 
-| Гостевая ОС | Механизм обновления | Заметки |
+| Гостевая ОС | Механизм обновления | Примечания |
 |:---------|:---------|:---------|
 | Windows 10 | Центр обновления Windows | |
 | Windows 8.1 | Центр обновления Windows | |
-| Windows 8 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
-| Windows 7 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 8 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 7 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Vista с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows XP с пакетами обновления 2 и 3 (SP2, SP3) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
-| Windows Server 2012 R2 | Центр обновления Windows | |
-| Windows Server 2012 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2012 R2 | Центр обновления Windows | |
+| Windows Server 2012 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Server 2008 R2 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Server 2008 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Home Server 2011 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
@@ -252,13 +254,13 @@ sudo hv_kvp_daemon
 | Гостевая ОС | Механизм обновления | Заметки |
 |:---------|:---------|:---------|
 | Windows 8.1 | Центр обновления Windows | |
-| Windows 8 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
-| Windows 7 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 8 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows 7 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Vista с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows XP с пакетами обновления 2 и 3 (SP2, SP3) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | - | | |
-| Windows Server 2012 R2 | Центр обновления Windows | |
-| Windows Server 2012 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
+| Windows Server 2012 R2 | Центр обновления Windows | |
+| Windows Server 2012 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Server 2008 R2 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4).|
 | Windows Server 2008 с пакетом обновления 2 (SP2) | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
 | Windows Home Server 2011 | Диск со службами интеграции | Инструкции см. [здесь](https://technet.microsoft.com/en-us/library/hh846766.aspx#BKMK_step4). |
@@ -272,6 +274,6 @@ sudo hv_kvp_daemon
 
 
 
-<!--HONumber=Jul16_HO1-->
+<!--HONumber=Sep16_HO3-->
 
 
