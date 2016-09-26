@@ -1,7 +1,7 @@
 ---
 title: "Работа с Hyper-V и Windows PowerShell"
 description: "Работа с Hyper-V и Windows PowerShell"
-keywords: windows 10, hyper-v
+keywords: "windows 10, hyper-v"
 author: neilpeterson
 manager: timlt
 ms.date: 05/02/2016
@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
 translationtype: Human Translation
-ms.sourcegitcommit: e14ede0a2b13de08cea0a955b37a21a150fb88cf
-ms.openlocfilehash: a8e567b6447aa73f14825b7054d977d2b003a726
+ms.sourcegitcommit: cb573c6ecb658fc8f314d66d70a62558b183209d
+ms.openlocfilehash: 8b688e666c7189888af3a7f182002f06fa2e2c0b
 
 ---
 
@@ -25,16 +25,16 @@ ms.openlocfilehash: a8e567b6447aa73f14825b7054d977d2b003a726
 2.  Запустите указанную ниже команду, чтобы отобразить список команд PowerShell, доступных в модуле PowerShell Hyper-V.
 
  ```powershell
-get-command -module hyper-v | out-gridview
+Get-Command -Module hyper-v | Out-GridView
 ```
   Отобразится примерно следующее:
 
   ![](media\command_grid.png)
 
-3. Чтобы получить дополнительную информацию о конкретной команде PowerShell, введите команду `get-help`. Например, запустив указанную ниже команду, вы получите информацию о команде `get-vm` Hyper-V.
+3. Чтобы получить дополнительные сведения о конкретной команде PowerShell, введите команду `Get-Help`. Например, запустив указанную ниже команду, вы получите информацию о команде `Get-VM` Hyper-V.
 
   ```powershell
-get-help get-vm
+Get-Help Get-VM
 ```
  Отобразится информация о синтаксисе команды, обязательных и дополнительных параметрах, а также псевдонимах, которые можно использовать.
 
@@ -43,26 +43,26 @@ get-help get-vm
 
 ### Получение списка виртуальных машин
 
-Чтобы получить список виртуальных машин, используйте команду `get-vm`.
+Чтобы извлечь список виртуальных машин, используйте команду `Get-VM`.
 
 1. В PowerShell запустите следующую команду:
  
  ```powershell
-get-vm
+Get-VM
 ```
  Отобразится примерно следующее:
 
  ![](media\get_vm.png)
 
-2. Чтобы получить список только тех виртуальных машин, которые включены в данный момент, добавьте к команде `get-vm` фильтр. Фильтр можно добавить с помощью команды where-object. Дополнительные сведения о фильтрации см. в статье [Использование командлета Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx).   
+2. Чтобы извлечь список только тех виртуальных машин, которые включены в данный момент, добавьте к команде `Get-VM` фильтр. Фильтр можно добавить командой `Where-Object`. Дополнительные сведения о фильтрации см. в статье [Использование командлета Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx).   
 
  ```powershell
- get-vm | where {$_.State -eq ‘Running’}
+ Get-VM | where {$_.State -eq 'Running'}
  ```
-3.  Чтобы получить список всех отключенных виртуальных машин, запустите указанную ниже команду. Эта команда представляет собой копию команды, приведенной ранее (шаг 2), но только значение фильтра изменено с Running на Off.
+3.  Чтобы получить список всех отключенных виртуальных машин, запустите указанную ниже команду. Эта команда представляет собой копию команды, приведенной ранее (шаг 2), но только значение фильтра изменено с "Running" (Работают) на "Off" (Отключены).
 
  ```powershell
- get-vm | where {$_.State -eq ‘Off’}
+ Get-VM | where {$_.State -eq 'Off'}
  ```
 
 ### Запуск и завершение работы виртуальных машин
@@ -70,33 +70,33 @@ get-vm
 1. Чтобы запустить определенную виртуальную машину, выполните следующую команду с указанием имени виртуальной машины:
 
  ```powershell
- Start-vm -Name <virtual machine name>
+ Start-VM -Name <virtual machine name>
  ```
 
-2. Чтобы запустить все отключенные на данный момент виртуальные машины, получить список этих машин и передать список команде start-vm, используется следующая команда:
+2. Чтобы запустить все отключенные на данный момент виртуальные машины, получить список этих машин и передать список команде `Start-VM`, используется следующая команда:
 
   ```powershell
- get-vm | where {$_.State -eq ‘Off’} | start-vm
+ Get-VM | where {$_.State -eq 'Off'} | Start-VM
  ```
 3. Чтобы завершить работу всех работающих виртуальных машин, запустите это:
  
   ```powershell
- get-vm | where {$_.State -eq ‘Running’} | stop-vm
+ Get-VM | where {$_.State -eq 'Running'} | Stop-VM
  ```
 
 ### Создание контрольной точки виртуальной машины
 
-Чтобы создать контрольную точку с помощью PowerShell, выберите нужную виртуальную машину, используя команду `get-vm`, и передайте ее в команду `checkpoint-vm`. В заключение присвойте контрольной точке имя, используя команду `-snapshotname`. Полностью команда выглядит так:
+Чтобы создать контрольную точку с помощью PowerShell, выберите нужную виртуальную машину, используя команду `Get-VM`, и передайте ее в команду `Checkpoint-VM`. В заключение присвойте контрольной точке имя, используя команду `-SnapshotName`. Полностью команда выглядит так:
 
  ```powershell
- get-vm -Name <VM Name> | checkpoint-vm -snapshotname <name for snapshot>
+ Get-VM -Name <VM Name> | Checkpoint-VM -SnapshotName <name for snapshot>
  ```
 ### Создание новой виртуальной машины
 
 Следующий пример демонстрирует создание виртуальной машины в интегрированной среде сценариев (ISE) PowerShell. Это простой пример. Его можно усложнить, добавив дополнительные функции PowerShell и расширенные сценарии развертывания виртуальной машины.
 
 1. Чтобы открыть среду ISE PowerShell, нажмите кнопку "Пуск" и введите **PowerShell ISE**.
-2. Запустите указанный ниже код для создания виртуальной машины. Подробные сведения о New-VM см. в документации по команде [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx).
+2. Запустите указанный ниже код для создания виртуальной машины. Подробные сведения о команде `New-VM` см. в документации по команде [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx).
 
   ```powershell
  $VMName = "VMNAME"
@@ -108,8 +108,8 @@ get-vm
      NewVHDPath = "C:\Virtual Machines\$VMName\$VMName.vhdx"
      NewVHDSizeBytes = 53687091200
      BootDevice = "VHD"
-     Path = "C:\Virtual Machines\$VMName "
-     SwitchName = (get-vmswitch).Name[0]
+     Path = "C:\Virtual Machines\$VMName"
+     SwitchName = (Get-VMSwitch).Name[0]
  }
 
  New-VM @VM
@@ -121,6 +121,7 @@ get-vm
  
 
 
-<!--HONumber=Jun16_HO4-->
+
+<!--HONumber=Sep16_HO3-->
 
 
