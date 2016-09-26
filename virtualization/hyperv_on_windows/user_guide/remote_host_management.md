@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: c73e1fa48b21a4daf2821ba3aae756d9a46e9f94
-ms.openlocfilehash: 3fbcdb7b93941a0ccc1cdbe659e70f3881b9d0cd
+ms.sourcegitcommit: e0d957ebb953f1e5b3e56de9764c7c3e560024c1
+ms.openlocfilehash: 852800b19fb39737f0d7104eb2d50521b6cca982
 
 ---
 
@@ -99,7 +99,7 @@ Enable-PSRemoting
 ### Подключение к удаленному узлу с помощью IP-адреса
 > Эта возможность доступна только при подключении к удаленному узлу Windows 10 или Windows Server 2016 Technical Preview 3 или более поздней версии.
 
-Иногда проще подключиться, используя IP-адрес, а не имя узла. В Windows 10 вы можете это сделать.
+Иногда проще подключиться, используя IP-адрес, а не имя узла. В Windows 10 это возможно.
 
 Чтобы подключиться с помощью IP-адреса, введите IP-адрес в текстовое поле **Другой компьютер**.
 
@@ -115,15 +115,10 @@ Enable-PSRemoting
 
 На управляющем компьютере запустите следующую команду от имени администратора:
 
-1. Set-Item WSMan:\localhost\Client\TrustedHosts -value "полное_доменное_имя_узла_hyper-v"
-  * Кроме того, вы можете разрешить управление всеми узлами с помощью такой команды:
-  * Set-Item WSMan:\localhost\Client\TrustedHosts -value * -force
+1. Set-Item WSMan:\localhost\Client\TrustedHosts -Value "fqdn узла hyper-v"
 2. [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer "полное_доменное_имя_узла_hyper-v"
-  * Кроме того, вы можете разрешить управление всеми узлами с помощью такой команды:
-  * [Enable-WSManCredSSP](https://technet.microsoft.com/en-us/library/hh849872.aspx) -Role client -DelegateComputer *
 3. Кроме того, вам может потребоваться настроить следующую групповую политику: ** Конфигурация компьютера | Административные шаблоны | Система | Передача учетных данных | Разрешить передачу новых учетных данных с проверкой подлинности сервера «только NTLM»**.
     * Щелкните **Включить** и добавьте *wsman/полное_доменное_имя_узла_hyper-v*
-    * Кроме того, вы можете разрешить управление всеми узлами, добавив _wsman/*_
 
 
 
