@@ -6,21 +6,21 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/97a7d5fdd25f755d73e05bfc5f3c4a80a7b6b8c5/virtualization/windowscontainers/docker/manage_windows_dockerfile.md) | InSyncHandedBackSuccess | [Details](#84baad10511eb070e654f1ee7d71eb547d3f2ee7248)
+ [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e0d957ebb953f1e5b3e56de9764c7c3e560024c1/virtualization/hyperv_on_windows/user_guide/remote_host_management.md) | InSyncHandedBackSuccess | [Details](#852800b19fb39737f0d7104eb2d50521b6cca982206)
 
 ## Item Details
-##### <a name='84baad10511eb070e654f1ee7d71eb547d3f2ee7248'></a> Source: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/97a7d5fdd25f755d73e05bfc5f3c4a80a7b6b8c5/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
+##### <a name='852800b19fb39737f0d7104eb2d50521b6cca982206'></a> Source: [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e0d957ebb953f1e5b3e56de9764c7c3e560024c1/virtualization/hyperv_on_windows/user_guide/remote_host_management.md)
 * Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\docker\manage_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/fe5a5fb413872ecf621756b5b0551ee83effa979/virtualization/windowscontainers/docker/manage_windows_dockerfile.md)
-* Handoff File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/eca0c2689dd900fc7ab74e80885c8869a43b6a33/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
-* Handoff Datetime: 2016-07-15 20:21:40
+* Target File: [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/92770b6cdfb5b0800ed2e943047aa97efc43cc9a/virtualization/hyperv_on_windows/user_guide/remote_host_management.md)
+* Handoff File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/bcd40a5285b9c1f22a1c75e58cb283cfbfea339b/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
+* Handoff Datetime: 2016-09-21 00:03:57
 * Handoff Reason: Include
-* Archive File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/56f62a287c80e084f061d4327514d1b2e70af47e/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
-* Archive Datetime: 2016-07-21 07:10:31
-* Handback File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c0a142e0153806825314b2294f0c70ced3dee1a9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
-* Handback Datetime: 2016-09-26 18:29:15
-* Bilingual File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c0a142e0153806825314b2294f0c70ced3dee1a9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-26 18:29:55
+* Archive File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/42854bfba707ae9ac6696d20cc0246be63101310/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
+* Archive Datetime: 2016-09-21 00:08:29
+* Handback File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/bdc0e09d0e46e0218c10c363d7bb2c4ab804e7c8/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
+* Handback Datetime: 2016-09-26 18:33:17
+* Bilingual File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/bdc0e09d0e46e0218c10c363d7bb2c4ab804e7c8/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-26 18:34:12
 * [Back to Top](#report-top)
 
 
