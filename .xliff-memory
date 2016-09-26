@@ -47,8 +47,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-09-21T00:08:29.2310373Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\8b688e666c7189888af3a7f182002f06fa2e2c0b.36d40056c06b5fa04edd5188459407f7f0788859.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\walkthrough_powershell.f20d7c387d05f1e6da38e694c8255c1b0044b10b.ru-ru.xlf",
+      "LocXliffCommit": "19dc18481808ecb4ffbf4a538ef5544d20577cf0"
     },
     "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md.3a175dbaede45dcc7bdb4d30df1b614254770549.HT": {
       "SourceFilename": "virtualization\\hyperv_on_windows\\user_guide\\remote_host_management.md",
