@@ -61,7 +61,7 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-Дополнительные примеры файлов Dockerfile для Windows см. в документе [Dockerfile for Windows Repository] (Dockerfile для репозитория Windows) (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
+Дополнительные примеры файлов Dockerfile для Windows см. в документе [Dockerfile for Windows Repository (Dockerfile для репозитория Windows)] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
 ## Инструкции
 
