@@ -3303,8 +3303,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5d189514e1b98be6688840c2558ff4d37f836581/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 14:06:30
-* Bilingual File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ad9593e0a7eb1461ae2805ce45605a0343a6e5ba/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf)
-* Bilingual Datetime: 2016-07-07 08:17:50
+* Bilingual File: [work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/5d189514e1b98be6688840c2558ff4d37f836581/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 14:07:23
 * [Back to Top](#report-top)
 
 ##### <a name='1ee40d330234f8800ba73d0c4abe36859cfa2989225'></a> Source: [virtualization\windowscontainers\containers_welcome.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f721639b1b10ad97cc469df413d457dbf8d13bbe/virtualization/windowscontainers/containers_welcome.md)
