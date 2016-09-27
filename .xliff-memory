@@ -167,8 +167,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-09-27T12:11:12.8819056Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\3017c03c1ce5d5ff46deda0cd147cc10de77f249.31ac1f90950d516b51148682245a850c51fa3410.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\work_in_progress.4d0e298514e64fd94d18eb197e270fbbf7e07fd8.ru-ru.xlf",
+      "LocXliffCommit": "5d189514e1b98be6688840c2558ff4d37f836581"
     },
     "virtualization\\windowscontainers\\deployment\\deployment_nano.md.19c8de77861eb7d67351d0cbd17d3bd136d0c70c.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\deployment\\deployment_nano.md",
