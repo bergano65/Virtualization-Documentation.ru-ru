@@ -3167,8 +3167,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fb41c8a55ff7eb7f9a365eb5afa589382d2819b9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf)
-* Bilingual Datetime: 2016-06-30 12:12:40
+* Bilingual File: [faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='7b2b5200e2da1b82e01c596da837387233322bf1214'></a> Source: [virtualization\windowscontainers\about\media\ContainerCreationLifeCycle.PNG](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/185c83b69972765a72af2dbbf5d0c7d2551212ce/virtualization/windowscontainers/about/media/ContainerCreationLifeCycle.PNG)
@@ -3606,8 +3606,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/c0a142e0153806825314b2294f0c70ced3dee1a9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-26 18:29:55
+* Bilingual File: [manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_windows_dockerfile.cf56579c9136245b4cbef41fabc5df7a6ab9832a.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='59f096ce914e0f1cbee5678b7db980297ca89364247'></a> Source: [virtualization\windowscontainers\docker\optimize_windows_dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f721639b1b10ad97cc469df413d457dbf8d13bbe/virtualization/windowscontainers/docker/optimize_windows_dockerfile.md)
@@ -3620,8 +3620,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/6d424bd4f43e486a282b6432c054ec15c6ae2599/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-12 16:19:01
+* Bilingual File: [optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/optimize_windows_dockerfile.8acb58c9a0cb3119d370c90c749222ed5b757368.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='f2cb1cdc1a98bf328a24610af6f7313a1071b079248'></a> Source: [virtualization\windowscontainers\EULA.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4cff38fe495e9237285d2895bf3e45b99aaf5c6d/virtualization/windowscontainers/EULA.md)
@@ -3716,8 +3716,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e5cb1e16e09cbc2412452422e50fb42064477699/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-15 02:07:47
+* Bilingual File: [manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_data.126a73641d5e96ee6d89d8d64e7ecfbdcacd6929.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='6040123edf75ef289d1ac8abb914ce8d8a2769b0255'></a> Source: [virtualization\windowscontainers\management\manage_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f721639b1b10ad97cc469df413d457dbf8d13bbe/virtualization/windowscontainers/management/manage_images.md)
@@ -3730,8 +3730,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e5cb1e16e09cbc2412452422e50fb42064477699/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-15 02:07:47
+* Bilingual File: [manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_images.6d8d709cbc19bb63cc7d4553991616c57920cdfd.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='6f96bd9663d8ffae5f83a62cc3f48e001663ad74256'></a> Source: [virtualization\windowscontainers\management\manage_resources.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/f721639b1b10ad97cc469df413d457dbf8d13bbe/virtualization/windowscontainers/management/manage_resources.md)
@@ -3744,8 +3744,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [manage_resources.839340b4309893f4c3f5446b5e6a628843d99eb2.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_resources.839340b4309893f4c3f5446b5e6a628843d99eb2.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [manage_resources.839340b4309893f4c3f5446b5e6a628843d99eb2.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/e5cb1e16e09cbc2412452422e50fb42064477699/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_resources.839340b4309893f4c3f5446b5e6a628843d99eb2.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-15 02:07:47
+* Bilingual File: [manage_resources.839340b4309893f4c3f5446b5e6a628843d99eb2.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_resources.839340b4309893f4c3f5446b5e6a628843d99eb2.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='70d9d123171e564192e70631951058b0639e0f67257'></a> Source: [virtualization\windowscontainers\management\media\imagecommit.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/185c83b69972765a72af2dbbf5d0c7d2551212ce/virtualization/windowscontainers/management/media/imagecommit.png)
@@ -4377,8 +4377,8 @@
 * Archive Datetime: 2016-09-27 12:11:12
 * Handback File: [quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.ru-ru.xlf)
 * Handback Datetime: 2016-09-27 13:23:45
-* Bilingual File: [quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/fb41c8a55ff7eb7f9a365eb5afa589382d2819b9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.ru-ru.xlf)
-* Bilingual Datetime: 2016-06-30 12:12:40
+* Bilingual File: [quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/dea5abc0014a8d9f2215eeac0f5b5419423e2802/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start.95cf1adf4b4529454f2de8a25554a6b86638acc7.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-27 13:25:09
 * [Back to Top](#report-top)
 
 ##### <a name='616b9cc09a70e927dce151f7ff5de44206da929f308'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/eaac6eff4496421e1a6866c164ee032ae0e153d3/virtualization/windowscontainers/quick_start/quick_start_images.md)
