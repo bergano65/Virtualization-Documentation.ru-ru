@@ -1,7 +1,7 @@
 ---
 title: "Краткое руководство по контейнерам Windows"
 description: "Краткое руководство по контейнерам Windows."
-keywords: docker, containers
+keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
 ms.date: 05/26/2016
@@ -10,14 +10,12 @@ ms.prod: windows-contianers
 ms.service: windows-containers
 ms.assetid: 4878f5d2-014f-4f3c-9933-97f03348a147
 translationtype: Human Translation
-ms.sourcegitcommit: 4ea609a6e4636e53cc8632bb700e37ba58f3cc72
-ms.openlocfilehash: c0176d4f5445263a5fd522a80ce2a9dca7ac90e6
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: f795cfde1174a62b85aefd58c6bd07e81e196718
 
 ---
 
 # Краткое руководство по контейнерам Windows
-
-**Это предварительное содержимое. Возможны изменения.** 
 
 Краткое руководство по контейнерам Windows описывает продукт и технологию контейнеров, предоставляет пошаговые инструкции по простым примерам развертывания, а также содержит ссылки на более подробные статьи. Если вы раньше не сталкивались с контейнерами или контейнерами Windows, последовательное выполнение описанных здесь этапов поможет вам получить практический опыт по работе с данной технологией.
 
@@ -60,6 +58,6 @@ ms.openlocfilehash: c0176d4f5445263a5fd522a80ce2a9dca7ac90e6
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 
