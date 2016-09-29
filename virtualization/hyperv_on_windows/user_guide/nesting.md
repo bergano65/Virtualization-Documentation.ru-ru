@@ -10,8 +10,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 translationtype: Human Translation
-ms.sourcegitcommit: 4eb3e733990ca86f28620e23bf408ff71b879173
-ms.openlocfilehash: c94b7f2c9c90eaf2834a1d0c54fb1f9b2a8f9669
+ms.sourcegitcommit: 6f003c6e78fb6a0977f30611b7da135a30268f51
+ms.openlocfilehash: 46c43a38dc3a3ee56ac3136cda60c41019cc733d
 
 ---
 
@@ -30,8 +30,9 @@ ms.openlocfilehash: c94b7f2c9c90eaf2834a1d0c54fb1f9b2a8f9669
 
 1. Создание виртуальной машины. Необходимые версии ОС и виртуальных машин см. в предварительных требованиях выше.
 2. Пока виртуальная машина находится в отключенном состоянии, запустите следующую команду на физическом узле Hyper-V. В виртуальной машине будет включена вложенная виртуализация.
+
 ```none
-    Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
+Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 3. запустите ее.
 4. Установите Hyper-V в виртуальной машине так же, как на физическом сервере. Дополнительные сведения об установке Hyper-V см. в разделе [Установка Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install).
@@ -79,6 +80,6 @@ Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 
