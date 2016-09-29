@@ -28,7 +28,7 @@
       "ArchivedDateTime": "2016-09-29T00:17:36.8491361Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\46c43a38dc3a3ee56ac3136cda60c41019cc733d.6ad60877b804a8456ae34c3c6e3419a7844c75b4.xml",
       "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf",
-      "LocXliffCommit": "db1bdeb4b7587fb9fe9606080b7c148007d11498"
+      "LocXliffCommit": "3333c793a30aa862098de21f56d0cbc98bbfc979"
     },
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md.ea734d1715210dc0bc312d64ea7632173b4baeae.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\quick_start\\quick_start_windows_10.md",
