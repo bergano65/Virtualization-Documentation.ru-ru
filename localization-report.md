@@ -3057,8 +3057,8 @@
 * Archive Datetime: 2016-09-29 00:17:36
 * Handback File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3333c793a30aa862098de21f56d0cbc98bbfc979/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
 * Handback Datetime: 2016-09-29 05:42:22
-* Bilingual File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/db1bdeb4b7587fb9fe9606080b7c148007d11498/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-23 11:12:26
+* Bilingual File: [nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3333c793a30aa862098de21f56d0cbc98bbfc979/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/nesting.ece03f90d41cea4ab592ff16c6288e2349863da7.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-29 05:43:36
 * [Back to Top](#report-top)
 
 ##### <a name='852800b19fb39737f0d7104eb2d50521b6cca982206'></a> Source: [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e0d957ebb953f1e5b3e56de9764c7c3e560024c1/virtualization/hyperv_on_windows/user_guide/remote_host_management.md)
