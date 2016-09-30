@@ -4,14 +4,14 @@ description: "Развертывание контейнеров Windows в Nano 
 keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 08/23/2016
+ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: 939a1b69f159504b998792adb95ccabc326db333
-ms.openlocfilehash: 538fb27d6170f0a8dab5c189b90040e40c546e14
+ms.sourcegitcommit: 185c83b69972765a72af2dbbf5d0c7d2551212ce
+ms.openlocfilehash: 6ada7de02bbdfab8986fdfeeda60b6373a6e2d96
 
 ---
 
@@ -91,13 +91,13 @@ New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
 > Сейчас Nano Server не поддерживает `Invoke-WebRequest`. Подсистему Docker необходимо скачать на удаленную систему, а затем копировать файлы на узел сервера Nano Server.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile .\docker-1.12.0.zip -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile .\docker.zip -UseBasicParsing
 ```
 
 Извлеките скачанный пакет. В результате у вас будет каталог, содержащий файл **dockerd.exe** и **docker.exe**. Скопируйте эти файлы в папку **C:\Program Files\docker\** на узле контейнера Nano Server. 
 
 ```none
-Expand-Archive .\docker-1.12.0.zip
+Expand-Archive .\docker.zip
 ```
 
 Добавьте каталог Docker в системный путь на узле сервера Nano Server.
@@ -126,15 +126,19 @@ Start-Service Docker
 
 ## Установка базовых образов контейнеров
 
-Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью `docker pull`. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью `docker pull`. Подробные сведения об образах контейнеров Docker см. в разделе [Создание собственных образов на сайте docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Чтобы скачать и установить базовый образ Nano Server, выполните следующую команду:
+Чтобы скачать и установить базовые образы Windows Server и Nano Server, выполните следующие команды.
 
 ```none
 docker pull microsoft/nanoserver
 ```
 
-> Сейчас с узлом контейнера Nano Server совместим только базовый образ Nano Server.
+```none
+docker pull microsoft/windowsservercore
+```
+
+> Прочтите лицензионное соглашение для образов ОС контейнеров Windows на странице [Лицензионное соглашение](../Images_EULA.md).
 
 ## Управление Docker в Nano Server
 
@@ -173,13 +177,13 @@ Restart-Service docker
 На удаленном компьютере, на котором вы будете работать, скачайте клиент Docker.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Извлеките содержимое пакета.
 
 ```none
-Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Чтобы добавить системный путь в каталог Docker, выполните следующие две команды.
@@ -231,6 +235,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

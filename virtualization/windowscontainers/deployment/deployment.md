@@ -4,30 +4,20 @@ description: "Развертывание контейнеров Windows в Windo
 keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 08/22/2016
+ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
 translationtype: Human Translation
-ms.sourcegitcommit: 39e480b8bf3f90cfe9b7d4d17141b9dbec5f93e5
-ms.openlocfilehash: cc662d0c688eadeef8011a2b97e212ec6399060a
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: 4d7e8fb1fcbb7e9680b7d5bd143ef6d59e45035e
 
 ---
 
 # Развертывание узла контейнера — Windows Server
 
-**Это предварительное содержимое. Возможны изменения.**
-
 Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типа операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальная и физическая). Этот документ описывает развертывание узла контейнера Windows в Windows Server 2016 или Windows Server Core 2016 в физической или виртуальной системе.
-
-## Образ Azure 
-
-Полностью настроенный образ Windows Server доступен в Azure. Чтобы использовать этот образ, разверните виртуальную машину, нажав кнопку ниже. При развертывании системы контейнеров Windows в Azure с помощью этого шаблона оставшуюся часть документа можно пропустить.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
 
 ## Установка компонента контейнеров
 
@@ -50,13 +40,13 @@ Docker необходим для работы с контейнерами Window
 Скачайте подсистему Docker и клиент в виде ZIP-архива.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Разархивируйте ZIP-архив в Program Files; содержимое архива уже находится в каталоге Docker.
 
 ```none
-Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Чтобы добавить системный путь в каталог Docker, выполните следующие две команды.
@@ -68,8 +58,6 @@ $env:path += ";c:\program files\docker"
 # For persistent use, will apply even after a reboot. 
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
-
-Перезапустите сеанс PowerShell для распознавания измененного пути.
 
 Чтобы установить Docker в качестве службы Windows, выполните следующую команду:
 
@@ -85,7 +73,7 @@ Start-Service Docker
 
 ## Установка базовых образов контейнеров
 
-Перед началом работы с контейнерами Windows необходимо установить базовый образ. Базовые образы доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы. Дополнительные сведения об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+Перед началом работы с контейнерами Windows необходимо установить базовый образ. Базовые образы доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы. Подробные сведения об образах контейнеров Docker см. в разделе [Создание собственных образов на сайте docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
 Чтобы установить базовый образ Windows Server Core, выполните следующую команду:
 
@@ -98,6 +86,8 @@ docker pull microsoft/windowsservercore
 ```none
 docker pull microsoft/nanoserver
 ```
+
+> Прочтите лицензионное соглашение для образов ОС контейнеров Windows на странице [Лицензионное соглашение](../Images_EULA.md).
 
 ## Узел контейнера Hyper-V
 
@@ -131,6 +121,6 @@ Install-WindowsFeature hyper-v
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

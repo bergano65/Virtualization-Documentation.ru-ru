@@ -4,20 +4,18 @@ description: "Краткое руководство по развертыван�
 keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 08/17/2016
+ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 16630b534367791114a4844c3c1f582f13d09d6d
-ms.openlocfilehash: 02b4e01e404fe5ab3a6fadbb3481c741cb4aa563
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: 1bc3d9c5094eb5b30f2845c83b9842079edc22c4
 
 ---
 
 # Контейнеры Windows в Windows 10
-
-**Это предварительное содержимое. Возможны изменения.**
 
 Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows 10 Professional и Windows 10 Корпоративная (Anniversary Edition). В его рамках вы установите роль контейнера и развернете простой контейнер Hyper-V. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./quick_start.md).
 
@@ -48,13 +46,7 @@ Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
 Restart-Computer -Force
 ```
 
-После резервного копирования выполните следующую команду, чтобы устранить известную проблему с контейнерами Windows в Windows 10.  
-
- ```none
-Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 1 -Force
-```
-
-> В текущих выпусках нужно отключить нежесткие блокировки, чтобы использовать контейнеры Hyper-V без проблем. Чтобы повторно включить их, используйте следующую команду.  `Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 0 -Force`
+> Если вы ранее использовали контейнеры Hyper-V в Windows 10 с базовыми образами контейнера Technical Preview 5, не забудьте снова включить OpLocks. Выполните следующую команду:  `Set-ItemProperty -Path 'HKLM:SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\Containers' -Name VSmbDisableOplocks -Type DWord -Value 0 -Force`
 
 ## 2. Установка Docker
 
@@ -82,9 +74,7 @@ $env:path += ";c:\program files\docker"
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
-Перезапустите сеанс PowerShell для распознавания измененного пути.
-
-Чтобы установить Docker в качестве службы Windows, выполните следующую команду:
+Чтобы установить Docker в качестве службы Windows, выполните следующую команду.
 
 ```none
 dockerd --register-service
@@ -112,10 +102,12 @@ docker pull microsoft/nanoserver
 docker images
 
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/nanoserver   latest              3a703c6e97a2        7 weeks ago         969.8 MB
+microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
 ```
 
 Подробную информацию об образах контейнеров Windows см. в статье [Управление образами контейнеров](../management/manage_images.md).
+
+> Прочтите лицензионное соглашение для образов ОС контейнеров Windows на странице [Лицензионное соглашение](../Images_EULA.md).
 
 ## 4. Развертывание первого контейнера
 
@@ -172,6 +164,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Sep16_HO3-->
+<!--HONumber=Sep16_HO4-->
 
 

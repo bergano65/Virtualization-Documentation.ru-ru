@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 4dded90462c5438a6836ec32a165a9cc1019d6ec
-ms.openlocfilehash: 6ae49d82a89b2f30198de05aa4915726853172f5
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: f3eceaa84de7dfb4e6783835939a498a3e798e91
 
 ---
 
@@ -26,13 +26,13 @@ Docker необходим для работы с контейнерами Window
 Скачайте подсистему Docker.
 
 ```none
-Invoke-WebRequest "https://get.docker.com/builds/Windows/x86_64/docker-1.12.0.zip" -OutFile "$env:TEMP\docker-1.12.0.zip" -UseBasicParsing
+Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Разархивируйте ZIP-архив в Program Files.
 
 ```
-Expand-Archive -Path "$env:TEMP\docker-1.12.0.zip" -DestinationPath $env:ProgramFiles
+Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Добавьте каталог Docker в системный путь. По завершении перезапустите сеанс PowerShell, чтобы был распознан измененный путь.
@@ -55,7 +55,7 @@ Start-Service Docker
 
 Прежде чем можно будет использовать Docker, нужно установить образы контейнеров. Дополнительные сведения см. в статье [Управление образами контейнеров](../management/manage_images.md).
 
-## Файл конфигурации Docker
+## Настройка Docker с помощью файла конфигурации
 
 Предпочтительным способом настройки подсистемы Docker в Windows является файл конфигурации. Путь к файлу конфигурации — C:\ProgramData\docker\config\daemon.json. Если этот файл еще не существует, его можно создать.
 
@@ -115,7 +115,7 @@ Start-Service Docker
 }
 ```
 
-## Диспетчер управления службами
+## Настройка Docker в службе Docker
 
 Подсистему Docker можно также настроить, изменив службу Docker командой `sc config`. При использовании этого способа флаги подсистемы Docker задаются непосредственно в службе Docker.
 
@@ -165,19 +165,22 @@ restart-service docker
 Дополнительные сведения см. в статье [Daemon Socket Options](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option) (Параметры сокетов управляющей программы) на Docker.com.
 
 ## Сбор журналов
+
 Подсистема Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
 
 Например, следующая команда выведет записи журнала подсистемы Docker за последние 5 минут, начиная с самой ранней.
+
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
 ```
 
 Эти записи легко перенаправить в CSV-файл, чтобы открыть их в другой программе или редакторе электронных таблиц.
+
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
 
 
 
-<!--HONumber=Aug16_HO4-->
+<!--HONumber=Sep16_HO4-->
 
 

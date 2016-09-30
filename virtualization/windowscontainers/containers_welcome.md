@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
 translationtype: Human Translation
-ms.sourcegitcommit: 59626096d428072dec098c7817e2d6b39c10e9cf
-ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
+ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
+ms.openlocfilehash: 1ee40d330234f8800ba73d0c4abe36859cfa2989
 
 ---
 
@@ -23,12 +23,16 @@ ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
 <tr>
 <td ><center>![](media/try.png)</center></td>
 <td>**Быстрый запуск**<br /><br />
-Используйте следующие руководства по быстрому запуску, чтобы опробовать контейнеры Windows Server и Hyper-V.<br /><br />
+Краткое руководство по Windows Server<br /><br />
 <ul>
-<li>[1. Основные понятия и терминология](quick_start/quick_start.md)<br /><br /></li>
-<li>[2. Контейнеры в Windows Server](quick_start/quick_start_windows_server.md)<br /><br /></li>
-<li>[3. Образы контейнеров в Windows Server](quick_start/quick_start_images.md)<br /><br /></li>
-<li>[4. Контейнеры в Windows 10](quick_start/quick_start_windows_10.md)<br /><br /></li>
+<li>[Шаг 1. Основные понятия и терминология](quick_start/quick_start.md)<br /><br /></li>
+<li>[Шаг 2. Настройка Windows Server и первый контейнер](quick_start/quick_start_windows_server.md)<br /><br /></li>
+<li>[Шаг 3. Создание и отправка образов контейнеров](quick_start/quick_start_images.md)<br /><br /></li>
+</ul>
+Краткое руководство по Windows 10<br /><br />
+<ul>
+<li>[Шаг 1. Основные понятия и терминология](quick_start/quick_start.md)<br /><br /></li>
+<li>[Шаг 2. Настройка Windows 10 и первый контейнер](quick_start/quick_start_windows_10.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
@@ -84,6 +88,6 @@ ms.openlocfilehash: 2c9821ef7ac414640790b3cfdb7fd457710a67f4
 
 
 
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 

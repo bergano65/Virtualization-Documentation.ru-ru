@@ -1,12 +1,14 @@
 # О контейнерах Windows
 ## [Общие сведения о контейнерах Windows](about/about_overview.md)
-## [Часто задаваемые вопросы](about/faq.md)
 
-# Контейнеры: краткие руководства
-## [1. Основные понятия и терминология](quick_start/quick_start.md)
-## [2. Краткое руководство по Windows Server](quick_start/quick_start_windows_server.md)
-## [3. Образы Windows Server](quick_start/quick_start_images.md)
-## [4. Краткое руководство по Windows 10](quick_start/quick_start_windows_10.md)
+# Краткое руководство по Windows Server
+## [Шаг 1. Основные понятия](quick_start/quick_start.md)
+## [Шаг 2. Первый контейнер](quick_start/quick_start_windows_server.md)
+## [Шаг 3. Образы контейнеров](quick_start/quick_start_images.md)
+
+# Краткое руководство по Windows 10
+## [Шаг 1. Основные понятия](quick_start/quick_start.md)
+## [Шаг 2. Первый контейнер](quick_start/quick_start_windows_10.md)
 
 # Развертывание контейнеров Windows
 ## [Требования к системе](deployment/system_requirements.md)
@@ -27,11 +29,9 @@
 # Сообщество и поддержка
 ## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
 
-# [Лицензионное соглашение конечного пользователя Windows Server](EULA.md)
-# [Лицензионное соглашение конечного пользователя Nano Server](Nano_EULA.md)
+# [Лицензионное соглашение для образа ОС контейнера](Images_EULA.md)
 
 
-
-<!--HONumber=Sep16_HO2-->
+<!--HONumber=Sep16_HO4-->
 
 
