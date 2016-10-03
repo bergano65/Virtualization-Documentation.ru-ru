@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: f3eceaa84de7dfb4e6783835939a498a3e798e91
+ms.sourcegitcommit: d30136e66bf15dc015629e359422c9b8346b8426
+ms.openlocfilehash: 3ee39f57890248951b69887edc87c9fedb13c285
 
 ---
 
@@ -117,12 +117,14 @@ Start-Service Docker
 
 ## Настройка Docker в службе Docker
 
-Подсистему Docker можно также настроить, изменив службу Docker командой `sc config`. При использовании этого способа флаги подсистемы Docker задаются непосредственно в службе Docker.
+Подсистему Docker можно также настроить, изменив службу Docker командой `sc config`. При использовании этого способа флаги подсистемы Docker задаются непосредственно в службе Docker. Выполните указанную ниже команду в командной строке (cmd.exe, не PowerShell).
 
 
 ```none
 sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service -H tcp://0.0.0.0:2375"
 ```
+
+Примечание. Не нужно выполнять эту команду в том случае, если файл daemon.json уже содержит запись `"hosts": ["tcp://0.0.0.0:2375"]`.
 
 ## Распространенные конфигурации
 
@@ -181,6 +183,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 
