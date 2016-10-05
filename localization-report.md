@@ -5,9 +5,9 @@
  -------- | ----- 
  Total Files | 458
 [ Handoff Failed Files ](#handoff-failed-list)| 0
-[ Handoff Success Files ](#handoff-success-list)| 1
+[ Handoff Success Files ](#handoff-success-list)| 0
 [ Archive Failed Files ](#archive-failed-list)| 0
-[ Archive Success Files ](#archive-success-list)| 1
+[ Archive Success Files ](#archive-success-list)| 2
 [ Handback Failed Files ](#handback-failed-list)| 0
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
 [ In Sync Handback Files ](#insync-handback-success-list)| 123
@@ -16,9 +16,6 @@
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
 ## <a name='handoff-success-list'></a> Handoff Success File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md) | HandedOffSuccess | [Details](#6337f860aaad43a9bc5e9939442a447033ecce2b311)
 
 ## <a name='archive-failed-list'></a> Archive Failed File List
 
@@ -26,6 +23,7 @@
  Source File | Status | Details 
  ----------- | ------ | ------- 
  [virtualization\windowscontainers\deployment\deployment_nano.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/df9723e3a9d9ada778d01d43dcb36c99813dea8f/virtualization/windowscontainers/deployment/deployment_nano.md) | ArchivedSuccess | [Details](#9af33e6bce21aa339109f060100b2c7ab3c1eb91227)
+ [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md) | ArchivedSuccess | [Details](#6337f860aaad43a9bc5e9939442a447033ecce2b311)
 
 ## <a name='handback-failed-list'></a> Handback Failed File List
 
@@ -4413,13 +4411,13 @@
 * [Back to Top](#report-top)
 
 ##### <a name='6337f860aaad43a9bc5e9939442a447033ecce2b311'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md)
-* Status: HandedOffSuccess
+* Status: ArchivedSuccess
 * Target File: 
 * Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/ea2c688e238b67a6ac2cdd0bb257c4bb82503627/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
 * Handoff Datetime: 2016-10-04 17:45:18
 * Handoff Reason: Include
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
+* Archive File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e92ad36c909bbb0cfd53c16cd35ef75eac3ca2b2/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
+* Archive Datetime: 2016-10-05 00:21:49
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Current Target File: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/073e4a442b26223a844f179152dbc9bbc8abca32/virtualization/windowscontainers/TOC.md)
