@@ -21,6 +21,7 @@
 ## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
 ## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
 ## [Сетевые подключения контейнеров](management/container_networking.md)
+## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 
 # Примеры контейнеров
 ## [Файлы Dockerfile — Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
@@ -32,6 +33,6 @@
 # [Лицензионное соглашение для образа ОС контейнера](Images_EULA.md)
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO1-->
 
 
