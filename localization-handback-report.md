@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md) | InSyncHandedBackSuccess | [Details](#6337f860aaad43a9bc5e9939442a447033ecce2b311)
 
 ## Item Details
+##### <a name='6337f860aaad43a9bc5e9939442a447033ecce2b311'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/055f90709bd814684bbbdcecb98444f025e8a9bf/virtualization/windowscontainers/TOC.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/c62e2d8b6f9c14b0b5584352bbdbadab1e429ba1/virtualization/windowscontainers/TOC.md)
+* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/ea2c688e238b67a6ac2cdd0bb257c4bb82503627/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
+* Handoff Datetime: 2016-10-04 17:45:18
+* Handoff Reason: Include
+* Archive File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/e92ad36c909bbb0cfd53c16cd35ef75eac3ca2b2/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
+* Archive Datetime: 2016-10-05 00:21:49
+* Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/1356218c215759933d25a871fa94a9ba4adeda0e/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
+* Handback Datetime: 2016-10-06 08:15:33
+* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/ef4d6027d5af371443655e2e87049ff22066f1eb/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
+* Bilingual Datetime: 2016-09-30 11:46:23
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
