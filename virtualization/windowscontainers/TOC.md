@@ -24,8 +24,13 @@
 ## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 
 # Примеры контейнеров
-## [Файлы Dockerfile — Windows Server Core](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/windowsservercore)
-## [Файлы Dockerfile — Nano Server](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nanoserver)
+## [Платформы приложений](samples.md#Application-Frameworks)
+## [Языки программирования](samples.md#Programing-Languages)
+## [Базы данных](samples.md#Databases)
+## [Инфраструктуру и средства CI](samples.md#Infrastructure-and-CI-Tools)
+## [Просто для интереса](samples.md#Just-for-Fun)
+## [другой](samples.md#Other)
+
 
 # Сообщество и поддержка
 ## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
