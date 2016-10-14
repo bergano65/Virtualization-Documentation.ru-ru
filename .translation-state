@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "da30b8db518c4150acf86f8d8132e2d00f6a91e7",
+  "LastProcessedCommit": "8550076fe34a141440c8cd32b59d7deb47c2c874",
   "LastTranslatedCommit": "df5aff3c0e05e0b9570d137d111b1497cf2993f4",
   "Items": {
     "5090f6d60b5cbdce0990242d795d9e4e3736e791": {
@@ -26354,6 +26354,41 @@
       "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\configure_docker_daemon.593d065aaeaa40359a3e774b03d152311eb6570c.ru-ru.xlf",
       "BilingualFileCommit": "e1239a2b105272df9b71889b7c68afefb1ca9a3f",
       "BilingualDateTime": "2016-10-14T13:28:17.198273Z",
+      "BilingualException": null
+    },
+    "f02daf18858df760b4c01e919957ac50da256b9d": {
+      "FileHash": "f02daf18858df760b4c01e919957ac50da256b9d",
+      "SourceFileCommit": "8550076fe34a141440c8cd32b59d7deb47c2c874",
+      "SourceFilePath": "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md",
+      "HandoffReason": 1,
+      "DependencyFrom": null,
+      "TokenReference": null,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf",
+      "HandoffFileCommit": "3a42deaaf0d1de5f1c7c2d804d5b9706a0bb1e95",
+      "HandoffDateTime": "2016-10-14T18:13:11.0376311Z",
+      "HandoffPriority": "",
+      "HandoffException": null,
+      "HandoffFailureTimes": 0,
+      "TargetFileCommit": null,
+      "TargetFilePath": null,
+      "HandbackFilePath": null,
+      "HandbackFileCommit": null,
+      "HandbackDateTime": "0001-01-01T00:00:00",
+      "HandbackException": null,
+      "HandbackFailureTimes": 0,
+      "UpdatedDateTime": "0001-01-01T00:00:00",
+      "ArchiveFilePath": null,
+      "ArchiveFileCommit": null,
+      "ArchiveFileDateTime": "0001-01-01T00:00:00",
+      "ArchiveException": null,
+      "BilingualFilePath": null,
+      "BilingualFileCommit": null,
+      "BilingualDateTime": "0001-01-01T00:00:00",
       "BilingualException": null
     }
   }
