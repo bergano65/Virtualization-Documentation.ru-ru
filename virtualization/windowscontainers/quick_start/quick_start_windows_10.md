@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 translationtype: Human Translation
-ms.sourcegitcommit: 0fae34a5a85678a25c47b0312650e67aa6cd7efd
-ms.openlocfilehash: 74686f222e8eec1daacd45a9e388d94abf6381f4
+ms.sourcegitcommit: c1c16d94bade83e8623ad89aae0abb356a829e1e
+ms.openlocfilehash: 4322b650b511a8b2a8e926c1fca69971528dc07c
 
 ---
 
@@ -26,7 +26,9 @@ ms.openlocfilehash: 74686f222e8eec1daacd45a9e388d94abf6381f4
 - Одна физическая компьютерная система под управлением Windows 10 Anniversary Edition (Профессиональная или Корпоративная).   
 - Это краткое руководство можно выполнять на виртуальной машине Windows 10, однако при этом нужно включить вложенную виртуализацию. Дополнительные сведения см. в [руководстве по вложенной виртуализации](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
-> Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
+> Чтобы контейнеры Windows работали, необходимо установить критические обновления. 
+> Чтобы узнать версию ОС, запустите `winver.exe` и сравните указанную версию с версией в [журнале обновлений Windows 10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history). 
+> Убедитесь, что у вас установлена версия 14393.222 или более поздняя перед тем, как продолжить.
 
 ## 1. Установка компонента контейнеров
 
@@ -166,6 +168,6 @@ docker run --rm helloworld powershell c:\helloworld.ps1
 
 
 
-<!--HONumber=Sep16_HO5-->
+<!--HONumber=Oct16_HO2-->
 
 
