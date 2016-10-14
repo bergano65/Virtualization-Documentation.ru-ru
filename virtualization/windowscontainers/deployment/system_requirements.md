@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: f721639b1b10ad97cc469df413d457dbf8d13bbe
-ms.openlocfilehash: a17a0e4eca2596c8cebbef93ea91c854f09d0b76
+ms.sourcegitcommit: 08355d7a7da50d0f244bd750508fd42084818d7f
+ms.openlocfilehash: ac48bc7ee7b70483d8a368749aea0862c52f049c
 
 ---
 
@@ -23,7 +23,7 @@ ms.openlocfilehash: a17a0e4eca2596c8cebbef93ea91c854f09d0b76
 
 - Функция контейнера Windows доступна только в Windows Server 2016 (варианты "Установка основных серверных компонентов" и "С возможностями рабочего стола"), Nano Server, Windows 10 Professional и Windows 10 Корпоративная (Anniversary Edition).
 - При использовании контейнеров Hyper-V должна быть установлена роль Hyper-V.
-- На узлах контейнера Windows Server ОС Windows должна быть установлена на диске c:\.. Если развертываются только контейнеры Hyper-V, это ограничение не применяется.
+- На узлах контейнера Windows Server ОС Windows должна быть установлена на диске c:\. Если развертываются только контейнеры Hyper-V, это ограничение не применяется.
 
 ## Виртуализированные узлы контейнера
 
@@ -71,7 +71,6 @@ ms.openlocfilehash: a17a0e4eca2596c8cebbef93ea91c854f09d0b76
 </table>
 
 
-
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 
