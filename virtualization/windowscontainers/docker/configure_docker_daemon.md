@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: d30136e66bf15dc015629e359422c9b8346b8426
-ms.openlocfilehash: 3ee39f57890248951b69887edc87c9fedb13c285
+ms.sourcegitcommit: ac962391cd3b82be2dd18b145ee5e6d7a483a91a
+ms.openlocfilehash: 11bc16813153beb5b819c80284a30f9f188709d0
 
 ---
 
@@ -19,11 +19,22 @@ ms.openlocfilehash: 3ee39f57890248951b69887edc87c9fedb13c285
 
 Подсистема и клиент Docker не входят в состав Windows, потому их нужно установить и настроить отдельно. Кроме того, подсистема Docker может принимать множество пользовательских конфигураций. Например, можно настроить то, как управляющая программа принимает входящие запросы, сетевые параметры по умолчанию и параметры ведения журнала и отладки. В ОС Windows эти конфигурации можно указать в файле конфигурации или с помощью диспетчера служб Windows. В этом документе описано, как установить и настроить подсистему Docker; также представлены примеры некоторых часто используемых конфигураций.
 
+
 ## Установка Docker
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker (dockerd.exe) и клиента Docker (docker.exe). Самый простой способ установки всех компонентов указан в кратких руководствах по началу работы. С их помощью вы сможете все настроить и запустить первый контейнер. 
 
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента.
+* [Контейнеры Windows в Windows Server 2016](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_server)
+* [Контейнеры Windows в Windows 10](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/quick_start/quick_start_windows_10)
 
-Скачайте подсистему Docker.
+
+### установка вручную;
+Если вы хотите использовать версии подсистемы и клиента Docker, находящиеся в разработке, выполните следующие действия. Будут установлены подсистема и клиент Docker. В противном случае перейдите к следующему разделу.
+
+> Если у вас установлена версия Docker для Windows, удалите ее перед тем, как выполнить действия по ручной установке. 
+
+Скачивание подсистемы Docker
+
+Последнюю версию всегда можно найти здесь: https://master.dockerproject.org. В этом примере используется последняя версия из ветви v1.13-development. 
 
 ```none
 Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
@@ -183,6 +194,6 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-3
 
 
 
-<!--HONumber=Oct16_HO1-->
+<!--HONumber=Oct16_HO2-->
 
 
