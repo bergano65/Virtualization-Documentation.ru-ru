@@ -4,20 +4,18 @@ description: "Развертывание контейнеров Windows в Nano 
 keywords: "docker, контейнеры"
 author: neilpeterson
 manager: timlt
-ms.date: 09/26/2016
+ms.date: 09/28/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: 185c83b69972765a72af2dbbf5d0c7d2551212ce
-ms.openlocfilehash: 6ada7de02bbdfab8986fdfeeda60b6373a6e2d96
+ms.sourcegitcommit: a2c78d3945f1d5b0ebe2a4af480802f8c0c656c2
+ms.openlocfilehash: a9d398de94cb0d6c54c2e82f4a024bb65de9806d
 
 ---
 
 # Развертывание узла контейнера — Nano Server
-
-**Это предварительное содержимое. Возможны изменения.** 
 
 В этом документе приведено пошаговое руководство по развертыванию очень простой конфигурации сервера Nano Server с контейнерами Windows. Это довольно сложная тема, и для ее понимания необходимо иметь общее представление о Windows и контейнерах Windows. Введение о контейнерах Windows см. в статье [Краткое руководство по контейнерам Windows](../quick_start/quick_start.md).
 
@@ -27,7 +25,7 @@ ms.openlocfilehash: 6ada7de02bbdfab8986fdfeeda60b6373a6e2d96
 
 ### Создание виртуальной машины для сервера Nano Server
 
-Сначала скачайте ознакомительный виртуальный жесткий диск Nano Server [отсюда](https://msdn.microsoft.com/en-us/virtualization/windowscontainers/nano_eula). Создайте виртуальную машину с использованием этого виртуального жесткого диска, запустите виртуальную машину и подключитесь к ней с помощью Hyper-V или равнозначного варианта подключения (в зависимости от используемой платформы виртуализации).
+Сначала скачайте ознакомительный виртуальный жесткий диск Nano Server [отсюда](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Создайте виртуальную машину с использованием этого виртуального жесткого диска, запустите виртуальную машину и подключитесь к ней с помощью Hyper-V или равнозначного варианта подключения (в зависимости от используемой платформы виртуализации).
 
 ### Создание удаленного сеанса PowerShell
 
@@ -47,22 +45,16 @@ Enter-PSSession -ComputerName 192.168.1.50 -Credential ~\Administrator
 
 После выполнения этих действий у вас появился удаленный сеанс PowerShell с системой Nano Server. Оставшаяся часть этого документа, если не указано иначе, происходит в удаленном сеансе.
 
+### Установка обновлений Windows
 
-## Установка компонента контейнеров
-
-Поставщик управления пакетами сервера Nano Server позволяет установить роли и компоненты на Nano Server. Установите поставщик с помощью следующей команды.
-
-```none
-Install-PackageProvider NanoServerPackage
-```
-
-После этого установите компонент контейнеров.
+Критические обновления необходимы для работы контейнеров Windows. Их можно установить, выполнив следующие команды.
 
 ```none
-Install-NanoServerPackage -Name Microsoft-NanoServer-Containers-Package
+$sess = New-CimInstance -Namespace root/Microsoft/Windows/WindowsUpdate -ClassName MSFT_WUOperationsSession
+Invoke-CimMethod -InputObject $sess -MethodName ApplyApplicableUpdates
 ```
 
-После установки компонентов контейнера потребуется перезагрузить узел Nano Server. 
+Как только изменения будут применены, перезагрузите систему.
 
 ```none
 Restart-Computer
@@ -72,56 +64,26 @@ Restart-Computer
 
 ## Установка Docker
 
-Подсистема Docker требуется для работы с контейнерами Windows. Установите подсистему Docker, выполнив следующие действия.
+Docker необходим для работы с контейнерами Windows. Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget). Поставщик обеспечит работу контейнеров на компьютере и установит Docker. После этого потребуется перезагрузка. 
 
-Сначала необходимо настроить брандмауэр сервера Nano Server для SMB. Для этого нужно выполнить на узле сервера Nano Server следующую команду.
+Выполните следующие команды в удаленном сеансе PowerShell.
+
+Сначала будет установлен модуль OneGet PowerShell.
 
 ```none
-Set-NetFirewallRule -Name FPS-SMB-In-TCP -Enabled True
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-Создайте папку на узле Nano Server для исполняемых файлов Docker.
+Далее при помощи OneGet будет установлена последняя версия Docker.
 
 ```none
-New-Item -Type Directory -Path $env:ProgramFiles'\docker\'
+Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
 
-Скачайте подсистему и клиент Docker, а затем скопируйте их в папку "C:\Program Files\docker\'" узла контейнера. 
-
-> Сейчас Nano Server не поддерживает `Invoke-WebRequest`. Подсистему Docker необходимо скачать на удаленную систему, а затем копировать файлы на узел сервера Nano Server.
+После завершения установки перезагрузите компьютер.
 
 ```none
-Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile .\docker.zip -UseBasicParsing
-```
-
-Извлеките скачанный пакет. В результате у вас будет каталог, содержащий файл **dockerd.exe** и **docker.exe**. Скопируйте эти файлы в папку **C:\Program Files\docker\** на узле контейнера Nano Server. 
-
-```none
-Expand-Archive .\docker.zip
-```
-
-Добавьте каталог Docker в системный путь на узле сервера Nano Server.
-
-> Обязательно переключитесь обратно на удаленный сеанс Nano Server.
-
-```none
-# For quick use, does not require shell to be restarted.
-$env:path += “;C:\program files\docker”
-
-# For persistent use, will apply even after a reboot.
-setx PATH $env:path /M
-```
-
-Установите Docker в качестве службы Windows.
-
-```none
-dockerd --register-service
-```
-
-Запустите службу Docker.
-
-```none
-Start-Service Docker
+Restart-Computer -Force
 ```
 
 ## Установка базовых образов контейнеров
@@ -235,6 +197,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Sep16_HO4-->
+<!--HONumber=Oct16_HO2-->
 
 

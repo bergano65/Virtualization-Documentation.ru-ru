@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: ac962391cd3b82be2dd18b145ee5e6d7a483a91a
-ms.openlocfilehash: 334f19fa645ad50eb59ad61890842f0b6a43dce2
+ms.sourcegitcommit: af648c1235ab9af181a88a65901401bfbd40656e
+ms.openlocfilehash: 791de65ac6e4222c4cae77fe9dd24f4e07e5a936
 
 ---
 
@@ -27,59 +27,30 @@ ms.openlocfilehash: 334f19fa645ad50eb59ad61890842f0b6a43dce2
 
 > Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
 
-## 1. Установка компонента контейнеров
+## 1. Установка Docker
 
-Чтобы начать работу с контейнерами Windows, требуется включить контейнер компонентов. Для этого выполните приведенную ниже команду в сеансе PowerShell с повышенными правами.
+Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget). Поставщик обеспечит работу контейнеров на компьютере и установит Docker. После этого потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
+
+Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
+
+Сначала будет установлен модуль OneGet PowerShell.
 
 ```none
-Install-WindowsFeature containers
+Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-После завершения установки компонента перезагрузите компьютер.
+Далее при помощи OneGet будет установлена последняя версия Docker.
+```none
+Install-Package -Name docker -ProviderName DockerMsftProvider
+```
+
+Когда в PowerShell появится запрос, доверять ли источнику пакета DockerDefault, введите A, чтобы продолжить установку. После завершения установки перезагрузите компьютер.
 
 ```none
 Restart-Computer -Force
 ```
 
-## 2. Установка Docker
-
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. В этом упражнении будут установлены оба этих компонента.
-
-Скачайте версию-кандидат коммерчески поддерживаемого механизма Docker и клиент в виде ZIP-архива.
-
-```none
-Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker-1.12.2.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
-```
-
-Разархивируйте ZIP-архив в Program Files.
-
-```none
-Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
-```
-
-Добавьте каталог Docker в системный путь.
-
-```none
-# For quick use, does not require shell to be restarted.
-$env:path += ";c:\program files\docker"
-
-# For persistent use, will apply even after a reboot. 
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
-```
-
-Чтобы установить Docker в качестве службы Windows, выполните следующую команду.
-
-```none
-dockerd.exe --register-service
-```
-
-После установки эту службу можно запустить.
-
-```none
-Start-Service docker
-```
-
-## 3. Развертывание первого контейнера
+## 2. Развертывание первого контейнера
 
 В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
 
