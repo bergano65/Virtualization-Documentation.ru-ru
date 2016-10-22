@@ -10,8 +10,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: 1c1ca88aaf383973a4cfb879580db5325f49a868
-ms.openlocfilehash: 7b4276dd8e961bf278bee2baea2449e04eef7a2f
+ms.sourcegitcommit: 38d9f06af87cf1d69529d28e30cab60f16e0982b
+ms.openlocfilehash: 185831094b63a1b7fb1931db7fb82a6c59c2b060
 
 ---
 
@@ -70,7 +70,7 @@ Start-Service Docker
 
 Предпочтительным способом настройки подсистемы Docker в Windows является файл конфигурации. Путь к файлу конфигурации — C:\ProgramData\docker\config\daemon.json. Если этот файл еще не существует, его можно создать.
 
-Примечание. Не все доступные параметры конфигурации Docker применимы к Docker в Windows. В примере ниже показаны применимые. Полную документацию по настройке подсистемы Docker (включая инструкции для Linux) см. в статье [Docker Daemon]( https://docs.docker.com/v1.10/engine/reference/commandline/daemon/) (Управляющая программа Docker).
+Примечание. Не все доступные параметры конфигурации Docker применимы к Docker в Windows. В примере ниже показаны применимые. Полную документацию по настройке подсистемы Docker (включая инструкции для Linux) см. в статье [Docker daemon configuration file](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file) (Файл конфигурации управляющей программы Docker).
 
 ```none
 {
@@ -177,23 +177,8 @@ restart-service docker
 
 Дополнительные сведения см. в статье [Daemon Socket Options](https://docs.docker.com/v1.10/engine/reference/commandline/daemon/#daemon-socket-option) (Параметры сокетов управляющей программы) на Docker.com.
 
-## Сбор журналов
-
-Подсистема Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
-
-Например, следующая команда выведет записи журнала подсистемы Docker за последние 5 минут, начиная с самой ранней.
-
-```
-Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
-```
-
-Эти записи легко перенаправить в CSV-файл, чтобы открыть их в другой программе или редакторе электронных таблиц.
-
-```
-Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.csv ```
 
 
-
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO3-->
 
 
