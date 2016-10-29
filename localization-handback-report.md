@@ -1,31 +1,11 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/hyperv_on_windows/user_guide/remote_host_management.md) | ArchivedSuccess | [Details](#7d7aee3d87237b93887ac7303c70cf6c9a02285d209)
 
 ## Item Details
-##### <a name='7d7aee3d87237b93887ac7303c70cf6c9a02285d209'></a> Source: [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/hyperv_on_windows/user_guide/remote_host_management.md)
-* Status: ArchivedSuccess
-* Target File: 
-* Handoff File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/7dd93d3bbac04f1d66deb04b928824ec58f284ba/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
-* Handoff Datetime: 2016-10-28 23:01:03
-* Handoff Reason: Include
-* Archive File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/a66b8517f1f4960d560239d1a2e708eaf9dc354b/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
-* Archive Datetime: 2016-10-29 00:08:13
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Current Target File: [virtualization\hyperv_on_windows\user_guide\remote_host_management.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/d12b903dc5ec29b4c51c5ba0cd14f62e00a60b08/virtualization/hyperv_on_windows/user_guide/remote_host_management.md)
-* Current Handback File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/4346d8e48c7065db725fdb3a3989bffe5b4c88b3/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
-* Current Handback Datetime: 2016-10-29 20:37:34
-* Bilingual File: [remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/afcf65ef5f987f434443231805c9ebf7f019e716/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf)
-* Bilingual Datetime: 2016-09-29 22:13:04
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
