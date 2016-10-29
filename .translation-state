@@ -26736,9 +26736,9 @@
       "ArchiveFileCommit": "66eae842420e93b9ac247cc2427a38a6c2695786",
       "ArchiveFileDateTime": "2016-10-26T00:21:21.2491018Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\remote_host_management.40d5636e508c5b95bb2917be75ca6b5aa426a915.ru-ru.xlf",
+      "BilingualFileCommit": "4346d8e48c7065db725fdb3a3989bffe5b4c88b3",
+      "BilingualDateTime": "2016-10-29T20:38:19.9477932Z",
       "BilingualException": null
     },
     "d06f38ddc9abf40a2842089203462c26765be672": {
