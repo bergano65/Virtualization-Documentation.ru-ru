@@ -2,16 +2,15 @@
 title: "Контейнеры Windows в Windows Server"
 description: "Краткое руководство по развертыванию контейнеров"
 keywords: "docker, контейнеры"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: af648c1235ab9af181a88a65901401bfbd40656e
-ms.openlocfilehash: 791de65ac6e4222c4cae77fe9dd24f4e07e5a936
+ms.sourcegitcommit: 6c85bb2ac3922dac4b09939d3ea71d7fbb5e16ad
+ms.openlocfilehash: d06f38ddc9abf40a2842089203462c26765be672
 
 ---
 
@@ -50,7 +49,35 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-## 2. Развертывание первого контейнера
+## 2. Установка обновлений Windows
+
+Чтобы гарантировать, что установлена последняя версия ОС Windows Server, следует установить обновления из Центра обновления Windows, выполнив следующую команду:
+
+```none
+sconfig
+```
+
+Появится текстовое меню настройки, где можно будет выбрать вариант 6 (скачивание и установка обновлений):
+
+```none
+===============================================================================
+                         Server Configuration
+===============================================================================
+
+1) Domain/Workgroup:                    Workgroup:  WORKGROUP
+2) Computer Name:                       WIN-HEFDK4V68M5
+3) Add Local Administrator
+4) Configure Remote Management          Enabled
+
+5) Windows Update Settings:             DownloadOnly
+6) Download and Install Updates
+7) Remote Desktop:                      Disabled
+...
+```
+
+При появлении запроса выберите вариант A (скачать все обновления).
+
+## 3. Развертывание первого контейнера
 
 В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
 
@@ -113,6 +140,6 @@ docker run microsoft/sample-dotnet
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 

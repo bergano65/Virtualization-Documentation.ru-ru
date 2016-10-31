@@ -2,16 +2,15 @@
 title: "Развертывание контейнеров Windows в Nano Server"
 description: "Развертывание контейнеров Windows в Nano Server"
 keywords: "docker, контейнеры"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/28/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: a2c78d3945f1d5b0ebe2a4af480802f8c0c656c2
-ms.openlocfilehash: a9d398de94cb0d6c54c2e82f4a024bb65de9806d
+ms.sourcegitcommit: fa073b0347ee6c580f0a658b3cbdb471f0bbf909
+ms.openlocfilehash: ef5b189a56502ce8b76c094ecbd0c6174bb1bc4f
 
 ---
 
@@ -90,11 +89,13 @@ Restart-Computer -Force
 
 Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью `docker pull`. Подробные сведения об образах контейнеров Docker см. в разделе [Создание собственных образов на сайте docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-Чтобы скачать и установить базовые образы Windows Server и Nano Server, выполните следующие команды.
+Чтобы скачать и установить базовый образ Windows Nano Server, выполните следующую команду.
 
 ```none
 docker pull microsoft/nanoserver
 ```
+
+Если планируется использовать контейнер Hyper-V и на узле Nano Server установлена низкоуровневая оболочка Hyper-V, можно также получить образ основных серверных компонентов. Если вы используете Azure Gallery Server 2016 Nano, Hyper-V на нем не будет.
 
 ```none
 docker pull microsoft/windowsservercore
@@ -197,6 +198,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 
