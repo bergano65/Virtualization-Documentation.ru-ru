@@ -1,17 +1,16 @@
 ---
 title: "Поддерживаемые гостевые ОС Windows"
 description: "Поддерживаемые гостевые ОС Windows."
-keywords: windows 10, hyper-v
+keywords: "windows 10, hyper-v"
 author: scooley
-manager: timlt
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
 translationtype: Human Translation
-ms.sourcegitcommit: 645b15f32e731b6d4044e8f66d8ab2374870904c
-ms.openlocfilehash: 19ecce49df066c5816741f375c4610b79d7ad802
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: f772a26f2ad52c8ed28d40ca35c91ed6f3eab872
 
 ---
 
@@ -42,7 +41,7 @@ ms.openlocfilehash: 19ecce49df066c5816741f375c4610b79d7ad802
 | Windows 7 | 4 | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
 | Windows Vista с пакетом обновления 2 (SP2) | 2 | Business, Enterprise и Ultimate, включая выпуски N и KN | 
 | - | | |
-| Windows Server 2012 R2 | 64 | |
+| Windows Server 2012 R2 | 64 | |
 | Windows Server 2012 | 64 | |
 | Windows Server 2008 R2 с пакетом обновления 1 (SP1) | 64 | Выпуски Datacenter, Enterprise, Standard и Web. |
 | Windows Server 2008 с пакетом обновления 2 (SP2) | 4 | Выпуски Datacenter, Enterprise, Standard и Web (32-разрядные и 64-разрядные). |
@@ -66,6 +65,6 @@ ms.openlocfilehash: 19ecce49df066c5816741f375c4610b79d7ad802
 
 
 
-<!--HONumber=Jun16_HO4-->
+<!--HONumber=Oct16_HO4-->
 
 

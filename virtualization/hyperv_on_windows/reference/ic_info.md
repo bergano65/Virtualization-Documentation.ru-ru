@@ -1,17 +1,16 @@
 ---
 title: "Службы интеграции Hyper-V"
 description: "Справочник по службам интеграции Hyper-V"
-keywords: windows 10, hyper-v, integration services, integration components
+keywords: "windows 10, hyper-v, службы интеграции, компоненты интеграции"
 author: scooley
-manager: timlt
 ms.date: 05/25/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
 translationtype: Human Translation
-ms.sourcegitcommit: 03c3ede85ff8b2fe4783581c717c1c97810b3bdd
-ms.openlocfilehash: a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: 71ec8f80e721a0c66dc8709473a427792df1cf24
 
 ---
 
@@ -31,7 +30,7 @@ ms.openlocfilehash: a2fc8845bdc3e5f977d50b99ca9687b3dafd0cb6
 
 ## Краткий справочник
 
-| Название | Название службы Windows | Имя управляющей программы Linux |  Описание | Влияние на виртуальную машину при отключении |
+| Имя | Название службы Windows | Имя управляющей программы Linux |  Описание | Влияние на виртуальную машину при отключении |
 |:---------|:---------|:---------|:---------|:---------|
 | [Служба пульса (Hyper-V)](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | Сообщает, что виртуальная машина работает нормально. | Различается |
 | [Служба завершения работы в качестве гостя (Hyper-V)](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  Позволяет узлу управлять выключением виртуальных машин. | **высоко-** |
@@ -157,6 +156,6 @@ PowerShell Direct находится в активной разработке и
 
 
 
-<!--HONumber=Jul16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 
