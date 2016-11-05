@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 2d34e98c-6134-479b-8000-3eb360b8b8a3
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 7d7aee3d87237b93887ac7303c70cf6c9a02285d
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: c562e1a1370e9286680afa1b498d625195edebb2
 
 ---
 
@@ -18,7 +18,7 @@ ms.openlocfilehash: 7d7aee3d87237b93887ac7303c70cf6c9a02285d
 
 Диспетчер Hyper-V — это встроенное средство для управления локальным узлом Hyper-V, а также небольшим количеством удаленных узлов, а также их диагностики.  В этой статье приведены инструкции по подключению к узлам Hyper-V с помощью диспетчера Hyper-V во всех поддерживаемых конфигурациях.
 
-> Диспетчер Hyper-V доступен в разделе **Программы и компоненты** под названием **Средства управления Hyper-V** в [любой ОС Windows с Hyper-V](../quick_start/walkthrough_compatibility.md#OperatingSystemRequirements).  Включать платформу Hyper-V для управления удаленными компьютерами необязательно.
+> Диспетчер Hyper-V доступен в разделе **Программы и компоненты** под названием **Средства управления Hyper-V** в [любой ОС Windows с Hyper-V](../quick_start/walkthrough_compatibility.md#operating-system-requirements).  Включать платформу Hyper-V для управления удаленными компьютерами необязательно.
 
 Чтобы подключиться к узлу Hyper-V в диспетчере Hyper-V, убедитесь, что на панели слева выбран **Диспетчер Hyper-V**, и выберите пункт **Подключение к серверу...** на панели справа.
 
@@ -121,6 +121,6 @@ Enable-PSRemoting
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 

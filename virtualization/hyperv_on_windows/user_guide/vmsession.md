@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 16624e181bec81d90c960df30e89f25eab23f7ea
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: 807043a744c4735158720371ec3afb22ebe7fc24
 
 ---
 
@@ -21,7 +21,7 @@ ms.openlocfilehash: 16624e181bec81d90c960df30e89f25eab23f7ea
 **Запустить PowerShell Direct можно разными способами:**  
 * Интерактивный сеанс: [щелкните здесь](vmsession.md#create-and-exit-an-interactive-powershell-session), чтобы создать и завершить интерактивный сеанс PowerShell с помощью Enter-PSSession.
 * Разовый сеанс для выполнения одной команды или одного сценария: [щелкните здесь](vmsession.md#run-a-script-or-command-with-invoke-command), чтобы выполнить сценарий или команду с помощью Invoke-Command.
-* Постоянный сеанс (сборка 14280 и более поздние): [щелкните здесь](vmsession.md#copy-files-with-New-PSSession-and-Copy-Item) для создания постоянного сеанса с помощью New-PSSession.  
+* Постоянный сеанс (сборка 14280 и более поздние): [щелкните здесь](vmsession.md#copy-files-with-new-pssession-and-copy-item) для создания постоянного сеанса с помощью New-PSSession.  
 Продолжите работу, скопировав файл на виртуальную машину и с нее с помощью Copy-Item, а затем отключитесь с помощью Remove-PSSession.
 
 ## Требования
@@ -280,6 +280,6 @@ PowerShell Direct поддерживает JEA (Just Enough Administration).  Ч
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
