@@ -9,8 +9,8 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9c398c4-ee72-45c6-9ce8-4f06569dae6c
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: ed4a2cb6fb3cd4006a5085e4ce8e058a3f201e41
+ms.sourcegitcommit: 8f08c85921b9d41f10f3b8cff5e4bafe945bd4af
+ms.openlocfilehash: 4e887dc8c284dd189dc59a71aa9d22d6c8a231ea
 
 ---
 
@@ -62,7 +62,7 @@ Set-VM -Name <vmname> -CheckpointType ProductionOnly
 
 ## Создание контрольных точек
 
-Создает контрольную точку того типа, который настроен для данной виртуальной машины. Сведения о том, как изменить тип контрольной точки, см. в разделе [Изменение типа контрольной точки](checkpoints.md#changing-the-checkpoint-type-for-a-VM) (выше в этом же документе).
+Создает контрольную точку того типа, который настроен для данной виртуальной машины. Сведения о том, как изменить тип контрольной точки, см. в разделе [Изменение типа контрольной точки](checkpoints.md#changing-the-checkpoint-type) (выше в этом же документе).
 
 **Использование диспетчера Hyper-V**
 
@@ -201,7 +201,7 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 
 1. Войдите в виртуальную машину и создайте текстовый файл на рабочем столе.
 2. Откройте файл в Блокноте и введите текст "Это стандартная контрольная точка". **Не сохраняйте файл и не закрывайте Блокнот**.  
-3. Инструкции по изменению контрольной точки на стандартную см. [здесь](checkpoints.md#changing-the-checkpoint-type-using-hyper-V-manager).
+3. Инструкции по изменению контрольной точки на стандартную см. [здесь](checkpoints.md#changing-the-checkpoint-type).
 4. Создание новой контрольной точки.
 
 <br />
@@ -249,6 +249,6 @@ This folder will contain the .VMRS file with the runtime and saved state data an
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
