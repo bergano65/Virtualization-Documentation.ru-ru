@@ -2,16 +2,15 @@
 title: "Требования к контейнеру Windows"
 description: "Требования к контейнеру Windows."
 keywords: "метаданные, контейнеры"
-author: neilpeterson
-manager: timlt
+author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
 translationtype: Human Translation
-ms.sourcegitcommit: d4c453e800d4057b3ad0be06c28e7f23b81443f0
-ms.openlocfilehash: 008eff4731a8835b0b3f664edc9955f85c12a629
+ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
+ms.openlocfilehash: af8d8a05fc953dcc93672a0f936caca5e37f0de3
 
 ---
 
@@ -89,6 +88,6 @@ PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows N
 В отличие от контейнеров Windows Server, где для контейнеров и узла используется одно ядро, каждый контейнер Hyper-V использует собственный экземпляр ядра Windows.  Из-за этого пользователи могут неправильно сопоставить версии узла контейнера и образа контейнера.  Сейчас сборки с номером, равным или больше общедоступной версии Windows Server 2016 (10.0.14393.206), могут запускать образы общедоступной версии Windows Server 2016 в Windows Server Core или Nano Server в поддерживаемой конфигурации, независимо от номера редакции.  В будущем на основе отзывов клиентов мы предоставим конкретные рекомендации относительно того, настолько номера сборок могут отличаться друг от друга.  Важно понимать, что для обеспечения полной функциональности, надежности и гарантий безопасности, предоставляемых обновлениями Windows, следует использовать последние версии на всех системах.  
 
 
-<!--HONumber=Oct16_HO2-->
+<!--HONumber=Oct16_HO4-->
 
 
