@@ -2879,8 +2879,8 @@
 * Archive Datetime: 2016-11-05 00:08:48
 * Handback File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/878c7a89716f44ed909fc633525a01c267c0da2f/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
 * Handback Datetime: 2016-11-05 16:19:11
-* Bilingual File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3c49275029b4fe1eb3e644ff99d014685cd1ea11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
-* Bilingual Datetime: 2016-11-03 03:47:08
+* Bilingual File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/878c7a89716f44ed909fc633525a01c267c0da2f/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
+* Bilingual Datetime: 2016-11-05 16:21:51
 * [Back to Top](#report-top)
 
 ##### <a name='ea91ea0ffca5479cb0593ef9961625f7b7ab1f42191'></a> Source: [virtualization\hyperv_on_windows\user_guide\create_pre-release_vm.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/hyperv_on_windows/user_guide/create_pre-release_vm.md)

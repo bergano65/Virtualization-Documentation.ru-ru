@@ -29258,9 +29258,9 @@
       "ArchiveFileCommit": "66d669e1f1cc91e4b8f9f6e75cf94635fbea1801",
       "ArchiveFileDateTime": "2016-11-05T00:08:48.106227Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf",
+      "BilingualFileCommit": "878c7a89716f44ed909fc633525a01c267c0da2f",
+      "BilingualDateTime": "2016-11-05T16:21:51.5634409Z",
       "BilingualException": null
     },
     "c562e1a1370e9286680afa1b498d625195edebb2": {
