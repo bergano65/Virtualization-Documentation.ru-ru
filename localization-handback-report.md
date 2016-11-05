@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8f08c85921b9d41f10f3b8cff5e4bafe945bd4af/virtualization/hyperv_on_windows/user_guide/checkpoints.md) | InSyncHandedBackSuccess | [Details](#4e887dc8c284dd189dc59a71aa9d22d6c8a231ea190)
 
 ## Item Details
+##### <a name='4e887dc8c284dd189dc59a71aa9d22d6c8a231ea190'></a> Source: [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/8f08c85921b9d41f10f3b8cff5e4bafe945bd4af/virtualization/hyperv_on_windows/user_guide/checkpoints.md)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\hyperv_on_windows\user_guide\checkpoints.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/51cab15d11b745c6ac115360f0234c3fd52f980b/virtualization/hyperv_on_windows/user_guide/checkpoints.md)
+* Handoff File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/10a48f18330e375c1a102f76080a481738b520b3/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
+* Handoff Datetime: 2016-11-03 23:01:06
+* Handoff Reason: Include
+* Archive File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/66d669e1f1cc91e4b8f9f6e75cf94635fbea1801/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
+* Archive Datetime: 2016-11-05 00:08:48
+* Handback File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/878c7a89716f44ed909fc633525a01c267c0da2f/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
+* Handback Datetime: 2016-11-05 16:19:11
+* Bilingual File: [checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3c49275029b4fe1eb3e644ff99d014685cd1ea11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf)
+* Bilingual Datetime: 2016-11-03 03:47:08
+* [Back to Top](#report-top)
+
 
 ## Error Details
 

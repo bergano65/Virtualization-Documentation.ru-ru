@@ -807,8 +807,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-11-05T00:08:48.1218547Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\4e887dc8c284dd189dc59a71aa9d22d6c8a231ea.27b49e3c00f4de8a2ea0bd3ca64b8c091f964da2.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\checkpoints.fb864e32f956b43d9a6ce0ccc72ba67b60ea8362.ru-ru.xlf",
+      "LocXliffCommit": "878c7a89716f44ed909fc633525a01c267c0da2f"
     },
     "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md.674b38cfa2876545e9b61834f2c82fddea4714eb.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\quick_start\\quick_start_windows_server.md",
