@@ -29150,9 +29150,9 @@
       "ArchiveFileCommit": "c520e7a613e3c8aaa88536bdbeb7f5fbe6474e93",
       "ArchiveFileDateTime": "2016-11-03T07:06:21.7606216Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf",
+      "BilingualFileCommit": "66fd9bf87cde64e6719c745816b6895ff08341d8",
+      "BilingualDateTime": "2016-11-08T12:55:21.012324Z",
       "BilingualException": null
     },
     "a1b876d01b8076ee9feb275bd09247775bfcef69": {
@@ -29186,9 +29186,9 @@
       "ArchiveFileCommit": "c520e7a613e3c8aaa88536bdbeb7f5fbe6474e93",
       "ArchiveFileDateTime": "2016-11-03T07:06:21.7606216Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\containers_welcome.2c85b1345b8dfcc523a3848ed7661e25d5ffbb17.ru-ru.xlf",
+      "BilingualFileCommit": "66fd9bf87cde64e6719c745816b6895ff08341d8",
+      "BilingualDateTime": "2016-11-08T12:55:21.012324Z",
       "BilingualException": null
     },
     "e280dc10558e1b69327a253170acd27056cb0e07": {
@@ -29222,9 +29222,9 @@
       "ArchiveFileCommit": "c520e7a613e3c8aaa88536bdbeb7f5fbe6474e93",
       "ArchiveFileDateTime": "2016-11-03T07:06:21.7606216Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf",
+      "BilingualFileCommit": "66fd9bf87cde64e6719c745816b6895ff08341d8",
+      "BilingualDateTime": "2016-11-08T12:55:21.012324Z",
       "BilingualException": null
     },
     "4e887dc8c284dd189dc59a71aa9d22d6c8a231ea": {
