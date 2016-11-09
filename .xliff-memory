@@ -827,8 +827,8 @@
       "IsArchived": true,
       "ArchivedDateTime": "2016-11-05T00:08:48.1218547Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\2324054dcaf04999c572e04c30a373d2f5a98e9d.440a5fe9ad7391ff507947f58db8322c55646ea2.xml",
-      "LocXliff": null,
-      "LocXliffCommit": null
+      "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf",
+      "LocXliffCommit": "021ed8bdc9b1d96e61ec4ed5b113e42897968c03"
     },
     "virtualization\\windowscontainers\\management\\manage_serviceaccounts.md.0d4da5fca68d10fa43e3abbea75a56b38ca16ccb.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\management\\manage_serviceaccounts.md",
