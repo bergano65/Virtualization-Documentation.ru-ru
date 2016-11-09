@@ -15,6 +15,7 @@
 ## [Узел контейнера — Windows Server](deployment/deployment.md)
 ## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+## [Учетные записи службы Active Directory](management/manage_serviceaccounts.md)
 
 # Управление Docker в Windows
 ## [Подсистема Docker в Windows](docker/configure_docker_daemon.md)
