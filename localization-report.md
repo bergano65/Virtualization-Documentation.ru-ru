@@ -10,8 +10,8 @@
 [ Archive Success Files ](#archive-success-list)| 4
 [ Handback Failed Files ](#handback-failed-list)| 0
 [ Out Of Sync Handback Files ](#outofsync-handback-success-list)| 0
-[ In Sync Handback Files ](#insync-handback-success-list)| 125
-[ Ignored Files ](#ignored-list)| 359
+[ In Sync Handback Files ](#insync-handback-success-list)| 124
+[ Ignored Files ](#ignored-list)| 360
 
 ## <a name='handoff-failed-list'></a> Handoff Failed File List
 
@@ -155,7 +155,6 @@
  [virtualization\windowscontainers\quick_start\quick_start.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/windowscontainers/quick_start/quick_start.md) | InSyncHandedBackSuccess | [Details](#16bd0cb8a39c160703e30cf645709c70f6c91093323)
  [virtualization\windowscontainers\quick_start\quick_start_images.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/windowscontainers/quick_start/quick_start_images.md) | InSyncHandedBackSuccess | [Details](#f856499eea09efd4aa26cba6c7e437d61eb8b80b324)
  [virtualization\windowscontainers\quick_start\quick_start_windows_10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ffdf89b0ae346197b9ae631ee5260e0565261c55/virtualization/windowscontainers/quick_start/quick_start_windows_10.md) | InSyncHandedBackSuccess | [Details](#34ab361ea415ab2d8d5133927beafc7911f1aaf1325)
- [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/13a33a6003cfa77d81a6e8e2afdf1da8d017ee30/virtualization/windowscontainers/quick_start/quick_start_windows_server.md) | InSyncHandedBackSuccess | [Details](#a5537a4cb56127e51e0a550220995cd5f6b93722326)
  [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/839a3608cb6a36289330b3ef3c3fbafe6efb2f13/virtualization/windowscontainers/samples.md) | InSyncHandedBackSuccess | [Details](#4d0fb2ee5ce2be3fe1b616ff38f14269192f3fc9327)
  [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/804008c172b80a4f354a92cd4d12a4e23e1d4328/virtualization/windowscontainers/TOC.md) | InSyncHandedBackSuccess | [Details](#2324054dcaf04999c572e04c30a373d2f5a98e9d328)
  [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/601acadfe25a13aaf28548d0b368b4b6fd461b03/virtualization/windowscontainers/troubleshooting.md) | InSyncHandedBackSuccess | [Details](#71ce38a8d6cd75079558827c806fdbbc5a2bcfd2329)
@@ -364,6 +363,7 @@
  [virtualization\windowscontainers\quick_start\media\nginx.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/virtualization/windowscontainers/quick_start/media/nginx.png) | Ignored | [Details](#a9f175f23fed1475c227ec1af2c524c918024bc4320)
  [virtualization\windowscontainers\quick_start\media\Users-Developers-Green.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/virtualization/windowscontainers/quick_start/media/Users-Developers-Green.png) | Ignored | [Details](#e9a4680b71eb3fb8d3c1135d9e7f9ba879d7c1b8321)
  [virtualization\windowscontainers\quick_start\media\Windows-Green.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/virtualization/windowscontainers/quick_start/media/Windows-Green.png) | Ignored | [Details](#f64f7be7c90cddffc0c2fc09c7a975f0bc5fb888322)
+ [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/virtualization/windowscontainers/quick_start/quick_start_windows_server.md) | Ignored | [Details](#bb61ccfb9756b341be2e989cb7c5bbe571072aab326)
  [windows-container-samples\apache-http\Dockerfile](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/windows-container-samples/apache-http/Dockerfile) | Ignored | [Details](#7eb651e50372593ddd2096e49b5d37a429be7e34333)
  [windows-container-samples\apache-http\README.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/windows-container-samples/apache-http/README.md) | Ignored | [Details](#ac0fae206187fda56e82113529620c84370046e8334)
  [windows-container-samples\apache-http-php\Dockerfile](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/windows-container-samples/apache-http-php/Dockerfile) | Ignored | [Details](#226a05783e3a83088aa1f360fb05ed3dd5d1d8b3330)
@@ -4622,18 +4622,16 @@
 * Bilingual Datetime: 2016-11-03 04:41:08
 * [Back to Top](#report-top)
 
-##### <a name='a5537a4cb56127e51e0a550220995cd5f6b93722326'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/13a33a6003cfa77d81a6e8e2afdf1da8d017ee30/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
-* Status: InSyncHandedBackSuccess
-* Target File: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/8729858ccebbd22217c61d67fa142712a35f78e2/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
-* Handoff File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/9c32e6ef0fbce4e4ad824298a4a03d693e19145c/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf)
-* Handoff Datetime: 2016-11-04 16:09:31
-* Handoff Reason: Include
-* Archive File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/66d669e1f1cc91e4b8f9f6e75cf94635fbea1801/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf)
-* Archive Datetime: 2016-11-05 00:08:48
-* Handback File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/8212a093a39e265c7482d435b8ee68ab185a74a6/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf)
-* Handback Datetime: 2016-11-08 01:15:45
-* Bilingual File: [quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/8212a093a39e265c7482d435b8ee68ab185a74a6/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick_start_windows_server.08fee0ad7baa994cf3e7a42d3d35aeda89c5e556.ru-ru.xlf)
-* Bilingual Datetime: 2016-11-08 01:16:20
+##### <a name='bb61ccfb9756b341be2e989cb7c5bbe571072aab326'></a> Source: [virtualization\windowscontainers\quick_start\quick_start_windows_server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/efd7727b5285caa0840a932e2da49314fd9676dc/virtualization/windowscontainers/quick_start/quick_start_windows_server.md)
+* Status: Ignored
+* Target File: 
+* Handoff File: 
+* Handoff Datetime: 0001-01-01 00:00:00
+* Handoff Reason: Ignored
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
 * [Back to Top](#report-top)
 
 ##### <a name='4d0fb2ee5ce2be3fe1b616ff38f14269192f3fc9327'></a> Source: [virtualization\windowscontainers\samples.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/839a3608cb6a36289330b3ef3c3fbafe6efb2f13/virtualization/windowscontainers/samples.md)
