@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 6603289599e7ca51558d54f35ab809528f53bcd7
+ms.sourcegitcommit: 31515396358c124212b53540af8a0dcdad3580e4
+ms.openlocfilehash: 20dcc6d263488673bf0a025058c3dee8d30168a2
 
 ---
 
@@ -43,7 +43,7 @@ ms.openlocfilehash: 6603289599e7ca51558d54f35ab809528f53bcd7
 # Sample Dockerfile
 
 # Indicates that the windowsservercore image will be used as the base image.
-FROM windowsservercore
+FROM microsoft/windowsservercore
 
 # Metadata indicating an image maintainer.
 MAINTAINER jshelton@contoso.com
@@ -51,7 +51,7 @@ MAINTAINER jshelton@contoso.com
 # Uses dism.exe to install the IIS role.
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 
-# Creates an html file and adds content to this file.
+# Creates an HTML file and adds content to this file.
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 
 # Sets a command or process that will run each time a container is run from the new image.
@@ -112,7 +112,7 @@ FROM windowsservercore
 RUN ["powershell", "New-Item", "c:/test"]
 ```
 
-Анализируя полученный образ, можно сделать вывод изображения, что была выполнена команда `powershell new-item c:/test`.
+Анализируя полученный образ, можно сделать вывод изображения, что была выполнена команда `powershell New-Item c:/test`.
 
 ```none
 docker history doc-exe-method
@@ -126,16 +126,16 @@ b3452b13e472        2 minutes ago       powershell New-Item c:/test   30.76 MB
 ```none
 FROM windowsservercore
 
-RUN powershell new-item c:\test
+RUN powershell New-Item c:\test
 ```
 
-Это приводит к выполнению инструкции `cmd /S /C powershell new-item c:\test`. 
+Это приводит к выполнению инструкции `cmd /S /C powershell New-Item c:\test`. 
 
 ```none
 docker history doc-shell-method
 
 IMAGE               CREATED             CREATED BY                              SIZE                COMMENT
-062a543374fc        19 seconds ago      cmd /S /C powershell new-item c:\test   30.76 MB
+062a543374fc        19 seconds ago      cmd /S /C powershell New-Item c:\test   30.76 MB
 ```
 
 **Рекомендации для Windows**
@@ -155,10 +155,10 @@ RUN ["powershell", "New-Item", "c:\\test"]
 RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 ```
 
-Этот пример устанавливает распространяемый пакет Visual Studio. Обратите внимание, что `start-process` и параметр `-wait` используются для запуска программы установки. Это гарантирует, что установка будет завершена до перехода к следующему шагу в Dockerfile.
+Этот пример устанавливает распространяемый пакет Visual Studio. Обратите внимание, что `Start-Process` и параметр `-Wait` используются для запуска программы установки. Это гарантирует, что установка будет завершена до перехода к следующему шагу в Dockerfile.
 
 ```none
-RUN start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+RUN Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
 ``` 
 
 Подробные сведения об инструкции RUN см. в [справочнике по RUN на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#run). 
@@ -266,7 +266,7 @@ ADD https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe /temp/python-3.5.1.
 
 ### WORKDIR
 
-Инструкция `WORKDIR` задает рабочий каталог для других инструкций Dockerfile, таких как `RUN`, `CMD`, а также рабочий каталог для запущенных экземпляров образа контейнера.
+Инструкция `WORKDIR` задает рабочий каталог для других инструкций Dockerfile, например `RUN` и `CMD`, а также рабочий каталог для запущенных экземпляров образа контейнера.
 
 **Формат**
 
@@ -369,7 +369,7 @@ RUN powershell.exe -Command `
 
 ### Команды PowerShell
 
-Команды PowerShell можно выполнять в файле Dockerfile с помощью операции `RUN`. 
+Команды PowerShell можно выполнять в Dockerfile при помощи операции `RUN`. 
 
 ```none
 FROM windowsservercore
@@ -393,7 +393,7 @@ RUN powershell.exe -Command \
 
 > Сейчас Invoke-WebRequest в Nano Server не поддерживается.
 
-Кроме того, с помощью PowerShell можно скачивать файлы во время создания образа, используя библиотеку .NET WebClient. Это может повысить производительность скачивания. Следующий пример скачивает программное обеспечение Python, используя библиотеку WebClient.
+Кроме того, при помощи PowerShell можно скачивать файлы во время создания образа, используя библиотеку .NET WebClient. Это может повысить производительность скачивания. Следующий пример скачивает программное обеспечение Python, используя библиотеку WebClient.
 
 ```none
 FROM windowsservercore
@@ -481,6 +481,6 @@ windowsservercore   latest              6801d964fda5        4 months ago        
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO1-->
 
 
