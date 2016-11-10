@@ -29438,9 +29438,9 @@
       "ArchiveFileCommit": "66d669e1f1cc91e4b8f9f6e75cf94635fbea1801",
       "ArchiveFileDateTime": "2016-11-05T00:08:48.106227Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\manage_serviceaccounts.54bcfc8aa29ac0c07540225468870ddb0ba3481f.ru-ru.xlf",
+      "BilingualFileCommit": "07ede48612a9a4a63400fd47362aba2058050ef5",
+      "BilingualDateTime": "2016-11-10T10:20:13.3920213Z",
       "BilingualException": null
     },
     "80a945647722718ba676f98512c9ad7875e7a414": {
@@ -29584,9 +29584,9 @@
       "ArchiveFileCommit": "914731c93b13dae214ac7eb801525fc181d47a38",
       "ArchiveFileDateTime": "2016-11-07T01:09:00.0789975Z",
       "ArchiveException": null,
-      "BilingualFilePath": null,
-      "BilingualFileCommit": null,
-      "BilingualDateTime": "0001-01-01T00:00:00",
+      "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\faq.9230ef72e03dd569ad85af3ef02d21277aad0e46.ru-ru.xlf",
+      "BilingualFileCommit": "07ede48612a9a4a63400fd47362aba2058050ef5",
+      "BilingualDateTime": "2016-11-10T10:20:13.3920213Z",
       "BilingualException": null
     },
     "20dcc6d263488673bf0a025058c3dee8d30168a2": {
