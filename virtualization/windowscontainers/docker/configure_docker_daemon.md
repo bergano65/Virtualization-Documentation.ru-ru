@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: 569b8861ca01ee8a0b794e01b0acb1a1c501fa55
+ms.sourcegitcommit: 16220e5afd42ecbbef648c469822c68570f8577c
+ms.openlocfilehash: dee119983c9dca1cd9ce5caff1c4f87d4accab2a
 
 ---
 
@@ -35,19 +35,19 @@ Docker необходим для работы с контейнерами Window
 
 Последнюю версию всегда можно найти здесь: https://master.dockerproject.org. В этом примере используется последняя версия из ветви v1.13-development. 
 
-```none
+```powershell
 Invoke-WebRequest "https://download.docker.com/components/engine/windows-server/cs-1.12/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Разархивируйте ZIP-архив в Program Files.
 
-```
+```powershell
 Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
 ```
 
 Добавьте каталог Docker в системный путь. По завершении перезапустите сеанс PowerShell, чтобы был распознан измененный путь.
 
-```none
+```powershell
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files\Docker", [EnvironmentVariableTarget]::Machine)
 ```
 
@@ -59,7 +59,7 @@ dockerd --register-service
 
 После установки эту службу можно запустить.
 
-```none
+```powershell
 Start-Service Docker
 ```
 
@@ -172,14 +172,14 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 Чтобы задать данные о прокси-сервере для `docker search` и `docker pull`, создайте переменную среды Windows с именем `HTTP_PROXY` или `HTTPS_PROXY` и значением, содержащим данные о прокси-сервере. Это можно сделать в PowerShell, используя команду следующего вида:
 
-```none
+```powershell
 [Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://username:password@proxy:port/", [EnvironmentVariableTarget]::Machine)
 ```
 
 После задания переменной перезапустите службу Docker.
 
-```none
-restart-service docker
+```powershell
+Restart-Service docker
 ```
 
 Дополнительные сведения см. в разделе [Windows Configuration File](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file) (Файл конфигурации Windows) на сайте Docker.com.
@@ -187,6 +187,6 @@ restart-service docker
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 
