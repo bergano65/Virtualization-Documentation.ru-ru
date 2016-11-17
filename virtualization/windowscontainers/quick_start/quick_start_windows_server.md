@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
 translationtype: Human Translation
-ms.sourcegitcommit: 13a33a6003cfa77d81a6e8e2afdf1da8d017ee30
-ms.openlocfilehash: a5537a4cb56127e51e0a550220995cd5f6b93722
+ms.sourcegitcommit: 295199bbb8c93f26562ef918df30082e1dd78f6d
+ms.openlocfilehash: bb61ccfb9756b341be2e989cb7c5bbe571072aab
 
 ---
 
@@ -25,6 +25,12 @@ ms.openlocfilehash: a5537a4cb56127e51e0a550220995cd5f6b93722
 Одна компьютерная система (физическая или виртуальная), работающая под управлением Windows Server 2016. Если вы используете Windows Server 2016 TP5, обновите [Window Server 2016 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ). 
 
 > Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
+
+Если вы хотите провести развертывание в Azure, это легко сделать с помощью следующего [шаблона](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template).<br/>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Fmaster%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
 
 ## 1. Установка Docker
 
@@ -140,6 +146,6 @@ docker run microsoft/sample-dotnet
 
 
 
-<!--HONumber=Nov16_HO1-->
+<!--HONumber=Nov16_HO2-->
 
 
