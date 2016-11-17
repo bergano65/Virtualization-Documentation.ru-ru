@@ -9,8 +9,8 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: ccd1e0fc96b96349a04e6f3f33b97e5dc28582cd
+ms.sourcegitcommit: 9b99982abfbbda12758bb1c922ed1bd431ecca20
+ms.openlocfilehash: b90120bb085f0f44fde2eadd13cfa1b93011c5a7
 
 ---
 
@@ -105,7 +105,9 @@ docker pull microsoft/windowsservercore
 
 ## Управление Docker в Nano Server
 
-Для получения наилучших результатов управляйте Docker на сервере Nano Server из удаленной системы. Для этого необходимо выполнить приведенные ниже действия.
+Для получения наилучших результатов управляйте Docker на сервере Nano Server из удаленной системы. Это связано с тем, что с помощью удаленного взаимодействия PowerShell в настоящее время невозможно перенаправить выходные данные терминала TTY интерактивной оболочки контейнера в первоначально клиентский запрос. Отключенные контейнеры можно запустить. Они будут работать в фоновом режиме с помощью `docker run -dt`, но интерактивные контейнеры не будут работать с помощью `docker run -it` должным образом. В интегрированной среде сценариев PowerShell также существуют проблемы с интерактивными выходными данными по тем же причинам.
+
+Для управления удаленным сервером Docker необходимо выполнить следующее.
 
 ### Подготовка узла контейнера
 
@@ -198,6 +200,6 @@ Restart-Computer
 
 
 
-<!--HONumber=Oct16_HO4-->
+<!--HONumber=Nov16_HO2-->
 
 
