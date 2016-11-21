@@ -1,11 +1,27 @@
 # <a name='report-top'></a> Localization Handback Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\management\media\serviceaccount_diagram.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/804008c172b80a4f354a92cd4d12a4e23e1d4328/virtualization/windowscontainers/management/media/serviceaccount_diagram.png) | InSyncHandedBackSuccess | [Details](#80a945647722718ba676f98512c9ad7875e7a414276)
 
 ## Item Details
+##### <a name='80a945647722718ba676f98512c9ad7875e7a414276'></a> Source: [virtualization\windowscontainers\management\media\serviceaccount_diagram.png](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/804008c172b80a4f354a92cd4d12a4e23e1d4328/virtualization/windowscontainers/management/media/serviceaccount_diagram.png)
+* Status: InSyncHandedBackSuccess
+* Target File: [virtualization\windowscontainers\management\media\serviceaccount_diagram.png](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/e863e88053fc8dbc683462fdba2aaa9b3c40284c/virtualization/windowscontainers/management/media/serviceaccount_diagram.png)
+* Handoff File: [80a945647722718ba676f98512c9ad7875e7a414.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/fac6c0b4c62843ace754ff6ac86f02c95e50f3c3/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/80a945647722718ba676f98512c9ad7875e7a414.png)
+* Handoff Datetime: 2016-11-05 00:04:46
+* Handoff Reason: IsDependency
+* Dependency From: virtualization\windowscontainers\management\manage_serviceaccounts.md
+* Archive File: [80a945647722718ba676f98512c9ad7875e7a414.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/66d669e1f1cc91e4b8f9f6e75cf94635fbea1801/ol-archive/Microsoft/Virtualization-Documentation-Private.ru-ru/live/80a945647722718ba676f98512c9ad7875e7a414.png)
+* Archive Datetime: 2016-11-05 00:08:48
+* Handback File: [80a945647722718ba676f98512c9ad7875e7a414.png](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/71692e18e88cc567bd6fd689461461645224b6c8/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/80a945647722718ba676f98512c9ad7875e7a414.png)
+* Handback Datetime: 2016-11-21 12:52:04
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
