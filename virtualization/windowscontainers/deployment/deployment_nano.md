@@ -20,7 +20,7 @@ ms.openlocfilehash: b90120bb085f0f44fde2eadd13cfa1b93011c5a7
 
 ## Подготовка сервера Nano Server
 
-В следующем разделе подробно рассматривается развертывание очень простой конфигурации сервера Nano Server. Более подробное объяснение, касающееся параметров развертывания и конфигурации для сервера Nano Server, см. в статье [Getting Started with Nano Server] (Приступая к работе с сервером Nano Server) (https://technet.microsoft.com/en-us/library/mt126167.aspx).
+В следующем разделе подробно рассматривается развертывание очень простой конфигурации сервера Nano Server. Более подробное объяснение, касающееся параметров развертывания и конфигурации для сервера Nano Server, см. в статье [Getting Started with Nano Server (Приступая к работе с сервером Nano Server)] (https://technet.microsoft.com/en-us/library/mt126167.aspx).
 
 ### Создание виртуальной машины для сервера Nano Server
 
