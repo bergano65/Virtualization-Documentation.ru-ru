@@ -908,7 +908,7 @@
       "ArchivedDateTime": "2016-11-11T01:08:25.9285112Z",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\b90120bb085f0f44fde2eadd13cfa1b93011c5a7.99119f88dc8cc4f256fd1b8abeead4560e808582.xml",
       "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.ru-ru.xlf",
-      "LocXliffCommit": "d2b810eee2ebe4c396e0fb8e5ff0012271218fd5"
+      "LocXliffCommit": "2e9e8aa732281337d88ea66b6fe8a59af9e6bef6"
     },
     "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md.0a71c740e488beecdd8256e359eb378c9eef5f08.HT": {
       "SourceFilename": "virtualization\\windowscontainers\\docker\\configure_docker_daemon.md",
