@@ -239,6 +239,9 @@
     "virtualization\\windowscontainers\\management\\manage_serviceaccounts.md",
     "virtualization\\windowscontainers\\manage-containers\\manage-serviceaccounts.md"
   ],
+  "0e692f7521e4a15e3e56d4b98f7ca15fe94ee167": [
+    "virtualization\\windowscontainers\\manage-containers\\manage-serviceaccounts.md"
+  ],
   "d4fd2dbaf362ac3ad52667743177a203174b397d": [
     "virtualization\\community\\contribute-to-docs.md"
   ],
