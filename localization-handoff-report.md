@@ -1,19 +1,20 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 2
 
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1a327806514f1e1b5d2d234b0aa4ce300e26456f/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md) | HandedOffSuccess | [Details](#0e692f7521e4a15e3e56d4b98f7ca15fe94ee167289)
+ [virtualization\windowscontainers\about\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59621ca2db190d5c13034752a08c291e3dc19daa/virtualization/windowscontainers/about/index.md) | HandedOffSuccess | [Details](#d68be61b1d462b70986df5cfd6df052b388cec1d243)
+ [virtualization\windowscontainers\deploy-containers\deploy-containers-on-server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c08793b0f9cc7e6f34696dd2e843ef6e6deea2a4/virtualization/windowscontainers/deploy-containers/deploy-containers-on-server.md) | HandedOffSuccess | [Details](#12c7c713468618a9fedc82ec5a1c488f57edcfd7258)
 
 ## Item Details
-##### <a name='0e692f7521e4a15e3e56d4b98f7ca15fe94ee167289'></a> Source: [virtualization\windowscontainers\manage-containers\manage-serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1a327806514f1e1b5d2d234b0aa4ce300e26456f/virtualization/windowscontainers/manage-containers/manage-serviceaccounts.md)
+##### <a name='d68be61b1d462b70986df5cfd6df052b388cec1d243'></a> Source: [virtualization\windowscontainers\about\index.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/59621ca2db190d5c13034752a08c291e3dc19daa/virtualization/windowscontainers/about/index.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3167817067692119e0d93d4a555a5db98e00fdbd/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage-serviceaccounts.5fcb2b4d167ce751e9a350a047d30c781c75d75a.ru-ru.xlf)
-* Handoff Datetime: 2017-01-26 22:34:38
+* Handoff File: [index.01108708edf157e95b96d0e38c23011bed66c123.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3008465f93a1dbb187e0044e5aea21a10c67fb89/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/index.01108708edf157e95b96d0e38c23011bed66c123.ru-ru.xlf)
+* Handoff Datetime: 2017-02-08 19:35:57
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +22,25 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\management\manage_serviceaccounts.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/1a0ff4695d10d644146fbd88fb3394021de16ac9/virtualization/windowscontainers/management/manage_serviceaccounts.md)
-* Current Handback File: [manage_serviceaccounts.54bcfc8aa29ac0c07540225468870ddb0ba3481f.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/07ede48612a9a4a63400fd47362aba2058050ef5/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_serviceaccounts.54bcfc8aa29ac0c07540225468870ddb0ba3481f.ru-ru.xlf)
-* Current Handback Datetime: 2016-11-10 10:19:21
-* Bilingual File: [manage_serviceaccounts.54bcfc8aa29ac0c07540225468870ddb0ba3481f.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/07ede48612a9a4a63400fd47362aba2058050ef5/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage_serviceaccounts.54bcfc8aa29ac0c07540225468870ddb0ba3481f.ru-ru.xlf)
-* Bilingual Datetime: 2016-11-10 10:20:13
+* Current Target File: [virtualization\windowscontainers\about\about_overview.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/b3abc4e1cfef873bf3039dbc02c98965df3aa6a5/virtualization/windowscontainers/about/about_overview.md)
+* Current Handback File: [about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3c49275029b4fe1eb3e644ff99d014685cd1ea11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.ru-ru.xlf)
+* Current Handback Datetime: 2016-11-03 03:45:23
+* Bilingual File: [about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/3c49275029b4fe1eb3e644ff99d014685cd1ea11/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/about_overview.128dd77ccb6c6a944b03f43ade40980cc30f0f48.ru-ru.xlf)
+* Bilingual Datetime: 2016-11-03 03:47:08
+* [Back to Top](#report-top)
+
+##### <a name='12c7c713468618a9fedc82ec5a1c488f57edcfd7258'></a> Source: [virtualization\windowscontainers\deploy-containers\deploy-containers-on-server.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/c08793b0f9cc7e6f34696dd2e843ef6e6deea2a4/virtualization/windowscontainers/deploy-containers/deploy-containers-on-server.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [deploy-containers-on-server.a308ea1a3f1ffd20a582d5f03b2236ee3436e515.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/3008465f93a1dbb187e0044e5aea21a10c67fb89/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/deploy-containers-on-server.a308ea1a3f1ffd20a582d5f03b2236ee3436e515.ru-ru.xlf)
+* Handoff Datetime: 2017-02-08 19:35:57
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
 * [Back to Top](#report-top)
 
 
