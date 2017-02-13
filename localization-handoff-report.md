@@ -1,28 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/493ea8d5ed16281d603ef46dee73c933fa431c96/virtualization/windowscontainers/manage-containers/swarm-mode.md) | HandedOffSuccess | [Details](#9ed584e09fc94c183675809abd18703ae28a16d2299)
 
 ## Item Details
-##### <a name='9ed584e09fc94c183675809abd18703ae28a16d2299'></a> Source: [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/493ea8d5ed16281d603ef46dee73c933fa431c96/virtualization/windowscontainers/manage-containers/swarm-mode.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/08bb4b466871c4ac52f1a956d529c16754af2ac3/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf)
-* Handoff Datetime: 2017-02-10 23:32:34
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
