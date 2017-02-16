@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\user-guide\make-integration-service.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b6b63318ed71931c2b49039e57685414f869a945/virtualization/hyper-v-on-windows/user-guide/make-integration-service.md) | HandedOffSuccess | [Details](#19e8cf269b0bef127fb06d2c99391107cd8683b1204)
+ [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/57c69e8d19a9b87e230b760eb86b7b6b701ff983/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md) | HandedOffSuccess | [Details](#235d804310cac38a4628bc2d931371d390e2d991226)
 
 ## Item Details
-##### <a name='19e8cf269b0bef127fb06d2c99391107cd8683b1204'></a> Source: [virtualization\hyper-v-on-windows\user-guide\make-integration-service.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/b6b63318ed71931c2b49039e57685414f869a945/virtualization/hyper-v-on-windows/user-guide/make-integration-service.md)
+##### <a name='235d804310cac38a4628bc2d931371d390e2d991226'></a> Source: [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/57c69e8d19a9b87e230b760eb86b7b6b701ff983/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [make-integration-service.c3268239155e1fcb3f21c78fc57128dead3831c3.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/fca1bcebe9099f0c9e632daf7e6f70e04af8f4cc/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/make-integration-service.c3268239155e1fcb3f21c78fc57128dead3831c3.ru-ru.xlf)
-* Handoff Datetime: 2017-02-16 04:26:16
+* Handoff File: [setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/1a0d45f245f6c5fbfa93080aecd6bd086768f255/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.ru-ru.xlf)
+* Handoff Datetime: 2017-02-16 07:27:20
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
