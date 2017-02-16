@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/57c69e8d19a9b87e230b760eb86b7b6b701ff983/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md) | HandedOffSuccess | [Details](#235d804310cac38a4628bc2d931371d390e2d991226)
+ [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/34838841fab06f0928bece4283c38f6185222dfe/virtualization/windowscontainers/manage-containers/swarm-mode.md) | HandedOffSuccess | [Details](#f7d87c296a2695b8b44479e01e957f63b2f8b5c7299)
 
 ## Item Details
-##### <a name='235d804310cac38a4628bc2d931371d390e2d991226'></a> Source: [virtualization\hyper-v-on-windows\user-guide\setup-nat-network.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/57c69e8d19a9b87e230b760eb86b7b6b701ff983/virtualization/hyper-v-on-windows/user-guide/setup-nat-network.md)
+##### <a name='f7d87c296a2695b8b44479e01e957f63b2f8b5c7299'></a> Source: [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/34838841fab06f0928bece4283c38f6185222dfe/virtualization/windowscontainers/manage-containers/swarm-mode.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/1a0d45f245f6c5fbfa93080aecd6bd086768f255/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.ru-ru.xlf)
-* Handoff Datetime: 2017-02-16 07:27:20
+* Handoff File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/413539bba15751dd96070eb3b4d28407a72fa0ae/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf)
+* Handoff Datetime: 2017-02-16 18:26:39
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
