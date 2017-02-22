@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ff1ef85258a31a5c5a2a065b65019e39cab93125/virtualization/windowscontainers/communitylinks.md) | HandedOffSuccess | [Details](#b6c25285c3cee3a863bef40c34a1cf13b66b42fb255)
+ [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ad8c30521e8630decc5aca7a409b8b3a22d0c7d/virtualization/windowscontainers/manage-containers/swarm-mode.md) | HandedOffSuccess | [Details](#0e5e131ec9c2c9c57bf6c7c7a9cabf02cbfe352f299)
 
 ## Item Details
-##### <a name='b6c25285c3cee3a863bef40c34a1cf13b66b42fb255'></a> Source: [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/ff1ef85258a31a5c5a2a065b65019e39cab93125/virtualization/windowscontainers/communitylinks.md)
+##### <a name='0e5e131ec9c2c9c57bf6c7c7a9cabf02cbfe352f299'></a> Source: [virtualization\windowscontainers\manage-containers\swarm-mode.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ad8c30521e8630decc5aca7a409b8b3a22d0c7d/virtualization/windowscontainers/manage-containers/swarm-mode.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/d33c117ccb0b27445f627c8c953f09617116df07/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf)
-* Handoff Datetime: 2017-02-22 00:26:42
+* Handoff File: [swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/1fb4d6d5002b2adeae6878fcae32512efd96cd82/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf)
+* Handoff Datetime: 2017-02-22 23:10:26
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,11 +21,6 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\communitylinks.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/64382512bce02eadfbbb03f3102dcd7df6052279/virtualization/windowscontainers/communitylinks.md)
-* Current Handback File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/66fd9bf87cde64e6719c745816b6895ff08341d8/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf)
-* Current Handback Datetime: 2016-11-08 12:54:47
-* Bilingual File: [communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/66fd9bf87cde64e6719c745816b6895ff08341d8/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/communitylinks.2bb7ea2ddbb713bc85f6355770d609c04778fa4e.ru-ru.xlf)
-* Bilingual Datetime: 2016-11-08 12:55:21
 * [Back to Top](#report-top)
 
 
