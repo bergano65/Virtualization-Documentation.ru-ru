@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5c3c2ebc1e8118996f9cef0e49dc699ba5ae160c/virtualization/windowscontainers/quick-start/quick-start-windows-10.md) | HandedOffSuccess | [Details](#ca3045512770a197623ad73735c755699880c94a365)
+ [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/35daf96cbbf758dc304469f79b8da36fe03cb865/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md) | HandedOffSuccess | [Details](#10ebeb40c75ac4764c8b548a4221af16f43d5de0121)
 
 ## Item Details
-##### <a name='ca3045512770a197623ad73735c755699880c94a365'></a> Source: [virtualization\windowscontainers\quick-start\quick-start-windows-10.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5c3c2ebc1e8118996f9cef0e49dc699ba5ae160c/virtualization/windowscontainers/quick-start/quick-start-windows-10.md)
+##### <a name='10ebeb40c75ac4764c8b548a4221af16f43d5de0121'></a> Source: [virtualization\hyper-v-on-windows\quick-start\enable-hyper-v.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/35daf96cbbf758dc304469f79b8da36fe03cb865/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/060c6e574addb14c933c01f9cad86835e16cf476/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/quick-start-windows-10.a292cb64dd3dd6e10f23632c8ce9edbe9faf6738.ru-ru.xlf)
-* Handoff Datetime: 2017-03-15 19:29:18
+* Handoff File: [enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/fc51a91cd0511b014256fbed922f6aaf9e205bd5/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/enable-hyper-v.0da13d8a447b5ecf77ca9319671182fae670898e.ru-ru.xlf)
+* Handoff Datetime: 2017-03-21 18:30:55
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
