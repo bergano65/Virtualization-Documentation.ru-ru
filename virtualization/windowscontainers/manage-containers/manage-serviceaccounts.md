@@ -9,8 +9,9 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 translationtype: Human Translation
-ms.sourcegitcommit: 804008c172b80a4f354a92cd4d12a4e23e1d4328
-ms.openlocfilehash: 00a43f8d4d27327c61e318f3a915047106ad2aca
+ms.sourcegitcommit: 1a327806514f1e1b5d2d234b0aa4ce300e26456f
+ms.openlocfilehash: 0e692f7521e4a15e3e56d4b98f7ca15fe94ee167
+ms.lasthandoff: 01/26/2017
 
 ---
 
@@ -38,7 +39,6 @@ ms.openlocfilehash: 00a43f8d4d27327c61e318f3a915047106ad2aca
 4. Разрешите доступ к групповой управляемой учетной записи службы для других служб, например баз данных или общих файловых ресурсов.
 
 При запуске службы присоединенный к домену узел автоматически получает секреты групповой управляемой учетной записи службы из Active Directory и выполняет службу с использованием этой учетной записи. Так как эта служба выполняется как групповая управляемая учетная запись службы, она может получать доступ ко всем ресурсам, доступным последней.
-
 
 Для контейнеров Windows процесс аналогичен.
 
@@ -84,8 +84,5 @@ EXEC sp_addrolemember 'db_datareader', 'WebApplication1'
 EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 ```
 
-
-
-<!--HONumber=Nov16_HO1-->
-
+Чтобы увидеть это в действии, посмотрите [запись демонстрации](https://youtu.be/cZHPz80I-3s?t=2672) с конференции Microsoft Ignite 2016 (сеанс «Путь к контейнеризации — преобразование рабочих нагрузок в контейнеры»).
 

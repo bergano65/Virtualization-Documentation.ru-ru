@@ -9,8 +9,9 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
 translationtype: Human Translation
-ms.sourcegitcommit: ffdf89b0ae346197b9ae631ee5260e0565261c55
-ms.openlocfilehash: b0903a3e00b92bc60e26282dde072b66030ada09
+ms.sourcegitcommit: e714d4dc22c0049d3365d4a4f3c11d072f46a161
+ms.openlocfilehash: 7d16fcf22187ae3ace25fe1bedbc02f3c6b63eb8
+ms.lasthandoff: 02/14/2017
 
 ---
 
@@ -34,7 +35,7 @@ ms.openlocfilehash: b0903a3e00b92bc60e26282dde072b66030ada09
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
 3. запустите ее.
-4. Установите Hyper-V в виртуальной машине так же, как на физическом сервере. Дополнительные сведения об установке Hyper-V см. в разделе [Установка Hyper-V]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_install).
+4. Установите Hyper-V в виртуальной машине так же, как на физическом сервере. Дополнительные сведения об установке Hyper-V см. в разделе [Установка Hyper-V](../quick-start/enable-hyper-v.md).
 
 ## Отключение вложенной виртуализации
 Вы можете отключить вложенную виртуализацию в остановленной виртуальной машине следующей командой PowerShell:
@@ -76,9 +77,4 @@ Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 
 ## Сторонние приложения виртуализации
 Приложения виртуализации, отличные от Hyper-V, не поддерживаются в виртуальных машинах Hyper-V и скорее всего приведут к сбою. Сюда входит любое программное обеспечение, требующее расширений виртуализации оборудования.
-
-
-
-<!--HONumber=Oct16_HO4-->
-
 

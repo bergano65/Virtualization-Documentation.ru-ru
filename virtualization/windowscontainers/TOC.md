@@ -1,5 +1,4 @@
-# О контейнерах Windows
-## [Общие сведения о контейнерах Windows](about/about_overview.md)
+# [Сведения о контейнерах Windows](about/index.md)
 
 # Краткое руководство по Windows Server
 ## [Шаг 1. Основные понятия](quick_start/quick_start.md)
@@ -10,10 +9,10 @@
 ## [Шаг 1. Основные понятия](quick_start/quick_start.md)
 ## [Шаг 2. Первый контейнер](quick_start/quick_start_windows_10.md)
 
-# Развертывание контейнеров Windows
-## [Требования к системе](deployment/system_requirements.md)
-## [Узел контейнера — Windows Server](deployment/deployment.md)
-## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
+# Развертывание контейнера Windows
+## [Системные требования](deployment/system_requirements.md)
+## [Узел контейнера — Windows Server](deployment/deployment.md)
+## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Учетные записи службы Active Directory](management/manage_serviceaccounts.md)
 
@@ -22,7 +21,9 @@
 ## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
 ## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
 ## [Сетевые подключения контейнеров](management/container_networking.md)
+## [Начало работы с режимом мелких объектов](manage-containers/swarm-mode.md)
 ## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
+## [Удаленное управление узлом Docker в Windows](management/manage_remotehost.md)
 
 # Примеры контейнеров
 ## [Платформы приложений](samples.md#Application-Frameworks)
@@ -40,8 +41,3 @@
 
 
 # [Лицензионное соглашение для образа ОС контейнера](Images_EULA.md)
-
-
-<!--HONumber=Nov16_HO1-->
-
-
