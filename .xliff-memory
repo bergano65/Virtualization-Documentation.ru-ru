@@ -2138,7 +2138,7 @@
       "ArchivedDateTime": "0001-01-01T00:00:00",
       "SkeletonFile": "ol-xliffcache\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\ee6053003b31f226d2cfba8566f274ccc19d97ec.31401211083d6642ebc157a548b0eb984dd9c5eb.xml",
       "LocXliff": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf",
-      "LocXliffCommit": "21bfd91373f92b540f1a914790bb4d09fe99bf58"
+      "LocXliffCommit": "c729679fe9fc9451660993f24a826903d009a363"
     },
     "virtualization\\hyper-v-on-windows\\reference\\tlfs.md.0a10b6ef47fde14840a338e410c1d4425177f8e1.HT": {
       "SourceFilename": "virtualization\\hyper-v-on-windows\\reference\\tlfs.md",
