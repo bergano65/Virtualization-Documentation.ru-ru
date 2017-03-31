@@ -38957,11 +38957,11 @@
       "ArchiveFileDateTime": "0001-01-01T00:00:00",
       "ArchiveException": null,
       "BilingualFilePath": "ol-handback\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\swarm-mode.c9f6182916115e0571bb233ed668a7a7b9ff8d55.ru-ru.xlf",
-      "BilingualFileCommit": "21bfd91373f92b540f1a914790bb4d09fe99bf58",
+      "BilingualFileCommit": "c729679fe9fc9451660993f24a826903d009a363",
       "BilingualTargetFilePath": null,
       "BilingualTargetFileCommit": null,
       "BilingualBranch": null,
-      "BilingualDateTime": "2017-03-24T13:55:48.9606619Z",
+      "BilingualDateTime": "2017-03-31T13:21:37.0214193Z",
       "BilingualException": null
     },
     "aa581fbac757b09ded7c7766e065cf5350bc095c": {
