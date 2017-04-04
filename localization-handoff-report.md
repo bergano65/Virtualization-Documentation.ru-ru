@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-docker\manage-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile.md) | HandedOffSuccess | [Details](#8c5e89cd3afcb109fd3eda2da7bcd1b2c7f48b88311)
+ [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ce90ef013a74eb3039cd2fa0a28c619b9eec1db/virtualization/windowscontainers/troubleshooting.md) | HandedOffSuccess | [Details](#4b0b56404a92f8dfe4bbc81e5215ef483afad58c381)
 
 ## Item Details
-##### <a name='8c5e89cd3afcb109fd3eda2da7bcd1b2c7f48b88311'></a> Source: [virtualization\windowscontainers\manage-docker\manage-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile.md)
+##### <a name='4b0b56404a92f8dfe4bbc81e5215ef483afad58c381'></a> Source: [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/0ce90ef013a74eb3039cd2fa0a28c619b9eec1db/virtualization/windowscontainers/troubleshooting.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/365f106aad78ce399c214885822b6bb4e665386e/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.ru-ru.xlf)
-* Handoff Datetime: 2017-04-03 23:20:12
+* Handoff File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/41c74b9c0f09718e05c385d27e2593dde2616abf/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf)
+* Handoff Datetime: 2017-04-04 18:20:03
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,10 +21,10 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
-* Current Target File: [virtualization\windowscontainers\manage-docker\manage-windows-dockerfile.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/acb5c88f6cafcc4ed2e300234c2f1a456634af10/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile.md)
-* Current Handback File: [manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.ru-ru.xlf)
+* Current Target File: [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private.ru-ru/blob/acb5c88f6cafcc4ed2e300234c2f1a456634af10/virtualization/windowscontainers/troubleshooting.md)
+* Current Handback File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf)
 * Current Handback Datetime: 2017-03-24 13:51:26
-* Bilingual File: [manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/manage-windows-dockerfile.bd79ed9ab98dacd3b4733e251a6df5587f4bb110.ru-ru.xlf)
+* Bilingual File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf)
 * Bilingual Datetime: 2017-03-24 13:55:48
 * [Back to Top](#report-top)
 
