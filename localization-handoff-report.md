@@ -1,11 +1,28 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\manage-containers\hyperv-container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fa56cb152977de952ec1e493005dfc0e62538b4f/virtualization/windowscontainers/manage-containers/hyperv-container.md) | HandedOffSuccess | [Details](#06f8f2e77ab0c89fe0efb2f4d859720d6c0d9d4c296)
 
 ## Item Details
+##### <a name='06f8f2e77ab0c89fe0efb2f4d859720d6c0d9d4c296'></a> Source: [virtualization\windowscontainers\manage-containers\hyperv-container.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/fa56cb152977de952ec1e493005dfc0e62538b4f/virtualization/windowscontainers/manage-containers/hyperv-container.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [hyperv-container.6efb6edd096ba101404a96566195376441055473.ru-ru.xlf](https://github.com/Microsoft/Virtualization-Documentation-Private.handoff/blob/5ba28b69d51783a36b25c0e8c0e6e291b9910bc5/ol-handoff/Microsoft/Virtualization-Documentation-Private.ru-ru/live/hyperv-container.6efb6edd096ba101404a96566195376441055473.ru-ru.xlf)
+* Handoff Datetime: 2017-04-06 16:13:00
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
