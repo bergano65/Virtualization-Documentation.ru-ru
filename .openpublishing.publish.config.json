@@ -8,6 +8,7 @@
       "build_source_folder": "virtualization/api",
       "build_output_subfolder": "virtualization/api",
       "locale": "ru-ru",
+      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -22,6 +23,7 @@
       "build_source_folder": "virtualization/community",
       "build_output_subfolder": "virtualization/community",
       "locale": "ru-ru",
+      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
@@ -34,6 +36,7 @@
       "build_source_folder": "virtualization/hyper-v-on-windows",
       "build_output_subfolder": "virtualization/hyperv_on_windows",
       "locale": "ru-ru",
+      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
@@ -46,9 +49,25 @@
       "build_source_folder": "virtualization/windowscontainers",
       "build_output_subfolder": "virtualization/windowscontainers",
       "locale": "ru-ru",
+      "monikers": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content"
+      },
+      "build_entry_point": "docs",
+      "template_folder": "_themes"
+    },
+    {
+      "docset_name": "virtualization",
+      "build_source_folder": "virtualization/landing-page",
+      "build_output_subfolder": "virtualization",
+      "locale": "ru-ru",
+      "monikers": [],
+      "open_to_public_contributors": false,
+      "type_mapping": {
+        "Conceptual": "Content",
+        "ManagedReference": "Content",
+        "RestApi": "Content"
       },
       "build_entry_point": "docs",
       "template_folder": "_themes"
