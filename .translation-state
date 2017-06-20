@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "f9e066adf34ae9e93fe2b80d0e9f5dccc23a32ad",
+  "LastProcessedCommit": "ecde0c94e6f59842af97b58c5d925c8b6eac4b5a",
   "LastTranslatedCommit": "54d02462543cd378300b0405c2338c4e1248b723",
   "LastConfigHash": "4c2c35f4aa9ea46247617ca71955d3351dd55c56",
   "Items": {
@@ -20428,6 +20428,22 @@
       "HandoffFileCommit": "f1beed2ddd1f3c5664a0019e490051e4db5fd96d",
       "HandoffDateTime": "2017-06-14T18:30:20.5111331Z",
       "HandoffXliffHash": "89d6cfe0c288052e0dccf5448763a0d2e3b52ce4",
+      "HandoffPriority": ""
+    },
+    "a9d9f1b8cb0c76e57def1a92d993970ed40dbe7a": {
+      "FileHash": "a9d9f1b8cb0c76e57def1a92d993970ed40dbe7a",
+      "SourceFileCommit": "ecde0c94e6f59842af97b58c5d925c8b6eac4b5a",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\user-guide\\setup-nat-network.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\user-guide\\setup-nat-network.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\Microsoft\\Virtualization-Documentation-Private.ru-ru\\live\\setup-nat-network.569fba8d30bc800503603312f9faf0554f426411.ru-ru.xlf",
+      "HandoffFileCommit": "836c4e1c65540d072f136ec7cbdebb91330f6da2",
+      "HandoffDateTime": "2017-06-20T19:54:30.6815952Z",
+      "HandoffXliffHash": "3813d3714b94c0599b29e40a5b5d3263c587fde2",
       "HandoffPriority": ""
     }
   }
