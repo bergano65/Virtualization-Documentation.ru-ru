@@ -1,57 +1,54 @@
 ---
-title: "Установка Hyper-V в Windows 10"
-description: "Установка Hyper-V в Windows 10"
-keywords: "windows 10, hyper-v"
+title: "Включение Hyper-V в Windows10"
+description: "Установка Hyper-V в Windows10"
+keywords: windows10, hyper-v
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
-ms.service: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-translationtype: Human Translation
-ms.sourcegitcommit: 359e29de50a51e0d3db263c46861ae6814f277d2
-ms.openlocfilehash: 8b2f4103ad0048a99e9befeb47d370a9b5cd092f
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: fd660b0869e853e4e9050dea345694b0f048df0a
+ms.sourcegitcommit: 646bad3f5331abea515b4bb3f6c8566d1b77e275
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ---
-
-# Установка Hyper-V в Windows 10
+# <a name="install-hyper-v-on-windows-10"></a>Установка Hyper-V вWindows10
 
 Включение Hyper-V для создания виртуальных машин в Windows 10.  
-Hyper-V можно включить разными способами, в том числе используя панель управления Windows 10, PowerShell или с помощью средства обслуживания образов развертывания и управления ими (DISM). В этом документе последовательно описан каждый из указанных способов.
+Hyper-V можно включить разными способами, в том числе используя панель управления Windows10, PowerShell или с помощью средства обслуживания образов развертывания и управления ими (DISM). В этом документе последовательно описан каждый из указанных способов.
 
 > **Примечание.**  Механизм Hyper-V встроен в Windows в качестве дополнительной функции. Скачать или установить Hyper-V нельзя. 
 
-## Проверьте следующие требования
+## <a name="check-requirements"></a>Проверьте следующие требования
 
 * Windows 10 Корпоративная, Профессиональная или для образовательных учреждений
 * 64-разрядный процессор с поддержкой преобразования адресов второго уровня (SLAT).
 * Поддержка расширения режима мониторинга виртуальной машины (технология VT-c на компьютерах с процессорами Intel).
-* Не менее 4 ГБ оперативной памяти.
+* Не менее 4ГБ оперативной памяти.
 
 Роль Hyper-V **невозможно** установить в Windows 10 Домашняя.  
 Выполните обновление с выпуска Windows 10 Домашняя до выпуска Windows 10 Профессиональная, открыв раздел **Параметры** > **Обновление и безопасность** > **Активация**.
 
-Дополнительные сведения и советы по устранению неполадок см. в статье [Требования к системе для Hyper-V в Windows 10](../reference/hyper-v-requirements.md).
+Дополнительные сведения и советы по устранению неполадок см. в статье [Требования к системе для Hyper-V в Windows10](../reference/hyper-v-requirements.md).
 
 
-## Установка Hyper-V 
+## <a name="install-hyper-v"></a>Установка Hyper-V 
 Механизм Hyper-V встроен в Windows в качестве дополнительной функции. Скачать или установить Hyper-V нельзя.  Существует несколько способов включения встроенной роли Hyper-V.
 
-### Включение Hyper-V с помощью PowerShell
+### <a name="enable-hyper-v-using-powershell"></a>Включение Hyper-V с помощью PowerShell
 
 1. Откройте консоль PowerShell от имени администратора.
 
 2. Выполните следующую команду.
   ```powershell
-  Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+  Enable-WindowsOptionalFeature -Online -FeatureName:Microsoft-Hyper-V -All
   ```  
 
   Если не удается найти команду, убедитесь, что вы используете PowerShell от имени администратора.  
 
 После завершения установки необходимо перезагрузить компьютер.  
 
-### Включение Hyper-V с помощью CMD и DISM
+### <a name="enable-hyper-v-with-cmd-and-dism"></a>Включение Hyper-V с помощью CMD и DISM
 
 Система обслуживания образов развертывания и управления ими (DISM) позволяет настраивать ОС Windows и образы Windows.  Помимо всего прочего? средство DISM может включать функции Windows во время выполнения операционной системы.  
 
@@ -66,7 +63,7 @@ Hyper-V можно включить разными способами, в том
 
 Дополнительные сведения о DISM см. в разделе [Техническое руководство по DISM](https://technet.microsoft.com/en-us/library/hh824821.aspx).
 
-### Включение роли Hyper-V вручную
+### <a name="manually-enable-the-hyper-v-role"></a>Включение роли Hyper-V вручную
 
 1. Щелкните правой кнопкой мыши кнопку Windows и выберите пункт "Программы и компоненты".
 
@@ -81,6 +78,5 @@ Hyper-V можно включить разными способами, в том
 ![](media/restart_upd.png)
 
 
-## Следующий шаг — настройка сети
-[Подключение к Интернету](connect-to-network.md)
-
+## <a name="make-virtual-machines"></a>Создание виртуальных машин
+[Создание первой виртуальной машины](quick-create-virtual-machine.md)

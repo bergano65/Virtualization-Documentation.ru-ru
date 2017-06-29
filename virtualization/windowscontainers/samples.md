@@ -8,20 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-translationtype: Human Translation
-ms.sourcegitcommit: b2950dca4b29e97eb951379645c118468a1fb403
-ms.openlocfilehash: eac2026cff552315a4cb256b595f1bd3317ee11c
-ms.lasthandoff: 12/21/2016
-
+ms.openlocfilehash: adfeec41a3b97b620487b00679a973f97d334572
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ---
-
-# Примеры контейнеров Windows
+# <a name="windows-container-samples"></a>Примеры контейнеров Windows
 
 Это коллекция образцов и примеров, созданных командой Windows и членами сообщества.  Эти примеры представлены "как есть" и не сопровождаются никакими гарантиями.  Вы можете присылать дополнительные примеры или улучшать имеющиесяа.
 
-# Categories
+# <a name="categories"></a>Categories
 
-## Платформы приложений
+## <a name="application-frameworks"></a>Платформы приложений
 [aspnet](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/aspnet)
 
 [iis](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis) 
@@ -40,7 +38,7 @@ ms.lasthandoff: 12/21/2016
 
 [nginx](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/nginx)
 
-## Языки программирования
+## <a name="programing-languages"></a>Языки программирования
 [dotnet35](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/dotnet35)
 
 [golang](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/golang)
@@ -58,7 +56,7 @@ ms.lasthandoff: 12/21/2016
 [server-jre-8u51-windows-x64](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/server-jre-8u51-windows-x64)
 
 
-## Базы данных
+## <a name="databases"></a>Базы данных
 [mongodb](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mongodb)
 
 [mysql](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/mysql)
@@ -70,13 +68,12 @@ ms.lasthandoff: 12/21/2016
 [sqlserver-express](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/sqlserver-express)
 
 
-## Инфраструктуру и средства CI
+## <a name="infrastructure-and-ci-tools"></a>Инфраструктуру и средства CI
 [PowerShellDSC_iis-10.0](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/PowerShellDSC_iis-10.0)
 
 
-## Просто для интереса
+## <a name="just-for-fun"></a>Просто для интереса
 [MineCraft](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/MineCraft) 
 
 
-## другой
-
+## <a name="other"></a>другой

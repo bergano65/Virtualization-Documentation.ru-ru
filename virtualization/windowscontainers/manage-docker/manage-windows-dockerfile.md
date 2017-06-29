@@ -8,14 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 9dcac129e7c95fa416437061c426fee850db11b4
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: 0df4ef6a5116edd5b47283180ba6ba1d745cd06b
+ms.sourcegitcommit: e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ---
-
-# Dockerfile в Windows
+# <a name="dockerfile-on-windows"></a>Dockerfile в Windows
 
 Подсистема Docker содержит средства, автоматизирующие создание образов контейнеров. Хотя образы контейнеров можно создавать вручную с помощью команды `docker commit`, внедрение процесса автоматического создания образа предоставляет множество преимуществ, в том числе:
 
@@ -23,10 +21,10 @@ ms.lasthandoff: 01/25/2017
 - Быстрое и точное воссоздание образов контейнеров для обслуживания и обновления.
 - Непрерывная интеграция между образами контейнеров и циклом разработки.
 
-За такую автоматизацию отвечают два компонента Docker — файл Dockerfile и команда `docker build`.
+За такую автоматизацию отвечают два компонента Docker— файл Dockerfile и команда `docker build`.
 
-- **Dockerfile** — это текстовый файл с инструкциями, необходимыми для создания образа контейнера. Эти инструкции включают идентификацию существующего образа, используемого в качестве основы, команды, выполняемые в процессе создания образа, и команду, которая будет выполняться при развертывании новых экземпляров этого образа контейнера.
-- **Docker build** — команда подсистемы Docker, использующая файл Dockerfile и запускающая процесс создания образа.
+- **Dockerfile**— это текстовый файл с инструкциями, необходимыми для создания образа контейнера. Эти инструкции включают идентификацию существующего образа, используемого в качестве основы, команды, выполняемые в процессе создания образа, и команду, которая будет выполняться при развертывании новых экземпляров этого образа контейнера.
+- **Docker build**— команда подсистемы Docker, использующая файл Dockerfile и запускающая процесс создания образа.
 
 В этом документе описывается использование файла Dockerfile с контейнерами Windows, синтаксис, а также рассматриваются часто применяемые инструкции Dockerfile.
 
@@ -34,9 +32,9 @@ ms.lasthandoff: 01/25/2017
 
 Полный обзор файлов Dockerfile см. в [справке по Dockerfile на сайте docker.com]( https://docs.docker.com/engine/reference/builder/).
 
-## Общие сведения о файлах Dockerfile
+## <a name="dockerfile-introduction"></a>Общие сведения о файлах Dockerfile
 
-### Базовый синтаксис
+### <a name="basic-syntax"></a>Базовый синтаксис
 
 В исходной форме файл Dockerfile может быть очень простым. Следующий пример создает образ, включающий IIS и сайт "hello world". Этот пример включает комментарии (обозначенные с помощью `#`), поясняющие каждый шаг. В последующих разделах этой статьи более подробно рассматриваются правила синтаксиса Dockerfile и инструкции Dockerfile.
 
@@ -63,11 +61,11 @@ CMD [ "cmd" ]
 
 Дополнительные примеры файлов Dockerfile для Windows см. в документе [Dockerfile for Windows Repository] (Dockerfile для репозитория Windows) (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
-## Инструкции
+## <a name="instructions"></a>Инструкции
 
 Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile см. в [Справочник по файлам Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
 
-### FROM
+### <a name="from"></a>FROM
 
 Инструкция `FROM` задает образ контейнера, который будет применяться при создании нового образа. Например, при использовании инструкции `FROM microsoft/windowsservercore` полученный образ является производным и зависимым от базового образа ОС Windows Server Core. Если указанный образ отсутствует в системе, где выполняется процесс сборки Docker, подсистема Docker попытается скачать его из общедоступного или частного реестра образов.
 
@@ -87,7 +85,7 @@ FROM microsoft/windowsservercore
 
 Подробные сведения об инструкции FROM см. в [справочнике по FROM на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#from).
 
-### RUN
+### <a name="run"></a>RUN
 
 Инструкция `RUN` задает команды, которые следует выполнить и поместить в новый образ контейнера. Эти команды могут включать такие элементы, как установка программного обеспечения, создание файлов и папок, а также создание конфигурации среды.
 
@@ -161,12 +159,12 @@ RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 Этот пример устанавливает распространяемый пакет Visual Studio. Обратите внимание, что `Start-Process` и параметр `-Wait` используются для запуска программы установки. Это гарантирует, что установка будет завершена до перехода к следующему шагу в Dockerfile.
 
 ```none
-RUN Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
+RUN powershell.exe -Command Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
 ```
 
 Подробные сведения об инструкции RUN см. в [справочнике по RUN на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#run).
 
-### COPY
+### <a name="copy"></a>COPY
 
 Инструкция `COPY` копирует файлы и каталоги в файловую систему контейнера. Эти файлы и каталоги должны иметь путь, являющийся относительным для Dockerfile.
 
@@ -213,7 +211,7 @@ COPY config* c:/temp/
 
 Подробные сведения об инструкции `COPY` см. в [справочнике по COPY на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#copy).
 
-### ДОБАВИТЬ
+### <a name="add"></a>ДОБАВИТЬ
 
 Инструкция ADD во многом похожа на инструкцию COPY, однако имеет дополнительные возможности. Кроме копирования файлов с узла в образ контейнера, инструкция `ADD` также позволяет скопировать файлы из удаленного расположения с помощью задания URL-адреса.
 
@@ -267,7 +265,7 @@ ADD https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe /temp/python-3.5.1.
 
 Подробные сведения об инструкции `ADD` см. в [справочнике по ADD на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#add).
 
-### WORKDIR
+### <a name="workdir"></a>WORKDIR
 
 Инструкция `WORKDIR` задает рабочий каталог для других инструкций Dockerfile, например `RUN` и `CMD`, а также рабочий каталог для запущенных экземпляров образа контейнера.
 
@@ -295,7 +293,7 @@ WORKDIR c:\\Apache24\\bin
 
 Подробные сведения об инструкции `WORKDIR` см. в [справочнике по WORKDIR на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#workdir).
 
-### CMD
+### <a name="cmd"></a>CMD
 
 Инструкция `CMD` задает команду по умолчанию, выполняемую при развертывании экземпляра образа контейнера. Например, если в контейнере будет размещен веб-сервер NGINX, `CMD` может включать инструкции для запуска этого веб-сервера, например `nginx.exe`. Если в файле Dockerfile указано несколько инструкций `CMD`, вычисляется только последняя из них.
 
@@ -334,9 +332,9 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 Подробные сведения об инструкции `CMD` см. в [справочнике по CMD на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#cmd).
 
-## Escape-символ
+## <a name="escape-character"></a>Escape-символ
 
-Во многих случаях инструкция Dockerfile должна занимать несколько строк. Этого можно добиться с помощью escape-символа. Escape-символ Dockerfile по умолчанию — обратная косая черта (`\`). Так как обратная косая черта также является разделителем путей файлов в Windows, это может вызвать проблемы. Чтобы изменить escape-символ по умолчанию, можно использовать директиву Parser. Дополнительные сведения о директивах Parser см. в разделе [Директивы Parser на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#parser-directives).
+Во многих случаях инструкция Dockerfile должна занимать несколько строк. Этого можно добиться с помощью escape-символа. Escape-символ Dockerfile по умолчанию— обратная косая черта (`\`). Так как обратная косая черта также является разделителем путей файлов в Windows, это может вызвать проблемы. Чтобы изменить escape-символ по умолчанию, можно использовать директиву Parser. Дополнительные сведения о директивах Parser см. в разделе [Директивы Parser на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#parser-directives).
 
 В следующем примере показана инструкция RUN, которая занимает несколько строк и использует escape-символ по умолчанию.
 
@@ -368,9 +366,9 @@ RUN powershell.exe -Command `
 
 Дополнительные сведения о директиве Parser для escape-символа см. в разделе [Директива Parser для escape-символов на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#escape).
 
-## PowerShell в Dockerfile
+## <a name="powershell-in-dockerfile"></a>PowerShell в Dockerfile
 
-### Команды PowerShell
+### <a name="powershell-commands"></a>Команды PowerShell
 
 Команды PowerShell можно выполнять в Dockerfile при помощи операции `RUN`.
 
@@ -380,7 +378,7 @@ FROM microsoft/windowsservercore
 RUN powershell -command Expand-Archive -Path c:\apache.zip -DestinationPath c:\
 ```
 
-### Вызовы REST
+### <a name="rest-calls"></a>Вызовы REST
 
 PowerShell и команда `Invoke-WebRequest` могут оказаться полезными при сборе данных или файлов из веб-службы. Например, при создании образа, включающего в себя Python, можно использовать приведенный ниже пример. Параметру `$ProgressPreference` рекомендуется задавать значение `SilentlyContinue` для ускорения процессов скачивания.
 
@@ -411,7 +409,7 @@ RUN powershell.exe -Command \
 
 > Сейчас WebClient в Nano Server не поддерживается.
 
-### Сценарии оболочки PowerShell
+### <a name="powershell-scripts"></a>Сценарии оболочки PowerShell
 
 В некоторых случаях может оказаться удобным скопировать сценарий в контейнеры, используемые при создании образа, и затем запустить их из контейнера. Примечание. Это ограничивает возможности кэширования слоев образов, а также ухудшает удобочитаемость файла Dockerfile.
 
@@ -423,7 +421,7 @@ ADD script.ps1 /windows/temp/script.ps1
 RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 ```
 
-## Сборка Docker
+## <a name="docker-build"></a>Сборка Docker
 
 После создания файла Dockerfile и сохранения его на диск можно запустить `docker build` для создания нового образа. Команда `docker build` принимает несколько необязательных параметров и путь к файлу Dockerfile. Полную документацию по сборке Docker, включая список всех параметров сборки, см. в [описании сборки на сайте Docker.com](https://docs.docker.com/engine/reference/commandline/build/#build).
 
@@ -477,9 +475,8 @@ iis                 latest              e2aafdfbe392        About a minute ago  
 windowsservercore   latest              6801d964fda5        4 months ago         0 B
 ```
 
-## Дополнительные материалы и справочники
+## <a name="further-reading--references"></a>Дополнительные материалы и справочники
 
 [Optimize Dockerfiles and Docker build for Windows] (Оптимизация файлов Dockerfile и сборка Docker для Windows) (optimize_windows_dockerfile.md)
 
 [Справочник по файлам Dockerfile на сайте Docker.com](https://docs.docker.com/engine/reference/builder/)
-

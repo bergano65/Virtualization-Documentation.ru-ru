@@ -8,14 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: ac6e99800fcabef31464a81799fc9e329438b0ae
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ---
-
-# Документация по контейнерам Windows
+# <a name="windows-containers-documentation"></a>Документация по контейнерам Windows
 
 Контейнеры Windows обеспечивают виртуализацию на уровне операционной системы. Они позволяют запускать несколько изолированных приложений в одной системе. В этот компонент включены два разных типа среды выполнения контейнера, каждый из которых имеет разную степень изоляции приложения. Контейнеры Windows Server обеспечивают изоляцию через пространство имен и изоляцию процессов. Контейнеры Hyper-V инкапсулируют каждый контейнер в облегченной виртуальной машине. Этот набор документации содержит руководства по быстрому запуску, руководства по развертыванию и технические сведения об операциях управления.
 
@@ -25,25 +23,25 @@ ms.lasthandoff: 01/25/2017
 <td>**Быстрый запуск**<br /><br />
 Краткое руководство по Windows Server<br /><br />
 <ul>
-<li>[Шаг 1. Основные понятия и терминология](quick-start/index.md)<br /><br /></li>
-<li>[Шаг 2. Настройка Windows Server и первый контейнер](quick-start/quick-start-windows-server.md)<br /><br /></li>
-<li>[Шаг 3. Создание и отправка образов контейнеров](quick-start/quick-start-images.md)<br /><br /></li>
+<li>[Шаг1. Основные понятия и терминология](quick-start/index.md)<br /><br /></li>
+<li>[Шаг2. Настройка Windows Server и первый контейнер](quick-start/quick-start-windows-server.md)<br /><br /></li>
+<li>[Шаг3. Создание и отправка образов контейнеров](quick-start/quick-start-images.md)<br /><br /></li>
 </ul>
-Краткое руководство по Windows 10<br /><br />
+Краткое руководство по Windows10<br /><br />
 <ul>
-<li>[Шаг 1. Основные понятия и терминология](quick-start/index.md)<br /><br /></li>
-<li>[Шаг 2. Настройка Windows 10 и первый контейнер](quick-start/quick-start-windows-10.md)<br /><br /></li>
+<li>[Шаг1. Основные понятия и терминология](quick-start/index.md)<br /><br /></li>
+<li>[Шаг2. Настройка Windows10 и первый контейнер](quick-start/quick-start-windows-10.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
 <tr>
 <td ><center>![](media/1.png)</center></td>
 <td>**Развертывание**<br /><br />
-Узнайте, как развернуть контейнеры Windows в Windows Server 2016 и Nano Server.<br /><br />
+Узнайте, как развернуть контейнеры Windows в Windows Server2016 и Nano Server.<br /><br />
 <ul>
 <li>[Требования к системе](deploy-containers/system-requirements.md)<br /><br /></li>
-<li>[Развертывание узла контейнера — Windows Server](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>
-<li>[Развертывание узла контейнера — Nano Server](deploy-containers/deploy-containers-on-nano.md)<br /><br /></li>
+<li>[Развертывание узла контейнера— Windows Server](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>
+<li>[Развертывание узла контейнера— Nano Server](deploy-containers/deploy-containers-on-nano.md)<br /><br /></li>
 <li>[Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)<br /><br /></li>
 </ul>
 </td>
@@ -85,4 +83,3 @@ ms.lasthandoff: 01/25/2017
 </td>
 </tr>
 </table>
-

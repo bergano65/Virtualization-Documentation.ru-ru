@@ -8,22 +8,20 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-translationtype: Human Translation
-ms.sourcegitcommit: 76e041aac426604280208f616f7994181112215a
-ms.openlocfilehash: 766a99a74738fa41ef77410c70aefa7e664f014e
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: be51a89292f339c40b05bb48e0921777fd4a9801
+ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.translationtype: HT
+ms.contentlocale: ru-RU
 ---
+# <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
-# Контейнеры Windows в Windows Server
+Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server2016. Во время этого упражнения вы установите роль контейнера и развернете простой контейнер Windows Server. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./index.md).
 
-Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server 2016. Во время этого упражнения вы установите роль контейнера и развернете простой контейнер Windows Server. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./index.md).
-
-В этом кратком руководстве рассматриваются контейнеры Windows Server в Windows Server 2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows 10, можно найти в содержании в левой части этой страницы.
+В этом кратком руководстве рассматриваются контейнеры Windows Server в Windows Server2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
 
 **Предварительные требования:**
 
-Одна компьютерная система (физическая или виртуальная), работающая под управлением Windows Server 2016. Если вы используете Windows Server 2016 TP5, обновите [Window Server 2016 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ). 
+Одна компьютерная система (физическая или виртуальная), работающая под управлением Windows Server2016. Если вы используете Windows Server2016TP5, обновите [Window Server2016 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ). 
 
 > Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
 
@@ -33,13 +31,13 @@ ms.lasthandoff: 03/01/2017
 </a>
 
 
-## 1. Установка Docker
+## <a name="1-install-docker"></a>1. Установка Docker
 
-Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget). Поставщик включит функцию контейнеров на вашем компьютере. Вы также установите Docker, после чего потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
+Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget), который работает с поставщиками для выполнения установки (в нашем случае это поставщик [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider)). Поставщик включит функцию контейнеров на вашем компьютере. Вы также установите Docker, после чего потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
 
 Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
 
-Сначала установите поставщик Docker-Microsoft PackageManagement из коллекции PowerShell.
+Сначала установите поставщик Docker-Microsoft PackageManagement из [коллекции PowerShell](https://www.powershellgallery.com/packages/DockerMsftProvider).
 
 ```none
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
@@ -56,7 +54,12 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-## 2. Установка обновлений Windows
+> Совет. Если потребуется обновить Docker позже, выполните следующие действия.
+>  - Проверьте установленную версию с помощью команды `Get-Package -Name Docker -ProviderName DockerMsftProvider`
+>  - Найдите текущую версию с помощью команды `Find-Package -Name Docker -ProviderName DockerMsftProvider`
+>  - После этого выполните обновление с помощью команды `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force` и команды `Start-Service Docker`
+
+## <a name="2-install-windows-updates"></a>2. Установка обновлений Windows
 
 Убедитесь, что система Windows Server обновлена, запустив следующее:
 
@@ -64,7 +67,7 @@ Restart-Computer -Force
 sconfig
 ```
 
-Появится текстовое меню настройки, где можно будет выбрать вариант 6 (скачивание и установка обновлений):
+Появится текстовое меню настройки, где можно будет выбрать вариант6 (скачивание и установка обновлений):
 
 ```none
 ===============================================================================
@@ -82,9 +85,9 @@ sconfig
 ...
 ```
 
-При появлении запроса выберите вариант A (скачать все обновления).
+При появлении запроса выберите вариантA (скачать все обновления).
 
-## 3. Развертывание первого контейнера
+## <a name="3-deploy-your-first-container"></a>3. Развертывание первого контейнера
 
 В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
 
@@ -144,9 +147,8 @@ OS: Microsoft Windows 10.0.14393
 
 Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com]( https://docs.docker.com/engine/reference/run/).
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 [Образы контейнеров в Windows Server](./quick-start-images.md)
 
-[Контейнеры Windows в Windows 10](./quick-start-windows-10.md)
-
+[Контейнеры Windows в Windows10](./quick-start-windows-10.md)

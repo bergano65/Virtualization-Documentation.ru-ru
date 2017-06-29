@@ -1,18 +1,18 @@
 # [Сведения о контейнерах Windows](about/index.md)
 
 # Краткое руководство по Windows Server
-## [Шаг 1. Основные понятия](quick_start/quick_start.md)
-## [Шаг 2. Первый контейнер](quick_start/quick_start_windows_server.md)
-## [Шаг 3. Образы контейнеров](quick_start/quick_start_images.md)
+## [Шаг1. Основные понятия](quick_start/quick_start.md)
+## [Шаг2. Первый контейнер](quick_start/quick_start_windows_server.md)
+## [Шаг3. Образы контейнеров](quick_start/quick_start_images.md)
 
-# Краткое руководство по Windows 10
-## [Шаг 1. Основные понятия](quick_start/quick_start.md)
-## [Шаг 2. Первый контейнер](quick_start/quick_start_windows_10.md)
+# Краткое руководство по Windows10
+## [Шаг1. Основные понятия](quick_start/quick_start.md)
+## [Шаг2. Первый контейнер](quick_start/quick_start_windows_10.md)
 
 # Развертывание контейнера Windows
 ## [Системные требования](deployment/system_requirements.md)
-## [Узел контейнера — Windows Server](deployment/deployment.md)
-## [Узел контейнера — Nano Server](deployment/deployment_nano.md)
+## [Узел контейнера— Windows Server](deployment/deployment.md)
+## [Узел контейнера— Nano Server](deployment/deployment_nano.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Учетные записи службы Active Directory](management/manage_serviceaccounts.md)
 
