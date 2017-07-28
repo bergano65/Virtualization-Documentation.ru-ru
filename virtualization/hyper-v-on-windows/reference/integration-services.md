@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 2e2289bbb7801824c13e5ba4cb17d51beb26fbfa
-ms.sourcegitcommit: b55d4d31a5706e2f65f4c4a029c2f55a76711253
+ms.openlocfilehash: c98ab9c32dfcd6e9b3a0258d0282b28d78726f6a
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="hyper-v-integration-services"></a>Службы интеграции Hyper-V
+# Службы интеграции Hyper-V
 
 Службы интеграции (часто называемые компонентами интеграции) — это службы, позволяющие виртуальной машине связываться с узлом Hyper-V. Многие из этих служб используются для удобства, а другие могут быть достаточно важны для правильной работы виртуальной машины.
 
@@ -23,7 +24,7 @@ ms.contentlocale: ru-RU
 * [управление службами интеграции](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
 
 
-## <a name="quick-reference"></a>Краткий справочник
+## Краткий справочник
 
 | Имя | Название службы Windows | Имя управляющей программы Linux |  Описание | Влияние на виртуальную машину при отключении |
 |:---------|:---------|:---------|:---------|:---------|
@@ -36,7 +37,7 @@ ms.contentlocale: ru-RU
 | [Служба PowerShell Direct для Hyper-V](#hyper-v-powershell-direct-service) | vmicvmsession | недоступен | Позволяет управлять виртуальной машиной с помощью PowerShell без подключения к сети. | Низкий |  
 
 
-## <a name="hyper-v-heartbeat-service"></a>Служба пульса (Hyper-V)
+## Служба пульса (Hyper-V)
 
 **Имя службы Windows:** vmicheartbeat  
 **Имя управляющей программы Linux:** hv_utils  
@@ -48,7 +49,7 @@ ms.contentlocale: ru-RU
 
 Когда Hyper-V сообщает, что состояние виртуальной машины— "Запущена" (см. пример ниже), это означает, что Hyper-V выделил ресурсы для виртуальной машины, и это не означает, что на виртуальной машине установлена или нормально работает операционная система.  Здесь оказывается полезной служба пульсов.  Служба пульсов сообщает Hyper-V о том, что операционная система на виртуальной машине загрузилась.  
 
-### <a name="check-heartbeat-with-powershell"></a>Проверка пульсов с помощью PowerShell
+### Проверка пульсов с помощью PowerShell
 
 Запустите [Get-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx) от имени администратора, чтобы увидеть пульсы от виртуальной машины:
 ``` PowerShell
@@ -66,7 +67,7 @@ DemoVM  Running  Operating normally
 
 
 
-## <a name="hyper-v-guest-shutdown-service"></a>Служба завершения работы в качестве гостя (Hyper-V)
+## Служба завершения работы в качестве гостя (Hyper-V)
 
 **Имя службы Windows:** vmicshutdown  
 **Имя управляющей программы Linux:** hv_utils  
@@ -75,7 +76,7 @@ DemoVM  Running  Operating normally
 **Влияние:** **высокая степень влияния**. При отключении узел не сможет корректно завершить работу виртуальной машины.  Выключение будет только жестким, что может привести к потере или повреждению данных.  
 
 
-## <a name="hyper-v-time-synchronization-service"></a>Служба синхронизации времени Hyper-V
+## Служба синхронизации времени Hyper-V
 
 **Имя службы Windows:** vmictimesync  
 **Имя управляющей программы Linux:** hv_utils  
@@ -84,7 +85,7 @@ DemoVM  Running  Operating normally
 **Влияние:** **высокая степень влияния**. При отключении время на виртуальной машине будет случайным образом отклоняться от времени компьютера.  
 
 
-## <a name="hyper-v-data-exchange-service-kvp"></a>Служба обмена данными Hyper-V (KVP)
+## Служба обмена данными Hyper-V (KVP)
 
 **Имя службы Windows:** vmickvpexchange  
 **Имя управляющей программы Linux:** hv_kvp_daemon  
@@ -103,7 +104,7 @@ DemoVM  Running  Operating normally
 * [Data Exchange: Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (Использование пар "ключ-значение" для совместного использования информации на узле и в гостевой ОС Hyper-V).  
 
 
-## <a name="hyper-v-volume-shadow-copy-requestor"></a>Служба запросов на теневое копирование томов Hyper-V
+## Служба запросов на теневое копирование томов Hyper-V
 
 **Имя службы Windows:** vmicvss  
 **Имя управляющей программы Linux:** hv_vss_daemon  
@@ -116,7 +117,7 @@ DemoVM  Running  Operating normally
 Дополнительные сведения о теневом копировании томов см. [здесь](https://msdn.microsoft.com/en-us/library/dd405549.aspx).
 
 
-## <a name="hyper-v-guest-service-interface"></a>Интерфейс гостевой службы Hyper-V
+## Интерфейс гостевой службы Hyper-V
 
 **Имя службы Windows:** vmicguestinterface  
 **Имя управляющей программы Linux:** hv_fcopy_daemon  
@@ -128,7 +129,7 @@ DemoVM  Running  Operating normally
 По умолчанию отключено.  См. раздел [PowerShell Direct с использованием Copy-Item](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item). 
 
 
-## <a name="hyper-v-powershell-direct-service"></a>Служба PowerShell Direct для Hyper-V
+## Служба PowerShell Direct для Hyper-V
 
 **Имя службы Windows:** vmicvmsession  
 **Имя управляющей программы Linux:** отсутствует  

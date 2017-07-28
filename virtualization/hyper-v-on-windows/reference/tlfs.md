@@ -8,20 +8,21 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: aee64ad0-752f-4075-a115-2d6b983b4f49
-ms.openlocfilehash: a2a6727289b5c1ecea6ce863d78d4edbb3426b82
-ms.sourcegitcommit: 04563fde5017e8d9e8b8ab2bbce4bf2bdf29b419
+ms.openlocfilehash: 738957cc1fcf80d46f9b2ed5a66374a0250a309a
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="hypervisor-specifications"></a>Спецификации гипервизора
+# Спецификации гипервизора
 
-## <a name="hypervisor-top-level-functional-specification"></a>Верхнеуровневая функциональная спецификация гипервизора
+## Верхнеуровневая функциональная спецификация гипервизора
 
 Верхнеуровневая функциональная спецификация (TLFS) гипервизора Hyper-V описывает видимое извне поведение гипервизора для других компонентов операционной системы. Эта спецификация предназначена для разработчиков операционных систем на виртуальных машинах.
   
 > На спецификацию распространяется действие Обещания в отношении открытых спецификаций корпорации Майкрософт.  Дополнительные сведения см. в статье [Microsoft Open Specification Promise](https://msdn.microsoft.com/en-us/openspecifications) (Обещание в отношении открытых спецификаций корпорации Майкрософт).  
 
-#### <a name="download"></a>Скачать
+#### Скачать
 Выпуск | Документ
 --- | ---
 Windows Server 2016 (редакция B) | [Hypervisor Top Level Functional Specification v5.0b.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v5.0b.pdf)
@@ -29,10 +30,10 @@ Windows Server 2012 R2 (редакция B) | [Hypervisor Top Level Functional S
 Windows Server2012 | [Hypervisor Top Level Functional Specification v3.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v3.0.pdf)
 Windows Server2008R2 | [Hypervisor Top Level Functional Specification v2.0.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Hypervisor%20Top%20Level%20Functional%20Specification%20v2.0.pdf)
 
-## <a name="requirements-for-implementing-the-microsoft-hypervisor-interface"></a>Требования для реализации интерфейса гипервизора Майкрософт
+## Требования для реализации интерфейса гипервизора Майкрософт
 
 Для операционных систем Windows требуется ограниченный набор интерфейсов гипервизора для запуска на гостевой виртуальной машине (также известной как интерфейс HV#1). Кроме того, гипервизор, совместимый с Майкрософт, может реализовать несколько дополнительных функций. Эти параметры изменят поведение Windows в виртуальной машине. В разделе "Требования для реализации интерфейса гипервизора Майкрософт" описаны обязательные и дополнительные функции, реализованные совместимым с Майкрософт гипервизором.
 
-#### <a name="download"></a>Скачать
+#### Скачать
 
 [Requirements for Implementing the Microsoft Hypervisor Interface.pdf](https://github.com/Microsoft/Virtualization-Documentation/raw/master/tlfs/Requirements%20for%20Implementing%20the%20Microsoft%20Hypervisor%20Interface.pdf)

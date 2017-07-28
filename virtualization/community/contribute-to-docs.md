@@ -8,16 +8,17 @@ ms.topic: article
 ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
-ms.openlocfilehash: b5fe1a2e4c59007fbbb679c9050e28a5e076b08f
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="contribute-to-the-docs"></a>Участие в разработке документации
+# Участие в разработке документации
 
 > **Примечание.** Для участия в составлении документации необходимо иметь учетную запись [GitHub](https://www.github.com).
 
-## <a name="edit-an-existing-doc"></a>Редактирование существующего документа
+## Редактирование существующего документа
 
 1. Найдите документ, который следует отредактировать.  
 
@@ -58,12 +59,12 @@ ms.contentlocale: ru-RU
 
 7. Создание [запроса на включение внесенных изменений](contribute-to-docs.md#pull-requests)  
 
-## <a name="pull-requests"></a>Запрос на включение
+## Запрос на включение
 
 Большинство изменений будут внесены по запросу на включение.  Запрос на включение— способ проверки набора изменений несколькими рецензентами, а также изменения и комментирования текущего содержимого.
 
 
-## <a name="fork-the-repo-and-edit-locally"></a>Разветвление репозитория и локальное редактирование
+## Разветвление репозитория и локальное редактирование
 
 Для длительной работы с документами клонируйте репозиторий в локальную среду и пользуйтесь им на своем компьютере.
 
@@ -84,7 +85,7 @@ ms.contentlocale: ru-RU
   * Пошаговое рассмотрение некоторых удобных функций VSCode для Git
   * Первая фиксация
 
-### <a name="set-up-git"></a>Настройка Git
+### Настройка Git
 
 1. Установите Git (в Windows) [отсюда](https://git-for-windows.github.io/)
 
@@ -178,7 +179,7 @@ ms.contentlocale: ru-RU
   }
   ```
 
-### <a name="validate-and-stash-credentials"></a>Проверка и задание учетных данных
+### Проверка и задание учетных данных
 
   Чтобы проверить, правильно ли настроен репозиторий, попробуйте извлечь новое содержимое.
 
@@ -187,7 +188,7 @@ ms.contentlocale: ru-RU
   ```
 
 
-### <a name="set-up-markdown-editing-environment"></a>Настройка среды редактирования разметки
+### Настройка среды редактирования разметки
 
 1. Скачайте VSCode.
 

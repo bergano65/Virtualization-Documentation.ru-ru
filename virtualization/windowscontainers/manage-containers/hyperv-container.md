@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: 88c452117299d855073668d33e4323243d93e9d1
-ms.sourcegitcommit: fa56cb152977de952ec1e493005dfc0e62538b4f
+ms.openlocfilehash: 7957e48291ab2d29f3687c595c760d838dab60b8
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="hyper-v-containers"></a>Контейнеры Hyper-V
+# Контейнеры Hyper-V
 
 **Это предварительное содержимое. Возможны изменения.** 
 
@@ -23,9 +24,9 @@ ms.contentlocale: ru-RU
 
 **Контейнеры Hyper-V**. На узле может быть одновременно запущено несколько экземпляров контейнера, однако каждый контейнер запускается в специальной виртуальной машине. Это обеспечивает изоляцию на уровне ядра между каждым контейнером Hyper-V и узлом контейнера.
 
-## <a name="hyper-v-container"></a>Контейнер Hyper-V
+## Контейнер Hyper-V
 
-### <a name="create-container"></a>Создание контейнера
+### Создание контейнера
 
 Управление контейнерами Hyper-V и Windows Server с помощью Docker почти ничем не отличается. При создании контейнера Hyper-V с помощью Docker используется параметр `--isolation=hyperv`.
 
@@ -33,7 +34,7 @@ ms.contentlocale: ru-RU
 docker run -it --isolation=hyperv microsoft/nanoserver cmd
 ```
 
-### <a name="isolation-explanation"></a>Пояснения по изоляции
+### Пояснения по изоляции
 
 В этом примере рассматриваются различия возможностей изоляции для контейнеров Windows Server и Hyper-V. 
 

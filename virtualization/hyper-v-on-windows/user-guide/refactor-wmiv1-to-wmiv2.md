@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: b13a3594-d168-448b-b0a1-7d77153759a8
 ms.openlocfilehash: e2d6faabe77346199a5d292fcfd92cdfd63909b8
-ms.sourcegitcommit: a424c11258e47f224e14c4349b852b9e37b7604f
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2017
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="move-from-hyper-v-wmi-v1-to-wmi-v2"></a>Перенос программ с Hyper-V WMI версии 1 на WMI версии 2
+# Перенос программ с Hyper-V WMI версии 1 на WMI версии 2
 
 Инструментарий управления Windows (WMI) представляет собой интерфейс управления, лежащий в основе диспетчера Hyper-V и командлетов PowerShell для Hyper-V.  Несмотря на то что большинство пользователей используют наши командлеты PowerShell или диспетчер Hyper-V, иногда разработчикам требуется использовать WMI напрямую.  
 
@@ -23,7 +23,7 @@ ms.lasthandoff: 05/10/2017
 
 В этом документе содержатся ссылки на ресурсы для преобразования кода, который обеспечивает взаимодействие старого пространства имен WMI с новым.  Прежде всего, эта статья будет являться ресурсом, содержащим сведения об API, а также примеры кода/сценариев, которые можно использовать для переноса любых программ или сценариев с API-интерфейсами WMI Hyper-V из пространства имен версии 1 в пространство имен версии 2.
 
-## <a name="msdn-samples"></a>Примеры MSDN
+## Примеры MSDN
 
 [Пример переноса виртуальной машины Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
 [Пример виртуального подключения Fibre Channel для Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
@@ -38,7 +38,7 @@ ms.lasthandoff: 05/10/2017
 [Пример управления пулом ресурсов Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
 [Пример моментального снимка восстановления Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
 
-## <a name="samples-from-blogs"></a>Примеры в блогах
+## Примеры в блогах
 
 [Добавление сетевого адаптера в виртуальную машину с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
 [Подключение сетевого адаптера виртуальной машины к коммутатору с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  

@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 355daae1b673f0b05f08d0706664967a825de6f7
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 6add396bea629d5438cde5892458f6c8405bf644
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="container-images-on-windows-server"></a>Образы контейнеров в Windows Server
+# Образы контейнеров в Windows Server
 
 В предыдущем кратком руководстве по Windows Server мы создали контейнер Windows на основе предварительно созданного примера .Net Core. В этом упражнении подробно рассматриваются следующие аспекты: создание пользовательских образов контейнеров вручную, автоматическое создание образа контейнера изображения с помощью Dockerfile и сохранение образов контейнеров в общедоступном реестре Docker Hub.
 
@@ -25,7 +26,7 @@ ms.contentlocale: ru-RU
 - Настройте на компьютере компонент контейнеров Windows и Docker. Пошаговые инструкции по этим этапам см. в статье [Контейнеры Windows в Windows Server](./quick-start-windows-server.md).
 - Идентификатор Docker, который будет использоваться для отправки образа контейнера в Docker Hub. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud](https://cloud.docker.com/).
 
-## <a name="1-container-image---manual"></a>1. Образ контейнера— ручная процедура
+## 1. Образ контейнера— ручная процедура
 
 Для получения наилучших результатов выполняйте это упражнение из командной оболочки (cmd.exe) Windows.
 
@@ -98,7 +99,7 @@ windowsservercore   latest              dbfee88ee9fd        8 weeks ago         
 
 Теперь можно развернуть этот образ. Полученный контейнер будет содержать все зафиксированные изменения.
 
-## <a name="2-container-image---dockerfile"></a>2. Образ контейнера— Dockerfile
+## 2. Образ контейнера— Dockerfile
 
 В последнем упражнении мы вручную создали и изменили контейнер, а затем сохранили его в новом образе контейнера. В Docker есть способ автоматизации этого процесса с помощью файла Dockerfile. В этом упражнении будут почти такие же результаты, как и в последнем, но здесь процесс автоматизирован. Для этого упражнения требуется идентификатор Docker. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud]( https://cloud.docker.com/).
 
@@ -168,7 +169,7 @@ c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up Ab
 docker rm -f <container name>
 ```
 
-## <a name="3-docker-push"></a>3. Операция отправки в Docker
+## 3. Операция отправки в Docker
 
 Образы контейнеров Docker можно хранить в реестре контейнеров. Если образ хранится в реестре, его можно извлечь для последующего использования на нескольких различных узлах контейнеров. Docker предоставляет открытый реестр для хранения образов контейнеров в [Docker Hub](https://hub.docker.com/).
 
@@ -215,6 +216,6 @@ microsoft/iis             latest              e4525dda8206        3 hours ago   
 docker pull <user>/iis-dockerfile
 ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
 
 [Контейнеры Windows в Windows10](./quick-start-windows-10.md)

@@ -8,19 +8,20 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
-ms.openlocfilehash: 77893b931afb3cc39d54ca33dab84f33bc971bfc
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 520ef410eddad61c40d31655e6bf7ede7846d4b2
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="working-with-hyper-v-and-windows-powershell"></a>Работа с Hyper-V и Windows PowerShell
+# Работа с Hyper-V и Windows PowerShell
 
 Изучив основы развертывания Hyper-V, создания виртуальных машин и управления ими, давайте теперь узнаем, как можно автоматизировать многие из связанных с этим действий с помощью PowerShell.
 
-### <a name="return-a-list-of-hyper-v-commands"></a>Получение списка команд Hyper-V
+### Получение списка команд Hyper-V
 
-1.    Нажмите кнопку "Пуск" в Windows и введите **PowerShell**.
-2.    Запустите указанную ниже команду, чтобы отобразить список команд PowerShell, доступных в модуле PowerShell Hyper-V.
+1.  Нажмите кнопку "Пуск" в Windows и введите **PowerShell**.
+2.  Запустите указанную ниже команду, чтобы отобразить список команд PowerShell, доступных в модуле PowerShell Hyper-V.
 
  ```powershell
 Get-Command -Module hyper-v | Out-GridView
@@ -39,7 +40,7 @@ Get-Help Get-VM
  ![](media\get_help.png)
 
 
-### <a name="return-a-list-of-virtual-machines"></a>Получение списка виртуальных машин
+### Получение списка виртуальных машин
 
 Чтобы извлечь список виртуальных машин, используйте команду `Get-VM`.
 
@@ -63,7 +64,7 @@ Get-VM
  Get-VM | where {$_.State -eq 'Off'}
  ```
 
-### <a name="start-and-shut-down-virtual-machines"></a>Запуск и завершение работы виртуальных машин
+### Запуск и завершение работы виртуальных машин
 
 1. Чтобы запустить определенную виртуальную машину, выполните следующую команду с указанием имени виртуальной машины:
 
@@ -82,14 +83,14 @@ Get-VM
  Get-VM | where {$_.State -eq 'Running'} | Stop-VM
  ```
 
-### <a name="create-a-vm-checkpoint"></a>Создание контрольной точки виртуальной машины
+### Создание контрольной точки виртуальной машины
 
 Чтобы создать контрольную точку с помощью PowerShell, выберите нужную виртуальную машину, используя команду `Get-VM`, и передайте ее в команду `Checkpoint-VM`. В заключение присвойте контрольной точке имя, используя команду `-SnapshotName`. Полностью команда выглядит так:
 
  ```powershell
  Get-VM -Name <VM Name> | Checkpoint-VM -SnapshotName <name for snapshot>
  ```
-### <a name="create-a-new-virtual-machine"></a>Создание новой виртуальной машины
+### Создание новой виртуальной машины
 
 Следующий пример демонстрирует создание виртуальной машины в интегрированной среде сценариев (ISE) PowerShell. Это простой пример. Его можно усложнить, добавив дополнительные функции PowerShell и расширенные сценарии развертывания виртуальной машины.
 
@@ -113,7 +114,7 @@ Get-VM
  New-VM @VM
   ```
 
-## <a name="wrap-up-and-references"></a>Подведение итогов и справочные материалы
+## Подведение итогов и справочные материалы
 
 Этот документ позволяет ознакомиться с модулем PowerShell Hyper-V на примере некоторых простых шагов, а также отдельными примерами сценариев. Дополнительные сведения о модуле PowerShell для Hyper-V см. в [справочнике по командлетам Windows PowerShell для Hyper-V](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx).  
  

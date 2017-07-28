@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: be51a89292f339c40b05bb48e0921777fd4a9801
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 569ba8619e60a9c34c2939ff2106076e66040aa8
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
+# Контейнеры Windows в Windows Server
 
 Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server2016. Во время этого упражнения вы установите роль контейнера и развернете простой контейнер Windows Server. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./index.md).
 
@@ -31,7 +32,7 @@ ms.contentlocale: ru-RU
 </a>
 
 
-## <a name="1-install-docker"></a>1. Установка Docker
+## 1. Установка Docker
 
 Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget), который работает с поставщиками для выполнения установки (в нашем случае это поставщик [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider)). Поставщик включит функцию контейнеров на вашем компьютере. Вы также установите Docker, после чего потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
 
@@ -59,7 +60,7 @@ Restart-Computer -Force
 >  - Найдите текущую версию с помощью команды `Find-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - После этого выполните обновление с помощью команды `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force` и команды `Start-Service Docker`
 
-## <a name="2-install-windows-updates"></a>2. Установка обновлений Windows
+## 2. Установка обновлений Windows
 
 Убедитесь, что система Windows Server обновлена, запустив следующее:
 
@@ -87,7 +88,7 @@ sconfig
 
 При появлении запроса выберите вариантA (скачать все обновления).
 
-## <a name="3-deploy-your-first-container"></a>3. Развертывание первого контейнера
+## 3. Развертывание первого контейнера
 
 В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
 
@@ -147,7 +148,7 @@ OS: Microsoft Windows 10.0.14393
 
 Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com]( https://docs.docker.com/engine/reference/run/).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## Дальнейшие действия
 
 [Образы контейнеров в Windows Server](./quick-start-images.md)
 

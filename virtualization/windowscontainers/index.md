@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: ac6e99800fcabef31464a81799fc9e329438b0ae
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: 9b630e372b575ef1721c0d0926ec2caec3e5ec34
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="windows-containers-documentation"></a>Документация по контейнерам Windows
+# Документация по контейнерам Windows
 
 Контейнеры Windows обеспечивают виртуализацию на уровне операционной системы. Они позволяют запускать несколько изолированных приложений в одной системе. В этот компонент включены два разных типа среды выполнения контейнера, каждый из которых имеет разную степень изоляции приложения. Контейнеры Windows Server обеспечивают изоляцию через пространство имен и изоляцию процессов. Контейнеры Hyper-V инкапсулируют каждый контейнер в облегченной виртуальной машине. Этот набор документации содержит руководства по быстрому запуску, руководства по развертыванию и технические сведения об операциях управления.
 

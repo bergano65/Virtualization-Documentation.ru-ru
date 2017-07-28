@@ -7,16 +7,17 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
-ms.openlocfilehash: 200ec68011628262950362620ae5b438f1b6b86c
-ms.sourcegitcommit: c8e6bf83ee873fe19b522ba9e416ecf5d29f4c95
+ms.openlocfilehash: fc6228253c2ad5fe8a01db283f578abbfbee716c
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="create-virtual-machine-with-hyper-v-on-windows-10"></a>Создание виртуальной машины с помощью Hyper-V в Windows10
+# Создание виртуальной машины с помощью Hyper-V в Windows10
 
 Создание виртуальной машины и установка на нее операционной системы.  Вам потребуется ISO-файл для операционной системы, которую требуется запустить. При необходимости пробную версию ОС Windows10 можно получить в [Центре оценки TechNet](http://www.microsoft.com/en-us/evalcenter/).
 
-## <a name="create-a-virtual-machine-with-hyper-v-manager"></a>Создание виртуальной машины с помощью диспетчера Hyper-V
+## Создание виртуальной машины с помощью диспетчера Hyper-V
 
 1. Откройте диспетчер Hyper-V, нажав клавишу Windows и введя в строке поиска "диспетчер Hyper-V", выполните поиск **диспетчера Hyper-V** в своих приложениях.
 
@@ -61,7 +62,7 @@ ms.contentlocale: ru-RU
   
 10. Просмотрите информацию о данной виртуальной машине и нажмите кнопку **Готово** для завершения создания виртуальной машины.
 
-## <a name="create-a-virtual-machine-with-powershell"></a>Создание виртуальной машины с помощью PowerShell
+## Создание виртуальной машины с помощью PowerShell
 
 1. Откройте интегрированную среду сценариев PowerShell от имени администратора.
 
@@ -87,7 +88,7 @@ ms.contentlocale: ru-RU
   Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
   ```
   
-## <a name="complete-the-operating-system-deployment"></a>Завершение развертывания операционной системы
+## Завершение развертывания операционной системы
 
 Чтобы завершить создание виртуальной машины, необходимо ее запустить и выполнить пошаговые инструкции по установке операционной системы.
 

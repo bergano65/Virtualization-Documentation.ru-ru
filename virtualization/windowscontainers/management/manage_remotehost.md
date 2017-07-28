@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
-ms.openlocfilehash: 75d19646dd41a4f73dfb9cdd09808b61fba8e4ab
-ms.sourcegitcommit: 1c7e94089646f3db31e033f0909a10ce5077d05e
+ms.openlocfilehash: 1ab2a9b823c5c903bd08b476f5caef65ec6e3207
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="remote-management-of-a-windows-docker-host"></a>Удаленное управление узлом Docker в Windows
+# Удаленное управление узлом Docker в Windows
 
 Даже при отсутствии `docker-machine` можно создать доступный удаленно узел Docker на виртуальной машине с Windows Server 2016.
 
@@ -39,8 +40,8 @@ ker\client\key.pem ps
 ```
 
 
-## <a name="troubleshooting"></a>Диагностика
-### <a name="try-connecting-without-tls-to-determine-your-nsg-firewall-settings-are-correct"></a>Попытка подключения без TLS для проверки параметров брандмауэра NSG
+## Диагностика
+### Попытка подключения без TLS для проверки параметров брандмауэра NSG
 Ошибки подключения обычно проявляются следующим образом:
 ```
 error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com:2376/v1.25/version: dial tcp 13.85.27.177:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
@@ -59,14 +60,14 @@ error during connect: Get https://wsdockerhost.southcentralus.cloudapp.azure.com
 docker -H tcp://wsdockerhost.southcentralus.cloudapp.azure.com:2376 --tlsverify=0 version
 ```
 
-### <a name="cert-problems"></a>Проблемы с сертификатами
+### Проблемы с сертификатами
 При доступе к узлу Docker с помощью сертификата, который не был создан для IP-адреса или DNS-имени, возникнет ошибка:
 ```
 error during connect: Get https://w.x.y.c.z:2376/v1.25/containers/json: x509: certificate is valid for 127.0.0.1, a.b.c.d, not w.x.y.z
 ```
 Убедитесь, что w.x.y.z — это DNS-имя для общего IP-адреса узла и что DNS-имя соответствует [общему имени](https://www.ssl.com/faqs/common-name/) сертификата, которое указано в переменной среды `SERVER_NAME` или соответствует одному из IP-адресов в переменной `IP_ADDRESSES`, предоставленной dockertls.
 
-### <a name="cryptox509-warning"></a>Предупреждение crypto/x509
+### Предупреждение crypto/x509
 Вы можете получить предупреждение: 
 ```
 level=warning msg="Unable to use system certificate pool: crypto/x509: system root pool is not available on Windows"

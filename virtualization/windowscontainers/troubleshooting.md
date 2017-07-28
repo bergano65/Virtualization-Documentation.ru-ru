@@ -9,12 +9,12 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
 ms.openlocfilehash: 5230080386081bda8b54656d15f33b4986cfa6e3
-ms.sourcegitcommit: ca64c1aceccd97c6315b28ff814ec7ac91fba9da
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/09/2017
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="troubleshooting"></a>Диагностика
+# Диагностика
 
 Возникли проблемы при настройке компьютера или запуске контейнера? Для PowerShell был создан скрипт для проверки наличия распространенных проблем. Попробуйте использовать его и поделитесь своими результатами.
 
@@ -26,10 +26,10 @@ Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invo
 Если это не поможет найти источник проблемы, опубликуйте результаты из скрипта на [форуме по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). Это наилучший способ получить помощь от сообщества, в том числе от участников программы предварительной оценки Windows и разработчиков.
 
 
-## <a name="finding-logs"></a>Нахождение журналов
+## Нахождение журналов
 Существует ряд служб, которые используются для управления контейнерами Windows. В следующих разделах показано, где найти журналы каждой из служб.
 
-### <a name="docker-engine"></a>Подсистема Docker
+### Подсистема Docker
 Подсистема Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
 
 Например, следующая команда выведет записи журнала подсистемы Docker за последние 5минут, начиная с самой ранней.
@@ -44,7 +44,7 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### <a name="enabling-debug-logging"></a>Включение ведения журналов отладки
+#### Включение ведения журналов отладки
 Вы можете также включить ведение журналов на уровне отладки в подсистеме Docker. Это может помочь в устранении проблем, если в обычных журналах недостаточно подробностей.
 
 Сначала откройте командную строку с повышенными привилегиями, а затем запустите `sc.exe qc docker`, чтобы отобразилась текущая командная строка службы Docker.
@@ -90,7 +90,7 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### <a name="obtaining-stack-dump-and-daemon-data"></a>Получение копии стека и данных управляющей программы.
+#### Получение копии стека и данных управляющей программы.
 
 Как правило, эти данные запрашивает только служба поддержки Майкрософт или разработчики Docker. Их можно использовать для диагностики неполадок, приведших к зависанию Docker. 
 
@@ -110,7 +110,7 @@ docker-signal -pid=<id>
 Обратите внимание, что файл `daemon-data*.log` может содержать личные данные и его, как правило, следует предоставлять только доверенным специалистам технической поддержки. `goroutine-stacks*.log` не содержит личные сведения.
 
 
-### <a name="host-container-service"></a>Служба контейнера узлов
+### Служба контейнера узлов
 Подсистема Docker зависит от службы контейнера узлов конкретной версии Windows. Она содержит отдельные журналы: 
 - Microsoft-Windows-Hyper-V-Compute-Admin.
 - Microsoft-Windows-Hyper-V-Compute-Operational.
@@ -123,7 +123,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### <a name="capturing-hcs-analyticdebug-logs"></a>Запись журналов аналитики/отладки службы HCS
+#### Запись журналов аналитики/отладки службы HCS
 
 Включите запись журналов аналитики/отладки для вычисления Hyper-V с их сохранением в файле `hcslog.evtx`.
 
@@ -140,7 +140,7 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### <a name="capturing-hcs-verbose-tracing"></a>Запись подробной трассировки службы HCS
+#### Запись подробной трассировки службы HCS
 
 Как правило, эти данные запрашивает только служба поддержки Майкрософт. 
 

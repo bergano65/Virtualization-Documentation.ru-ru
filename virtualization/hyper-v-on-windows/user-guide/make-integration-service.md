@@ -7,12 +7,13 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: d50648efcaac40d6a60430b44c070717adf31b4d
-ms.sourcegitcommit: d5f30aa1bdfb34dd9e1909d73b5bd9f4153d6b46
+ms.openlocfilehash: 971593b762b51bd24f43c40d4697fdd3cef82400
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="make-your-own-integration-services"></a>Создайте собственные службы интеграции
+# Создайте собственные службы интеграции
 
 Начиная с выхода юбилейного обновления Windows 10 любой пользователь может создавать приложения, которые взаимодействуют с узлом Hyper-V и его виртуальными машинами с помощью сокетов Hyper-V — сокетов Windows с новым семейством адресов и специализированной конечной точкой для работы с виртуальными машинами.  Вся связь через сонеты Hyper-V происходит без использования сети, а все данные остаются в одной и той же физической памяти.   Приложения, использующие сонеты Hyper-V, похожи на службы интеграции Hyper-V.
 
@@ -34,7 +35,7 @@ ms.contentlocale: ru-RU
 
 --------------
 
-## <a name="getting-started"></a>Начало работы
+## Начало работы
 
 Требования:
 * компилятор C/C++  (если у вас его нет, перейдите в [сообщество Visual Studio](https://aka.ms/vs));
@@ -43,7 +44,7 @@ ms.contentlocale: ru-RU
 
 > **Примечание.** API для сокетов Hyper-V стал общедоступным в Windows 10 немного позднее.  Приложения, использующие HVSocket, будут работать на любом хосте и гостевом узле с Widnows 10, но могут создаваться только с помощью пакета SDK для Windows сборки более поздней, чем 14290.  
 
-## <a name="register-a-new-application"></a>Регистрация нового приложения
+## Регистрация нового приложения
 Чтобы использовать сокеты Hyper-V, необходимо зарегистрировать приложение в реестре узла Hyper-V.
 
 Зарегистрировав службу в реестре, вы получите:
@@ -84,9 +85,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 ```
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\GuestCommunicationServices\
     999E53D4-3D5C-4C3E-8779-BED06EC056E1\
-        ElementName    REG_SZ    VM Session Service
+        ElementName REG_SZ  VM Session Service
     YourGUID\
-        ElementName    REG_SZ    Your Service Friendly Name
+        ElementName REG_SZ  Your Service Friendly Name
 ```
 
 > **Совет.** Чтобы создать GUID в PowerShell и скопировать его в буфер обмена, используйте следующую команду:  
@@ -94,7 +95,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 (New-Guid).Guid | clip.exe
 ```
 
-## <a name="create-a-hyper-v-socket"></a>Создание сокета Hyper-V
+## Создание сокета Hyper-V
 
 В большинстве случаев, чтобы определить сокет, требуется семейство адресов, тип соединения и протокол.
 
@@ -122,7 +123,7 @@ SOCKET sock = socket(AF_HYPERV, SOCK_STREAM, HV_PROTOCOL_RAW);
 ```
 
 
-## <a name="bind-to-a-hyper-v-socket"></a>Привязка к сокету Hyper-V
+## Привязка к сокету Hyper-V
 
 Привязка связывает сокет со сведениями о подключении.
 
@@ -161,7 +162,7 @@ struct SOCKADDR_HV
 
 Кроме того, для идентификатора виртуальной машины доступен ряд подстановочных знаков.
  
-### <a name="vmid-wildcards"></a>Подстановочные знаки для идентификатора виртуальной машины
+### Подстановочные знаки для идентификатора виртуальной машины
 
 | Название | Код GUID | Описание |
 |:-----|:-----|:-----|
@@ -181,7 +182,7 @@ struct SOCKADDR_HV
 (В виртуальной машине: узел контейнера или без контейнера): узла виртуальной машины.  
 (Не в виртуальной машине: узел контейнера или без контейнера): не поддерживается.
 
-## <a name="supported-socket-commands"></a>Поддерживаемые команды сокета
+## Поддерживаемые команды сокета
 
 Socket()  
 Bind()  
@@ -190,7 +191,7 @@ Send()
 Listen()  
 Accept()  
 
-## <a name="useful-links"></a>Полезные ссылки
+## Полезные ссылки
 [Полный API WinSock](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
 
 [Справочник по службам интеграции Hyper-V](../reference/integration-services.md)

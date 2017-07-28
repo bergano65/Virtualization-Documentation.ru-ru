@@ -9,10 +9,17 @@
 ## [Шаг1. Основные понятия](quick_start/quick_start.md)
 ## [Шаг2. Первый контейнер](quick_start/quick_start_windows_10.md)
 
+# Краткое руководство по программе предварительной оценки Windows
+## [Шаг 1. Использование образов контейнеров программы предварительной оценки](quick-start/Using-Insider-Container-Images.md)
+## [Шаг. Сборка и запуск приложения](quick-start/Nano-RS3-.NET-Core-and-PS.md)
+## [Шаг 3. Известные проблемы](quick-start/Insider-Known-Issues.md)
+
 # Развертывание контейнера Windows
 ## [Системные требования](deployment/system_requirements.md)
+## [Изоляция Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container)
 ## [Узел контейнера— Windows Server](deployment/deployment.md)
 ## [Узел контейнера— Nano Server](deployment/deployment_nano.md)
+## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Учетные записи службы Active Directory](management/manage_serviceaccounts.md)
 

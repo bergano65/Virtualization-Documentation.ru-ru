@@ -9,12 +9,13 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 9cafd6cb-dbbe-4b91-b26c-dee1c18fd8c2
 redirect_url: https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services
-ms.openlocfilehash: 83bcc4c2f47e2a3921be257f45a3a0e22dcba89a
-ms.sourcegitcommit: fd6c5ec419aae425af7ce6c6a44d59c98f62502a
+ms.openlocfilehash: 374ce6f8c4aede7190916675698551eb667458f9
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="managing-hyper-v-integration-services"></a>Управление службами интеграции Hyper-V
+# Управление службами интеграции Hyper-V
 
 Службы интеграции (часто называемые компонентами интеграции) — это службы, позволяющие виртуальной машине связываться с узлом Hyper-V. Многие из этих служб используются для удобства (например, для копирования файлов гостевой ОС), а другие могут быть достаточно важны для правильной работы виртуальной машины (синхронизация времени).
 
@@ -22,7 +23,7 @@ ms.contentlocale: ru-RU
 
 Дополнительные сведения о каждой отдельной службе интеграции см. в статье [Службы интеграции](../reference/integration-services.md).
 
-## <a name="enable-or-disable-integration-services-using-hyper-v-manager"></a>Включение и отключение служб интеграции с помощью диспетчера Hyper-V
+## Включение и отключение служб интеграции с помощью диспетчера Hyper-V
 
 1. Выберите виртуальную машину и откройте параметры.
   
@@ -32,7 +33,7 @@ ms.contentlocale: ru-RU
 
 REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesVersion
 
-## <a name="enable-or-disable-integration-services-using-powershell"></a>Включение и отключение служб интеграции с помощью PowerShell
+## Включение и отключение служб интеграции с помощью PowerShell
 
 Службы интеграции можно также включить и отключить через PowerShell, выполнив [`Enable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848500.aspx) и [`Disable-VMIntegrationService`](https://technet.microsoft.com/en-us/library/hh848488.aspx).
 
@@ -73,7 +74,7 @@ REG QUERY "HKLM\Software\Microsoft\Virtual Machine\Auto" /v IntegrationServicesV
 Службы интеграции работают, только если они включены и на узле, и в гостевой операционной системе.  Все службы интеграции в гостевых ОС Windows включены по умолчанию, но их можно отключить.  Инструкции приведены в следующем разделе.
 
 
-## <a name="manage-integration-services-from-guest-os-windows"></a>Управление службами интеграции из гостевой ОС (Windows)
+## Управление службами интеграции из гостевой ОС (Windows)
 
 > **Примечание.** Отключение служб интеграции может серьезно повлиять на способность узла управлять вашей виртуальной машиной.  Службы интеграции работают, только если они включены и на узле, и в гостевой операционной системе.
 
@@ -110,7 +111,7 @@ Running  vmicvss            Hyper-V Volume Shadow Copy Requestor
 
 По умолчанию в гостевой операционной системе все службы интеграции включены.
 
-## <a name="manage-integration-services-from-guest-os-linux"></a>Управление службами интеграции из гостевой ОС (Linux)
+## Управление службами интеграции из гостевой ОС (Linux)
 
 Службы интеграции Linux обычно предоставляются через ядро Linux.
 
@@ -191,7 +192,7 @@ sudo hv_kvp_daemon
 Теперь при повторном запуске `ps -ef | hv` вы обнаружите, что у процесса `hv_kvp_daemon` появился новый идентификатор.
 
 
-## <a name="integration-service-maintenance"></a>Обслуживание служб интеграции
+## Обслуживание служб интеграции
 
 Обслуживание службы интеграции в Windows10 осуществляется по умолчанию, при условии, что виртуальные машины могут получать важные обновления из Центра обновления Windows.  
 
@@ -224,7 +225,7 @@ sudo hv_kvp_daemon
 
 **Для виртуальных машин, работающих на узлах под управлением Windows 8.1:**
 
-| Гостевая ОС | Механизм обновления | Примечания |
+| Гостевая ОС | Механизм обновления | Заметки |
 |:---------|:---------|:---------|
 | Windows 10 | Центр обновления Windows | |
 | Windows 8.1 | Центр обновления Windows | |

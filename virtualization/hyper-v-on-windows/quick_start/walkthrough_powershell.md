@@ -1,8 +1,8 @@
 ---
 redirect_url: ../quick-start/try-hyper-v-powershell
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
 ms.openlocfilehash: a45863878196a545162b8859d3fa7681cdbedeed
-ms.lasthandoff: 01/12/2017
-
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---

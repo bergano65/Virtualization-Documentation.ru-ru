@@ -1,8 +1,8 @@
 ---
 redirect_url: https://docs.docker.com/engine/tutorials/dockerimages/
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
-ms.openlocfilehash: baea1ae8195737eafeade6c2e42a328bf4b12532
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: a13a59fa40c51d06837b8fdd897dad10fbbe10fc
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---

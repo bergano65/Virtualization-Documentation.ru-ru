@@ -1,8 +1,8 @@
 ---
 redirect_url: ../user-guide/troubleshooting
-translationtype: Human Translation
-ms.sourcegitcommit: 54eff4bb74ac9f4dc870d6046654bf918eac9bb5
 ms.openlocfilehash: 2b82971e8cfbb4f520c779696939d8c429f03649
-ms.lasthandoff: 01/12/2017
-
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---

@@ -8,12 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: 0df4ef6a5116edd5b47283180ba6ba1d745cd06b
-ms.sourcegitcommit: e8d6b78103e8b0b086d4b6a1be40a1f8dcd8c225
+ms.openlocfilehash: 8c5e89cd3afcb109fd3eda2da7bcd1b2c7f48b88
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="dockerfile-on-windows"></a>Dockerfile в Windows
+# Dockerfile в Windows
 
 Подсистема Docker содержит средства, автоматизирующие создание образов контейнеров. Хотя образы контейнеров можно создавать вручную с помощью команды `docker commit`, внедрение процесса автоматического создания образа предоставляет множество преимуществ, в том числе:
 
@@ -32,9 +33,9 @@ ms.contentlocale: ru-RU
 
 Полный обзор файлов Dockerfile см. в [справке по Dockerfile на сайте docker.com]( https://docs.docker.com/engine/reference/builder/).
 
-## <a name="dockerfile-introduction"></a>Общие сведения о файлах Dockerfile
+## Общие сведения о файлах Dockerfile
 
-### <a name="basic-syntax"></a>Базовый синтаксис
+### Базовый синтаксис
 
 В исходной форме файл Dockerfile может быть очень простым. Следующий пример создает образ, включающий IIS и сайт "hello world". Этот пример включает комментарии (обозначенные с помощью `#`), поясняющие каждый шаг. В последующих разделах этой статьи более подробно рассматриваются правила синтаксиса Dockerfile и инструкции Dockerfile.
 
@@ -61,11 +62,11 @@ CMD [ "cmd" ]
 
 Дополнительные примеры файлов Dockerfile для Windows см. в документе [Dockerfile for Windows Repository] (Dockerfile для репозитория Windows) (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
-## <a name="instructions"></a>Инструкции
+## Инструкции
 
 Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile см. в [Справочник по файлам Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
 
-### <a name="from"></a>FROM
+### FROM
 
 Инструкция `FROM` задает образ контейнера, который будет применяться при создании нового образа. Например, при использовании инструкции `FROM microsoft/windowsservercore` полученный образ является производным и зависимым от базового образа ОС Windows Server Core. Если указанный образ отсутствует в системе, где выполняется процесс сборки Docker, подсистема Docker попытается скачать его из общедоступного или частного реестра образов.
 
@@ -85,7 +86,7 @@ FROM microsoft/windowsservercore
 
 Подробные сведения об инструкции FROM см. в [справочнике по FROM на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#from).
 
-### <a name="run"></a>RUN
+### RUN
 
 Инструкция `RUN` задает команды, которые следует выполнить и поместить в новый образ контейнера. Эти команды могут включать такие элементы, как установка программного обеспечения, создание файлов и папок, а также создание конфигурации среды.
 
@@ -164,7 +165,7 @@ RUN powershell.exe -Command Start-Process c:\vcredist_x86.exe -ArgumentList '/qu
 
 Подробные сведения об инструкции RUN см. в [справочнике по RUN на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#run).
 
-### <a name="copy"></a>COPY
+### COPY
 
 Инструкция `COPY` копирует файлы и каталоги в файловую систему контейнера. Эти файлы и каталоги должны иметь путь, являющийся относительным для Dockerfile.
 
@@ -211,7 +212,7 @@ COPY config* c:/temp/
 
 Подробные сведения об инструкции `COPY` см. в [справочнике по COPY на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#copy).
 
-### <a name="add"></a>ДОБАВИТЬ
+### ДОБАВИТЬ
 
 Инструкция ADD во многом похожа на инструкцию COPY, однако имеет дополнительные возможности. Кроме копирования файлов с узла в образ контейнера, инструкция `ADD` также позволяет скопировать файлы из удаленного расположения с помощью задания URL-адреса.
 
@@ -265,7 +266,7 @@ ADD https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe /temp/python-3.5.1.
 
 Подробные сведения об инструкции `ADD` см. в [справочнике по ADD на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#add).
 
-### <a name="workdir"></a>WORKDIR
+### WORKDIR
 
 Инструкция `WORKDIR` задает рабочий каталог для других инструкций Dockerfile, например `RUN` и `CMD`, а также рабочий каталог для запущенных экземпляров образа контейнера.
 
@@ -293,7 +294,7 @@ WORKDIR c:\\Apache24\\bin
 
 Подробные сведения об инструкции `WORKDIR` см. в [справочнике по WORKDIR на сайте Docker.com]( https://docs.docker.com/engine/reference/builder/#workdir).
 
-### <a name="cmd"></a>CMD
+### CMD
 
 Инструкция `CMD` задает команду по умолчанию, выполняемую при развертывании экземпляра образа контейнера. Например, если в контейнере будет размещен веб-сервер NGINX, `CMD` может включать инструкции для запуска этого веб-сервера, например `nginx.exe`. Если в файле Dockerfile указано несколько инструкций `CMD`, вычисляется только последняя из них.
 
@@ -332,7 +333,7 @@ CMD c:\Apache24\bin\httpd.exe -w
 
 Подробные сведения об инструкции `CMD` см. в [справочнике по CMD на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#cmd).
 
-## <a name="escape-character"></a>Escape-символ
+## Escape-символ
 
 Во многих случаях инструкция Dockerfile должна занимать несколько строк. Этого можно добиться с помощью escape-символа. Escape-символ Dockerfile по умолчанию— обратная косая черта (`\`). Так как обратная косая черта также является разделителем путей файлов в Windows, это может вызвать проблемы. Чтобы изменить escape-символ по умолчанию, можно использовать директиву Parser. Дополнительные сведения о директивах Parser см. в разделе [Директивы Parser на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#parser-directives).
 
@@ -366,9 +367,9 @@ RUN powershell.exe -Command `
 
 Дополнительные сведения о директиве Parser для escape-символа см. в разделе [Директива Parser для escape-символов на сайте Docker.com](https://docs.docker.com/engine/reference/builder/#escape).
 
-## <a name="powershell-in-dockerfile"></a>PowerShell в Dockerfile
+## PowerShell в Dockerfile
 
-### <a name="powershell-commands"></a>Команды PowerShell
+### Команды PowerShell
 
 Команды PowerShell можно выполнять в Dockerfile при помощи операции `RUN`.
 
@@ -378,7 +379,7 @@ FROM microsoft/windowsservercore
 RUN powershell -command Expand-Archive -Path c:\apache.zip -DestinationPath c:\
 ```
 
-### <a name="rest-calls"></a>Вызовы REST
+### Вызовы REST
 
 PowerShell и команда `Invoke-WebRequest` могут оказаться полезными при сборе данных или файлов из веб-службы. Например, при создании образа, включающего в себя Python, можно использовать приведенный ниже пример. Параметру `$ProgressPreference` рекомендуется задавать значение `SilentlyContinue` для ускорения процессов скачивания.
 
@@ -409,7 +410,7 @@ RUN powershell.exe -Command \
 
 > Сейчас WebClient в Nano Server не поддерживается.
 
-### <a name="powershell-scripts"></a>Сценарии оболочки PowerShell
+### Сценарии оболочки PowerShell
 
 В некоторых случаях может оказаться удобным скопировать сценарий в контейнеры, используемые при создании образа, и затем запустить их из контейнера. Примечание. Это ограничивает возможности кэширования слоев образов, а также ухудшает удобочитаемость файла Dockerfile.
 
@@ -421,7 +422,7 @@ ADD script.ps1 /windows/temp/script.ps1
 RUN powershell.exe -executionpolicy bypass c:\windows\temp\script.ps1
 ```
 
-## <a name="docker-build"></a>Сборка Docker
+## Сборка Docker
 
 После создания файла Dockerfile и сохранения его на диск можно запустить `docker build` для создания нового образа. Команда `docker build` принимает несколько необязательных параметров и путь к файлу Dockerfile. Полную документацию по сборке Docker, включая список всех параметров сборки, см. в [описании сборки на сайте Docker.com](https://docs.docker.com/engine/reference/commandline/build/#build).
 
@@ -475,7 +476,7 @@ iis                 latest              e2aafdfbe392        About a minute ago  
 windowsservercore   latest              6801d964fda5        4 months ago         0 B
 ```
 
-## <a name="further-reading--references"></a>Дополнительные материалы и справочники
+## Дополнительные материалы и справочники
 
 [Optimize Dockerfiles and Docker build for Windows] (Оптимизация файлов Dockerfile и сборка Docker для Windows) (optimize_windows_dockerfile.md)
 

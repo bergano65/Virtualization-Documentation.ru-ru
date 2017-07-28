@@ -8,24 +8,25 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: b82acdf9-042d-4b5c-8b67-1a8013fa1435
-ms.openlocfilehash: 247cf1703b429fbd7ef41553d2f46c1e99785477
-ms.sourcegitcommit: bb171f4a858fefe33dd0748b500a018fd0382ea6
+ms.openlocfilehash: b9a02184a98f392d5ee323dc3e939d137ce7e4e6
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
 ms.translationtype: HT
 ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-# <a name="container-host-deployment---nano-server"></a>Развертывание узла контейнера— Nano Server
+# Развертывание узла контейнера— Nano Server
 
 В этом документе приведено пошаговое руководство по развертыванию очень простой конфигурации сервера Nano Server с контейнерами Windows. Это довольно сложная тема, и для ее понимания необходимо иметь общее представление о Windows и контейнерах Windows. Введение о контейнерах Windows см. в статье [Краткое руководство по контейнерам Windows](../quick-start/index.md).
 
-## <a name="prepare-nano-server"></a>Подготовка сервера Nano Server
+## Подготовка сервера Nano Server
 
 В следующем разделе подробно рассматривается развертывание очень простой конфигурации сервера Nano Server. Более подробное объяснение, касающееся параметров развертывания и конфигурации для сервера Nano Server, см. в статье [Getting Started with Nano Server] (Приступая к работе с сервером Nano Server) (https://technet.microsoft.com/en-us/library/mt126167.aspx).
 
-### <a name="create-nano-server-vm"></a>Создание виртуальной машины для сервера Nano Server
+### Создание виртуальной машины для сервера Nano Server
 
 Сначала скачайте ознакомительный виртуальный жесткий диск Nano Server [отсюда](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016). Создайте виртуальную машину с использованием этого виртуального жесткого диска, запустите виртуальную машину и подключитесь к ней с помощью Hyper-V или равнозначного варианта подключения (в зависимости от используемой платформы виртуализации).
 
-### <a name="create-remote-powershell-session"></a>Создание удаленного сеанса PowerShell
+### Создание удаленного сеанса PowerShell
 
 Так как сервер Nano Server не обладает возможностью интерактивного входа, все операции управления будут выполняться из удаленной системы с использованием PowerShell.
 
@@ -43,7 +44,7 @@ Enter-PSSession -ComputerName 192.168.1.50 -Credential ~\Administrator
 
 После выполнения этих действий у вас появился удаленный сеанс PowerShell с системой Nano Server. Оставшаяся часть этого документа, если не указано иначе, происходит в удаленном сеансе.
 
-### <a name="install-windows-updates"></a>Установка обновлений Windows
+### Установка обновлений Windows
 
 Критические обновления необходимы для работы контейнеров Windows. Их можно установить, выполнив следующие команды.
 
@@ -60,7 +61,7 @@ Restart-Computer
 
 После перезагрузки повторно установите подключение к удаленному сеансу PowerShell.
 
-## <a name="install-docker"></a>Установка Docker
+## Установка Docker
 
 Docker необходим для работы с контейнерами Windows. Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget). Поставщик обеспечит работу контейнеров на компьютере и установит Docker. После этого потребуется перезагрузка. 
 
@@ -84,7 +85,7 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-## <a name="install-base-container-images"></a>Установка базовых образов контейнеров
+## Установка базовых образов контейнеров
 
 Базовые образы ОС используются как основа для любого контейнера Windows Server или Hyper-V. Базовые образы ОС доступны при использовании Windows Server Core и Nano Server в качестве базовой операционной системы и могут быть установлены с помощью `docker pull`. Подробные сведения об образах контейнеров Docker см. в разделе [Создание собственных образов на сайте docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
@@ -102,13 +103,13 @@ docker pull microsoft/windowsservercore
 
 > Прочтите лицензионное соглашение для образов ОС контейнеров Windows на странице [Лицензионное соглашение](../images-eula.md).
 
-## <a name="manage-docker-on-nano-server"></a>Управление Docker в Nano Server
+## Управление Docker в Nano Server
 
 Для получения наилучших результатов управляйте Docker на сервере Nano Server из удаленной системы. Это связано с тем, что с помощью удаленного взаимодействия PowerShell в настоящее время невозможно перенаправить выходные данные терминала TTY интерактивной оболочки контейнера в первоначально клиентский запрос. Отключенные контейнеры можно запустить. Они будут работать в фоновом режиме с помощью `docker run -dt`, но интерактивные контейнеры не будут работать с помощью `docker run -it` должным образом. В интегрированной среде сценариев PowerShell также существуют проблемы с интерактивными выходными данными по тем же причинам.
 
 Для управления удаленным сервером Docker необходимо выполнить следующее.
 
-### <a name="prepare-container-host"></a>Подготовка узла контейнера
+### Подготовка узла контейнера
 
 Создайте на узле контейнера правило брандмауэра для подключения Docker. Это будет порт `2375` для незащищенного подключения или порт `2376` для защищенного подключения.
 
@@ -136,7 +137,7 @@ Add-Content 'c:\programdata\docker\config\daemon.json' '{ "hosts": ["tcp://0.0.0
 Restart-Service docker
 ```
 
-### <a name="prepare-remote-client"></a>Подготовка удаленного клиента
+### Подготовка удаленного клиента
 
 На удаленном компьютере, на котором вы будете работать, скачайте клиент Docker.
 
@@ -178,7 +179,7 @@ $env:DOCKER_HOST = "tcp://<ipaddress of server>:2375"
 docker run -it microsoft/nanoserver cmd
 ```
 
-## <a name="hyper-v-container-host"></a>Узел контейнера Hyper-V
+## Узел контейнера Hyper-V
 
 Для развертывания контейнеров Hyper-V на узле контейнера необходима роль Hyper-V. Дополнительные сведения о контейнерах Hyper-V см. в статье [Контейнеры Hyper-V](../manage-containers/hyperv-container.md).
 

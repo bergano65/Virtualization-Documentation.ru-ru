@@ -1,9 +1,8 @@
 ---
 redirect_url: index
-translationtype: Human Translation
-ms.sourcegitcommit: 8f684af0e294e207faa69e29cb6cd1a14c06831a
 ms.openlocfilehash: 2f4400bf6a05d0d429166b83c9e3dfc45cc173e0
-ms.lasthandoff: 11/21/2016
-
+ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.translationtype: HT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 07/21/2017
 ---
-
