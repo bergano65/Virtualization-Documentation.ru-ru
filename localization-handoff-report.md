@@ -1,11 +1,33 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 1
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/33ba39d65b08aa61d8a5f5fdf2822dc28d2e3b3a/virtualization/windowscontainers/deploy-containers/system-requirements.md) | HandedOffSuccess | [Details](#89d66c7c5515532ab9bc7ebfcf0c79e59ebd7d28293)
 
 ## Item Details
+##### <a name='89d66c7c5515532ab9bc7ebfcf0c79e59ebd7d28293'></a> Source: [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/33ba39d65b08aa61d8a5f5fdf2822dc28d2e3b3a/virtualization/windowscontainers/deploy-containers/system-requirements.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/595d86fac1f2781f184ec9e6c6f85c90f607b144/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.ru-ru.xlf)
+* Handoff Datetime: 2017-08-23 23:46:23
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* Current Target File: [virtualization\windowscontainers\deployment\system_requirements.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/blob/9a9abc8fe047b71a1b60c26b8b2fb0e43759e5dc/virtualization/windowscontainers/deployment/system_requirements.md)
+* Current Handback File: [system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/f9016ff8b70f8efdbdff7e8d4e35834673424ea9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf)
+* Current Handback Datetime: 2016-11-05 11:42:55
+* Bilingual File: [system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/f9016ff8b70f8efdbdff7e8d4e35834673424ea9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf)
+* Bilingual Datetime: 2016-11-05 11:43:57
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
