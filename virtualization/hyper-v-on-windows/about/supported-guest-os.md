@@ -1,63 +1,64 @@
 ---
-title: "Поддерживаемые гостевые ОС Windows"
-description: "Поддерживаемые гостевые ОС Windows."
-keywords: windows10, hyper-v
+title: Supported Windows guests
+description: Supported Windows guests.
+keywords: windows 10, hyper-v
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: 7ef4d5aa084d199abfb39d1c44e4dd1305e07904
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: ac1ec3740cfa75acd8c005df3f67531c693cd914
+ms.sourcegitcommit: 63e890ad2caae3ce55503af81c6c5ff0d1e630f6
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/17/2017
 ---
-# Поддерживаемые гостевые ОС Windows 
+# Supported Windows guests 
 
-В этой статье приводится список сочетаний операционных систем, поддерживаемых в Hyper-V в Windows.  В ней также рассматриваются службы интеграции и другие поддерживаемые факторы.
+This article lists the operating system combinations supported in Hyper-V on Windows.  It also serves as an introduction to integration services and other factors in support.
 
-## Что подразумевается под поддержкой? 
-Под поддержкой понимается, что эти сочетания гостевых ОС и узлов протестированы корпорацией Майкрософт.  Проблемы, связанные с взаимодействием этих систем, будут рассмотрены службой технической поддержки Майкрософт.
+## What does support mean? 
+Support means Microsoft has tested these host/guest combinations.  Issues with these combinations may receive attention from Product Support Services.
  
-Корпорация Майкрософт обеспечивает поддержку гостевых операционных систем следующим образом:
-* Устранение проблем, обнаруженных в операционных системах Майкрософт и в службах интеграции, поддерживается службой технической поддержки Майкрософт.
-* Поддержка по проблемам в других операционных системах, сертифицированных поставщиком операционной системы для выполнения в Hyper-V, обеспечивается поставщиком.
-* Если обнаруживаются проблемы в других операционных системах, корпорация Майкрософт отправляет описание проблемы в сообщество по оказанию поддержки, состоящее из множества поставщиков, [TSANet](http://www.tsanet.org/).
+Microsoft provides support for guest operating systems in the following manner:
+* Issues found in Microsoft operating systems and in integration services are supported by Microsoft support.
+* For issues found in other operating systems that have been certified by the operating system vendor to run on Hyper-V, support is provided by the vendor.
+* For issues found in other operating systems, Microsoft submits the issue to the multi-vendor support community, [TSANet](http://www.tsanet.org/).
 
-Поддержка предоставляется, только если на узле Hyper-V и в гостевой операционной системе установлены все критические обновления, доступные через Центр обновления Windows.
+In order to be supported, both the Hyper-V host and guest must be updated with all critical updates available through Windows Update.
 
-## Поддерживаемые операционные системы на виртуальной машине
+## Supported guest operating systems
 
-Поддержка предоставляется, только если в гостевых операционных системах Windows и операционной системе узла установлены все критические обновления, доступные через Центр обновления Windows.
+In order to receive support, both the Windows guest operating systems and the host operating system must be current with all critical updates available through Windows Update.
 
-| Гостевая операционная система |  Максимальное число виртуальных процессоров. | Заметки | 
+| Guest operating system |  Maximum number of virtual processors | Notes | 
 |:-----|:-----|:-----|
 | Windows 10 | 32 | |
 | Windows 8.1 | 32 | |
 | Windows 8 | 32 |  |
-| Windows7 с пакетом обновления1 (SP1) | 4 | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
-| Windows7 | 4 | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
-| Windows Vista с пакетом обновления 2 (SP2) | 2 | Business, Enterprise и Ultimate, включая выпуски N и KN | 
+| Windows 7 with Service Pack 1 (SP 1) | 4 | Ultimate, Enterprise, and Professional editions (32-bit and 64-bit). |
+| Windows 7 | 4 | Ultimate, Enterprise, and Professional editions (32-bit and 64-bit). |
+| Windows Vista with Service Pack 2 (SP2) | 2 | Business, Enterprise, and Ultimate, including N and KN editions. | 
 | - | | |
+| Windows Server 2016 | 64 | |
 | WindowsServer2012R2 | 64 | |
-| Windows Server2012 | 64 | |
-| Windows Server2008R2 с пакетом обновления1 (SP1) | 64 | Выпуски Datacenter, Enterprise, Standard и Web. |
-| Windows Server2008 с пакетом обновления2 (SP2) | 4 | Выпуски Datacenter, Enterprise, Standard и Web (32-разрядные и 64-разрядные). |
+| Windows Server 2012 | 64 | |
+| Windows Server 2008 R2 with Service Pack 1 (SP 1) | 64 | Datacenter, Enterprise, Standard and Web editions. |
+| Windows Server 2008 with Service Pack 2 (SP 2) | 4 | Datacenter, Enterprise, Standard and Web editions (32-bit and 64-bit). |
 | Windows Home Server 2011 | 4 | |
-| Windows Small Business Server 2011 | Выпуск Essentials Edition — 2, Standard Edition — 4 | |
+| Windows Small Business Server 2011 | Essentials edition - 2, Standard edition - 4 | |
   
- > Windows 10 можно запустить в качестве гостевой операционной системы на узлах Hyper-V с Windows 8.1 и Windows Server 2012 R2.
+ > Windows 10 can run as a guest operating system on Windows 8.1 and Windows Server 2012 R2 Hyper-V hosts.
 
-## Поддерживаемые ОС Linux и FreeBSD
+## Supported Linux and Free BSD
 
-| Гостевая операционная система |  |
+| Guest operating system |  |
 |:-----|:------|
-| [CentOS и Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx) | |
-| [Виртуальные машины Debian на базе Hyper-V](https://technet.microsoft.com/library/dn614985.aspx) | |
+| [CentOS and Red Hat Enterprise Linux ](https://technet.microsoft.com/library/dn531026.aspx) | |
+| [Debian virtual machines on Hyper-V](https://technet.microsoft.com/library/dn614985.aspx) | |
 | [SUSE](https://technet.microsoft.com/en-us/library/dn531027.aspx) | |
 | [Oracle Linux](https://technet.microsoft.com/en-us/library/dn609828.aspx)  | |
 | [Ubuntu](https://technet.microsoft.com/en-us/library/dn531029.aspx) | |
 | [FreeBSD](https://technet.microsoft.com/library/dn848318.aspx) | |
 
-Дополнительные сведения, в том числе информацию о поддержке предыдущих версий Hyper-V, см. в статье [Linux and FreeBSD Virtual Machines on Hyper-V](https://technet.microsoft.com/library/dn531030.aspx) (Виртуальные машины Linux и FreeBSD на базе Hyper-V).
+For more information, including support information on past versions of Hyper-V, see [Linux and FreeBSD Virtual Machines on Hyper-V](https://technet.microsoft.com/library/dn531030.aspx).

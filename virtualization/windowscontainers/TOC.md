@@ -1,50 +1,47 @@
 # [Сведения о контейнерах Windows](about/index.md)
 
-# Краткое руководство по Windows Server
-## [Шаг1. Основные понятия](quick_start/quick_start.md)
-## [Шаг2. Первый контейнер](quick_start/quick_start_windows_server.md)
-## [Шаг3. Образы контейнеров](quick_start/quick_start_images.md)
-
 # Краткое руководство по Windows10
-## [Шаг1. Основные понятия](quick_start/quick_start.md)
-## [Шаг2. Первый контейнер](quick_start/quick_start_windows_10.md)
+## [Запуск первого контейнера](quick-start/quick-start-windows-10.md)
+## [Создание примера приложения](quick-start/building-sample-app.md)
+
+# Краткое руководство по Windows Server
+## [Запуск первого контейнера](quick-start/quick-start-windows-server.md)
+## [Автоматизация сборки контейнера](quick-start/quick-start-images.md)
 
 # Краткое руководство по программе предварительной оценки Windows
-## [Шаг 1. Использование образов контейнеров программы предварительной оценки](quick-start/Using-Insider-Container-Images.md)
-## [Шаг. Сборка и запуск приложения](quick-start/Nano-RS3-.NET-Core-and-PS.md)
-## [Шаг 3. Известные проблемы](quick-start/Insider-Known-Issues.md)
+## [Step 1 - Using the Insider images](quick-start/Using-Insider-Container-Images.md)
+## [Step 2 - Build and Run an Application](quick-start/Nano-RS3-.NET-Core-and-PS.md)
+## [Step 3 - Known Issues](quick-start/Insider-Known-Issues.md)
 
-# Развертывание контейнера Windows
-## [Системные требования](deployment/system_requirements.md)
-## [Изоляция Hyper-V](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/hyperv-container)
-## [Узел контейнера— Windows Server](deployment/deployment.md)
-## [Узел контейнера— Nano Server](deployment/deployment_nano.md)
+# Deploy Windows Container
+## [Системные требования](deploy-containers/system-requirements.md)
+## [Развертывание](deploy-containers/deploy-containers-on-server.md)
 ## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
+## [Учетные записи службы Active Directory](manage-containers/manage-serviceaccounts.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
-## [Учетные записи службы Active Directory](management/manage_serviceaccounts.md)
 
 # Управление Docker в Windows
-## [Подсистема Docker в Windows](docker/configure_docker_daemon.md)
-## [Файлы Dockerfile в Windows](docker/manage_windows_dockerfile.md)
-## [Оптимизация файлов Dockerfile](docker/optimize_windows_dockerfile.md)
-## [Сетевые подключения контейнеров](management/container_networking.md)
-## [Начало работы с режимом мелких объектов](manage-containers/swarm-mode.md)
-## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
-## [Удаленное управление узлом Docker в Windows](management/manage_remotehost.md)
+## [Docker Engine on Windows](docker/configure_docker_daemon.md)
+## [Dockerfiles on Windows](docker/manage_windows_dockerfile.md)
+## [Optimize Dockerfiles](docker/optimize_windows_dockerfile.md)
+## [Container Networking](management/container_networking.md)
+## [Getting Started with Swarm Mode](manage-containers/swarm-mode.md)
+## [Manage Docker with PowerShell](https://github.com/Microsoft/Docker-PowerShell)
+## [Remote Management of a Windows Docker Host](management/manage_remotehost.md)
 
-# Примеры контейнеров
-## [Платформы приложений](samples.md#Application-Frameworks)
-## [Языки программирования](samples.md#Programing-Languages)
-## [Базы данных](samples.md#Databases)
-## [Инфраструктуру и средства CI](samples.md#Infrastructure-and-CI-Tools)
-## [Просто для интереса](samples.md#Just-for-Fun)
-## [другой](samples.md#Other)
-
-
-# Сообщество и поддержка
-## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
-## [Видеоматериалы и блоги сообщества](communitylinks.md)
-## [Диагностика](troubleshooting.md)
+# Container Samples
+## [Application Frameworks](samples.md#Application-Frameworks)
+## [Programing Languages](samples.md#Programing-Languages)
+## [Databases](samples.md#Databases)
+## [Infrastructure and CI Tools](samples.md#Infrastructure-and-CI-Tools)
+## [Just for Fun](samples.md#Just-for-Fun)
+## [Other](samples.md#Other)
 
 
-# [Лицензионное соглашение для образа ОС контейнера](Images_EULA.md)
+# Community and Support
+## [Container Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Community Videos and Blogs](communitylinks.md)
+## [Troubleshooting](troubleshooting.md)
+
+
+# [Container OS Image EULA](Images_EULA.md)

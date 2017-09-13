@@ -1,78 +1,78 @@
 ---
-title: "Вложенная виртуализация"
-description: "Вложенная виртуализация"
-keywords: windows10, hyper-v
+title: Nested Virtualization
+description: Nested Virtualization
+keywords: windows 10, hyper-v
 author: theodthompson
 ms.date: 06/20/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: 7d16fcf22187ae3ace25fe1bedbc02f3c6b63eb8
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: fb790611ea994c68f3e3a3b0404a297c595f0646
+ms.sourcegitcommit: 6eddc44b18109df52a02c01ce2661db621882e7d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/29/2017
 ---
-# Запуск Hyper-V в виртуальной машине со вложенной виртуализацией
+# Run Hyper-V in a Virtual Machine with Nested Virtualization
 
-Вложенная виртуализация— это компонент, который позволяет запускать Hyper-V в виртуальной машине Hyper-V. Другими словами, с помощью вложенной виртуализации можно виртуализировать сам узел Hyper-V. К вариантам использования вложенной виртуализации можно отнести запуск контейнера Hyper-V на виртуализированном узле контейнеров, настройку лаборатории Hyper-V в виртуализированной среде или тестирование сценариев для нескольких компьютеров без необходимости использования дополнительного оборудования. В этом документе подробно описываются требования к программному обеспечению и оборудованию, действия по настройке и ограничения. 
+Nested virtualization is a feature that allows you to run Hyper-V inside of a Hyper-V virtual machine. In other words, with nested virtualization, a Hyper-V host itself can be virtualized. Some use cases for nested virtualization would be to run a Hyper-V Container in a virtualized container host, set-up a Hyper-V lab in a virtualized environment, or to test multi-machine scenarios without the need for individual hardware. This document will detail software and hardware prerequisites, configuration steps, and limitations. 
 
-## Необходимые компоненты
+## Prerequisites
 
-- Узел Hyper-V под управлением Windows Server2016 или Windows10 с юбилейным обновлением.
-- Виртуальная машина Hyper-V под управлением Windows Server2016 или Windows10 с юбилейным обновлением.
-- Виртуальная машина Hyper-V с версией конфигурации8.0 или более высокой.
-- Процессор Intel с технологиями VT-x и EPT.
+- A Hyper-V host running Windows Server 2016 or Windows 10 Anniversary Update.
+- A Hyper-V VM running Windows Server 2016 or Windows 10 Anniversary Update.
+- A Hyper-V VM with configuration version 8.0 or greater.
+- An Intel processor with VT-x and EPT technology.
 
-## Настройка вложенной виртуализации
+## Configure Nested Virtualization
 
-1. Создание виртуальной машины. Необходимые версии ОС и виртуальных машин см. в предварительных требованиях выше.
-2. Пока виртуальная машина находится в отключенном состоянии, запустите следующую команду на физическом узле Hyper-V. В виртуальной машине будет включена вложенная виртуализация.
+1. Create a virtual machine. See the prerequisites above for the required OS and VM versions.
+2. While the virtual machine is in the OFF state, run the following command on the physical Hyper-V host. This enables nested virtualization for the virtual machine.
 
 ```none
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $true
 ```
-3. запустите ее.
-4. Установите Hyper-V в виртуальной машине так же, как на физическом сервере. Дополнительные сведения об установке Hyper-V см. в разделе [Установка Hyper-V](../quick-start/enable-hyper-v.md).
+3. Start the virtual machine.
+4. Install Hyper-V within the virtual machine, just like you would for a physical server. For more information on installing Hyper-V see, [Install Hyper-V](../quick-start/enable-hyper-v.md).
 
-## Отключение вложенной виртуализации
-Вы можете отключить вложенную виртуализацию в остановленной виртуальной машине следующей командой PowerShell:
+## Disable Nested Virtualization
+You can disable nested virtualization for a stopped virtual machine using the following PowerShell command:
 ```none
 Set-VMProcessor -VMName <VMName> -ExposeVirtualizationExtensions $false
 ```
 
-## Изменение размера динамической памяти и памяти для среды выполнения
-При запуске Hyper-V в виртуальной машине в ней должна быть отключена настройка памяти. Это означает, что даже если динамическая память включена, ее объем не будет изменяться. Для виртуальных машин без динамической памяти все попытки изменить объем памяти включенной машины завершатся сбоем. 
+## Dynamic Memory and Runtime Memory Resize
+When Hyper-V is running inside a virtual machine, the virtual machine must be turned off to adjust its memory. This means that even if dynamic memory is enabled, the amount of memory will not fluctuate. For virtual machines without dynamic memory enabled, any attempt to adjust the amount of memory while it's on will fail. 
 
-Обратите внимание, что само включение вложенной виртуализации не повлияет на изменение размера динамической памяти или памяти для среды выполнения. Несовместимость происходит, только если Hyper-V выполняется в виртуальной машине.
+Note that simply enabling nested virtualization will have no effect on dynamic memory or runtime memory resize. The incompatibility only occurs while Hyper-V is running in the VM.
 
-## Параметры сетей
-Существуют два параметра для сетей со вложенными виртуальными машинами: спуфинг MAC-адресов и режим NAT.
+## Networking Options
+There are two options for networking with nested virtual machines: MAC address spoofing and NAT mode.
 
-### Спуфинг MAC-адресов
-Чтобы сетевые пакеты перенаправлялись через два виртуальных коммутатора, необходимо включить спуфинг MAC-адресов на первом уровне виртуального коммутатора. Это можно сделать с помощью следующей команды PowerShell.
+### MAC Address Spoofing
+In order for network packets to be routed through two virtual switches, MAC address spoofing must be enabled on the first level of virtual switch. This is completed with the following PowerShell command.
 
 ```none
 Get-VMNetworkAdapter -VMName <VMName> | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
-### Преобразование сетевых адресов
-Второй параметр связан с преобразованием сетевых адресов (NAT). Этот подход рекомендуется для случаев, когда спуфинг MAC-адресов невозможен, например в общедоступной облачной среде.
+### Network Address Translation
+The second option relies on network address translation (NAT). This approach is best suited for cases where MAC address spoofing is not possible, like in a public cloud environment.
 
-Сначала необходимо создать виртуальный коммутатор NAT в виртуальной машине узла ("средняя" виртуальная машина). Обратите внимание, что IP-адреса приведены только в качестве примера и будут разниться в зависимости от сред:
+First, a virtual NAT switch must be created in the host virtual machine (the "middle" VM). Note that the IP addresses are just an example, and will vary across environments:
 ```none
-new-vmswitch -name VmNAT -SwitchType Internal
+New-VMSwitch -Name VmNAT -SwitchType Internal
 New-NetNat –Name LocalNAT –InternalIPInterfaceAddressPrefix “192.168.100.0/24”
 ```
-Далее назначьте IP-адрес для сетевого адаптера:
+Next, assign an IP address to the net adapter:
 ```none
-get-netadapter "vEthernet (VmNat)" | New-NetIPAddress -IPAddress 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
+Get-NetAdapter "vEthernet (VmNat)" | New-NetIPAddress -IPAddress 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
 ```
-Каждая вложенная виртуальная машина должна иметь назначенный IP-адрес и шлюз. Обратите внимание, что IP-адрес шлюза должен указывать на адаптер NAT из предыдущего действия. Можно также назначить DNS-сервер:
+Each nested virtual machine must have an IP address and gateway assigned to it. Note that the gateway IP must point to the NAT adapter from the previous step. You may also want to assign a DNS server:
 ```none
-get-netadapter "Ethernet" | New-NetIPAddress -IPAddress 192.168.100.2 -DefaultGateway 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
+Get-NetAdapter "Ethernet" | New-NetIPAddress -IPAddress 192.168.100.2 -DefaultGateway 192.168.100.1 -AddressFamily IPv4 -PrefixLength 24
 Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 ```
 
-## Сторонние приложения виртуализации
-Приложения виртуализации, отличные от Hyper-V, не поддерживаются в виртуальных машинах Hyper-V и скорее всего приведут к сбою. Сюда входит любое программное обеспечение, требующее расширений виртуализации оборудования.
+## 3rd Party Virtualization Apps
+Virtualization applications other than Hyper-V are not supported in Hyper-V virtual machines, and are likely to fail. This includes any software that requires hardware virtualization extensions.

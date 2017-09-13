@@ -1,87 +1,104 @@
 ---
-title: "О контейнерах Windows"
-description: "Дополнительные сведения о контейнерах Windows."
-keywords: "docker, контейнеры"
+title: About Windows Containers
+description: Learn about Windows containers.
+keywords: docker, containers
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: a70564f565a69f15ef4d668ccab0aa3b18c758ae
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 2be7a06c7b7b154e392c30981cdf954d2d1b796e
+ms.sourcegitcommit: 8e193d8c274a549aef497f16dcdb00d7855e9fa7
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/02/2017
 ---
-# Контейнеры Windows
-
-**Это предварительное содержимое. Возможны изменения.** 
+# Windows Containers
 
 ## Что такое контейнеры?
 
+Контейнеры— это способ разместить приложение в собственной изолированной «коробке». У приложения в контейнере нет сведений о других приложениях или процессах, размещенных за пределами этой «коробки». Все необходимое приложению для успешной работы также находится в этом контейнере.  Куда бы контейнер не переместить, приложение всегда будет работать, так как оно получит все необходимое для запуска.
+
+Представьте себе кухню. Здесь мы размещаем все устройства и мебель, кастрюли и сковородки, моющее средство и полотенца. Это наш контейнер.
+
+<center style="margin: 25px">![](media/box1.png)</center>
+
+Теперь мы возьмем этот контейнер и поместим его в любую квартиру, при этом кухня никак не изменится. Нам нужно только подключить электричество и воду, и мы сразу сможем начать готовить (так как у нас есть все необходимые устройства).
+
+<center style="margin: 25px">![](media/apartment.png)</center>
+
+Контейнеры похожи на такую кухню. Могут существовать различные виды комнаты, а также множество комнат одного типа. Главное здесь— то, что контейнеры содержат все необходимое для приложения.
+
 Краткий обзор приведен в видео [Контейнеры на основе Windows: разработка современных приложений с корпоративным уровнем управления](https://youtu.be/Ryx3o0rD5lY).
-
-Контейнеры— это изолированная, управляемая с учетом ресурсов и переносимая операционная среда.
-
-По сути контейнер — это изолированная область, в которой приложение может работать без изменения ресурсов (памяти, диска, сети, и т. д) других контейнеров или узла.
-
-Контейнер выглядит и действует как только что установленной физический компьютер или виртуальная машина. Контейнером Windows Server можно управлять с помощью [Docker](https://www.docker.com/) так же, как и любым другим контейнером.
-
-## Типы контейнеров Windows
-
-Контейнеры Windows делятся на два типа (бывают две среды выполнения).
-
-**Контейнеры Windows Server**— обеспечивают изоляцию приложений благодаря изоляции процессов и пространств имен. Контейнер Windows Server использует ядро совместно с узлом контейнера и всеми остальными контейнерами на этом узле.  Эти контейнеры не обеспечивают защиту от неблагоприятных сред, поэтому их не следует использовать для изоляции ненадежного кода.  Эти контейнеры совместно используют пространство ядра с узлом и другими контейнерами в том же узле, поэтому ядро должно быть согласованным (одна и та же версия и конфигурация).
-
-**Изоляция Hyper-V**— открывает более широкие возможности изоляции по сравнению с контейнерами Windows Server, так как каждый контейнер запускается в виртуальной машине с высоким уровнем оптимизации. В этой конфигурации ядро узла контейнера не используется совместно с другими контейнерами на том же узле.  Эти контейнеры предназначены для неблагоприятных сред с несколькими арендаторами и обеспечивают уровень безопасности, аналогичный уровню защиты, обеспечиваемой виртуальной машиной. Так как эти контейнеры не используют то же ядро, что и узел или другие контейнеры в узле, они могут запускать ядра с другими версиями и конфигурациями (в поддерживаемых версиях). Например, все контейнеры Windows в Windows 10 используют изоляцию Hyper-V, чтобы применять версию ядра и конфигурацию Windows Server.
-
 
 ## Принципы работы контейнера
 
-Когда вы начнете использовать контейнеры, вы заметите, что они во многом похожи на виртуальные машины. Контейнер работает под управлением операционной системы и содержит файловую систему, к нему можно получить сетевой доступ, чем напоминает физический или виртуальный компьютер. При этом у контейнеров и виртуальных машин совершенно разные технология и принцип работы.  
+Контейнеры— это изолированная и переносимая среда выполнения с контролируемыми ресурсами, которая работает на хост-компьютере или виртуальной машине. Приложения или процессы, которые запускаются в контейнере, поставляются вместе со всеми необходимыми компонентами и файлами конфигурации. Они не имеют представления о других процессах, выполняющихся вне контейнера.
 
-Принцип работы контейнеров хорошо объясняется в [этой записи блога](http://azure.microsoft.com/blog/2015/08/17/containers-docker-windows-and-trends/) Марка Руссиновича (Mark Russinovich).
+Узел контейнера предоставляет набор ресурсов, и контейнер будет использовать только их. Контейнер считает, что других ресурсов, помимо предоставленных, не существует, поэтому он не может взаимодействовать с ресурсами, выделенными соседнему контейнеру.
 
-При создании контейнеров Windows и последующей работе с ними пригодятся перечисленные ниже основные понятия. 
+При создании контейнеров Windows и последующей работе с ними пригодятся перечисленные ниже основные понятия.
 
-**Узел контейнера.** Физический или виртуальный компьютер, настроенный для работы с контейнерами Windows. На узле контейнера работает один или несколько контейнеров Windows.
+**Container Host:** Physical or Virtual computer system configured with the Windows Container feature. На узле контейнера работает один или несколько контейнеров Windows.
 
-**Образ контейнера.** По мере того как в файловую систему или реестр контейнера вносятся изменения (например, при установке программного обеспечения), они регистрируются в "песочнице".  Во многих случаях может потребоваться зарегистрировать это состояние, чтобы применить внесенные изменения при создании новых контейнеров. В этом и заключается суть образа:после остановки работы контейнера можно либо отключить "песочницу", либо преобразовать ее в новый образ контейнера. Предположим, например, что вы развернули контейнер в образе Windows Server Core. Затем вы устанавливаете в этот контейнер MySQL. Создание нового образа на базе этого контейнера будет происходить аналогично его развертыванию. Этот образ будет содержать только внесенные изменения (MySQL) и при этом работать в виде слоя поверх образа ОС контейнера.
+**Образ контейнера.** По мере того как в файловую систему или реестр контейнера вносятся изменения (например, при установке программного обеспечения), они регистрируются в "песочнице". Во многих случаях может потребоваться зарегистрировать это состояние, чтобы применить внесенные изменения при создании новых контейнеров. That’s what an image is – once the container has stopped you can either discard that sandbox or you can convert it into a new container image. For example, let’s imagine that you have deployed a container from the Windows Server Core OS image. You then install MySQL into this container. Creating a new image from this container would act as a deployable version of the container. This image would only contain the changes made (MySQL), however would work as a layer on top of the Container OS Image.
 
-**"Песочница".** После запуска контейнера все операции записи (изменения файловой системы и реестра либо установка программного обеспечения) регистрируются на уровне "песочницы".  
- 
-**Образ ОС контейнера.** Контейнеры развертываются из образов. Образ ОС контейнера— это первый из возможного множества слоев образа, составляющих контейнер. Этот образ представляет собой среду операционной системы. Образ ОС контейнера неизменный, его невозможно изменить.
+**Sandbox:** Once a container has been started, all write actions such as file system modifications, registry modifications or software installations are captured in this ‘sandbox’ layer.
+
+**Container OS Image:** Containers are deployed from images. The container OS image is the first layer in potentially many image layers that make up a container. Этот образ представляет собой среду операционной системы. Образ ОС контейнера невозможно изменить.
 
 **Репозиторий контейнера.** При каждом создании образа контейнера этот образ и его зависимости сохраняются в локальном репозитории. Эти образы можно использовать повторно много раз на узле контейнера. Образы контейнеров также можно хранить в открытом или закрытом реестре (например, Docker Hub), чтобы использовать на многих других узлах контейнеров.
 
 <center>![](media/containerfund.png)</center>
 
-## Контейнеры для разработчиков
+Всем, кто работал с виртуальными машинами, контейнеры может показаться чем-то знакомым. A container runs an operating system, has a file system and can be accessed over a network just as if it was a physical or virtual computer system. При этом у контейнеров и виртуальных машин совершенно разные технология и принцип работы.
 
-Образ Docker можно создать где угодно, начиная с компьютера разработчика и заканчивая тестовыми и рабочими компьютерами. При этом его развертывание в любой среде будет выполнено одинаково и за считанные секунды. Благодаря этому появилась развитая и расширяющаяся экосистема приложений, запакованных в контейнеры Docker. При этом в общедоступных репозиториях Docker Hub, открытого реестра контейнерных приложений, который Docker обслуживает, в настоящее время опубликовано более 180000приложений.  
+Марк Руссинович (Mark Russinovich), гуру Microsoft Azure, написал [прекрасную статью в блоге](https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/), в которой подробно описаны различия.
 
-Когда вы упаковываете приложение, образ содержит только само приложение и компоненты, необходимые для его запуска. При необходимости на базе этого образа создаются контейнеры. Кроме того, образ можно создать на основе другого образа, что еще более ускоряет рабочий процесс.  Один и тот же образ могут использовать несколько контейнеров, что ускорит их запуск и снизит количество необходимых для этого ресурсов. Например, с помощью контейнеров можно выполнить развертывание облегченных и переносимых компонентов приложений (микрослужб) для распределенных приложений, а также быстрое масштабирование каждой такой службы отдельно.
+## Типы контейнеров Windows
 
-Так как контейнер содержит все необходимое для запуска приложения, он отличается высокой переносимостью и может запускаться на любом компьютере под управлением Windows Server 2016. Можно создать и протестировать контейнер локально, а затем развернуть образ этого контейнера на сервере поставщика услуг, а также в частном или общедоступном облаке компании. Адаптивность контейнеров позволяет использовать современные модели разработки приложений в крупномасштабных, виртуализированных и облачных средах.
+Windows Containers include two different container types, or runtimes.
 
-С помощью контейнеров разработчики могут создать приложение на любом языке. Такие полностью переносимые приложения можно запускать где угодно (на ноутбуке, настольном компьютере, сервере, в частном и общедоступном облаке или у поставщика услуг) без необходимости изменения кода.  
+**Windows Server Containers** – provide application isolation through process and namespace isolation technology. A Windows Server Container shares a kernel with the container host and all containers running on the host. Эти контейнеры не обеспечивают защиту от неблагоприятных сред, поэтому их не следует использовать для изоляции ненадежного кода. Из-за общего пространства ядра для этих контейнеров требуется одинаковая версия и конфигурация ядра.
 
-Контейнеры помогают разработчикам быстрее создавать и поставлять высококачественные приложения.
+**Изоляция Hyper-V**— открывает более широкие возможности изоляции по сравнению с контейнерами Windows Server, так как каждый контейнер запускается в виртуальной машине с высоким уровнем оптимизации. In this configuration, the kernel of the container host is not shared with other containers on the same host. Эти контейнеры предназначены для неблагоприятных сред с несколькими арендаторами и обеспечивают уровень безопасности, аналогичный уровню защиты, обеспечиваемой виртуальной машиной. Так как эти контейнеры не используют то же ядро, что и узел или другие контейнеры в узле, они могут запускать ядра с другими версиями и конфигурациями (в поддерживаемых версиях). Например, все контейнеры Windows в Windows 10 используют изоляцию Hyper-V, чтобы применять версию ядра и конфигурацию Windows Server.
 
-## Контейнеры для ИТ-специалистов ##
+Решение о запуске контейнера в Windows с изоляцией Hyper-V или без нее принимается во время выполнения. Вы можете изначально создать контейнер с изоляцией Hyper-V, а затем во время выполнения запустить его как контейнер Windows Server.
 
-Благодаря использованию контейнеров рабочим группам по разработке и контролю качества, а также технологическому отделу доступны стандартизированные среды. Следовательно, этим ИТ-специалистам не нужно выполнять сложные шаги по установке и настройке. При использовании контейнеров системные администраторы не должны учитывать различия в установленных операционных системах и особенности базовых инфраструктур.
+## Что такое Docker?
 
-С помощью контейнеров администраторы могут создавать инфраструктуру, которую проще обновлять и обслуживать.
+Читая о контейнерах, вы неизбежно услышите о Docker. Docker— это среда для создания и доставки пакетов образов контейнеров. Этот автоматический процесс создает образы (т. е. шаблоны), которые затем можно запускать в любом месте — в локальной среде, в облаке или на персональном компьютере — в виде контейнера.
 
-## Видеообзор
+<center>![](media/docker.png)</center>
 
-<iframe 
-src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
+Контейнерами Windows Server, как и любыми другими, можно управлять с помощью [Docker](https://www.docker.com).
 
+## Контейнеры для разработчиков ##
+
+From a developer’s desktop to a testing machine to a set of production machines, a Docker image can be created that will deploy identically across any environment in seconds. This story has created a massive and growing ecosystem of applications packaged in Docker containers, with DockerHub, the public containerized-application registry that Docker maintains, currently publishing more than 180,000 applications in the public community repository.
+
+When you containerize an app, only the app and the components needed to run the app are combined into an "image". Containers are then created from this image as you need them. You can also use an image as a baseline to create another image, making image creation even faster. Multiple containers can share the same image, which means containers start very quickly and use fewer resources. For example, you can use containers to spin up light-weight and portable app components – or ‘micro-services’ – for distributed apps and quickly scale each service separately.
+
+Because the container has everything it needs to run your application, they are very portable and can run on any machine that is running Windows Server 2016. You can create and test containers locally, then deploy that same container image to your company's private cloud, public cloud or service provider. The natural agility of Containers supports modern app development patterns in large scale, virtualized and cloud environments.
+
+With containers, developers can build an app in any language. These apps are completely portable and can run anywhere - laptop, desktop, server, private cloud, public cloud or service provider - without any code changes.  
+
+Containers helps developers build and ship higher-quality applications, faster.
+
+## Containers for IT Professionals ##
+
+IT Professionals can use containers to provide standardized environments for their development, QA, and production teams. They no longer have to worry about complex installation and configuration steps. By using containers, systems administrators abstract away differences in OS installations and underlying infrastructure.
+
+Containers help admins create an infrastructure that is simpler to update and maintain.
+
+## Video Overview
+
+<iframe src="https://channel9.msdn.com/Blogs/containers/Containers-101-with-Microsoft-and-Docker/player" width="800" height="450" allowFullScreen="true" frameBorder="0" scrolling="no"></iframe>
 
 ## Попробуйте контейнеры Windows Server
 
-[Знакомство с кратким руководством по контейнерам](../quick_start/quick_start.md)
+Готовы воспользоваться всеми преимуществами контейнеров? Перейдите по ссылкам ниже, чтобы получить инструкции по развертыванию вашего первого контейнера: <br/>
+Для пользователей Windows Server: перейдите по ссылке [Краткое руководство для Windows Server](../quick-start/quick-start-windows-server.md). <br/>
+Для пользователей Windows 10: перейдите по ссылке [Краткое руководство для Windows 10](../quick-start/quick-start-windows-10.md).
 

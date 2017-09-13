@@ -1,74 +1,74 @@
 ---
-title: "Контейнеры Windows в Windows Server"
-description: "Краткое руководство по развертыванию контейнеров"
-keywords: "docker, контейнеры"
+title: Windows Containers on Windows Server
+description: Container deployment quick start
+keywords: docker, containers
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: 569ba8619e60a9c34c2939ff2106076e66040aa8
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 8eccd365c9d740d9e71ba9f8472d378f2f4e29c1
+ms.sourcegitcommit: 2be85d176ca76205fee5bf2008a0aeececa204e4
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 08/03/2017
 ---
-# Контейнеры Windows в Windows Server
+# Windows Containers on Windows Server
 
-Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server2016. Во время этого упражнения вы установите роль контейнера и развернете простой контейнер Windows Server. Перед началом работы с этим кратким руководством ознакомьтесь с основными понятиями и терминологией для контейнеров. Эти сведения можно найти в статье [Знакомство с кратким руководством](./index.md).
+This exercise walks through basic deployment and use of the Windows container feature on Windows Server 2016. During this exercise, you install the container role and deploy a simple Windows Server container. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
 
-В этом кратком руководстве рассматриваются контейнеры Windows Server в Windows Server2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
+В этом кратком руководстве рассматриваются контейнеры Windows Server в Windows Server2016. Additional quick start documentation, including containers in Windows 10, are found in the table of contents on the left hand side of this page.
 
-**Предварительные требования:**
+**Prerequisites:**
 
-Одна компьютерная система (физическая или виртуальная), работающая под управлением Windows Server2016. Если вы используете Windows Server2016TP5, обновите [Window Server2016 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ). 
+One computer system (physical or virtual) running Windows Server 2016. If you are using Windows Server 2016 TP5, please update to [Window Server 2016 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ).
 
-> Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
+> Critical updates are needed in order for the Windows Container feature to function. Please install all updates before working through this tutorial.
 
-Если вы хотите провести развертывание в Azure, это легко сделать с помощью следующего [шаблона](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template).<br/>
+If you would like to deploy on Azure, this [template](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template) makes it easy.<br/>
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2FVirtualization-Documentation%2Flive%2Fwindows-server-container-tools%2Fcontainers-azure-template%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
 
-## 1. Установка Docker
+## 1. Install Docker
 
-Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget), который работает с поставщиками для выполнения установки (в нашем случае это поставщик [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider)). Поставщик включит функцию контейнеров на вашем компьютере. Вы также установите Docker, после чего потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
+To install Docker we'll use the [OneGet provider PowerShell module](https://github.com/oneget/oneget) which works with providers to perform the installation, in this case the [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider). The provider enables the containers feature on your machine. You also install Docker which requires a reboot. Docker is required in order to work with Windows containers. It consists of the Docker Engine and the Docker client.
 
-Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
+Open an elevated PowerShell session and run the following commands.
 
-Сначала установите поставщик Docker-Microsoft PackageManagement из [коллекции PowerShell](https://www.powershellgallery.com/packages/DockerMsftProvider).
+First, install the Docker-Microsoft PackageManagement Provider from the [PowerShell Gallery](https://www.powershellgallery.com/packages/DockerMsftProvider).
 
 ```none
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
-Затем можно использовать модуль PackageManagement PowerShell, чтобы установить последнюю версию Docker.
+Next, you use the PackageManagement PowerShell module to install the latest version of Docker.
 ```none
 Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
 
-Когда в PowerShell появится запрос, доверять ли источнику пакета DockerDefault, введите `A`, чтобы продолжить установку. После завершения установки перезагрузите компьютер.
+When PowerShell asks you whether to trust the package source 'DockerDefault', type `A` to continue the installation. When the installation is complete, reboot the computer.
 
 ```none
 Restart-Computer -Force
 ```
 
-> Совет. Если потребуется обновить Docker позже, выполните следующие действия.
->  - Проверьте установленную версию с помощью команды `Get-Package -Name Docker -ProviderName DockerMsftProvider`
->  - Найдите текущую версию с помощью команды `Find-Package -Name Docker -ProviderName DockerMsftProvider`
->  - После этого выполните обновление с помощью команды `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force` и команды `Start-Service Docker`
+> Tip: If you want to update Docker later:
+>  - Check the installed version with `Get-Package -Name Docker -ProviderName DockerMsftProvider`
+>  - Find the current version with `Find-Package -Name Docker -ProviderName DockerMsftProvider`
+>  - When you're ready, upgrade with `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force`, followed by `Start-Service Docker`
 
-## 2. Установка обновлений Windows
+## 2. Install Windows Updates
 
-Убедитесь, что система Windows Server обновлена, запустив следующее:
+Ensure your Windows Server system is up-to-date by running:
 
 ```none
 sconfig
 ```
 
-Появится текстовое меню настройки, где можно будет выбрать вариант6 (скачивание и установка обновлений):
+This shows a text-based configuration menu, where you can choose option 6 to Download and Install Updates:
 
 ```none
 ===============================================================================
@@ -86,19 +86,19 @@ sconfig
 ...
 ```
 
-При появлении запроса выберите вариантA (скачать все обновления).
+When prompted, choose option A to download all updates.
 
-## 3. Развертывание первого контейнера
+## 3. Deploy Your First Container
 
-В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
+For this exercise, you download a pre-created .NET sample image from the Docker Hub registry and deploy a simple container running a .Net Hello World application.  
 
-Используйте команду `docker run` для развертывания контейнера .Net. Эта команда также скачает образ контейнера, что может занять несколько минут.
+Use `docker run` to deploy the .Net container. This will also download the container image which may take a few minutes.
 
 ```console
 docker run microsoft/dotnet-samples:dotnetapp-nanoserver
 ```
 
-Контейнер запустится, выведет сообщение "Hello world" и завершит работу.
+The container starts, prints the hello world message, and then exits.
 
 ```console
          Dotnet-bot: Welcome to using .NET Core!
@@ -146,10 +146,8 @@ Platform: .NET Core 1.0
 OS: Microsoft Windows 10.0.14393
 ```
 
-Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com]( https://docs.docker.com/engine/reference/run/).
+For in depth information on the Docker Run command, see [Docker Run Reference on Docker.com]( https://docs.docker.com/engine/reference/run/).
 
 ## Дальнейшие действия
 
-[Образы контейнеров в Windows Server](./quick-start-images.md)
-
-[Контейнеры Windows в Windows10](./quick-start-windows-10.md)
+[Автоматизация сборки и сохранения образов](./quick-start-images.md)
