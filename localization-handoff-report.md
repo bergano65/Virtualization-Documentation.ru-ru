@@ -1,33 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 1
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/256b0b2cbfb475a092e083679f1f56ba1487881c/virtualization/windowscontainers/TOC.md) | HandedOffSuccess | [Details](#15ead2d636fc2455c42a7504d7be1ebe2ad10043403)
 
 ## Item Details
-##### <a name='15ead2d636fc2455c42a7504d7be1ebe2ad10043403'></a> Source: [virtualization\windowscontainers\TOC.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/256b0b2cbfb475a092e083679f1f56ba1487881c/virtualization/windowscontainers/TOC.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/931251e51c9cbb79a5a395fecbfb11f3a7135c50/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
-* Handoff Datetime: 2017-10-16 20:37:15
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\windowscontainers\TOC.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/blob/acb5c88f6cafcc4ed2e300234c2f1a456634af10/virtualization/windowscontainers/TOC.md)
-* Current Handback File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
-* Current Handback Datetime: 2017-03-24 13:51:26
-* Bilingual File: [TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/TOC.13173dbdc376543cb6eb74ef16484f39c0ef0fdb.ru-ru.xlf)
-* Bilingual Datetime: 2017-03-24 13:55:48
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
