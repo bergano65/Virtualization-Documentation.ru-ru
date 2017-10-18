@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "eb111c328266fe72a780cfd53c5e0e55de1ec084",
+  "LastProcessedCommit": "2a8e48e9984dbf71ae4811ea7fdecfe3e8966893",
   "LastTranslatedCommit": "54d02462543cd378300b0405c2338c4e1248b723",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -21169,6 +21169,22 @@
       "HandoffFileCommit": "b68c3e09061654948e5f97f8fbb9f21004a8051a",
       "HandoffDateTime": "2017-10-17T19:36:32.6842392Z",
       "HandoffXliffHash": "99610d16a0a0978559e0690fd3d77edcd255d3ea",
+      "HandoffPriority": ""
+    },
+    "695b99e631803aa9d5315ba149cda9a68f5a76bf": {
+      "FileHash": "695b99e631803aa9d5315ba149cda9a68f5a76bf",
+      "SourceFileCommit": "2a8e48e9984dbf71ae4811ea7fdecfe3e8966893",
+      "SourceFilePath": "virtualization\\windowscontainers\\deployment\\deployment_nano.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\windowscontainers\\deployment\\deployment_nano.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\deployment_nano.b4ad903b48200665d4d0c8e4d0956bddc0d52f79.ru-ru.xlf",
+      "HandoffFileCommit": "8c763b78a009897f091a6b96f46224f78077eab3",
+      "HandoffDateTime": "2017-10-18T17:36:24.0540725Z",
+      "HandoffXliffHash": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
       "HandoffPriority": ""
     }
   }
