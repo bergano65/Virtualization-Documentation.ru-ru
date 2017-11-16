@@ -3,6 +3,7 @@
 # [Создание виртуальной машины](quick-start/quick-create-virtual-machine.md)
 # Управление виртуальными машинами с помощью Hyper-V
 ## [Hyper-V и PowerShell](quick-start/try-hyper-v-powershell.md)
+## [Совместное использование устройств с виртуальными машинами](user-guide/enhanced-session-mode.md)
 ## [Работа с контрольными точками](user-guide/checkpoints.md)
 ## [Подключение с помощью PowerShell Direct](user-guide/powershell-direct.md)
 ## [Создание виртуальных машин предварительной версии](user-guide/create-pre-release-vm.md) 

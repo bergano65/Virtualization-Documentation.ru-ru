@@ -8,13 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 622c8f638a815e19a54aa75b6b5ea0688d966ae3
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 1c506016175a8be2608e10063a788d55aa792ce4
+ms.sourcegitcommit: 8ce23ca36f3dbae96a09f73d8c2f235943f8cd47
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 10/17/2017
 ---
-# Журнал базовых образов для контейнеров Windows
+# <a name="windows-container-base-image-history"></a>Журнал базовых образов для контейнеров Windows
 
 Каждый контейнер Windows строится на основе базовой ОС, предоставляемой корпорацией Майкрософт. Если вы не знаете, для какой версии Windows был создан контейнер, можно выполнить `docker inspect <tag>`и сопоставить один или два верхних столбца с таблицей ниже.
 
@@ -30,14 +30,22 @@ ms.lasthandoff: 07/21/2017
     ]
 }
 ```
-Которые являются двумя уровнями в образе, предоставляемом корпорацией Майкрософт.
+
+Которые являются двумя уровнями в образе, предоставляемом корпорацией Майкрософт. Верхний уровень не изменяется и представляет исходный выпуск Windows Server, а второй уровень меняется в зависимости от включенных накопительных пакетов обновления.
 
 Если вы хотите узнать, какие изменения были внесены в каждую версию, выполните поиск соответствующей версии по базе знаний в разделе [Журнал обновлений Windows 10 и Windows Server 2016](https://support.microsoft.com/en-us/help/12387/windows-10-update-history)
 
 
+## <a name="tools-to-simplify-this-process"></a>Инструменты для упрощения этого процесса
+
+Стефан Шерер (Stefan Scherer) создал инструмент, который может считывать манифест изображения и определять версию без скачивания полного контейнера. Дополнительные сведения см. в его [блоге](https://stefanscherer.github.io/winspector/) и в репозитории [GitHub](https://github.com/StefanScherer/winspector).
+
+
+## <a name="image-versions"></a>Версии образов
+
 <table>
     <tr>
-        <th>Версия ОС Windows</th>
+        <th>Версия Windows</th>
         <th>microsoft/windowsservercore</th>
         <th>microsoft/nanoserver</th>
     </tr>
