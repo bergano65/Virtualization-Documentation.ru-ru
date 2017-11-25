@@ -1,32 +1,32 @@
 ---
-title: Optimize Windows Dockerfiles
-description: Optimize Dockerfiles for Windows containers.
-keywords: docker, containers
+title: "Оптимизация файлов Dockerfile в Windows"
+description: "Оптимизация файлов Dockerfile для контейнеров Windows."
+keywords: "docker, контейнеры"
 author: PatrickLang
 ms.date: 05/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: b0e916520b3cbcf4fdd0e02bc8a4fd7042fd2b8b
-ms.sourcegitcommit: 48470217e479c49528d4d855c9aeeb89b68d6513
+ms.openlocfilehash: 59a1a3b9fa43238defbd5155dc7b264109df4625
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Optimize Windows Dockerfiles
+# <a name="optimize-windows-dockerfiles"></a>Оптимизация файлов Dockerfile в Windows
 
-Several methods can be used to optimize both the Docker build process, and the resulting Docker images. This document details how the Docker build process operates, and demonstrates several tactics that can be used for optimal image create with Windows Containers.
+Чтобы оптимизировать процесс сборки Docker и получаемые образы Docker, можно использовать несколько методов. Этот документ описывает работу процесса сборки Docker и предлагает несколько методик, позволяющих оптимизировать создание образов с помощью контейнеров Windows.
 
-## Docker Build
+## <a name="docker-build"></a>Сборка Docker
 
-### Image Layers
+### <a name="image-layers"></a>Слои образов
 
-Before examining Docker build optimization, it is important to understand how Docker build works. During the Docker build process, a Dockerfile is consumed, and each actionable instruction is run, one-by-one, in its own temporary container. The result is a new image layer for each actionable instruction. 
+Прежде чем изучать оптимизацию сборки Docker, важно понять, как именно эта сборка работает. В процессе сборки Docker используется файл Dockerfile, а также поочередно выполняются все активные инструкции, каждая в своем собственном временном контейнере. В результате для каждой активной инструкции создается новый слой образа. 
 
-Take a look at the following Dockerfile. In this example, the `windowsservercore` base OS image is being used, IIS installed, and then a simple website created.
+Рассмотрим приведенный ниже файл Dockerfile. В этом примере используется базовый образ ОС `windowsservercore`, устанавливаются службы IIS и создается простой веб-сайт.
 
-```none
+```
 # Sample Dockerfile
 
 FROM windowsservercore
@@ -35,9 +35,9 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-From this Dockerfile, one might expect the resulting image to consist of two layers, one for the container OS image, and a second that includes IIS and the website, this however is not the case. The new image is constructed of many layers, each one dependent on the previous. To visualize this, the `docker history` command can be run against the new image. Doing so shows that the image consists of four layers, the base, and then three additional layers, one for each instruction in the Dockerfile.
+При таком файле Dockerfile можно предположить, что итоговый образ содержит два слоя: один для образа ОС контейнера и второй, включающий службы IIS и веб-сайт. Однако это не так. Новый образ состоит из множества слоев, каждый из которых зависит от предыдущего. Чтобы показать это в наглядном виде, можно выполнить для нового образа команду `docker history`. При этом становится видно, что образ состоит из четырех слоев: одного базового и трех дополнительных — по одному для каждой инструкции в файле Dockerfile.
 
-```none
+```
 docker history iis
 
 IMAGE               CREATED              CREATED BY                                      SIZE                COMMENT
@@ -47,25 +47,25 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 6801d964fda5        4 months ago                                                         0 B
 ```
 
-Each of these layers can be mapped to an instruction from the Dockerfile. The bottom layer (`6801d964fda5` in this example) represents the base OS image. One layer up, the IIS installation can be seen. The next layer includes the new website, and so on.
+Каждый из этих слоев можно сопоставить с инструкцией из файла Dockerfile. Нижний слой (в этом примере— `6801d964fda5`) представляет базовый образ ОС. Одним слоем выше находится установка служб IIS. Следующий слой включает новый веб-сайт ит.д.
 
-Dockerfiles can be written to minimize image layers, optimize build performance, and also optimize cosmetic things such as readability. Ultimately, there are many ways to complete the same image build task. Understanding how the format of a Dockerfile effects build time, and the resulting image, improves the automation experience. 
+Файлы Dockerfile можно составлять таким образом, чтобы свести к минимуму число слоев в образе, оптимизировать производительность сборки, а также улучшить такие показатели, как удобочитаемость. По сути, существует множество способов выполнить одну и ту же задачу сборки образа. Понимание того, как формат файла Dockerfile влияет на время сборки и итоговый образ, расширяет возможности автоматизации. 
 
-## Optimize Image Size
+## <a name="optimize-image-size"></a>Оптимизация размера образа
 
-When building Docker container images, image size may be an important factor. Container images are moved between registries and host, exported and imported, and ultimately consume space. Several tactics can be used during the Docker build process to minimize image size. This section details some of these tactics specific to Windows Containers. 
+При создании образов контейнеров Docker важное значение может иметь их размер. Образы контейнеров перемещаются между реестрами и узлом, экспортируются и импортируются и в конечном счете занимают определенное место. Доступно несколько разных методик, позволяющих минимизировать размер образа во время сборки Docker. В этом разделе подробно описываются некоторые такие методики, относящиеся к контейнерам Windows. 
 
-For additional information on Dockerfile best practices, see [Best practices for writing Dockerfiles on Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
+Дополнительные сведения о рекомендациях для файлов Dockerfile см. в [советах по составлению файлов Dockerfile на сайте Docker.com]( https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/).
 
-### Group related actions
+### <a name="group-related-actions"></a>Группирование связанных действий
 
-Because each `RUN` instruction creates a new layer in the container image, grouping actions into one `RUN` instruction can reduce the number of layers. While minimizing layers may not effect image size much, grouping related actions can, which will be seen in subsequent examples.
+Поскольку каждая инструкция `RUN` создает новый слой в образе контейнера, группирование действий в одной инструкции `RUN` позволяет сократить число слоев. Хотя минимизация числа слоев может не влиять на размер образа, группирование связанных действий влияет на него, что видно в приведенных ниже примерах.
 
-The following two examples demonstrate the same operation, which results in container images of identical capability, however the two Dockerfiles constructed differently. The resulting images are also compared.  
+Два следующих примера демонстрируют выполнение одной операции. При этом получаются образы контейнеров с идентичными возможностями, однако используются два разных файла Dockerfile. Итоговые образы также сравниваются.  
 
-This first example downloads Python for Windows, installs it and cleans up by removing the downloaded setup file. Each of these actions are run in their own `RUN` instruction.
+В первом примере Python для Windows скачивается, устанавливается и очищается путем удаления скачанного файла установки. Каждое из этих действий выполняется в своей собственной инструкции `RUN`.
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell.exe -Command Invoke-WebRequest "https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe" -OutFile c:\python-3.5.1.exe
@@ -73,9 +73,9 @@ RUN powershell.exe -Command Start-Process c:\python-3.5.1.exe -ArgumentList '/qu
 RUN powershell.exe -Command Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-The resulting image consists of three additional layers, one for each `RUN` instruction.
+Полученный образ имеет три дополнительных слоя— по одному для каждой инструкции `RUN`.
 
-```none
+```
 docker history doc-example-1
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
@@ -84,9 +84,9 @@ a395ca26777f        15 seconds ago      cmd /S /C powershell.exe -Command Remove
 957147160e8d        3 minutes ago       cmd /S /C powershell.exe -Command Invoke-WebR   125.7 MB
 ```
 
-To compare, here is the same operation, however all steps run with the same `RUN` instruction. Note that each step in the `RUN` instruction is on a new line of the Dockerfile, the '\' character is being used to line wrap. 
+Для сравнения здесь выполняется та же операция, однако все шаги сгруппированы в одну инструкцию `RUN`. Обратите внимание, что каждый шаг в инструкции `RUN` начинается с новой строки в файле Dockerfile, при этом символ "\" используется для переноса строки. 
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell.exe -Command \
@@ -96,22 +96,22 @@ RUN powershell.exe -Command \
   Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-The resulting image here consists of one additional layer for the `RUN` instruction.
+Полученный образ имеет один дополнительный слой для инструкции `RUN`.
 
-```none
+```
 docker history doc-example-2
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
 69e44f37c748        54 seconds ago      cmd /S /C powershell.exe -Command   $ErrorAct   216.3 MB                
 ```
 
-### Remove excess files
+### <a name="remove-excess-files"></a>Удаление лишних файлов
 
-If a file, such as an installer, is not required after it has been used, remove the file to reduce image size. This needs to occur in the same step in which the file was copied into the image layer. Doing so prevents the file from persisting in a lower level image layer.
+Если после использования файл, например установщик, больше не требуется, удалите его, чтобы уменьшить размер образа. Это следует делать на том же шаге, где данный файл был скопирован в слой образа. Эта процедура предотвращает сохранение файла в слое образа более низкого уровня.
 
-In this example, the Python package is downloaded, executed, and then the executable removed. This is all completed in one `RUN` operation and results in a single image layer.
+В этом примере скачивается и выполняется пакет Python, после чего исполняемый файл удаляется. Все это выполняется в рамках одной операции `RUN` и создает всего один слой образа.
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell.exe -Command \
@@ -121,15 +121,15 @@ RUN powershell.exe -Command \
   Remove-Item c:\python-3.5.1.exe -Force
 ```
 
-## Optimize Build Speed
+## <a name="optimize-build-speed"></a>Оптимизация скорости сборки
 
-### Multiple Lines
+### <a name="multiple-lines"></a>Несколько строк
 
-When optimizing for Docker build speed, it may be advantageous to separate operations into multiple individual instructions. Having multiple `RUN` operations increase caching effectiveness. Because individual layers are created for each `RUN` instruction, if an identical step has already been run in a different Docker Build operation, this cached operation (image layer) is re-used. The result is that Docker Build runtime is decreased.
+При оптимизации для скорости сборки Docker бывает выгодно разделить операции на несколько отдельных инструкций. Наличие нескольких операций `RUN` повышает эффективность кэширования. Поскольку отдельные слои создаются для каждой инструкции `RUN`, если аналогичный шаг уже был выполнен в другой операции сборки Docker, эта кэшированная операция (слой образа) используется повторно. В результате уменьшается среда выполнения для сборки Docker.
 
-In the following example, both Apache and the Visual Studio Redistribute packages are downloaded, installed, and then the un-needed files cleaned up. This is all done with one `RUN` instruction. If any of these actions are updated, all actions will re-run.
+В следующем примере загружаются и устанавливаются распространяемые пакеты Apache и Visual Studio, после чего ненужные файлы удаляются. Все это выполняется в рамках одной инструкции `RUN`. При изменении любого из этих действий все они перезапускаются.
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command \
@@ -153,9 +153,9 @@ RUN powershell -Command \
   Remove-Item c:\php.zip
 ```
 
-The resulting image consists of two layers, one for the base OS image, and the second that contains all operations from the single `RUN` instruction.
+Итоговый образ состоит из двух слоев— один для базового образа ОС, второй содержит все операции из одной инструкции `RUN`.
 
-```none
+```
 docker history doc-sample-1
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
@@ -163,9 +163,9 @@ IMAGE               CREATED             CREATED BY                              
 6801d964fda5        5 months ago                                                        0 B
 ```
 
-To contrast, here are the same actions broken down into three `RUN` instructions. In this case, each `RUN` instruction is cached in a container image layer, and only those that have changed, need to be re-run on subsequent Dockerfile builds.
+В отличие от предыдущего примера здесь те же действия поделены между тремя инструкциями `RUN`. В этом случае каждая инструкция `RUN` кэшируется в слое образа контейнера, а при последующих сборках Dockerfile повторно выполняются только измененные инструкции.
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command \
@@ -187,9 +187,9 @@ RUN powershell -Command \
     Remove-Item c:\php.zip -Force
 ```
 
-The resulting image consists of four layers, one for the base OS image, and then one for each `RUN` instruction. Because each `RUN` instruction has been run in its own layer, any subsequent runs of this Dockerfile or identical set of instructions in a different Dockerfile, will use cached image layer, thus reducing build time. Instruction ordering is important when working with image cache, for more details, see the next section of this document.
+Полученный образ имеет четыре слоя— один для базового образа ОС и по одному для каждой инструкции `RUN`. Так как каждая инструкция `RUN` выполняется в отдельном слое, при всех последующих запусках этого файла Dockerfile или аналогичного набора инструкций из другого Dockerfile будет использоваться кэшированный слой образа, что сокращает время сборки. При работе с кэшем образов важен порядок инструкций. Дополнительные сведения см. в следующем разделе этого документа.
 
-```none
+```
 docker history doc-sample-2
 
 IMAGE               CREATED             CREATED BY                                      SIZE                COMMENT
@@ -199,13 +199,13 @@ d43abb81204a        7 days ago          cmd /S /C powershell -Command  Sleep 2 ;
 6801d964fda5        5 months ago
 ```
 
-### Ordering Instructions
+### <a name="ordering-instructions"></a>Порядок инструкций
 
-A Dockerfile is processed from top to the bottom, each Instruction compared against cached layers. When an instruction is found without a cached layer, this instruction and all subsequent instructions are processed in new container image layers. Because of this, the order in which instructions are placed is important. Place instructions that will remain constant towards the top of the Dockerfile. Place instructions that may change towards the bottom of the Dockerfile. Doing so reduces the likelihood of negating existing cache.
+Файл Dockerfile обрабатывается сверху вниз, при этом каждая инструкция сравнивается с кэшированными слоями. При обнаружении инструкции без кэшированного слоя она и все последующие инструкции обрабатываются в новых слоях образа контейнера. Поэтому порядок инструкций имеет важное значение. Инструкции, которые останутся постоянными, располагайте ближе к началу файла Dockerfile. Инструкции, которые могут изменяться, располагайте ближе к концу файла Dockerfile. Это снижает вероятность отмены существующего кэша.
 
-The intention of this example is to demonstrated how Dockerfile instruction ordering can effect caching effectiveness. In this simple Dockerfile, four numbered folders are created.  
+Этот пример демонстрирует, как порядок инструкций в файле Dockerfile влияет на эффективность кэширования. В этом простом файле Dockerfile создаются четыре нумерованных папки.  
 
-```none
+```
 FROM windowsservercore
 
 RUN mkdir test-1
@@ -213,9 +213,9 @@ RUN mkdir test-2
 RUN mkdir test-3
 RUN mkdir test-4
 ```
-The resulting image has five layers, one for the base OS image, and one for each of the `RUN` instructions.
+Полученный образ имеет пять слоев— один для базового образа ОС и по одному для каждой инструкции `RUN`.
 
-```none
+```
 docker history doc-sample-1
 
 IMAGE               CREATED              CREATED BY               SIZE                COMMENT
@@ -226,9 +226,9 @@ afba1a3def0a        38 seconds ago       cmd /S /C mkdir test-4   42.46 MB
 6801d964fda5        5 months ago                                  0 B    
 ```
 
-The docker file has now been slightly modified. Notice that the third `RUN` instruction has changed. When Docker build is run against this Dockerfile, the first three instructions, which are identical to those in the last example, use the cached image layers. However, because the changed `RUN` instruction has not been cached, a new layer is created for itself and all subsequent instructions.
+Файл Docker теперь немного изменен. Обратите внимание, что изменилась третья инструкция `RUN`. При запуске сборки Docker для этого файла Dockerfile три первых инструкции, которые идентичны инструкциям з прошлого примера, используют кэшированные слои образа. Однако поскольку измененная инструкция `RUN` не кэшировалась, для нее и всех последующих инструкций создается новый слой.
 
-```none
+```
 FROM windowsservercore
 
 RUN mkdir test-1
@@ -237,9 +237,9 @@ RUN mkdir test-5
 RUN mkdir test-4
 ```
 
-Comparing Image ID’s of the new image, to that in the last example, you will see that the first three layers (bottom to the top) are shared, however the fourth and fifth are unique.
+Сравнив идентификатор нового образа и аналогичный идентификатор из прошлого примера, вы увидите, что совместно используются первые три слоя (снизу вверх), однако четвертый и пятый уникальны.
 
-```none
+```
 docker history doc-sample-2
 
 IMAGE               CREATED             CREATED BY               SIZE                COMMENT
@@ -250,14 +250,14 @@ c92cc95632fb        28 seconds ago      cmd /S /C mkdir test-4   5.644 MB
 6801d964fda5        5 months ago                                 0 B
 ```
 
-## Cosmetic Optimization
+## <a name="cosmetic-optimization"></a>Косметическая оптимизация
 
-### Instruction Case
+### <a name="instruction-case"></a>Регистр инструкций
 
-Dockerfile instructions are not case sensitive, however convention is to use upper case. This improves readability by differentiating between Instruction call, and instruction operation. The below two examples demonstrate this concept. 
+В инструкциях Dockerfile не учитывается регистр, однако принято использовать верхний регистр. Это улучшает удобочитаемость, разделяя вызов инструкции и операцию инструкции. Эту концепцию поясняют два приведенных ниже примера. 
 
-Lower case:
-```none
+Нижний регистр:
+```
 # Sample Dockerfile
 
 from windowsservercore
@@ -265,8 +265,8 @@ run dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 run echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 cmd [ "cmd" ]
 ```
-Upper case: 
-```none
+Верхний регистр: 
+```
 # Sample Dockerfile
 
 FROM windowsservercore
@@ -275,18 +275,18 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-### Line Wrapping
+### <a name="line-wrapping"></a>Перенос строк
 
-Long and complex operations can be separated onto multiple line using the backslash `\` character. The following Dockerfile installs the Visual Studio Redistributable package, removes the installer files, and then creates a configuration file. These three operations are all specified on one line.
+Длинные и сложные операции можно разделить на несколько строк с помощью символа обратной косой черты `\`. Следующий файл Dockerfile устанавливает распространяемый пакет Visual Studio, удаляет файлы установщика и затем создает файл конфигурации. Все эти три операции указаны на одной строке.
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command c:\vcredist_x86.exe /quiet ; Remove-Item c:\vcredist_x86.exe -Force ; New-Item c:\config.ini
 ```
-The command can be re-written so that each operation from the one `RUN` instruction is specified on its own line. 
+Команду можно переписать, чтобы каждая операция из инструкции `RUN` была указана на отдельной строке. 
 
-```none
+```
 FROM windowsservercore
 
 RUN powershell -Command \
@@ -296,8 +296,8 @@ RUN powershell -Command \
     New-Item c:\config.ini
 ```
 
-## Further Reading & References
+## <a name="further-reading--references"></a>Дополнительные материалы и справочники
 
-[Dockerfile on Windows] (manage-windows-dockerfile.md)
+[Dockerfile в Windows] (manage_windows_dockerfile.md)
 
-[Best practices for writing Dockerfiles on Docker.com](https://docs.docker.com/engine/reference/builder/)
+[Рекомендации по составлению файлов Dockerfile на сайте Docker.com](https://docs.docker.com/engine/reference/builder/)

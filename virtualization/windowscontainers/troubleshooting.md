@@ -1,55 +1,55 @@
 ---
-title: Troubleshooting Windows Containers
-description: Troubleshooting tips, automated scripts, and log information for Windows containers and Docker
-keywords: docker, containers, troubleshooting, logs
+title: "Устранение неполадок при работе с контейнерами Windows"
+description: "Рекомендации по устранению неполадок, автоматические сценарии и запись в журнал сведений о контейнерах Windows и Docker"
+keywords: "docker, контейнеры, устранение неполадок, журналы"
 author: PatrickLang
 ms.date: 12/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 2f0d0d9f7e7cfc97427deeab9b42c0e684028c28
-ms.sourcegitcommit: 1cbc3a15428d7912596fdb3489f4529aaa9af3dd
+ms.openlocfilehash: 44693b413dd8043fbec68835eafe6754615fa449
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Troubleshooting
+# <a name="troubleshooting"></a>Диагностика
 
-Having trouble setting up your machine or running a container? We created a PowerShell script to check for common problems. Please give it a try first to see what it finds and share your results.
+Возникли проблемы при настройке компьютера или запуске контейнера? Для PowerShell был создан скрипт для проверки наличия распространенных проблем. Попробуйте использовать его и поделитесь своими результатами.
 
 ```PowerShell
 Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invoke-Expression
 ```
-A list of all of the tests it runs along with common solutions is in the [Readme file](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md) for the script.
+Список всех запускаемых тестов вместе с распространенными решениями находится в [файле сведений](https://github.com/Microsoft/Virtualization-Documentation/blob/live/windows-server-container-tools/Debug-ContainerHost/README.md) скрипта.
 
-If that doesn't help find the source of the problem, please go ahead and post the output from your script on the [Container Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). This is the best place to get help from the community including Windows Insiders and developers.
+Если это не поможет найти источник проблемы, опубликуйте результаты из скрипта на [форуме по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). Это наилучший способ получить помощь от сообщества, в том числе от участников программы предварительной оценки Windows и разработчиков.
 
 
-## Finding Logs
-There are multiple services that are used to manage Windows Containers. The next sections shows where to get logs for each service.
+## <a name="finding-logs"></a>Нахождение журналов
+Существует ряд служб, которые используются для управления контейнерами Windows. В следующих разделах показано, где найти журналы каждой из служб.
 
-### Docker Engine
-The Docker Engine logs to the Windows 'Application' event log, rather than to a file. These logs can easily be read, sorted, and filtered using Windows PowerShell
+### <a name="docker-engine"></a>Подсистема Docker
+Подсистема Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
 
-For example, this will show the Docker Engine logs from the last 5 minutes starting with the oldest.
+Например, следующая команда выведет записи журнала подсистемы Docker за последние 5минут, начиная с самой ранней.
 
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5) | Sort-Object Time 
 ```
 
-This could also easily be piped into a CSV file to be read by another tool or spreadsheet.
+Эти записи легко перенаправить в CSV-файл, чтобы открыть их в другой программе или редакторе электронных таблиц.
 
 ```
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### Enabling Debug logging
-You can also enable debug-level logging on the Docker Engine. This may be helpful for troubleshooting if the regular logs don't have enough detail.
+#### <a name="enabling-debug-logging"></a>Включение ведения журналов отладки
+Вы можете также включить ведение журналов на уровне отладки в подсистеме Docker. Это может помочь в устранении проблем, если в обычных журналах недостаточно подробностей.
 
-First, open an elevated Command Prompt, then run `sc.exe qc docker` get the current command line for the Docker service.
-Example:
-```none
+Сначала откройте командную строку с повышенными привилегиями, а затем запустите `sc.exe qc docker`, чтобы отобразилась текущая командная строка службы Docker.
+Пример.
+```
 C:\> sc.exe qc docker
 [SC] QueryServiceConfig SUCCESS
 
@@ -65,67 +65,67 @@ SERVICE_NAME: docker
         SERVICE_START_NAME : LocalSystem
 ```
 
-Take the current `BINARY_PATH_NAME`, and modify it:
-- Add a -D to the end
-- Escape each " with \
-- Enclose the whole command in "
+Используйте текущую команду, `BINARY_PATH_NAME`, и измените ее:
+- Добавьте в конец "-D".
+- Добавьте экранирующий символ "\" для каждой кавычки (").
+- Заключите всю команду в кавычки (").
 
-Then run `sc.exe config docker binpath= ` followed by the new string. For example: 
-```none
+После запустите `sc.exe config docker binpath= `, добавив новую строку. Пример. 
+```
 sc.exe config docker binpath= "\"C:\Program Files\Docker\dockerd.exe\" --run-service -D"
 ```
 
 
-Now, restart the Docker service
-```none
+Теперь перезапустите службу Docker.
+```
 sc.exe stop docker
 sc.exe start docker
 ```
 
-This will log much more into the Application event log, so it's best to remove the `-D` option once you are done troubleshooting. Use the same steps above without `-D` and restart the service to disable the debug logging.
+В журнале событий приложений появится гораздо больше записей, поэтому рекомендуется удалить параметр `-D` после завершения устранения проблем. Выполните действия, указанные выше, без `-D` и перезапустите службу, чтобы отключить ведение журналов отладки.
 
-An alternate to the above is to run the docker daemon in debug mode from an elevated PowerShell prompt, capturing output directly into a file.
+Альтернативным решением является запуск управляющей программы Docker в режиме отладки из командной строки PowerShell с правами администратора и записью данных вывода непосредственно в файл.
 ```PowerShell
 sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### Obtaining stack dump and daemon data.
+#### <a name="obtaining-stack-dump-and-daemon-data"></a>Получение копии стека и данных управляющей программы.
 
-Generally, these are only useful if explicitly requested by Microsoft support, or docker developers. They can be used to assist diagnosing a situation where docker appears to have hung. 
+Как правило, эти данные запрашивает только служба поддержки Майкрософт или разработчики Docker. Их можно использовать для диагностики неполадок, приведших к зависанию Docker. 
 
-Download [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
+Скачайте файл [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
 
-Usage:
+Использование:
 ```PowerShell
 Get-Process dockerd
 # Note the process ID in the `Id` column
 docker-signal -pid=<id>
 ```
 
-The output files will be located in the data-root directory docker is running in. The default directory is `C:\ProgramData\Docker`. The actual directory can be confirmed by running `docker info -f "{{.DockerRootDir}}"`.
+Выходные файлы будут находиться в корневом каталоге с данными, в котором выполняется Docker. Каталогом по умолчанию является `C:\ProgramData\Docker`. Фактическое расположение можно проверить, выполнив команду `docker info -f "{{.DockerRootDir}}"`.
 
-The files will be `goroutine-stacks-<timestamp>.log` and `daemon-data-<timestamp>.log`.
+Это будут файлы `goroutine-stacks-<timestamp>.log` и `daemon-data-<timestamp>.log`.
 
-Note that `daemon-data*.log` may contain personal information and should generally only be shared with trusted support people. `goroutine-stacks*.log` does not contain personal information.
+Обратите внимание, что файл `daemon-data*.log` может содержать личные данные и его, как правило, следует предоставлять только доверенным специалистам технической поддержки. `goroutine-stacks*.log` не содержит личные сведения.
 
 
-### Служба вычисления узлов
-Подсистема Docker зависит от службы контейнера узлов конкретной версии Windows. It has separate logs: 
-- Microsoft-Windows-Hyper-V-Compute-Admin
-- Microsoft-Windows-Hyper-V-Compute-Operational
+### <a name="host-compute-service"></a>Служба вычисления узлов
+Подсистема Docker зависит от службы контейнера узлов конкретной версии Windows. Она содержит отдельные журналы: 
+- Microsoft-Windows-Hyper-V-Compute-Admin.
+- Microsoft-Windows-Hyper-V-Compute-Operational.
 
-They are visible in Event Viewer, and may also be queried with PowerShell.
+Они отображаются в компоненте "Просмотр событий". Кроме того, их можно запросить через PowerShell.
 
-For example:
+Пример.
 ```PowerShell
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### Capturing HCS analytic/debug logs
+#### <a name="capturing-hcs-analyticdebug-logs"></a>Запись журналов аналитики/отладки службы HCS
 
-To enable analytic/debug logs for Hyper-V Compute and save them to `hcslog.evtx`.
+Включите запись журналов аналитики/отладки для вычисления Hyper-V с их сохранением в файле `hcslog.evtx`.
 
 ```PowerShell
 # Enable the analytic logs
@@ -140,11 +140,11 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### Capturing HCS verbose tracing
+#### <a name="capturing-hcs-verbose-tracing"></a>Запись подробной трассировки службы HCS
 
-Generally, these are only useful if requested by Microsoft support. 
+Как правило, эти данные запрашивает только служба поддержки Майкрософт. 
 
-Download [HcsTraceProfile.wprp](https://gist.github.com/jhowardmsft/71b37956df0b4248087c3849b97d8a71)
+Скачайте файл [HcsTraceProfile.wprp](https://gist.github.com/jhowardmsft/71b37956df0b4248087c3849b97d8a71)
 
 ```PowerShell
 # Enable tracing
@@ -156,4 +156,4 @@ wpr.exe -start HcsTraceProfile.wprp!HcsArgon -filemode
 wpr.exe -stop HcsTrace.etl "some description"
 ```
 
-Provide `HcsTrace.etl` to your support contact.
+Предоставьте файл `HcsTrace.etl` специалисту службы поддержки.

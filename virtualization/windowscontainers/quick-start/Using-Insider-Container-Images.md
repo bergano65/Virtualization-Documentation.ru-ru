@@ -1,63 +1,63 @@
-# Using Insider Container Images
+# <a name="using-insider-container-images"></a>Использование образов контейнеров программы предварительной оценки
 
-This exercise will walk you through the deployment and use of the Windows container feature on the latest insider build of Windows Server from the Windows Insider Preview program. During this exercise, you will install the container role and deploy a preview edition of the base OS images. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
+В этом упражнении вы узнаете, как развернуть и использовать контейнеры Windows в последней сборке Windows Server для участников программы предварительной оценки Windows. Во время этого упражнения вы установите роль контейнера и развернете предварительный выпуск базовых образов ОС. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
 
-В этом кратком руководстве рассматриваются контейнеры Windows Server в программе предварительной оценки Windows Server. Please familiarize yourself with the program before continuing this quick start.
+В этом кратком руководстве рассматриваются контейнеры Windows Server в программе предварительной оценки Windows Server. Ознакомьтесь с программой перед продолжением работы с этим кратким руководством.
 
-**Prerequisites:**
+**Необходимые условия**
 
-- Become a part of the [Windows Insider Program](https://insider.windows.com/GettingStarted) and review the Terms of Use.
-- One computer system (physical or virtual) running the latest build of Windows Server from the Windows Insider program and/or the latest build of Windows 10 from the Windows Insider program.
+- Пользователь должен быть участником [программы предварительной оценки Windows](https://insider.windows.com/GettingStarted) и должен изучить условия ее использования.
+- Одна компьютерная система (физическая или виртуальная) с последней сборкой Windows Server из программы предварительной оценки Windows и (или) последней сборкой Windows 10 из программы предварительной оценки Windows.
 
->It is required that you use a build of Windows Server from the Windows Server Insider Preview program, or a build of Windows 10 from the Windows Insider Preview program, to use the base image described below. If you are not using one of these builds, the use of these base images will result in failure to start a container.
+>Для работы с образами, описанными ниже, необходимо использовать сборку Windows Server из программы предварительной оценки Windows Server или сборку Windows 10 из программы предварительной оценки Windows. Если у вас не установлена одна из этих сборок, использование этих базовых образов приведет к сбою запуска контейнера.
 
-## Install Docker
-Docker is required in order to work with Windows containers. Docker consists of the Docker Engine, and the Docker client. You will also need a version of Docker that supports multi-stage builds for the best experience using the Container-optimized Nano Server image.
+## <a name="install-docker"></a>Установка Docker
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. Вам также необходима версия Docker, которая поддерживает многоэтапные сборки, для эффективного использования образа Nano Server, оптимизированного для контейнеров.
 
-To install Docker, we'll use the OneGet provider PowerShell module. The provider will enable the containers feature on your machine and install Docker - this will require a reboot. Note that there are multiple channels with different version of docker to use in different cases. For this exercise, we will be using the latest Community Edition version of Docker from the Stable channel. There is also an Edge channel available if you would like to test the latest developments in Docker.
+Для установки Docker будет использоваться модуль PowerShell поставщика OneGet. Поставщик обеспечит работу контейнеров на компьютере и установит Docker. После этого потребуется перезагрузка. Обратите внимание, что существует несколько каналов с разными версиями Docker для различных сценариев. В этом упражнении мы воспользуемся последней версией Docker Community Edition из канала Stable. Кроме того, доступен канал Edge, если вы захотите ознакомиться с последними разработками Docker.
 
-Open an elevated PowerShell session and run the following commands.
+Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
 
->Note: Installing Docker in the insider builds requires a different provider than the one normally used as of today. Please note the difference below.
+>Примечание. Для установки Docker в сборках для участников программы предварительной оценки требуется поставщик, отличный от того, обычно используется сегодня. Отличия описаны ниже.
 
-Install the OneGet PowerShell module.
+Установите модуль OneGet PowerShell.
 ```powershell
 Install-Module -Name DockerMsftProviderInsider -Repository PSGallery -Force
 ```
-Use OneGet to install the latest version of Docker.
+С помощью OneGet установите последнюю версию Docker.
 ```powershell
 Install-Package -Name docker -ProviderName DockerMsftProviderInsider -RequiredVersion 17.06.0-ce
 ```
-When the installation is complete, reboot the computer.
-```none
+После завершения установки перезагрузите компьютер.
+```
 Restart-Computer -Force
 ```
 
-## Install Base Container Image
+## <a name="install-base-container-image"></a>Установка базового образа контейнера
 
-Before working with Windows containers, a base image needs to be installed. By being part of the Windows Insider program, you can also test our latest builds for the base images. With the Insider base images, there are now 4 available base images based on Windows Server. Refer to the table below to check for what purposes each should be used:
+Перед началом работы с контейнерами Windows необходимо установить базовый образ. Вы как участник программы предварительной оценки Windows также можете протестировать наши последние сборки для базовых образов. Сейчас доступно четыре базовых образа, основанных на Windows Server. Сведения о том, для каких целей следует использовать каждый из них, см. в таблице ниже.
 
-| Base OS Image                       | Usage                      |
+| Базовый образ ОС                       | Использование                      |
 |-------------------------------------|----------------------------|
-| microsoft/windowsservercore         | Production and Development |
-| microsoft/nanoserver                | Production and Development |
-| microsoft/windowsservercore-insider | Development only           |
-| microsoft/nanoserver-insider        | Development only           |
+| microsoft/windowsservercore         | Рабочая среда и разработка |
+| microsoft/nanoserver                | Рабочая среда и разработка |
+| microsoft/windowsservercore-insider | Только разработка           |
+| microsoft/nanoserver-insider        | Только разработка           |
 
-To pull the Nano Server Insider base image run the following:
+Чтобы получить базовый образ Nano Server для участников программы предварительной оценки, выполните следующую команду:
 
-```none
+```
 docker pull microsoft/nanoserver-insider
 ```
 
-To pull the Windows Server Core insider base image run the following:
+Чтобы получить базовый образ Windows Server Core для участников программы предварительной оценки, выполните следующую команду:
 
-```none
+```
 docker pull microsoft/windowsservercore-insider
 ```
 
-Please read the Windows Containers OS Image EULA which can be found here – [EULA](../EULA.md ), and the Windows Insider program Terms of Use which can be found here – [Terms of Use](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver).
+Прочитайте лицензионное соглашение для пользователей образа ОС контейнеров Windows (см. здесь: [Лицензионное соглашение](../EULA.md )), а также условия использования программы предварительной оценки Windows ([Условия использования](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver)).
 
-## Next Steps
+## <a name="next-steps"></a>Дальнейшие действия
 
-[Build and run an application with or without .NET Core 2.0 or PowerShell Core 6](./Nano-RS3-.NET-Core-and-PS.md)
+[Сборка и запуск приложения с компонентами .NET Core 2.0 и PowerShell Core 6 или без них](./Nano-RS3-.NET-Core-and-PS.md)

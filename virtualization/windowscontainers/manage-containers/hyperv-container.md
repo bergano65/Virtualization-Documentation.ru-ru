@@ -8,13 +8,13 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: 7957e48291ab2d29f3687c595c760d838dab60b8
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: ea131dfede51ee36f7dc703511357612430ccca9
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Контейнеры Hyper-V
+# <a name="hyper-v-containers"></a>Контейнеры Hyper-V
 
 **Это предварительное содержимое. Возможны изменения.** 
 
@@ -24,29 +24,29 @@ ms.lasthandoff: 07/21/2017
 
 **Контейнеры Hyper-V**. На узле может быть одновременно запущено несколько экземпляров контейнера, однако каждый контейнер запускается в специальной виртуальной машине. Это обеспечивает изоляцию на уровне ядра между каждым контейнером Hyper-V и узлом контейнера.
 
-## Контейнер Hyper-V
+## <a name="hyper-v-container"></a>Контейнер Hyper-V
 
-### Создание контейнера
+### <a name="create-container"></a>Создание контейнера
 
 Управление контейнерами Hyper-V и Windows Server с помощью Docker почти ничем не отличается. При создании контейнера Hyper-V с помощью Docker используется параметр `--isolation=hyperv`.
 
-```none
+```
 docker run -it --isolation=hyperv microsoft/nanoserver cmd
 ```
 
-### Пояснения по изоляции
+### <a name="isolation-explanation"></a>Пояснения по изоляции
 
 В этом примере рассматриваются различия возможностей изоляции для контейнеров Windows Server и Hyper-V. 
 
 Здесь развертываются контейнеры Windows Server и производится долгосрочный процесс проверки связи ping.
 
-```none
+```
 docker run -d microsoft/windowsservercore ping localhost -t
 ```
 
 С помощью команды `docker top` процесс ping возвращается в том виде, который он имеет внутри контейнера. В этом примере процесс имеет идентификатор 3964.
 
-```none
+```
 docker top 1f8bf89026c8f66921a55e773bac1c60174bb6bab52ef427c6c8dbc8698f9d7a
 
 3964 ping
@@ -54,7 +54,7 @@ docker top 1f8bf89026c8f66921a55e773bac1c60174bb6bab52ef427c6c8dbc8698f9d7a
 
 На узле контейнера команду `get-process` можно использовать для возврата любых выполняющихся там процессов ping. В этом примере присутствует один такой процесс, идентификатор которого совпадает с идентификатором процесса из контейнера. Из контейнера и с узла виден один и тот же процесс.
 
-```none
+```
 get-process -Name ping
 
 Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
@@ -64,13 +64,13 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 
 В отличие от предыдущего примера, здесь запускается контейнер Hyper-V с процессом ping. 
 
-```none
+```
 docker run -d --isolation=hyperv microsoft/nanoserver ping -t localhost
 ```
 
 Как и прежде, команда `docker top` позволяет вернуть выполняемые процессы из контейнера.
 
-```none
+```
 docker top 5d5611e38b31a41879d37a94468a1e11dc1086dcd009e2640d36023aa1663e62
 
 1732 ping
@@ -78,7 +78,7 @@ docker top 5d5611e38b31a41879d37a94468a1e11dc1086dcd009e2640d36023aa1663e62
 
 Однако при поиске процесса на узле контейнера процесс ping отсутствует и выдается ошибка.
 
-```none
+```
 get-process -Name ping
 
 get-process : Cannot find a process with the name "ping". Verify the process name and call the cmdlet again.
@@ -91,7 +91,7 @@ At line:1 char:1
 
 При этом на узле виден процесс `vmwp`, который является виртуальной машиной, инкапсулирующей запущенный контейнер и защищающей выполняющиеся процессы от операционной системы сервера виртуальных машин.
 
-```none
+```
 get-process -Name vmwp
 
 Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName

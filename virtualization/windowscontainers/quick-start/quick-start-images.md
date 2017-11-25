@@ -1,93 +1,93 @@
 ---
-title: Container Deployment Quick Start - Images
-description: Container deployment quick start
-keywords: docker, containers
+title: "Краткое руководство по развертыванию контейнеров— образы"
+description: "Краткое руководство по развертыванию контейнеров"
+keywords: "docker, контейнеры"
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 0d247989294de59ed599aba3ab982cac772efcf6
-ms.sourcegitcommit: 4f5b9f70804bf6282af8bef603cc343c524c3102
+ms.openlocfilehash: 58bd491ccae7cd9d91088d9f180367623320345e
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/04/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Автоматизация сборки и сохранения образов
+# <a name="automating-builds-and-saving-images"></a>Автоматизация сборки и сохранения образов
 
-In the previous Windows Server quick start, a Windows container was created from a pre-created .Net Core sample. This exercise will detail creating custom container images manually, automating container image creation using a Dockerfile, and storing container images in the Docker Hub public registry.
+В предыдущем кратком руководстве по Windows Server мы создали контейнер Windows на основе предварительно созданного примера .Net Core. В этом упражнении подробно рассматриваются следующие аспекты: создание пользовательских образов контейнеров вручную, автоматическое создание образа контейнера изображения с помощью Dockerfile и сохранение образов контейнеров в общедоступном реестре Docker Hub.
 
-This quick start is specific to Windows Server containers on Windows Server 2016 and will use the Windows Server Core container base image. Additional quick start documentation can be found in the table of contents on the left hand side of this page.
+Это краткое руководство относится к контейнерам Windows Server в Windows Server2016. В нем будет использоваться базовый образ контейнера Windows Server Core. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы.
 
-**Prerequisites:**
+**Предварительные требования:**
 
-- One computer system (physical or virtual) running Windows Server 2016.
-- Configure this system with the Windows Container feature and Docker. For a walkthrough on these steps, see [Windows Containers on Windows Server](./quick-start-windows-server.md).
-- A Docker ID, this will be used to push a container image to Docker Hub. If you do not have a Docker ID, sign up for one at [Docker Cloud](https://cloud.docker.com/).
+- Одна компьютерная система (физическая или виртуальная), работающая под управлением Windows Server2016.
+- Настройте на компьютере компонент контейнеров Windows и Docker. Пошаговые инструкции по этим этапам см. в статье [Контейнеры Windows в Windows Server](./quick-start-windows-server.md).
+- Идентификатор Docker, который будет использоваться для отправки образа контейнера в Docker Hub. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud](https://cloud.docker.com/).
 
-## 1. Container Image - Manual
+## <a name="1-container-image---manual"></a>1. Образ контейнера— ручная процедура
 
-For the best experience, walk through this exercise from a Windows command shell (cmd.exe).
+Для получения наилучших результатов выполняйте это упражнение из командной оболочки (cmd.exe) Windows.
 
-The first step in manually creating a container image is to deploy a container. For this example, deploy an IIS container from the pre-created IIS image. Once the container has been deployed, you will be working in a shell session from within the container. The interactive session is initiated with the `-it` flag. For in depth details on Docker Run commands, see [Docker Run Reference on Docker.com](https://docs.docker.com/engine/reference/run/). 
+Первый этап ручного создания образа контейнера заключается в развертывании контейнера. В рамках этого примера разверните контейнер IIS из готового образа IIS. После развертывания контейнера вы будете работать в сеансе оболочки из контейнера. Интерактивный сеанс инициируется с помощью с флага `-it`. Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com](https://docs.docker.com/engine/reference/run/). 
 
-> This step may take some time due to the size of the Windows Server Core base image.
+> Этот шаг может занять некоторое время из-за размера базового образа Windows Server Core.
 
-```none
+```
 docker run -d --name myIIS -p 80:80 microsoft/iis
 ```
 
-Now, the container will be running in the background. The default command included in the container, `ServiceMonitor.exe`, which monitor IIS progress and automatically stop the container if IIS stops. To learn more on how this image was created, see [Microsoft/docker-iis](https://github.com/Microsoft/iis-docker) on GitHub.
+Теперь контейнер будет работать в фоновом режиме. Команда по умолчанию `ServiceMonitor.exe`, входящая в состав контейнера, которая отслеживает ход выполнения IIS и автоматически останавливает контейнер при остановке IIS. Дополнительные сведения о том, как был создан этот образ см. в разделе [Microsoft/docker-iis](https://github.com/Microsoft/iis-docker) на GitHub.
 
-Next, start an interactive cmd in the container. This will allow you to run commands in running container without stopping IIS or ServiceMonitor.
+Затем запустите интерактивную команду в контейнере. Это позволит выполнять команды в запущенном контейнере без остановки IIS или ServiceMonitor.
 
-```none
+```
 docker exec -i myIIS cmd 
 ```
 
-Next, you can make a change to the running container. Run the following command to remove the IIS splash screen.
+Затем можно внести изменения в работающий контейнер. Выполните следующую команду, чтобы удалить экран-заставку IIS.
 
-```none
+```
 del C:\inetpub\wwwroot\iisstart.htm
 ```
 
-And the following to replace the default IIS site with a new static site.
+Выполните приведенную ниже команду, чтобы заменить сайт IIS по умолчанию новым статическим сайтом.
 
-```none
+```
 echo "Hello World From a Windows Server Container" > C:\inetpub\wwwroot\index.html
 ```
 
-From a different system, browse to the IP address of the container host. You should now see the ‘Hello World’ application.
+Перейдя на другую систему, введите IP-адрес узла контейнера в браузере. Должно открыться приложение "Hello, World".
 
-**Note:** if you are working in Azure, a network security group rule will need to exist allowing traffic over port 80. For more information see, [Create Rule in a Network Security Group](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg).
+**Примечание.** Если вы работаете в Azure, потребуется правило группы безопасности сети, разрешающее передачу трафика через порт 80. Дополнительные сведения см. в разделе [Create Rule in a Network Security Group](https://azure.microsoft.com/en-us/documentation/articles/virtual-networks-create-nsg-arm-pportal/#create-rules-in-an-existing-nsg) (Создание правила в группе безопасности сети).
 
 ![](media/hello.png)
 
-Back in the container, exit the interactive container session.
+Вернитесь в контейнер и выйдите из интерактивного сеанса.
 
-```none
+```
 exit
 ```
 
-The modified container can now be captured into a new container image. To do so, you will need the container name. This can be found using the `docker ps -a` command.
+Теперь измененный контейнер можно записать в новый образ контейнера. Для этого потребуется имя контейнера. Его можно определить с помощью команды `docker ps -a`.
 
-```none
+```
 docker ps -a
 
 CONTAINER ID     IMAGE                             COMMAND   CREATED             STATUS   PORTS   NAMES
 489b0b447949     microsoft/iis   "cmd"     About an hour ago   Exited           pedantic_lichterman
 ```
 
-To create a the new container image, use the `docker commit` command. Docker commit takes a form of “docker commit container-name new-image-name”. Note – replace the name of the container in this example with the actual container name.
+Чтобы создать образ контейнера, используйте команду `docker commit`. Команда Docker commit принимает вид "docker commit имя_контейнера имя_нового_образа". Примечание. Замените имя контейнера в данном примере на используемое вами.
 
-```none
+```
 docker commit pedantic_lichterman modified-iis
 ```
 
-To verify that new image has been created, use the `docker images` command.  
+Чтобы убедиться, что новый образ создан, используйте команду `docker images`.  
 
-```none
+```
 docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
@@ -97,42 +97,42 @@ windowsservercore   10.0.14300.1000     dbfee88ee9fd        8 weeks ago         
 windowsservercore   latest              dbfee88ee9fd        8 weeks ago          9.344 GB
 ```
 
-This image can now be deployed. The resulting container will include all captured modifications.
+Теперь можно развернуть этот образ. Полученный контейнер будет содержать все зафиксированные изменения.
 
-## 2. Container Image - Dockerfile
+## <a name="2-container-image---dockerfile"></a>2. Образ контейнера— Dockerfile
 
-Through the last exercise, a container was manually created, modified, and then captured into a new container image. Docker includes a method for automating this process using a Dockerfile. This exercise will have almost identical results as the last, however this time the process will be automated. For this exercise, a Docker ID is required. If you do not have a Docker ID, sign up for one at [Docker Cloud]( https://cloud.docker.com/).
+В последнем упражнении мы вручную создали и изменили контейнер, а затем сохранили его в новом образе контейнера. В Docker есть способ автоматизации этого процесса с помощью файла Dockerfile. В этом упражнении будут почти такие же результаты, как и в последнем, но здесь процесс автоматизирован. Для этого упражнения требуется идентификатор Docker. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud]( https://cloud.docker.com/).
 
-On the container host, create a directory `c:\build`, and in this directory create a file named `Dockerfile`. Note – the file should not have a file extension.
+На узле контейнера создайте каталог `c:\build`, а в нем— файл с именем `Dockerfile`. Обратите внимание, что этот файл не должен иметь расширение.
 
-```none
+```
 powershell new-item c:\build\Dockerfile -Force
 ```
 
-Open the Dockerfile in notepad.
+Откройте файл Dockerfile в блокноте.
 
-```none
+```
 notepad c:\build\Dockerfile
 ```
 
-Copy the following text into the Dockerfile, and save the file. These commands instruct Docker to create a new image, using `microsoft/iis` as the base. The dockerfile then runs the commands specified in the `RUN` instruction, in this case the index.html file is updated with new content. 
+Скопируйте в него приведенный ниже текст и сохраните файл. Эти команды дают Docker указание создать новый образ, приняв `microsoft/iis` в качестве основы. После этого файл Dockerfile выполняет команды, заданные в инструкции `RUN`. В этом случае обновляется содержимое файла index.html. 
 
-For more information on Dockerfiles, see the [Dockerfiles on Windows](../manage-docker/manage-windows-dockerfile.md).
+Дополнительные сведения о файлах Dockerfile см. в статье [Файлы Dockerfile в Windows](../manage-docker/manage-windows-dockerfile.md).
 
-```none
+```
 FROM microsoft/iis
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 ```
 
-The `docker build` command will start the image build process. The `-t` parameter instructs the build process to name the new image `iis-dockerfile`. **Replace 'user' with the user name of your Docker account**. If you do not have an account with Docker, sign up for one at [Docker Cloud](https://cloud.docker.com/).
+Команда `docker build` запускает процесс создания образа. Параметр `-t` дает процессу указание присвоить новому образу имя `iis-dockerfile`. **Замените "user" на имя пользователя учетной записи Docker**. Если у вас нет учетной записи Docker, зарегистрируйтесь для ее получения в [Docker Cloud](https://cloud.docker.com/).
 
-```none
+```
 docker build -t <user>/iis-dockerfile c:\Build
 ```
 
-When completed, you can verify that the image has been created using the `docker images` command.
+После завершения можно убедиться, что образ создан, используя команду `docker images`.
 
-```none
+```
 docker images
 
 REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
@@ -142,42 +142,42 @@ windowsservercore   10.0.14300.1000     dbfee88ee9fd        8 weeks ago         
 windowsservercore   latest              dbfee88ee9fd        8 weeks ago         9.344 GB
 ```
 
-Now, deploy a container with the following command, again replacing user with your Docker ID.
+Теперь разверните контейнер с помощью следующей команды, снова заменив имя пользователя на свой идентификатор Docker.
 
-```none
+```
 docker run -d -p 80:80 <user>/iis-dockerfile ping -t localhost
 ```
 
-Once the container has been created, browse to the IP address of the container host. You should see the hello world application.
+После создания контейнера введите IP-адрес узла контейнера в браузере. Должно открыться приложение "Hello, World!".
 
 ![](media/dockerfile2.png)
 
-Back on the container host, use `docker ps` to get the name of the container, and `docker rm` to remove the container. Note – replace the name of the container in this example with the actual container name.
+Вернитесь на узел контейнера и выполните команду `docker ps`, чтобы получить имя контейнера, и команду `docker rm`, чтобы удалить контейнер. Примечание. Замените имя контейнера в данном примере на используемое вами.
 
-Get container name.
+Получите имя контейнера.
 
-```none
+```
 docker ps
 
 CONTAINER ID   IMAGE            COMMAND               CREATED              STATUS              PORTS                NAMES
 c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   cranky_brown
 ```
 
-Remove container.
+Удалите контейнер.
 
-```none
+```
 docker rm -f <container name>
 ```
 
-## 3. Docker Push
+## <a name="3-docker-push"></a>3. Операция отправки в Docker
 
-Docker container images can be stored in a container registry. Once an image is stored in a registry, it can be retrieved for later use across many different container hosts. Docker provides a public registry for storing container images at [Docker Hub](https://hub.docker.com/).
+Образы контейнеров Docker можно хранить в реестре контейнеров. Если образ хранится в реестре, его можно извлечь для последующего использования на нескольких различных узлах контейнеров. Docker предоставляет открытый реестр для хранения образов контейнеров в [Docker Hub](https://hub.docker.com/).
 
-For this exercise, the custom hello world image will be pushed to your own account on Docker Hub.
+В этом упражнении мы отправим пользовательский образ "Hello world" в вашу учетную запись на Docker Hub.
 
-First, login to your docker account using the `docker login command`.
+Войдите в учетную запись Docker с помощью `docker login command`.
 
-```none
+```
 docker login
 
 Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
@@ -188,21 +188,21 @@ Password: Password
 Login Succeeded
 ```
 
-Once logged in, the container image can be pushed to Docker Hub. To do so, use the `docker push` command. **Replace 'user' with your Docker ID**. 
+После входа в систему можно отправить образ контейнера в Docker Hub. Для этого используйте команду `docker push`. **Замените "user" на идентификатор Docker**. 
 
-```none
+```
 docker push <user>/iis-dockerfile
 ```
 
-The container image can now be downloaded from Docker Hub onto any Windows container host using `docker pull`. For this tutorial, we will delete the existing image, and then pull it down from Docker Hub. 
+Теперь можно скачать образ контейнера из Docker Hub на любой узел контейнера Windows с помощью `docker pull`. В этом учебнике мы удалим существующий образ и затем извлечем его из Docker Hub. 
 
-```none
+```
 docker rmi <user>/iis-dockerfile
 ```
 
-Running `docker images` will show that the image has been removed.
+Команда `docker images` подтвердит, что образ был удален.
 
-```none
+```
 docker images
 
 REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE
@@ -210,13 +210,13 @@ modified-iis              latest              51f1fe8470b3        5 minutes ago 
 microsoft/iis             latest              e4525dda8206        3 hours ago         7.61 GB
 ```
 
-Finally, docker pull can be used to pull the image back onto the container host. Replace user with the user name of your Docker account. 
+Наконец, с помощью команды "docker pull" можно поместить образ обратно в узел контейнера. Замените "user" на имя пользователя учетной записи Docker. 
 
-```none
+```
 docker pull <user>/iis-dockerfile
 ```
 
-## Next Steps
+## <a name="next-steps"></a>Дальнейшие действия
 
 Если вы хотите узнать, как создать пакет примера приложения ASP.NET, посетите ссылки на учебники для Windows 10, показанные ниже.
 

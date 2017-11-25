@@ -1,116 +1,116 @@
 ---
-title: Windows Container on Windows 10
-description: Container deployment quick start
-keywords: docker, containers
+title: "Контейнер Windows в Windows10"
+description: "Краткое руководство по развертыванию контейнеров"
+keywords: "docker, контейнеры"
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 2c5742ba11f830762a337f31ebcd1ae700cb3905
-ms.sourcegitcommit: 015f8c438cd1e1331e5388280facce4b9ec939ac
+ms.openlocfilehash: 77a611205807e7ee718bf3917e2eb0172316a34e
+ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/26/2017
+ms.lasthandoff: 11/08/2017
 ---
-# Windows Containers on Windows 10
+# <a name="windows-containers-on-windows-10"></a>Контейнеры Windows в Windows10
 
-The exercise will walk through basic deployment and use of the Windows container feature on Windows 10 Professional or Enterprise (Anniversary Edition). After completion, you will have installed Docker for Windows and run a simple container. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
+Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows10 Профессиональная и Windows10 Корпоративная (Anniversary Edition). В его рамках вы установите Docker для Windows и запустите простой контейнер. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
 
-Это краткое руководство применимо только к Windows 10. Additional quick start documentation can be found in the table of contents on the left hand side of this page.
+Это краткое руководство применимо только к Windows 10. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы.
 
-***Hyper-V isolation:*** Windows Server Containers require Hyper-V isolation on Windows 10 in order to provide developers with the same kernel version and configuration that will be used in production, more about this can be found on the [About Windows container](../about/index.md) page.
+***Изоляция Hyper-V.*** Для использования контейнеров Windows Server требуется изоляции Hyper-V в Windows 10, чтобы разработчики получили одинаковую версию ядра и конфигурации, которая будет использоваться применяться в рабочей среде. Дополнительные сведения об этом см. на странице [Сведения о контейнерах Windows](../about/index.md).
 
-**Prerequisites:**
+**Необходимые условия**
 
-- One physical computer system running Windows 10 Anniversary Edition or Creators Update (Professional or Enterprise).   
-- This quick start can be run on a Windows 10 virtual machine but nested virtualization will need to be enabled. More information can be found in the [Nested Virtualization Guide](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
+- Одна физическая компьютерная система под управлением Windows 10 Anniversary Edition или Creators Update (Профессиональная или Корпоративная).   
+- Это краткое руководство можно выполнять на виртуальной машине Windows10, однако при этом нужно включить вложенную виртуализацию. Дополнительные сведения см. в [руководстве по вложенной виртуализации](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
-> You must install critical updates for Windows Containers to work.
-> To check your OS version, run `winver.exe`, and compare the version shown to [Windows 10 update history](https://support.microsoft.com/en-us/help/12387/windows-10-update-history).
-> Make sure you have 14393.222 or later before continuing.
+> Чтобы контейнеры Windows работали, необходимо установить критические обновления.
+> Чтобы узнать версию ОС, запустите `winver.exe` и сравните указанную версию с версией в [журнале обновлений Windows10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history).
+> Убедитесь, что у вас установлена версия 14393.222 или более поздняя, перед тем как продолжить.
 
-## 1. Install Docker for Windows
+## <a name="1-install-docker-for-windows"></a>1. Установка Docker для Windows
 
-[Download Docker for Windows](https://download.docker.com/win/stable/InstallDocker.msi) and run the installer. [Detailed installation instructions](https://docs.docker.com/docker-for-windows/install) are available in the Docker documentation.
+[Скачайте Docker для Windows](https://download.docker.com/win/stable/InstallDocker.msi) и запустите программу установки. [Подробные инструкции по установке](https://docs.docker.com/docker-for-windows/install) доступны в документации по Docker.
 
-## 2. Switch to Windows containers
+## <a name="2-switch-to-windows-containers"></a>2. Переключение на контейнеры Windows
 
-After installation Docker for Windows defaults to running Linux containers. Switch to Windows containers using either the Docker tray-menu or by running the following command in a PowerShell prompt `& $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon`.
+После установки в Docker для Windows по умолчанию будут запущены контейнеры Linux. Переключитесь на контейнеры Windows, используя меню области уведомлений Docker или выполнив следующую команду в командной строке PowerShell `& $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon`.
 
 ![](./media/docker-for-win-switch.png)
 
-## 3. Install Base Container Images
+## <a name="3-install-base-container-images"></a>3. Установка базовых образов контейнеров
 
-Windows containers are built from base images. The following command will pull the Nano Server base image.
+Контейнеры Windows создаются из базовых образов. Приведенная ниже команда извлекает базовый образ Nano Server.
 
-```none
+```
 docker pull microsoft/nanoserver
 ```
 
-Once the image is pulled, running `docker images` will return a list of installed images, in this case the Nano Server image.
+После его получения выполните команду `docker images`, чтобы вывести список установленных образов. В данном случае будет отображен образ Nano Server.
 
-```none
+```
 docker images
 
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
 microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
 ```
 
-> Please read the Windows Containers OS Image EULA which can be found here – [EULA](../images-eula.md).
+> Прочтите лицензионное соглашение для образов ОС контейнеров Windows на странице [Лицензионное соглашение](../images-eula.md).
 
-## 4. Run Your First Container
+## <a name="4-run-your-first-container"></a>4. Запуск первого контейнера
 
-For this simple example a ‘Hello World’ container image will be created and deployed. For the best experience run these commands in an elevated Windows CMD shell or PowerShell.
+В этом простом примере будет создан и развернут образ контейнера "Hello World". Для получения наилучших результатов выполните следующие команды в командной строке Windows или PowerShell с повышенными привилегиями.
 
-> Windows PowerShell ISE does not work for interactive sessions with containers. Even though the container is running, it will appear to hang.
+> Интегрированная среда сценариев Windows PowerShell не работает в интерактивных сеансах с контейнерами. Даже если контейнер запускается, он зависает.
 
-First, start a container with an interactive session from the `nanoserver` image. Once the container has started, you will be presented with a command shell from within the container.  
+Сначала запустите контейнер с помощью интерактивного сеанса из образа `nanoserver`. После запуска контейнера в его рамках появится командная оболочка.  
 
-```none
+```
 docker run -it microsoft/nanoserver cmd
 ```
 
-Inside the container we will create a simple ‘Hello World’ script.
+Внутри контейнера создайте простой скрипт "Привет мир".
 
-```none
+```
 powershell.exe Add-Content C:\helloworld.ps1 'Write-Host "Hello World"'
 ```   
 
-When completed, exit the container.
+После завершения выйдите из контейнера.
 
-```none
+```
 exit
 ```
 
-You will now create a new container image from the modified container. To see a list of containers run the following and take note of the container id.
+Теперь создайте новый образ контейнера из измененного контейнера. Чтобы просмотреть список контейнеров, выполните следующую команду и запишите идентификатор контейнера.
 
-```none
+```
 docker ps -a
 ```
 
-Run the following command to create the new ‘HelloWorld’ image. Replace <containerid> with the id of your container.
+Выполните следующую команду для создания нового образа "Привет мир". Замените <containerid> на идентификатор контейнера.
 
-```none
+```
 docker commit <containerid> helloworld
 ```
 
-When completed, you now have a custom image that contains the hello world script. This can be seen with the following command.
+После завершения вы получите пользовательский образ, содержащий скрипт "Привет мир". Чтобы убедиться в этом, используйте следующую команду.
 
-```none
+```
 docker images
 ```
 
-Finally, to run the container, use the `docker run` command.
+Наконец, чтобы запустить контейнер, используйте команду `docker run`.
 
-```none
+```
 docker run --rm helloworld powershell c:\helloworld.ps1
 ```
 
-The outcome of the `docker run` command is that a Hyper-V container was created from the 'HelloWorld' image, a sample 'Hello World' script was then executed (output echoed to the shell), and then the container stopped and removed.
-Subsequent Windows 10 and container quick starts will dig into creating and deploying applications in containers on Windows 10.
+В результате выполнения команды `docker run` создается контейнер Hyper-V из образа "Привет мир", затем запускается скрипт-пример "Привет мир" (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется.
+В последующих кратких руководствах, посвященных Windows10 и контейнерам, будет подробно описано создание и развертывание приложений в контейнерах на базе Windows10.
 
-## Дальнейшие действия
+## <a name="next-steps"></a>Дальнейшие действия
 
 Перейдите к следующему учебнику, чтобы ознакомиться с примером [создания приложения](./building-sample-app.md)
