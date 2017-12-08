@@ -7,11 +7,11 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: f4ee9346db77e29f9d3366634b8b6ad07d0fec08
-ms.sourcegitcommit: 380dd8e78780995b96def2e2ec6e22e3387e82e0
+ms.openlocfilehash: 6ae690ff6592198bc16cbaf60489d3ed5aceeeb0
+ms.sourcegitcommit: 64f5f8d838f72ea8e0e66a72eeb4ab78d982b715
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/09/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="windows-container-requirements"></a>Требования к контейнеру Windows
 
@@ -51,7 +51,7 @@ ms.lasthandoff: 10/09/2017
 <td><center>Server Core или Nano Server</center></td>
 </tr>
 <tr valign="top">
-<td><center>Сервер Nano Server</center></td>
+<td><center>Сервер Nano Server*</center></td>
 <td><center> Сервер Nano Server</center></td>
 <td><center>Server Core или Nano Server</center></td>
 </tr>
@@ -62,6 +62,23 @@ ms.lasthandoff: 10/09/2017
 </tr>
 </tbody>
 </table>
+* Начиная с Windows Server версии 1709 Nano Server больше не доступен как узел контейнеров.
+
+### <a name="memory-requirments"></a>Требования к памяти
+Ограничения доступной контейнерам памяти можно настроить с помощью [элементов управления ресурсами](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/resource-controls) или путем перегрузки узла контейнера.  Минимальный объем памяти, необходимый для запуска контейнера и выполнении основных команд (ipconfig, dir и т. д.), указан ниже.  Обратите внимание, что эти значения не учитывают совместное использование ресурсов между контейнерами или требования приложения, которое выполняется в контейнере.
+
+#### <a name="windows-server-2016"></a>Windows Server 2016
+| Базовый образ  | Контейнер Windows Server | Изоляция Hyper-V    |
+| ----------- | ------------------------ | -------------------- |
+| Сервер Nano Server | 40МБ                     | 130МБ + файл подкачки 1ГБ |
+| Основные серверные компоненты | 50 МБ                     | 325МБ + файл подкачки 1ГБ |
+
+#### <a name="windows-server-version-1709"></a>Windows Server версии 1709
+| Базовый образ  | Контейнер Windows Server | Изоляция Hyper-V    |
+| ----------- | ------------------------ | -------------------- |
+| Сервер Nano Server | 30 МБ                     | 110МБ + файл подкачки 1ГБ |
+| Основные серверные компоненты | 45 МБ                     | 360МБ + файл подкачки 1ГБ |
+
 
 ### <a name="nano-server-vs-windows-server-core"></a>Nano Server или Windows Server Core
 
@@ -81,7 +98,7 @@ ms.lasthandoff: 10/09/2017
 Чтобы проверить, какая версия узла Windows установлена, выполните запрос к HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion.  Чтобы узнать версию используемого базового образа, просмотрите теги в Центре Docker или хэш-таблицу образа в описании образа.  Информацию о датах выпусках всех сборок и редакций можно найти на странице [журнала обновлений Windows10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history).
 
 В этом примере 14393 является основным номером сборки, и 321— номером редакции.
-```none
+```
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 

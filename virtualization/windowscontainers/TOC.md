@@ -30,6 +30,7 @@
 ## [Начало работы с режимом мелких объектов](manage-containers/swarm-mode.md)
 ## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 ## [Удаленное управление узлом Docker в Windows](management/manage_remotehost.md)
+## [Элементы управления ресурсами](manage-containers/resource-controls.md)
 
 # Примеры контейнеров
 ## [Платформы приложений](samples.md#Application-Frameworks)
