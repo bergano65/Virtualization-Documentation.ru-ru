@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "c625804f3df8dc7b7aae9a4077f4b3222177ed85",
+  "LastProcessedCommit": "b3603221121be046d91d1935564acaaad3f78c00",
   "LastTranslatedCommit": "54d02462543cd378300b0405c2338c4e1248b723",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -22753,6 +22753,22 @@
       "HandoffFileCommit": "c54e2a91201b4a50d5aa3647c6ec05fae527c0a8",
       "HandoffDateTime": "2017-12-16T00:28:02.6725271Z",
       "HandoffXliffHash": "27c3cc10fc7e6af402a7a6e81fa59dc622c7f1d9",
+      "HandoffPriority": ""
+    },
+    "d5b8e888b62495c98c0691dc0d62deecf7c1eb6e": {
+      "FileHash": "d5b8e888b62495c98c0691dc0d62deecf7c1eb6e",
+      "SourceFileCommit": "b3603221121be046d91d1935564acaaad3f78c00",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\user-guide\\nested-virtualization.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\user-guide\\nested-virtualization.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.ru-ru.xlf",
+      "HandoffFileCommit": "5040a3484261715398006ae2aa40ac6045db147b",
+      "HandoffDateTime": "2017-12-18T19:29:00.095428Z",
+      "HandoffXliffHash": "d35035765c6edeea21e4fdd40dbb405be3f6fe0f",
       "HandoffPriority": ""
     }
   }
