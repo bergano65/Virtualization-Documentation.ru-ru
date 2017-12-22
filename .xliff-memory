@@ -3197,6 +3197,12 @@
       "XliffHash": "c054849e4e412fb861f065222fdb0e7574564339",
       "TranslationType": 1,
       "SkeletonFile": "ol-xliffcache\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\76dc1c125a72b4b491a00084dc338ded95be9eb9.599682f017a13e2734b3f46a528e4f20f2c8d7b7.xml"
+    },
+    "virtualization\\windowscontainers\\manage-containers\\container-storage.md.8166956288ba03db6455042f4d08ee50a66c791f.HT": {
+      "SourceFilename": "virtualization\\windowscontainers\\manage-containers\\container-storage.md",
+      "XliffHash": "8166956288ba03db6455042f4d08ee50a66c791f",
+      "TranslationType": 1,
+      "SkeletonFile": "ol-xliffcache\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\a06b2f3ac2249f0f315e027ec43661419a76a5e9.4550e48e23feb295dd631bfe32dd0bea5b09aa2f.xml"
     }
   }
 }
