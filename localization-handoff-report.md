@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\windowscontainers\manage-containers\resource-controls.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a072513214b0dabb9dba20ce43ea52aaf7806c5f/virtualization/windowscontainers/manage-containers/resource-controls.md) | HandedOffSuccess | [Details](#d3eb7e2b751468953a152e8c723551fb3e1d12dd371)
+ [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4042339cfd8a4440a5aba2b6f28968a52ab066fa/virtualization/windowscontainers/troubleshooting.md) | HandedOffSuccess | [Details](#4d4b8a533aa5517c5850967f0b92c97da5190296450)
 
 ## Item Details
-##### <a name='d3eb7e2b751468953a152e8c723551fb3e1d12dd371'></a> Source: [virtualization\windowscontainers\manage-containers\resource-controls.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/a072513214b0dabb9dba20ce43ea52aaf7806c5f/virtualization/windowscontainers/manage-containers/resource-controls.md)
+##### <a name='4d4b8a533aa5517c5850967f0b92c97da5190296450'></a> Source: [virtualization\windowscontainers\troubleshooting.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/4042339cfd8a4440a5aba2b6f28968a52ab066fa/virtualization/windowscontainers/troubleshooting.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [resource-controls.ebd6b460c2758fdccb19707a1a6b398c39920ef6.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ea28771db624b2ed9e1b9dd3cd3ad32d01c3e46e/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/resource-controls.ebd6b460c2758fdccb19707a1a6b398c39920ef6.ru-ru.xlf)
-* Handoff Datetime: 2018-01-01 21:31:15
+* Handoff File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/2220963a8803cbd7569dac8efa110ecdacb091ad/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf)
+* Handoff Datetime: 2018-01-02 16:30:29
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
@@ -21,6 +21,11 @@
 * Handback File: 
 * Handback Datetime: 0001-01-01 00:00:00
 * Handback Name: 
+* Current Target File: [virtualization\windowscontainers\troubleshooting.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/blob/acb5c88f6cafcc4ed2e300234c2f1a456634af10/virtualization/windowscontainers/troubleshooting.md)
+* Current Handback File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf)
+* Current Handback Datetime: 2017-03-24 13:51:26
+* Bilingual File: [troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/21bfd91373f92b540f1a914790bb4d09fe99bf58/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/troubleshooting.fa8e0bf8c3816ab8e7080b2e3807e89993373b17.ru-ru.xlf)
+* Bilingual Datetime: 2017-03-24 13:55:48
 * [Back to Top](#report-top)
 
 
