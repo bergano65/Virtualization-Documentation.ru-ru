@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "78ab53f487f6642ad757e8ae7381b0ffa5111c0d",
+  "LastProcessedCommit": "df362a4ad067c224e3e715e80384da04fecae1ff",
   "LastTranslatedCommit": "54d02462543cd378300b0405c2338c4e1248b723",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -23662,6 +23662,53 @@
       "HandoffFileCommit": "e8763cb66170ab933e1133db5c47037a59a88e83",
       "HandoffDateTime": "2018-01-05T20:08:18.4583081Z",
       "HandoffXliffHash": "4f7a3b385ee9cecd127ab2b55b18b84917dd6470",
+      "HandoffPriority": ""
+    },
+    "361b76e18125bb14f5e88b1892eed882a3ae5508": {
+      "FileHash": "361b76e18125bb14f5e88b1892eed882a3ae5508",
+      "SourceFileCommit": "df362a4ad067c224e3e715e80384da04fecae1ff",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\about\\supported-guest-os.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\about\\supported-guest-os.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\supported-guest-os.bb959c20ec9b6ee9dc1f4b9e0d1abaad551c0a11.ru-ru.xlf",
+      "HandoffFileCommit": "8ea6d180b5b1ef696a0a869a8eccdf3f90636f52",
+      "HandoffDateTime": "2018-01-05T21:07:49.3532133Z",
+      "HandoffXliffHash": "89c405068f84ed98959922090d43b1487aeab040",
+      "HandoffPriority": ""
+    },
+    "0a1aab53dcc7543539d221b7a4acceeb07a65155": {
+      "FileHash": "0a1aab53dcc7543539d221b7a4acceeb07a65155",
+      "SourceFileCommit": "df362a4ad067c224e3e715e80384da04fecae1ff",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\CVE-2017-5715-and-hyper-v-vms.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\CVE-2017-5715-and-hyper-v-vms.md"
+      ],
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\CVE-2017-5715-and-hyper-v-vms.26f9ffce97eab599de9ec9ad1a7b1ac4e7a273bf.ru-ru.xlf",
+      "HandoffFileCommit": "8ea6d180b5b1ef696a0a869a8eccdf3f90636f52",
+      "HandoffDateTime": "2018-01-05T21:07:49.3532133Z",
+      "HandoffXliffHash": "a9c869a1301402d170574a6c531706204031efef",
+      "HandoffPriority": ""
+    },
+    "82c8ba6b09b6d1bfde7217eeaf16cfb7967d4f62": {
+      "FileHash": "82c8ba6b09b6d1bfde7217eeaf16cfb7967d4f62",
+      "SourceFileCommit": "df362a4ad067c224e3e715e80384da04fecae1ff",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\user-guide\\nested-virtualization.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\user-guide\\nested-virtualization.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\nested-virtualization.b6c03a13724acb15bc74c70fdf9c4b440a2b28d4.ru-ru.xlf",
+      "HandoffFileCommit": "8ea6d180b5b1ef696a0a869a8eccdf3f90636f52",
+      "HandoffDateTime": "2018-01-05T21:07:49.3532133Z",
+      "HandoffXliffHash": "d35035765c6edeea21e4fdd40dbb405be3f6fe0f",
       "HandoffPriority": ""
     }
   }
