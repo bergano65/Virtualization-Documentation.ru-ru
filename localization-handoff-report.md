@@ -6,14 +6,14 @@
 ## File List
  Source File | Status | Details 
  ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\meltdown-mitigation-configuration-for-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7db5a0ceffc551ca5c7c247967729f243a1fa1a4/virtualization/hyper-v-on-windows/meltdown-mitigation-configuration-for-hyper-v-vms.md) | HandedOffSuccess | [Details](#038ce193c53e6f3b5bf05168c869eba53f5db8ea126)
+ [virtualization\hyper-v-on-windows\meltdown-mitigation-configuration-for-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/aedf52ef695c834827d22d38ad9eb15fe96a3657/virtualization/hyper-v-on-windows/meltdown-mitigation-configuration-for-hyper-v-vms.md) | HandedOffSuccess | [Details](#b1eba366f63fe636601d359a6a11f0740508c0ee126)
 
 ## Item Details
-##### <a name='038ce193c53e6f3b5bf05168c869eba53f5db8ea126'></a> Source: [virtualization\hyper-v-on-windows\meltdown-mitigation-configuration-for-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/7db5a0ceffc551ca5c7c247967729f243a1fa1a4/virtualization/hyper-v-on-windows/meltdown-mitigation-configuration-for-hyper-v-vms.md)
+##### <a name='b1eba366f63fe636601d359a6a11f0740508c0ee126'></a> Source: [virtualization\hyper-v-on-windows\meltdown-mitigation-configuration-for-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/aedf52ef695c834827d22d38ad9eb15fe96a3657/virtualization/hyper-v-on-windows/meltdown-mitigation-configuration-for-hyper-v-vms.md)
 * Status: HandedOffSuccess
 * Target File: 
-* Handoff File: [meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/6a003578457c90c109e9dc67055b12adf2361f43/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.ru-ru.xlf)
-* Handoff Datetime: 2018-01-05 02:06:51
+* Handoff File: [meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/dd5ea080cec9076d8b901df9299d532a5a2158e8/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/meltdown-mitigation-configuration-for-hyper-v-vms.70bf79ae08d2c1223615a427872b618e165e602d.ru-ru.xlf)
+* Handoff Datetime: 2018-01-05 03:06:21
 * Handoff Reason: Include
 * Handoff Name: 
 * Archive File: 
