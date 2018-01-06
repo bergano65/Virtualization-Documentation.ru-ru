@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "451f291e0df3fc26637cce0fbf1855c56cc6e0d4",
+  "LastProcessedCommit": "50d31ccdc097f17b8b99cd95da0671de182795cf",
   "LastTranslatedCommit": "54d02462543cd378300b0405c2338c4e1248b723",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -23740,6 +23740,21 @@
       "HandoffFileCommit": "e3a0065f9a26ea4840205289735b559f5a61345e",
       "HandoffDateTime": "2018-01-06T01:08:18.8489356Z",
       "HandoffXliffHash": "f3c3ee6a6562f4b2495fe9f3d758e236c37cf36f",
+      "HandoffPriority": ""
+    },
+    "b70f19cbf617803f6bb7eec85c719b8a0d63bec1": {
+      "FileHash": "b70f19cbf617803f6bb7eec85c719b8a0d63bec1",
+      "SourceFileCommit": "50d31ccdc097f17b8b99cd95da0671de182795cf",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\CVE-2017-5715-and-hyper-v-vms.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\CVE-2017-5715-and-hyper-v-vms.md"
+      ],
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\CVE-2017-5715-and-hyper-v-vms.26f9ffce97eab599de9ec9ad1a7b1ac4e7a273bf.ru-ru.xlf",
+      "HandoffFileCommit": "d357f156a0a9883f2d274002b2d44213d73d0798",
+      "HandoffDateTime": "2018-01-06T02:07:44.6312707Z",
+      "HandoffXliffHash": "8a50850353379484851d4a2f7ea53cbf9f4a6646",
       "HandoffPriority": ""
     }
   }
