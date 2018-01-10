@@ -1,11 +1,43 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 0
+ Total Files | 2
 
 ## File List
+ Source File | Status | Details 
+ ----------- | ------ | ------- 
+ [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-hosts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5b8454636dbf5eac72448f98a22217b235c33442/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-hosts.md) | HandedOffSuccess | [Details](#ab87a1ad06c705def2201e445d21ecc94908bd25117)
+ [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5b8454636dbf5eac72448f98a22217b235c33442/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-vms.md) | HandedOffSuccess | [Details](#a0de6554d434aa9bf51dc274b052986011cbf405118)
 
 ## Item Details
+##### <a name='ab87a1ad06c705def2201e445d21ecc94908bd25117'></a> Source: [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-hosts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5b8454636dbf5eac72448f98a22217b235c33442/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-hosts.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [CVE-2017-5715-and-hyper-v-hosts.56cdb082848b663e4ae5cf5e3b91519bbb5b61f2.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ed979f52c32fe2f3f23e69928c76821f0e4fad25/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/CVE-2017-5715-and-hyper-v-hosts.56cdb082848b663e4ae5cf5e3b91519bbb5b61f2.ru-ru.xlf)
+* Handoff Datetime: 2018-01-10 00:07:53
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
+##### <a name='a0de6554d434aa9bf51dc274b052986011cbf405118'></a> Source: [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-vms.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/5b8454636dbf5eac72448f98a22217b235c33442/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-vms.md)
+* Status: HandedOffSuccess
+* Target File: 
+* Handoff File: [CVE-2017-5715-and-hyper-v-vms.26f9ffce97eab599de9ec9ad1a7b1ac4e7a273bf.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/ed979f52c32fe2f3f23e69928c76821f0e4fad25/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/CVE-2017-5715-and-hyper-v-vms.26f9ffce97eab599de9ec9ad1a7b1ac4e7a273bf.ru-ru.xlf)
+* Handoff Datetime: 2018-01-10 00:07:53
+* Handoff Reason: Include
+* Handoff Name: 
+* Archive File: 
+* Archive Datetime: 0001-01-01 00:00:00
+* Handback File: 
+* Handback Datetime: 0001-01-01 00:00:00
+* Handback Name: 
+* [Back to Top](#report-top)
+
 
 ## Error Details
 
