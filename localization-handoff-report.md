@@ -1,48 +1,11 @@
 # <a name='report-top'></a> Localization Handoff Report
 
 ## Summary
- Total Files | 2
+ Total Files | 0
 
 ## File List
- Source File | Status | Details 
- ----------- | ------ | ------- 
- [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-hosts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1070545d5f8a891a3c102513df27406c1033fe57/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-hosts.md) | HandedOffSuccess | [Details](#0c718128473a2f83ef0764faff6c8264ef6eeff4117)
- [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1070545d5f8a891a3c102513df27406c1033fe57/virtualization/windowscontainers/deploy-containers/system-requirements.md) | HandedOffSuccess | [Details](#72829adcd147d684155af4991efe0573a804938e331)
 
 ## Item Details
-##### <a name='0c718128473a2f83ef0764faff6c8264ef6eeff4117'></a> Source: [virtualization\hyper-v-on-windows\CVE-2017-5715-and-hyper-v-hosts.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1070545d5f8a891a3c102513df27406c1033fe57/virtualization/hyper-v-on-windows/CVE-2017-5715-and-hyper-v-hosts.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [CVE-2017-5715-and-hyper-v-hosts.56cdb082848b663e4ae5cf5e3b91519bbb5b61f2.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/dfd9dd0b65f87f4c033825d694348e8c667466d4/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/CVE-2017-5715-and-hyper-v-hosts.56cdb082848b663e4ae5cf5e3b91519bbb5b61f2.ru-ru.xlf)
-* Handoff Datetime: 2018-01-11 02:07:53
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* [Back to Top](#report-top)
-
-##### <a name='72829adcd147d684155af4991efe0573a804938e331'></a> Source: [virtualization\windowscontainers\deploy-containers\system-requirements.md](https://github.com/Microsoft/Virtualization-Documentation-Private/blob/1070545d5f8a891a3c102513df27406c1033fe57/virtualization/windowscontainers/deploy-containers/system-requirements.md)
-* Status: HandedOffSuccess
-* Target File: 
-* Handoff File: [system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handoff/blob/dfd9dd0b65f87f4c033825d694348e8c667466d4/ol-handoff/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/live/system-requirements.7dbcfcd7846f5274542c2b3889e0b8cfd203b0b7.ru-ru.xlf)
-* Handoff Datetime: 2018-01-11 02:07:53
-* Handoff Reason: Include
-* Handoff Name: 
-* Archive File: 
-* Archive Datetime: 0001-01-01 00:00:00
-* Handback File: 
-* Handback Datetime: 0001-01-01 00:00:00
-* Handback Name: 
-* Current Target File: [virtualization\windowscontainers\deployment\system_requirements.md](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.ru-ru/blob/9a9abc8fe047b71a1b60c26b8b2fb0e43759e5dc/virtualization/windowscontainers/deployment/system_requirements.md)
-* Current Handback File: [system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/f9016ff8b70f8efdbdff7e8d4e35834673424ea9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf)
-* Current Handback Datetime: 2016-11-05 11:42:55
-* Bilingual File: [system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf](https://github.com/MicrosoftDocs/Virtualization-Documentation-Private.handback/blob/f9016ff8b70f8efdbdff7e8d4e35834673424ea9/ol-handback/Microsoft/Virtualization-Documentation-Private.ru-ru/live/system_requirements.579a5475e3bd1d3d3fd9d5b53488ab4ae55a4423.ru-ru.xlf)
-* Bilingual Datetime: 2016-11-05 11:43:57
-* [Back to Top](#report-top)
-
 
 ## Error Details
 
