@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: ccc45d47fc9f17c10b149bc647463824e1ecbc9e
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 5b187853be0ebb28bcede43bfca7e4042a23dfce
+ms.sourcegitcommit: a3479a4d8372a637fb641cd7d5003f1d8a37b741
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="docker-engine-on-windows"></a>Подсистема Docker в Windows
 
@@ -25,7 +25,6 @@ Docker необходим для работы с контейнерами Window
 * [Контейнеры Windows в Windows Server2016](../quick-start/quick-start-windows-server.md)
 * [Контейнеры Windows в Windows10](../quick-start/quick-start-windows-10.md)
 
-
 ### <a name="manual-installation"></a>установка вручную;
 Если вы хотите использовать версии подсистемы и клиента Docker, находящиеся в разработке, выполните следующие действия. Будут установлены подсистема и клиент Docker. Если вы являетесь разработчиком и выполняете тестирование новых возможностей или используете сборку программы предварительной оценки Windows, вам может потребоваться использовать версию Docker, находящуюся в разработке. В противном случае следуйте инструкциям в разделе "Установка Docker" выше, чтобы получить последние выпущенные версии.
 
@@ -36,8 +35,7 @@ Docker необходим для работы с контейнерами Window
 Последнюю версию всегда можно найти здесь: https://master.dockerproject.org. В этом примере используется последняя версия из основной ветви (Master Branch). 
 
 ```powershell
-$version = (Invoke-WebRequest -UseBasicParsing https://raw.githubusercontent.com/docker/docker/master/VERSION).Content.Trim()
-Invoke-WebRequest "https://master.dockerproject.org/windows/x86_64/docker-$($version).zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
+Invoke-WebRequest "https://master.dockerproject.org/windows/x86_64/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
 ```
 
 Распакуйте ZIP-архив в папку Program Files.
@@ -90,7 +88,7 @@ Start-Service Docker
     "log-driver": "", 
     "mtu": 0,
     "pidfile": "",
-    "graph": "",
+    "data-root": "",
     "cluster-store": "",
     "cluster-advertise": "",
     "debug": true,
@@ -123,7 +121,7 @@ Start-Service Docker
 
 ```
 {    
-    "graph": "d:\\docker"
+    "data-root": "d:\\docker"
 }
 ```
 
@@ -190,3 +188,72 @@ Restart-Service docker
 
 Дополнительные сведения см. в разделе [Windows Configuration File](https://docs.docker.com/engine/reference/commandline/dockerd/#/windows-configuration-file) (Файл конфигурации Windows) на сайте Docker.com.
 
+## <a name="uninstall-docker"></a>Удаление Docker
+*Выполните действия, описанные в этом разделе, чтобы удалить Docker и выполнить полную очистку компонентов системы Docker в Windows 10 или Windows Server 2016.*
+
+> Примечание. Все описанные ниже команды необходимо выполнять в сеансе PowerShell **с повышенными привилегиями**.
+
+### <a name="step-1-prepare-your-system-for-dockers-removal"></a>ШАГ 1. Подготовка системы к удалению Docker 
+Перед удалением Docker рекомендуется убедиться, что в вашей системе не выполняются контейнеры (если вы этого еще не сделали). Вот несколько полезных команды.
+```
+# Leave swarm mode (this will automatically stop and remove services and overlay networks)
+docker swarm leave --force
+
+# Stop all running containers
+docker ps --quiet | ForEach-Object {docker stop $_}
+```
+Кроме того, рекомендуется удалить все контейнеры, образы контейнеров, сети и тома из системы перед удалением Docker.
+```
+docker system prune --volumes --all
+```
+
+### <a name="step-2-uninstall-docker"></a>ШАГ 2. Удаление Docker 
+
+#### ***<a name="steps-to-uninstall-docker-on-windows-10"></a>Процедура удаления Docker в Windows 1010:***
+- На компьютере с Windows 10 перейдите в раздел **Параметры > Приложения**.
+- В разделе **Приложения и компоненты** найдите пункт **Docker для Windows**
+- Щелкните **Docker для Windows > Удалить**
+
+#### ***<a name="steps-to-uninstall-docker-on-windows-server-2016"></a>Процедура удаления Docker в Windows Server 201616:***
+В сеансе PowerShell с повышенными привилегиями выполните командлеты `Uninstall-Package` и `Uninstall-Module` для удаления модуля Docker и соответствующего поставщик управления пакетами из системы. 
+> Совет. Вы можете найти поставщик пакетов, который использовался для установки Docker с помощью команды: `PS C:\> Get-PackageProvider -Name *Docker*`
+
+*Например*:
+```
+Uninstall-Package -Name docker -ProviderName DockerMsftProvider
+Uninstall-Module -Name DockerMsftProvider
+```
+
+### <a name="step-3-cleanup-docker-data-and-system-components"></a>ШАГ 3. Очистка данных и системных компонентов Docker
+Удалите *сети Docker по умолчанию,*, чтобы их конфигурация не сохранилась в системе после удаления Docker:
+```
+Get-HNSNetwork | Remove-HNSNetwork
+```
+Удалите *программные данные* Docker из системы:
+```
+Remove-Item "C:\ProgramData\Docker" -Recurse
+```
+Можно также удалить *необязательные компоненты Windows*, связанные с Docker и контейнерами в Windows. 
+
+Как минимум, к ним относится компонент «Контейнеры», который автоматически включается в любом экземпляре Windows 10 или Windows Server 2016 при установке Docker. Это также может быть компонент «Hyper-V», который автоматически включается в Windows 10 при установке Docker, однако в Windows Server 2016 он включается вручную.
+
+> **ВАЖНОЕ ПРИМЕЧАНИЕ ОБ ОТКЛЮЧЕНИИ HYPER-V.** [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/) — это общий компонент виртуализации, который предоставляет очень много возможностей, а не только контейнеры! Прежде чем отключить Hyper-V, убедитесь, что в системе нет других виртуальных компонентов, которые зависят от Hyper-V.
+
+#### ***<a name="steps-to-remove-windows-features-on-windows-10"></a>Процедура удаления компонентов Windows в Windows 1010:***
+- На компьютере с Windows 10 перейдите в раздел **Панель управления > Программы Hyper-V > Программы и компоненты > Включение или отключение компонентов Windows**.
+- Найдите имя компонентов, которые требуется отключить — в этом случае это **Контейнеры** и (необязательно) **Hyper-V**
+- **Снимите** флажок рядом с именем компонента, который вы хотите отключить
+- Нажмите кнопку **ОК**.
+
+#### ***<a name="steps-to-remove-windows-features-on-windows-server-2016"></a>Процедура удаления компонентов Windows в Windows Server 201616:***
+В сеансе PowerShell с повышенными привилегиями выполните следующие команды, чтобы отключить компоненты **Контейнеры** и (необязательно) **Hyper-V**.
+```
+Remove-WindowsFeature Containers
+Remove-WindowsFeature Hyper-V 
+```
+
+### <a name="step-4-reboot-your-system"></a>ШАГ 4. Перезагрузка компьютера
+Чтобы завершить процедуру удаления и очистки, в сеансе PowerShell с повышенными привилегиями выполните следующую команду:
+```
+Restart-Computer -Force
+```

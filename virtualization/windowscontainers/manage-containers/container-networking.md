@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 98feee128860885b4f62420cc6eb86d23579551b
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 394aa58c3421e512d005f59d5bd30667f1c26f16
+ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-container-networking"></a>Сетевые подключения контейнеров Windows
 > ***Сведения об основных сетевых командах, параметрах и синтаксисе Docker см. в разделе [Сетевые подключения контейнеров Docker](https://docs.docker.com/engine/userguide/networking/).*** За исключением случаев, описанных в этом документе, выполнение всех сетевых команд Docker поддерживается в Windows с помощью того же синтаксиса, что и в Linux. Однако обратите внимание, что сетевые стеки Windows и Linux отличаются друг от друга, и таким образом вы обнаружите, что некоторые сетевые команды Linux (например ifconfig) не поддерживаются в Windows.
@@ -201,6 +201,7 @@ Docker для Windows (драйвер Windows для подсистемы Docker
 ```
 PS C:\> Get-VMNetworkAdapter -VMName ContainerHostVM | Set-VMNetworkAdapter -MacAddressSpoofing On
 ```
+Если вы используете VMware в качестве гипервизора, вам необходимо включить неизбирательный режим. Подробнее см. [здесь](https://kb.vmware.com/s/article/1004099).
 #### <a name="creating-multiple-transparent-networks-on-a-single-container-host"></a>Создание нескольких прозрачных сетей на одном узле контейнера
 Чтобы создать несколько прозрачных сетей, необходимо указать, к какому сетевому адаптеру (виртуальному) должен быть привязан внешний виртуальный коммутатор Hyper-V. Чтобы задать интерфейс для сети, используйте следующий синтаксис.
 ```

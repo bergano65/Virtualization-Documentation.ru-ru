@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: b916b8bb2e09dfc78414785ad0d0252b5abec619
-ms.sourcegitcommit: b578961db242f08261798d1b498b091b8c405924
+ms.openlocfilehash: 37782c4d2491b9b1963a326204e30a6f484b5ec9
+ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="windows-containers"></a>Контейнеры Windows
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 10/27/2017
 
 <center>![](media/containerfund.png)</center>
 
-Всем, кто работал с виртуальными машинами, контейнеры может показаться чем-то знакомым. Контейнер работает под управлением операционной системы и содержит файловую систему, к нему можно получить сетевой доступ, чем напоминает физический или виртуальный компьютер. При этом у контейнеров и виртуальных машин совершенно разные технология и принцип работы.
+Всем, кто работал с виртуальными машинами, контейнеры могут показаться чем-то знакомым. Контейнер работает под управлением операционной системы и содержит файловую систему, к нему можно получить сетевой доступ, чем напоминает физический или виртуальный компьютер. При этом у контейнеров и виртуальных машин совершенно разные технология и принцип работы.
 
 Марк Руссинович (Mark Russinovich), гуру Microsoft Azure, написал [прекрасную статью в блоге](https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/), в которой подробно описаны различия.
 
