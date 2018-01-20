@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 44693b413dd8043fbec68835eafe6754615fa449
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: 4d4b8a533aa5517c5850967f0b92c97da5190296
+ms.sourcegitcommit: 4042339cfd8a4440a5aba2b6f28968a52ab066fa
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="troubleshooting"></a>Диагностика
 
@@ -29,7 +29,7 @@ Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invo
 ## <a name="finding-logs"></a>Нахождение журналов
 Существует ряд служб, которые используются для управления контейнерами Windows. В следующих разделах показано, где найти журналы каждой из служб.
 
-### <a name="docker-engine"></a>Подсистема Docker
+# <a name="docker-engine"></a>Подсистема Docker
 Подсистема Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
 
 Например, следующая команда выведет записи журнала подсистемы Docker за последние 5минут, начиная с самой ранней.
@@ -44,7 +44,7 @@ Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-5
 Get-EventLog -LogName Application -Source Docker -After (Get-Date).AddMinutes(-30)  | Sort-Object Time | Export-CSV ~/last30minutes.CSV
 ```
 
-#### <a name="enabling-debug-logging"></a>Включение ведения журналов отладки
+## <a name="enabling-debug-logging"></a>Включение ведения журналов отладки
 Вы можете также включить ведение журналов на уровне отладки в подсистеме Docker. Это может помочь в устранении проблем, если в обычных журналах недостаточно подробностей.
 
 Сначала откройте командную строку с повышенными привилегиями, а затем запустите `sc.exe qc docker`, чтобы отобразилась текущая командная строка службы Docker.
@@ -90,7 +90,7 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-#### <a name="obtaining-stack-dump-and-daemon-data"></a>Получение копии стека и данных управляющей программы.
+## <a name="obtaining-stack-dump-and-daemon-data"></a>Получение копии стека и данных управляющей программы.
 
 Как правило, эти данные запрашивает только служба поддержки Майкрософт или разработчики Docker. Их можно использовать для диагностики неполадок, приведших к зависанию Docker. 
 
@@ -110,7 +110,7 @@ docker-signal -pid=<id>
 Обратите внимание, что файл `daemon-data*.log` может содержать личные данные и его, как правило, следует предоставлять только доверенным специалистам технической поддержки. `goroutine-stacks*.log` не содержит личные сведения.
 
 
-### <a name="host-compute-service"></a>Служба вычисления узлов
+# <a name="host-compute-service"></a>Служба вычисления узлов
 Подсистема Docker зависит от службы контейнера узлов конкретной версии Windows. Она содержит отдельные журналы: 
 - Microsoft-Windows-Hyper-V-Compute-Admin.
 - Microsoft-Windows-Hyper-V-Compute-Operational.
@@ -123,7 +123,7 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Admin
 Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational 
 ```
 
-#### <a name="capturing-hcs-analyticdebug-logs"></a>Запись журналов аналитики/отладки службы HCS
+## <a name="capturing-hcs-analyticdebug-logs"></a>Запись журналов аналитики/отладки службы HCS
 
 Включите запись журналов аналитики/отладки для вычисления Hyper-V с их сохранением в файле `hcslog.evtx`.
 
@@ -140,7 +140,7 @@ wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```
 
-#### <a name="capturing-hcs-verbose-tracing"></a>Запись подробной трассировки службы HCS
+## <a name="capturing-hcs-verbose-tracing"></a>Запись подробной трассировки службы HCS
 
 Как правило, эти данные запрашивает только служба поддержки Майкрософт. 
 
