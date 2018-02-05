@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: bc36f1f59ed339b2cc3dd3372a5cd5119f470c7c
-ms.sourcegitcommit: 64f5f8d838f72ea8e0e66a72eeb4ab78d982b715
+ms.openlocfilehash: d3eb7e2b751468953a152e8c723551fb3e1d12dd
+ms.sourcegitcommit: a072513214b0dabb9dba20ce43ea52aaf7806c5f
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 01/01/2018
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Реализация элементов управления ресурсами для контейнеров Windows
 Существует несколько элементов управления ресурсами, которые можно реализовать на уровне контейнера и ресурса.  По умолчанию управление контейнерами осуществляется как типичными ресурсами Windows, которое обычно основано на справедливом распределении, однако с помощью конфигурации этих элементов управления разработчик или администратор может ограничить использование ресурсов.  Можно управлять следующими ресурсами: ЦП или процессор, память или ОЗУ, диск или хранилище, сеть или пропускная способность.
@@ -50,14 +50,14 @@ ms.lasthandoff: 11/22/2017
 | *Хранилище (образ)* ||
 | Интерфейс Docker | [--io-maxbandwidth/--io-maxiops]( https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
 | Интерфейс HCS | [StorageIOPSMaximum и StorageBandwidthMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
-| Общее ядро | [JobObjectIoRateControlInformation](https://msdn.microsoft.com/en-us/library/windows/desktop/hh448384(v=vs.85).aspx) |
-| Изоляция Hyper-V | [JobObjectIoRateControlInformation](https://msdn.microsoft.com/en-us/library/windows/desktop/hh448384(v=vs.85).aspx) |
+| Общее ядро | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/mt280122(v=vs.85).aspx) |
+| Изоляция Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/mt280122(v=vs.85).aspx) |
 | ||
 | *Хранилище (тома)* ||
 | Интерфейс Docker | [--storage-opt size=]( https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
 | Интерфейс HCS | [StorageSandboxSize](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
-| Общее ядро | [JobObjectIoRateControlInformation](https://msdn.microsoft.com/en-us/library/windows/desktop/hh448384(v=vs.85).aspx) |
-| Изоляция Hyper-V | [JobObjectIoRateControlInformation](https://msdn.microsoft.com/en-us/library/windows/desktop/hh448384(v=vs.85).aspx) |
+| Общее ядро | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/mt280122(v=vs.85).aspx) |
+| Изоляция Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://msdn.microsoft.com/en-us/library/windows/desktop/mt280122(v=vs.85).aspx) |
 
 ## <a name="additional-notes-or-details"></a>Дополнительные примечания и сведения
 ### <a name="memory"></a>Память

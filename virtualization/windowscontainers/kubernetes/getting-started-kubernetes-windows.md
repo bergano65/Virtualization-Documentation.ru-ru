@@ -8,11 +8,11 @@ ms.prod: containers
 description: "Присоединение узла Windows к кластеру Kubernetes с бета-версией 1.9."
 keywords: "kubernetes, 1.9, windows, начало работы"
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: d88ab46dc0046256ebed9c6696a99104a7197fad
-ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
+ms.openlocfilehash: f1b832f8a21c034582e157342acf7826fb7b6ea3
+ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows #
 После выхода версии Kubernetes 1.9 и Windows Server [версии 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709#networking) пользователи могут воспользоваться преимуществами самых новых сетевых компонентов Windows.
@@ -57,7 +57,7 @@ ms.lasthandoff: 12/05/2017
 
 ## <a name="preparing-a-windows-node"></a>Подготовка узла Windows ##
 > [!Note]  
-> Все фрагменты кода в разделах для Windows должны выполняться в сеансе PowerShell с повышенными привилегиями.
+> Все фрагменты кода в разделах для Windows должны выполняться в сеансе PowerShell с _повышенными привилегиями_.
 
 Kubernetes использует [Docker](https://www.docker.com/) как оркестратор контейнера, поэтому нам необходимо его установить. Вы можете следовать [официальным инструкциям MSDN](virtualization/windowscontainers/manage-docker/configure-docker-daemon.md#install-docker), [инструкциям Docker](https://store.docker.com/editions/enterprise/docker-ee-server-windows) или выполнить следующие действия.
 
@@ -85,13 +85,13 @@ rm -recurse -force master,master.zip
 
 ```powershell
 docker pull microsoft/windowsservercore:1709
-docker tag $(docker images -q) microsoft/windowsservercore:latest
+docker tag microsoft/windowsservercore:1709 microsoft/windowsservercore:latest
 cd C:/k/
 docker build -t kubeletwin/pause .
 ```
 
 > [!Note]  
-> Мы пометим его как `:latest`, поскольку именно этого ожидает образец службы, которую мы развернем позднее.
+> Добавляется тег `:latest`, так как пример службы, которую мы развернем позднее, зависит от него, хотя это может _быть_ не последний доступный образ Windows Server Core. Следует быть осторожным и не допускать конфликтующих образов контейнеров. При отсутствии ожидаемого тега выполнение операции `docker pull` с несовместимым образом контейнера может привести к [проблемам с развертыванием](./common-problems.md#when-deploying-docker-containers-keep-restarting). 
 
 
 ### <a name="downloading-binaries"></a>Скачивание двоичных файлов ###
@@ -101,10 +101,7 @@ docker build -t kubeletwin/pause .
   - `kubelet.exe`
   - `kube-proxy.exe`
 
-Вы можете скачать их по ссылкам в файле `CHANGELOG.md` последнего выпуска 1.9. На момент написания этой статьи была доступа версия [1.9.0-beta.1](https://github.com/kubernetes/kubernetes/releases/tag/v1.9.0-beta.1), а двоичные файлы Windows доступны [здесь](https://dl.k8s.io/v1.9.0-beta.1/kubernetes-node-windows-amd64.tar.gz). Используйте архиватор, например [7-Zip](http://www.7-zip.org/), чтобы извлечь содержимое архива и разместить двоичные файлы в `C:\k\`.
-
-> [!Warning]  
-> На момент написания этой статьи для правильной работы `kube-proxy.exe` требовался ожидающий [запрос pull](https://github.com/kubernetes/kubernetes/pull/56529) от Kubernetes. Может потребоваться [выполнить сборку двоичных файлов вручную](./compiling-kubernetes-binaries.md), чтобы обойти эту проблему.
+Вы можете скачать их по ссылкам в файле `CHANGELOG.md` последнего выпуска 1.9. На момент написания этой статьи была доступа версия [1.9.1](https://github.com/kubernetes/kubernetes/releases/tag/v1.9.1), а двоичные файлы Windows доступны [здесь](https://storage.googleapis.com/kubernetes-release/release/v1.9.1/kubernetes-node-windows-amd64.tar.gz). Используйте архиватор, например [7-Zip](http://www.7-zip.org/), чтобы извлечь содержимое архива и разместить двоичные файлы в `C:\k\`.
 
 
 ### <a name="joining-the-cluster"></a>Присоединение к кластеру ###
@@ -153,4 +150,4 @@ watch kubectl get pods -o wide
   - `curl` отображается *имя службы* с [DNS-суффиксом Kubernetes по умолчанию](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services), что подтверждает работу DNS.
 
 > [!Warning]  
-> У узлов Windows не будет доступа к IP-адресу службы. Корпорации Майкрософт [известно об этом ограничении](./common-problems.md#common-windows-errors).
+> У узлов Windows не будет доступа к IP-адресу службы. Корпорации Майкрософт [известно об этом ограничении](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip).

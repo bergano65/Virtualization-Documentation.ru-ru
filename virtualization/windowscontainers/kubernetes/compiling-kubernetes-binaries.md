@@ -7,11 +7,11 @@ ms.topic: get-started-article
 ms.prod: containers
 description: "Компиляция и кросс-компиляции двоичных файлов Kubernetes из источника."
 keywords: "kubernetes, 1.9, linux, компиляция"
-ms.openlocfilehash: 53d55eed155254f809bc3f45b8e3891dab54f209
-ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
+ms.openlocfilehash: c9b0146202d7e9e5d857ca88faa43282bd504dfa
+ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="compiling-kubernetes-binaries"></a>Компиляция двоичных файлов Kubernetes #
 Для компиляции двоичных файлов Kubernetes требуется рабочая среда Go. На этой странице описывается несколько способов компиляции двоичных файлов Linux и кросс-компиляции двоичных файлов Windows.
@@ -57,10 +57,10 @@ go get -d $KUBEREPO
 cd $GOPATH/src/$KUBEREPO
 ```
 
-Теперь извлеките ветвь для создания двоичного файла Linux `kubelet`. Это необходимо, чтобы избежать ошибок построения Windows, указанных выше. Здесь мы используем `v1.9.0-beta.1`. Затем `checkout` станет местом для применения ожидающих PR, исправлений или внесения других изменений в пользовательские двоичные файлы.
+Теперь извлеките ветвь для создания двоичного файла Linux `kubelet`. Это необходимо, чтобы избежать ошибок построения Windows, указанных выше. Здесь мы используем `v1.9.1`. После выполнения операции `git checkout` вы можете применить ожидающие PR, исправления или внести другие изменения в пользовательские двоичные файлы.
 
 ```bash
-git checkout tags/v1.9.0-beta.1
+git checkout tags/v1.9.1
 make clean && make WHAT=cmd/kubelet
 ```
 
@@ -88,7 +88,7 @@ mkdir -p "${SRC_DIR}"
 git clone https://github.com/kubernetes/kubernetes.git ${SRC_DIR}
 
 cd ${SRC_DIR}
-git checkout tags/v1.9.0-beta.1
+git checkout tags/v1.9.1
 KUBE_BUILD_PLATFORMS=linux/amd64   build/run.sh make WHAT=cmd/kubelet
 KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kubelet 
 KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kube-proxy 

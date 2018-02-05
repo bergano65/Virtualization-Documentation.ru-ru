@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 86d0b2f3ae86f99680e03e2bb8ad2712c6c70c16
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
+ms.openlocfilehash: df9ca8a4bcd6bf959e221593ea69d5ed624cdae1
+ms.sourcegitcommit: 6beac5753c9f65bb6352df8c829c2e62e24bd2e2
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>Учетные записи служб Active Directory для контейнеров Windows
 
@@ -46,6 +46,9 @@ ms.lasthandoff: 11/08/2017
 3. Разрешите доступ к групповой управляемой учетной записи службы для других служб, например баз данных или общих файловых ресурсов.
 4. Используйте модуль CredentialSpec среды PowerShell из [windows-server-container-tools](https://github.com/Microsoft/Virtualization-Documentation/tree/live/windows-server-container-tools) для хранения настроек, необходимых для использования групповой управляемой учетной записи службы.
 5. Запустите контейнер при помощи дополнительного параметра. `--security-opt "credentialspec=..."`
+
+[!NOTE]
+Вам может потребоваться разрешить анонимное преобразование идентификатора безопасности или имени на узле контейнера, как описано [здесь](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation), так как в противном случае могут возникнуть ошибки преобразования учетных записей в идентификаторы безопасности.
 
 После запуска контейнера установленные службы, запущенные как Local System или как Network Service, будут выполняться с использованием групповой управляемой учетной записи службы. Это аналогично работе этих учетных записей на присоединенных к домену узлах, за исключением того, что вместо учетной записи компьютера используется групповая управляемая учетная запись службы. 
 

@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: "Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows."
 keywords: "kubernetes, 1.9, linux, компиляция"
-ms.openlocfilehash: 73b44ffd12fba58ac4ef38352c012061a6817945
-ms.sourcegitcommit: ad5f6344230c7c4977adf3769fb7b01a5eca7bb9
+ms.openlocfilehash: 4fb7ac312b08c63564beb0f40889ff6a050c7166
+ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.
@@ -38,7 +38,7 @@ ms.lasthandoff: 12/05/2017
 chmod +x [script name]
 ```
 
-Кроме того, некоторые сценарии необходимо запускать с правами администратора (например, `kubelet`) и с префиксом `sudo`.
+Кроме того, некоторые сценарии необходимо запускать с правами суперпользователя (например, `kubelet`) и с префиксом `sudo`.
 
 
 ### <a name="cannot-connect-to-the-api-server-at-httpsaddressport"></a>Не удается подключиться к API-серверу по адресу `https://[address]:[port]` ###
@@ -59,10 +59,33 @@ chmod +x [script name]
 
 ## <a name="common-windows-errors"></a>Распространенные ошибки Windows ##
 
+### <a name="pods-stop-resolving-dns-queries-successfully-after-some-time-alive"></a>Модули pod через некоторое время перестают успешно сопоставлять запросы DNS ###
+Это известная проблема сетевого стека, которая влияет на некоторые конфигурации. Сейчас мы ищем способы ее устранения.
 
-### <a name="my-windows-pods-cannot-access-the-linux-master-or-vice-versa"></a>Модули pod в Windows не имеют доступа к главному узлу Linux или наоборот. ###
+
+### <a name="my-kubernetes-pods-are-stuck-at-containercreating"></a>Мои модули Kubernetes остаются в состоянии "ContainerCreating" ###
+Эта проблема может быть вызвана множеством причин, однако самая распространенная из них— неправильная настройка образа "Пауза". Это высокоуровневый признак следующей проблемы.
+
+
+### <a name="when-deploying-docker-containers-keep-restarting"></a>При развертывании контейнеры Docker продолжают перезапускаться ###
+Убедитесь, что образ "Пауза" совместим с вашей версией ОС. В [инструкциях](./getting-started-kubernetes-windows.md) предполагается, что используется версия 1709 ОС и контейнеров. Если у вас установлена более поздняя версия Windows, например сборка для участников программы предварительной оценки, необходимо настроить образы. Сведения об образах см. в [репозитории Docker](https://hub.docker.com/u/microsoft/) корпорации Майкрософт. Независимо от этого, файл Dockerfile образа "Пауза" и образец службы будут ожидать, что образ помечен как `microsoft/windowsservercore:latest`.
+
+
+### <a name="my-windows-pods-cannot-access-the-linux-master-or-vice-versa"></a>Модули pod в Windows не имеют доступа к главному узлу Linux или наоборот ###
 Если вы используете виртуальную машину Hyper-V, убедитесь, что подмена MAC-адресов включена в сетевых адаптерах.
 
 
-### <a name="my-windows-node-cannot-access-my-services-using-the-service-ip"></a>Узел Windows не может получить доступ к службам с помощью IP-адреса служб. ###
-Это известное ограничение текущего сетевого стека для Windows.
+### <a name="my-windows-node-cannot-access-my-services-using-the-service-ip"></a>Узел Windows не может получить доступ к службам с помощью IP-адреса служб ###
+Это известное ограничение текущего сетевого стека для Windows. Только модули pod могут ссылаться на IP-адрес службы.
+
+
+### <a name="no-network-adapter-is-found-when-starting-kubelet"></a>При запуске Kubelet не удается найти ни один сетевой адаптер ###
+Сетевому стеку Windows требуется виртуальный адаптер, чтобы сеть Kubernetes работала. Если следующие команды не дают результатов (в оболочке администратора), создание виртуальной сети— необходимое условие для работы Kubelet, завершилось ошибкой:
+
+```powershell
+Get-HnsNetwork | ? Name -Like "l2bridge"
+Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
+```
+
+Изучите выходные данные сценария `start-kubelet.ps1`, чтобы узнать, возникли ли ошибки во время создания виртуальной сети.
+
