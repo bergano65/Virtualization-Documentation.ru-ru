@@ -1,5 +1,5 @@
 {
-  "LastProcessedCommit": "9ec8655c6108cdbb818acf4a16c92caad483ae8a",
+  "LastProcessedCommit": "e7fa38bcb7744a34e7a58978b55af1fbf6353247",
   "LastTranslatedCommit": "54d02462543cd378300b0405c2338c4e1248b723",
   "LastConfigHash": "8a1020b7136b784cdc0f8c9eca877ab77b2a9c5f",
   "Items": {
@@ -24225,6 +24225,22 @@
       "HandoffFileCommit": "49345b9e28d23fc8bfce38132d71f022e0979e8e",
       "HandoffDateTime": "2018-02-13T21:24:01.5252104Z",
       "HandoffXliffHash": "a82867de86f83e59cc83dbca64e180353f92470b",
+      "HandoffPriority": ""
+    },
+    "779dcf51d4903c9467cc52dbadb865beb9929bd2": {
+      "FileHash": "779dcf51d4903c9467cc52dbadb865beb9929bd2",
+      "SourceFileCommit": "e7fa38bcb7744a34e7a58978b55af1fbf6353247",
+      "SourceFilePath": "virtualization\\hyper-v-on-windows\\user-guide\\powershell-direct.md",
+      "HandoffReason": 1,
+      "FilePathList": [
+        "virtualization\\hyper-v-on-windows\\user-guide\\powershell-direct.md"
+      ],
+      "HasMetadata": true,
+      "TranslationType": 1,
+      "HandoffFilePath": "ol-handoff\\MicrosoftDocs\\Virtualization-Documentation-Private.ru-ru\\live\\powershell-direct.65088e959c8d342b7da8aad91c39fa6bb521ad51.ru-ru.xlf",
+      "HandoffFileCommit": "50210626e1d9d2be67ea0053faa45f41003ab9cf",
+      "HandoffDateTime": "2018-02-20T05:27:10.3363242Z",
+      "HandoffXliffHash": "f9d1b28765a4d3a30b62023051284ae10eef78e8",
       "HandoffPriority": ""
     }
   }
