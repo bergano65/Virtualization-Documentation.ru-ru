@@ -25,12 +25,12 @@
 
 Для всех этих приложений требуется сопоставление томов, ряд ограничений которых описаны в разделе [Привязки подключений](#Bind-mounts). Они не будут запускаться или будут работать неправильно.
 
-- Mysql
-- Postgress
-- Wordpress
+- MySQL
+- PostgreSQL
+- WordPress
 - Jenkins
-- Mariadb
-- Rabbitmq
+- MariaDB
+- RabbitMQ
 
 
 ### <a name="bind-mounts"></a>Привязки подключений

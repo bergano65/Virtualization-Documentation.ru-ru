@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: b6c25285c3cee3a863bef40c34a1cf13b66b42fb
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.openlocfilehash: 0280e8fbe784629fcd2e2ee9695ed5c253a5643f
+ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 01/25/2018
 ---
-# Видеоматериалы и блоги сообщества
+# <a name="community-videos-and-blogs"></a>Видеоматериалы и блоги сообщества
 На этой странице представлены ссылки на видеоматериалы и блоги, созданные членами сообщества контейнеров.  Если вы знаете отличный ресурс или вы сами создали его, отправьте заявку на добавление в этот список.
 
-## начало работы
+## <a name="getting-started"></a>начало работы
 [Запуск контейнеров Linux и Windows в Windows10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/)— Стефан Шерер (Stefan Scherer)
 
 [Сборка и запуск первого контейнера Docker в Windows Server](https://blog.docker.com/2016/09/build-your-first-docker-windows-server-container/)— Майкл Фриис (Michael Friis)
@@ -25,7 +25,7 @@ ms.lasthandoff: 07/21/2017
 [Запуск службы IIS и ASP.NET в Windows10 с Docker](http://blog.alexellis.io/run-iis-asp-net-on-windows-10-with-docker/)— Алекс Эллис (Alex Ellis)
 
 
-## Сборка и примеры
+## <a name="building-and-examples"></a>Сборка и примеры
 [Обзор .NET и контейнеров](http://blog.alexellis.io/docker-dotnet-containers/)— Алекс Эллис (Alex Ellis)
 
 [Docker в Microsoft SQL2016 и ASP.NET](http://blog.alexellis.io/docker-does-sql2016-aspnet/)— Алекс Эллис (Alex Ellis)
@@ -44,7 +44,9 @@ ms.lasthandoff: 07/21/2017
 
 [Запуск Neo4j в контейнерах Windows](http://glennsarti.github.io/blog/neo4j-nano-containers)— Гленн Сарти (Glenn Sarti)
 
-## Настройка и управление
+## <a name="configuration-and-managment"></a>Настройка и управление
 [Защита подсистемы Windows2016 Docker с помощью TLS](https://stefanscherer.github.io/protecting-a-windows-2016-docker-engine-with-tls/)— Стефан Шерер (Stefan Scherer)
+
+[Использование центра сертификации Майкрософт для защиты Docker](http://dille.name/blog/2016/11/08/using-a-microsoft-ca-to-secure-docker/)— Николас Дилль (Nicholas Dille) 
 
 [Производительность уровней #контейнеров Windows](http://dille.name/blog/2017/01/13/windows-container-performance-of-layers/) — Николас Дилль (Nicholas Dille)

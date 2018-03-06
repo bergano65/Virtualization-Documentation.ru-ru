@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: df9ca8a4bcd6bf959e221593ea69d5ed624cdae1
-ms.sourcegitcommit: 6beac5753c9f65bb6352df8c829c2e62e24bd2e2
+ms.openlocfilehash: 1ad04198c74f4566bd37b4ba884034aa5cd7c7ef
+ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/09/2018
 ---
 # <a name="active-directory-service-accounts-for-windows-containers"></a>Учетные записи служб Active Directory для контейнеров Windows
 
@@ -49,6 +49,15 @@ ms.lasthandoff: 01/17/2018
 
 [!NOTE]
 Вам может потребоваться разрешить анонимное преобразование идентификатора безопасности или имени на узле контейнера, как описано [здесь](https://docs.microsoft.com/en-us/windows/device-security/security-policy-settings/network-access-allow-anonymous-sidname-translation), так как в противном случае могут возникнуть ошибки преобразования учетных записей в идентификаторы безопасности.
+
+Тем не менее перед изучением необходимости в разрешении анонимного преобразования идентификатора безопасности в имя убедитесь, что выполнены следующие действия.
+
+1. Имя учетной записи gMSA должно совпадать с именем службы (например, "myapp").
+2. Добавьте аргумент -h, чтобы указать имя узла, которое должен использовать контейнер при запуске. 
+```
+docker run --security-opt "credentialspec=file://myapp.json" -d -p 80:80 -h myapp.mydomain.local <imagename>
+```
+3. Имя субъекта-службы (SPN) при создании учетной записи gMSA должно совпадать с аргументом -h, который применяется при запуске контейнера. Если вы не добавили имена субъектов-служб в gMSA во время создания, их можно добавить к свойствам учетной записи после.
 
 После запуска контейнера установленные службы, запущенные как Local System или как Network Service, будут выполняться с использованием групповой управляемой учетной записи службы. Это аналогично работе этих учетных записей на присоединенных к домену узлах, за исключением того, что вместо учетной записи компьютера используется групповая управляемая учетная запись службы. 
 

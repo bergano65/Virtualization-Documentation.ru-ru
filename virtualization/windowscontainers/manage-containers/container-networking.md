@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 394aa58c3421e512d005f59d5bd30667f1c26f16
-ms.sourcegitcommit: 6eefb890f090a6464119630bfbdc2794e6c3a3df
+ms.openlocfilehash: 70e662e73693d9fef9d36635289ec9affb8d0331
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="windows-container-networking"></a>Сетевые подключения контейнеров Windows
 > ***Сведения об основных сетевых командах, параметрах и синтаксисе Docker см. в разделе [Сетевые подключения контейнеров Docker](https://docs.docker.com/engine/userguide/networking/).*** За исключением случаев, описанных в этом документе, выполнение всех сетевых команд Docker поддерживается в Windows с помощью того же синтаксиса, что и в Linux. Однако обратите внимание, что сетевые стеки Windows и Linux отличаются друг от друга, и таким образом вы обнаружите, что некоторые сетевые команды Linux (например ifconfig) не поддерживаются в Windows.

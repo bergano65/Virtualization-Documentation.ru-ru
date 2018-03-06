@@ -7,11 +7,11 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: "Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows."
 keywords: "kubernetes, 1.9, linux, компиляция"
-ms.openlocfilehash: 4fb7ac312b08c63564beb0f40889ff6a050c7166
-ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
+ms.openlocfilehash: b6be43f1afabdf8ef9c2ddc6f46ed5ac43a9e7a5
+ms.sourcegitcommit: 2e8f1fd06d46562e56c9e6d70e50745b8b234372
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.
@@ -50,6 +50,7 @@ chmod +x [script name]
 ## <a name="common-networking-errors"></a>Распространенные сетевые ошибки ##
 Могут существовать дополнительные ограничения в сети или на узлах, предотвращающие определенные виды взаимодействия между узлами. Убедитесь, что:
 
+  - вы правильно настроили топологию сети;
   - трафик, поступающий от модулей pod, разрешен;
   - HTTP-трафик разрешен, если вы развертываете веб-службы;
   - ICMP-пакеты не удаляются.
@@ -80,10 +81,10 @@ chmod +x [script name]
 
 
 ### <a name="no-network-adapter-is-found-when-starting-kubelet"></a>При запуске Kubelet не удается найти ни один сетевой адаптер ###
-Сетевому стеку Windows требуется виртуальный адаптер, чтобы сеть Kubernetes работала. Если следующие команды не дают результатов (в оболочке администратора), создание виртуальной сети— необходимое условие для работы Kubelet, завершилось ошибкой:
+Сетевому стеку Windows требуется виртуальный адаптер, чтобы сеть Kubernetes работала. Если следующие команды не дают результатов (в оболочке администратора), создание виртуальной сети&mdash; необходимое условие для работы Kubelet &mdash; завершилось ошибкой:
 
 ```powershell
-Get-HnsNetwork | ? Name -Like "l2bridge"
+Get-HnsNetwork | ? Name -ieq "l2bridge"
 Get-NetAdapter | ? Name -Like "vEthernet (Ethernet*"
 ```
 

@@ -7,11 +7,11 @@ ms.topic: get-started-article
 ms.prod: containers
 description: "Создание главного узла кластера Kubernetes с нуля."
 keywords: "kubernetes, 1.9, главный узел, linux"
-ms.openlocfilehash: d5251b1a2dc06bef396820e324fb240eed04acc8
-ms.sourcegitcommit: b0e21468f880a902df63ea6bc589dfcff1530d6e
+ms.openlocfilehash: 3ea338f7af3dd921731fce0ec5a8b2cf8c4fef0c
+ms.sourcegitcommit: f542e8c95b5bb31b05b7c88f598f00f76779b519
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="kubernetes-master--from-scratch"></a>Создание главного узла Kubernetes с нуля #
 На этой странице описывается развертывание главного узла Kubernetes вручную от начала до конца.
@@ -27,9 +27,17 @@ ms.lasthandoff: 01/17/2018
 Сначала установите все необходимые компоненты.
 
 ```bash
-sudo apt-get install curl git build-essential docker.io conntrack
+sudo apt-get install curl git build-essential docker.io conntrack python2.7
 ```
 
+Если вы находитесь за прокси-сервером, определите переменные среды для текущего сеанса:
+```bash
+HTTP_PROXY=http://proxy.example.com:80/
+HTTPS_PROXY=http://proxy.example.com:443/
+http_proxy=http://proxy.example.com:80/
+https_proxy=http://proxy.example.com:443/
+```
+Или, если вы хотите сделать этот параметр постоянным, добавьте переменные в раздел /etc/environment (для применения изменений необходимо выйти из системы и снова войти).
 
 В [этом репозитории](https://github.com/Microsoft/SDN/tree/master/Kubernetes/linux) существует коллекция сценариев, которые помогают с процессом установки. Извлеките их в `~/kube/`. Этот каталог будет подключаться ко многим контейнерами Docker на последующих этапах, поэтому сохраните его структуру такой, как описано в этом руководстве.
 
@@ -102,6 +110,7 @@ $ MASTER_IP=10.123.45.67   # example! replace
 
 ```bash
 cd ~/kube/certs
+chmod u+x generate-certs.sh
 ./generate-certs.sh $MASTER_IP
 ```
 
@@ -133,6 +142,7 @@ cd ~/kube/manifest
 Настройте Kubernetes для использования созданных сертификатов. Это приведет к созданию конфигурацию в каталоге `~/.kube/config`:
 
 ```bash
+cd ~/kube
 ./configure-kubectl.sh $MASTER_IP
 ```
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: d3eb7e2b751468953a152e8c723551fb3e1d12dd
-ms.sourcegitcommit: a072513214b0dabb9dba20ce43ea52aaf7806c5f
+ms.openlocfilehash: 413e28aabccdf894ebc249d8eae59e75e4b42345
+ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/01/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Реализация элементов управления ресурсами для контейнеров Windows
 Существует несколько элементов управления ресурсами, которые можно реализовать на уровне контейнера и ресурса.  По умолчанию управление контейнерами осуществляется как типичными ресурсами Windows, которое обычно основано на справедливом распределении, однако с помощью конфигурации этих элементов управления разработчик или администратор может ограничить использование ресурсов.  Можно управлять следующими ресурсами: ЦП или процессор, память или ОЗУ, диск или хранилище, сеть или пропускная способность.
@@ -28,6 +28,7 @@ ms.lasthandoff: 01/01/2018
 | Интерфейс HCS | [MemoryMaximumInMB]( https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://msdn.microsoft.com/en-us/library/windows/desktop/ms684147(v=vs.85).aspx) |
 | Изоляция Hyper-V | Память виртуальной машины |
+| _Примечание об изоляции Hyper-V в Windows Server 2016: при использовании ограничения памяти вы увидите, что контейнер изначально выделяет ограниченный объем памяти, а затем возвращает его узлу контейнера.  В более поздних версиях (1709 или более старших) этот процесс был оптимизирован._ |
 | ||
 | *ЦП (число)* ||
 | Интерфейс Docker | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
