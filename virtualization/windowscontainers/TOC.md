@@ -23,7 +23,7 @@
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # Управление Docker в Windows
-## [Подсистема Docker в Windows](docker/configure_docker_daemon.md)
+## [Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)
 ## [Файлы Dockerfile в Windows](manage-docker/manage-windows-dockerfile.md)
 ## [Оптимизация файлов Dockerfile](manage-docker/optimize-windows-dockerfile.md)
 ## [Сетевые подключения контейнеров](manage-containers/container-networking.md)
@@ -38,7 +38,11 @@
 ## [Создание главного узла Linux](kubernetes/creating-a-linux-master.md)
 ## [Настройка топологии сети](kubernetes/configuring-host-gateway-mode.md)
 ## [Компиляция двоичных файлов Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
-## [Диагностика](kubernetes/common-problems.md)
+## [Поиск и устранение неисправностей](kubernetes/common-problems.md)
+
+# Краткое руководство по Service Fabric
+## [Развертывание первого контейнера](/azure/service-fabric/service-fabric-quickstart-containers)
+## [Развертывание приложения .NET в контейнере Windows](/azure/service-fabric/service-fabric-host-app-in-a-container) 
 
 # Примеры контейнеров
 ## [Платформы приложений](samples.md#Application-Frameworks)
