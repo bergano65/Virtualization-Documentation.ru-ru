@@ -1,17 +1,17 @@
 ---
-title: "Требования к контейнеру Windows"
-description: "Требования к контейнеру Windows."
-keywords: "метаданные, контейнеры"
+title: Требования к контейнеру Windows
+description: Требования к контейнеру Windows.
+keywords: метаданные, контейнеры
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: ff9b24ccc802b228b649c2330333cbe008350aec
-ms.sourcegitcommit: ea6edc5bac5705a19d48ffdf1ba676c940c2eb67
+ms.openlocfilehash: e1fe969c70aa61b62eb9212b7faa23d37d17b565
+ms.sourcegitcommit: 8b331cb67dfe609fcbfc3de06edbf51fe8562c6c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/20/2018
 ---
 # <a name="windows-container-requirements"></a>Требования к контейнеру Windows
 
@@ -91,6 +91,7 @@ ms.lasthandoff: 02/09/2018
 - компонент .NET Core не включен (хотя вы можете использовать [образ .NET Core Nano Server](https://hub.docker.com/r/microsoft/dotnet/));
 - компонент PowerShell был удален;
 - компонент WMI был удален.
+- Начиная с Windows Server версии 1709, приложения запускаются в контексте пользователя, поэтому команды, требующие привилегий администратора, выполняться не будут. Можно указать учетную запись администратора контейнера через флаг пользователя (т. е. с помощью команды "docker run"— "ContainerAdministrator пользователя"), тем не менее в будущем планируется полное удаление учетных записей администратора из NanoServer.
 
 Это самые существенные различия, но не полный список. Существуют другие компоненты, которые также отсутствуют. Имейте в виду, что вы всегда можете добавить другие компоненты поверх Nano Server по своему усмотрению. Пример см. здесь: [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.0/sdk/nanoserver/amd64/Dockerfile).
 

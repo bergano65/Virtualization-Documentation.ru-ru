@@ -8,11 +8,11 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с бета-версией 1.9.
 keywords: kubernetes, 1.9, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 124895e93cbaee50c66b6b5a7cc2c71c144dad67
-ms.sourcegitcommit: 6e3c3b2ff125f949c03a342c3709a6e57c5f736c
+ms.openlocfilehash: 6309ca8c0fd50e1b8e926776bef6dfe82bb815f0
+ms.sourcegitcommit: ee86ee093b884c79039a8ff417822c6e3517b92d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows #
 
@@ -24,6 +24,9 @@ ms.lasthandoff: 03/17/2018
 
 
 Эта страница служит руководством по присоединению нового узла Windows к существующему кластеру на основе Linux. Чтобы полностью начать с нуля, посетите [эту страницу](./creating-a-linux-master.md) &mdash; один из многих ресурсов, доступных для развертывания кластера Kubernetes &mdash; чтобы узнать, как настроить мастер с нуля так же, как мы.
+
+> [!TIP] 
+> Если вы хотите развернуть кластер в Azure, используйте средство с открытым исходным кодом ACS-Engine. Доступно [пошаговое руководство](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
 <a name="definitions"></a> Ниже перечислены определения некоторых терминов, упомянутых в этом руководстве.
 
@@ -189,12 +192,24 @@ watch kubectl get pods -o wide
 
 Если все прошло нормально:
 
-  - вы видите четыре контейнера при выполнении команды `docker ps` на стороне Windows;
+  - вы увидите 4 контейнера при выполнении команды `docker ps` в узле Windows;
+  - вы увидите 2 модуля pod при выполнении команды `kubectl get pods` из мастера Linux
   - `curl` IP-адреса *модуля pod* на порту 80 от главного узла Linux получают ответ от веб-сервера; это подтверждает взаимодействие узлов с модулем pod в сети;
-  - `curl` IP-адрес *узла* на порту 4444 получает ответ веб-сервера; этот демонстрирует правильное сопоставление портов контейнера и узла;
   - проверка связи *между модулями pod* (в том числе между узлами, если у вас несколько узлов Windows) с помощью `docker exec` выполняется успешно; это подтверждает правильную настройку взаимодействия модулей pod;
   - `curl` в разделе `kubectl get services` отображается виртуальный *IP-адрес службы* от главного узла Linux и отдельных модулей pod;
   - `curl` отображается *имя службы* с [DNS-суффиксом Kubernetes по умолчанию](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services), что подтверждает работу DNS.
 
-> [!WARNING]  
-> У узлов Windows нет доступа к IP-адресу службы. Это [известное ограничение платформы](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip), которое будет устранено в будущем.
+> [!Warning]  
+> У узлов Windows не будет доступа к IP-адресу службы. Это [известное ограничение платформы](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip), которое будет устранено в следующем обновлении Windows Server.
+
+
+### <a name="port-mapping"></a>Сопоставление портов ### 
+Можно также получить доступ к службам, размещенным в модулях pod, через соответствующие им узлы путем сопоставления порта на узле. Для демонстрации этой функции существует [еще один образец YAML, доступный](https://github.com/Microsoft/SDN/blob/master/Kubernetes/PortMapping.yaml) путем сопоставления порта 4444 на узле с портом 80 на модуле pod. Чтобы развернуть его, выполните те же действия.
+
+```bash
+wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/PortMapping.yaml -O win-webserver-port-mapped.yaml
+kubectl apply -f win-webserver-port-mapped.yaml
+watch kubectl get pods -o wide
+```
+
+Теперь можно выполнить команду `curl` на IP-адресе *узла* порта 4444 и получить ответ веб-сервера. Имейте в виду, что это приводит к ограничению масштабирования до одного модуля pod на каждом узле, так как должно применяться сопоставление "один-к-одному".

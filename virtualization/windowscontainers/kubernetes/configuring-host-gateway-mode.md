@@ -34,10 +34,10 @@ sudo route add -net $CLUSTER_PREFIX.1.0 netmask 255.255.255.0 gw $CLUSTER_PREFIX
 
 
 ## <a name="configuring-static-routes--windows"></a>Настройка статических маршрутов | Windows ##
-Для этого мы используем `New-NetRoute`. В [этом репозитории](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/AddRoutes.ps1) доступен автоматизированный сценарий `AddRoutes.ps1`. Вам необходимо знать IP-адрес *главного узла Linux* и шлюз по умолчанию *внешнего* адаптера узла Windows (а не шлюз модуля pod). Затем:
+Для этого мы используем `New-NetRoute`. В [этом репозитории](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/AddRoutes.ps1) доступен автоматизированный сценарий `AddRoutes.ps1`. Вам необходимо будет знать IP-адрес *мастера Linux*:
 
 ```powershell
 $url = "https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/windows/AddRoutes.ps1"
-wget $url -o AddRoutes.ps1
-./AddRoutes.ps1 -MasterIp 10.1.2.3 -Gateway 10.1.3.1
+Invoke-WebRequest $url -o AddRoutes.ps1
+./AddRoutes.ps1 -MasterIp 10.1.2.3
 ```
