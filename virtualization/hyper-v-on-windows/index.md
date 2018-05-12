@@ -1,6 +1,6 @@
 ---
-title: "Hyper-V в Windows10"
-description: "Hyper-V в Windows10"
+title: Hyper-V в Windows10
+description: Hyper-V в Windows10
 keywords: windows10, hyper-v
 author: scooley
 ms.date: 05/02/2016
@@ -9,12 +9,12 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
 ms.openlocfilehash: a070164812b7dca39070d5f78411a017457f8573
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
+ms.sourcegitcommit: 94e8ae4be1b0d3d13fca06e0775dd2aab895a12c
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 05/07/2018
 ---
-# Hyper-V в Windows10 
+# <a name="hyper-v-on-windows-10"></a>Hyper-V в Windows10 
 
 Технология виртуализации Hyper-V включена во многие версии Windows10. Hyper-V позволяет запускать виртуализированные компьютерные системы поверх физического узла. Эти виртуализированные системы можно использовать и контролировать как физические компьютерные системы, но они находятся в виртуализированной и изолированной среде. Специальное программное обеспечение, называемое низкоуровневой оболочкой, управляет доступом между виртуальными системами и физическими аппаратными ресурсами. Виртуализация обеспечивает быстрое развертывание компьютерных систем, быстрое восстановление системы до предыдущего рабочего состояния и возможность миграции систем между физическими узлами.
 

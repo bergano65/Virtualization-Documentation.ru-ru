@@ -8,11 +8,11 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с бета-версией 1.9.
 keywords: kubernetes, 1.9, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 6309ca8c0fd50e1b8e926776bef6dfe82bb815f0
-ms.sourcegitcommit: ee86ee093b884c79039a8ff417822c6e3517b92d
+ms.openlocfilehash: c6127fe8ab9de6a56816fb8187d4dec525425510
+ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 05/07/2018
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows #
 
@@ -71,6 +71,7 @@ Restart-Computer -Force
 [В этом репозитории Майкрософт](https://github.com/Microsoft/SDN) существует набор сценариев, которые помогут вам присоединить этот узел к кластеру. Скачать ZIP-файл напрямую можно [здесь](https://github.com/Microsoft/SDN/archive/master.zip). Единственное, что вам нужно— это папка `Kubernetes/windows`, содержимое которой должно быть перемещено в `C:\k\`.
 
 ```powershell
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 wget https://github.com/Microsoft/SDN/archive/master.zip -o master.zip
 Expand-Archive master.zip -DestinationPath master
 mkdir C:/k/

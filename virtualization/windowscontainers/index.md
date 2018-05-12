@@ -1,18 +1,18 @@
 ---
-title: "Документация по контейнерам Windows"
-description: "Документация по контейнерам Windows"
-keywords: "docker, контейнеры"
+title: Документация по контейнерам Windows
+description: Документация по контейнерам Windows
+keywords: docker, контейнеры
 author: enderb-ms
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 176ad668f4daa7d84afc5928e76dce0c127e1095
-ms.sourcegitcommit: f8dc88d253c9e1a6a47b148d2c122a326a800633
+ms.openlocfilehash: 58ce4bbefe7497e15d1717b668dab7469bfe367f
+ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 05/11/2018
 ---
 # <a name="windows-containers-documentation"></a>Документация по контейнерам Windows
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/15/2017
 <li>[Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)<br /><br /></li>
 <li>[Файлы Dockerfile в Windows](manage-docker/manage-windows-dockerfile.md)<br /><br /></li>
 <li>[Оптимизация файлов Dockerfile](manage-docker/optimize-windows-dockerfile.md)<br /><br /></li>
-<li>[Сетевые подключения контейнеров](manage-containers/container-networking.md)<br /><br /></li>
+<li>[Сетевые подключения контейнеров](container-networking/architecture.md)<br /><br /></li>
 </ul>
 </td>
 </tr>
