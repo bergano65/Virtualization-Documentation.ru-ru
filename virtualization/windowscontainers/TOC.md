@@ -26,12 +26,17 @@
 ## [Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)
 ## [Файлы Dockerfile в Windows](manage-docker/manage-windows-dockerfile.md)
 ## [Оптимизация файлов Dockerfile](manage-docker/optimize-windows-dockerfile.md)
-## [Сетевые подключения контейнеров](manage-containers/container-networking.md)
 ## [Хранилище контейнеров](manage-containers/container-storage.md)
 ## [Начало работы с режимом мелких объектов](manage-containers/swarm-mode.md)
 ## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 ## [Удаленное управление узлом Docker в Windows](management/manage_remotehost.md)
 ## [Элементы управления ресурсами](manage-containers/resource-controls.md)
+
+# Сетевые подключения контейнеров в Windows
+## [Обзор сетевых подключений контейнеров](container-networking/architecture.md)
+## [Сетевые топологии и драйверы](container-networking/network-drivers-topologies.md)
+## [Сетевая изоляция и безопасность](container-networking/network-isolation-security.md)
+## [Расширенные параметры сетей](container-networking/advanced.md)
 
 # Kubernetes в Windows 
 ## [начало работы](kubernetes/getting-started-kubernetes-windows.md)

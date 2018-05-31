@@ -1,18 +1,19 @@
 ---
-title: "Настройка Docker в Windows"
-description: "Настройка Docker в Windows"
-keywords: "docker, контейнеры"
+title: Настройка Docker в Windows
+description: Настройка Docker в Windows
+keywords: docker, контейнеры
 author: PatrickLang
 ms.date: 08/23/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 5b187853be0ebb28bcede43bfca7e4042a23dfce
-ms.sourcegitcommit: a3479a4d8372a637fb641cd7d5003f1d8a37b741
+ms.openlocfilehash: ab8a8b6543d58e71b3ac673c8a9e811698dbb578
+ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 05/11/2018
+ms.locfileid: "1875915"
 ---
 # <a name="docker-engine-on-windows"></a>Подсистема Docker в Windows
 
@@ -25,49 +26,9 @@ Docker необходим для работы с контейнерами Window
 * [Контейнеры Windows в Windows Server2016](../quick-start/quick-start-windows-server.md)
 * [Контейнеры Windows в Windows10](../quick-start/quick-start-windows-10.md)
 
-### <a name="manual-installation"></a>установка вручную;
-Если вы хотите использовать версии подсистемы и клиента Docker, находящиеся в разработке, выполните следующие действия. Будут установлены подсистема и клиент Docker. Если вы являетесь разработчиком и выполняете тестирование новых возможностей или используете сборку программы предварительной оценки Windows, вам может потребоваться использовать версию Docker, находящуюся в разработке. В противном случае следуйте инструкциям в разделе "Установка Docker" выше, чтобы получить последние выпущенные версии.
+Сведения об установке с помощью сценария см. в разделе [Использование сценария для установки Docker EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 
-> Если у вас установлена версия Docker для Windows, удалите ее перед тем, как выполнить действия по ручной установке. 
-
-Скачивание подсистемы Docker
-
-Последнюю версию всегда можно найти здесь: https://master.dockerproject.org. В этом примере используется последняя версия из основной ветви (Master Branch). 
-
-```powershell
-Invoke-WebRequest "https://master.dockerproject.org/windows/x86_64/docker.zip" -OutFile "$env:TEMP\docker.zip" -UseBasicParsing
-```
-
-Распакуйте ZIP-архив в папку Program Files.
-
-```powershell
-Expand-Archive -Path "$env:TEMP\docker.zip" -DestinationPath $env:ProgramFiles
-```
-
-Добавьте каталог Docker в системный путь. По завершении перезапустите сеанс PowerShell, чтобы был распознан измененный путь.
-
-```powershell
-# Add path to this PowerShell session immediately
-$env:path += ";$env:ProgramFiles\Docker"
-
-# For persistent use after a reboot
-$existingMachinePath = [Environment]::GetEnvironmentVariable("Path",[System.EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable("Path", $existingMachinePath + ";$env:ProgramFiles\Docker", [EnvironmentVariableTarget]::Machine)
-```
-
-Чтобы установить Docker в качестве службы Windows, выполните следующую команду.
-
-```
-dockerd --register-service
-```
-
-После установки эту службу можно запустить.
-
-```powershell
-Start-Service Docker
-```
-
-Прежде чем можно будет использовать Docker, нужно установить образы контейнеров. Дополнительные сведения см. в [кратком руководстве по началу работы с образами](../quick-start/quick-start-images.md).
+Перед использованием Docker необходимо установить образы контейнеров. Дополнительные сведения см. в [кратком руководстве по началу работы с образами](../quick-start/quick-start-images.md).
 
 ## <a name="configure-docker-with-configuration-file"></a>Настройка Docker с помощью файла конфигурации
 
@@ -154,7 +115,7 @@ sc config docker binpath= "\"C:\Program Files\docker\dockerd.exe\" --run-service
 
 ### <a name="default-network-creation"></a>Создание сети по умолчанию 
 
-Чтобы указать подсистеме Docker, что сеть NAT по умолчанию создаваться не должна, используйте следующий код. Дополнительные сведения см. в статье [Управление сетями Docker](../manage-containers/container-networking.md).
+Чтобы указать подсистеме Docker, что сеть NAT по умолчанию создаваться не должна, используйте следующий код. Дополнительные сведения см. в статье [Управление сетями Docker](../container-networking/network-drivers-topologies.md).
 
 ```
 {
