@@ -3,12 +3,12 @@ title: Хранилище контейнеров Windows Server
 description: Методы использования узла и других типов хранилища контейнерами Windows Server
 keywords: контейнеры, том, хранилище, подключение, подключение с привязкой
 author: patricklang
-ms.openlocfilehash: ba30c436ddd61ec71b2c98d1a8cb24f97863d872
-ms.sourcegitcommit: 6c8c70c8231943dda3c5af38e5530ea3dd91fc82
+ms.openlocfilehash: 9dde3b2d7be10a8d3d393f8426976dfc5bdacfab
+ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "1934538"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "2082905"
 ---
 # <a name="overview"></a>Обзор
 
@@ -22,7 +22,7 @@ ms.locfileid: "1934538"
 
 ### <a name="where-layers-are-stored-and-how-to-change-it"></a>Где хранятся уровни и как их изменить
 
-При установке по умолчанию уровни хранятся в `C:\ProgramData\docker` и распределяются между каталогами «image» и «windowsfilter». Вы можете изменить место хранения уровней, используя конфигурацию `docker-root`, как показано в документации [по подсистеме Docker в Windows](../manage-docker/configure_docker_daemon.md).
+При установке по умолчанию уровни хранятся в `C:\ProgramData\docker` и распределяются между каталогами «image» и «windowsfilter». Вы можете изменить место хранения уровней, используя конфигурацию `docker-root`, как показано в документации [по подсистеме Docker в Windows](../manage-docker/configure-docker-daemon.md).
 
 > [!NOTE]
 > Для хранилища уровня поддерживается только файловая система NTFS. ReFS не поддерживается.
