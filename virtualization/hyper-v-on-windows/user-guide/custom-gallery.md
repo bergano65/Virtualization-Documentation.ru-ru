@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: d9238389-7028-4015-8140-27253b156f37
-ms.openlocfilehash: 3a8af73c1cf7b2eb640be0dcaf77601ed5e96ce5
-ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
+ms.openlocfilehash: 2235201a56a238cbd5a75b0a6cae64cdb26108a2
+ms.sourcegitcommit: edc153ffef01094c2324a0da2f9a301b31015a58
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "1844353"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "1928381"
 ---
 # <a name="create-a-custom-virtual-machine-gallery"></a>Создание пользовательской коллекции виртуальных машин
 
@@ -135,6 +135,6 @@ ms.locfileid: "1844353"
 
 ## <a name="resources"></a>Ресурсы
 
-На Github ([ссылка](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/vmgallery)) есть ряд сценариев и вспомогательных средств для коллекций.
+На GitHub ([ссылка](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/live/hyperv-tools/vmgallery)) есть ряд сценариев и вспомогательных средств для коллекций.
 
 Ознакомьтесь с примером записи коллекции [здесь](https://go.microsoft.com/fwlink/?linkid=851584).  Это файл JSON, определяющий встроенную коллекцию.
