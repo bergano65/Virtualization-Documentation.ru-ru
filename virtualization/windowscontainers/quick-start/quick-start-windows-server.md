@@ -1,18 +1,19 @@
 ---
-title: "Контейнеры Windows в Windows Server"
-description: "Краткое руководство по развертыванию контейнеров"
-keywords: "docker, контейнеры"
+title: Контейнеры Windows в Windows Server
+description: Краткое руководство по развертыванию контейнеров
+keywords: docker, контейнеры
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: 5704f0fc9a70f2995404981f2daf0a8b736da312
-ms.sourcegitcommit: b7f37f3d385042ca8455b3e7d1fa887ac26989de
+ms.openlocfilehash: 7d526aa64d478516a3f66acaf62b62b45282e5af
+ms.sourcegitcommit: 3d72f15651da378908f134916cd5c9d2064f8f95
 ms.translationtype: HT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "2256937"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
@@ -142,7 +143,7 @@ docker run microsoft/dotnet-samples:dotnetapp-nanoserver
 
 
 **Environment**
-Platform: .NET Core 1.0
+Platform: .NET Core 2.0
 OS: Microsoft Windows 10.0.14393
 ```
 
