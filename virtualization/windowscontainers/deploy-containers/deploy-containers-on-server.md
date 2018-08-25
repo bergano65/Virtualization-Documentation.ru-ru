@@ -1,18 +1,19 @@
 ---
-title: "Развертывание контейнеров Windows в Windows Server"
-description: "Развертывание контейнеров Windows в Windows Server"
-keywords: "docker, контейнеры"
+title: Развертывание контейнеров Windows в Windows Server
+description: Развертывание контейнеров Windows в Windows Server
+keywords: docker, контейнеры
 author: enderb-ms
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 48063c058b38258cd06b09081cefd77c95cf67e9
-ms.sourcegitcommit: b7f37f3d385042ca8455b3e7d1fa887ac26989de
-ms.translationtype: HT
+ms.openlocfilehash: b80dd0d231d0f9435b7cc1c5e2b35bbf5a59d793
+ms.sourcegitcommit: a287211a0ed9cac7ebfe1718e3a46f0f26fc8843
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "2748890"
 ---
 # <a name="container-host-deployment---windows-server"></a>Развертывание узла контейнера— Windows Server
 
@@ -28,20 +29,47 @@ Docker необходим для работы с контейнерами Window
 
 Установите модуль OneGet PowerShell.
 
-```
+```PowerShell
 Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
 ```
 
 С помощью OneGet установите последнюю версию Docker.
 
-```
+```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider
 ```
 
 После завершения установки перезагрузите компьютер.
 
-```
+```PowerShell
 Restart-Computer -Force
+```
+
+## <a name="install-a-specific-version-of-docker"></a>Установка определенной версии Docker
+
+Доступны в настоящее время два канала для EE Docker Windows Server:
+
+* `17.06` -Используйте эту версию, если вы используете Docker Enterprise Edition (Docker модуля, UCP, DTR). `17.06` значение по умолчанию.
+* `18.03` -Используйте эту версию, если вы используете модуль EE Docker сам по себе он.
+
+Чтобы установить определенной версии, используйте `RequiredVersion` флаг:
+
+```PowerShell
+Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 18.03
+```
+
+Для установки определенных версий Docker EE может потребоваться обновление ранее установленных модулей DockerMsftProvider. Чтобы обновить:
+
+```PowerShell
+Update-Module DockerMsftProvider
+```
+
+## <a name="update-docker"></a>Обновление Docker
+
+Если вам потребуется обновить модуль EE Docker из более ранних канала к каналу более поздней версии, используйте их вместе `-Update` и `-RequiredVersion` флаги:
+
+```PowerShell
+Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03
 ```
 
 ## <a name="install-base-container-images"></a>Установка базовых образов контейнеров
@@ -50,13 +78,13 @@ Restart-Computer -Force
 
 Чтобы установить базовый образ Windows Server Core, выполните следующую команду:
 
-```
+```PowerShell
 docker pull microsoft/windowsservercore
 ```
 
 Чтобы установить базовый образ Nano Server, выполните следующую команду:
 
-```
+```PowerShell
 docker pull microsoft/nanoserver
 ```
 
@@ -70,7 +98,7 @@ docker pull microsoft/nanoserver
 
 Приведенный ниже сценарий настраивает вложенную виртуализацию для узла контейнера. Этот сценарий выполняется на родительском компьютере Hyper-V. Перед запуском сценария убедитесь, что виртуальная машина узла контейнера отключена.
 
-```
+```PowerShell
 #replace with the virtual machine name
 $vm = "<virtual-machine>"
 
@@ -88,6 +116,6 @@ Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 
 Чтобы включить компонент Hyper-V с помощью PowerShell, выполните приведенную ниже команду в сеансе PowerShell с повышенными правами.
 
-```
+```PowerShell
 Install-WindowsFeature hyper-v
 ```

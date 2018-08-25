@@ -1,18 +1,19 @@
 ---
-title: "Dockerfile и контейнеры Windows"
-description: "Создание файлов Dockerfile для контейнеров Windows."
-keywords: "docker, контейнеры"
+title: Dockerfile и контейнеры Windows
+description: Создание файлов Dockerfile для контейнеров Windows.
+keywords: docker, контейнеры
 author: PatrickLang
 ms.date: 05/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: 206be6db413dd4fccef891b57ad4fcf73dd21d00
-ms.sourcegitcommit: 456485f36ed2d412cd708aed671d5a917b934bbe
-ms.translationtype: HT
+ms.openlocfilehash: 4f42ee1c368638b521c33278c97f9ef1e7fdb8d0
+ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "2596062"
 ---
 # <a name="dockerfile-on-windows"></a>Dockerfile в Windows
 
@@ -60,11 +61,11 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-Дополнительные примеры файлов Dockerfile для Windows см. в документе [Dockerfile for Windows Repository] (Dockerfile для репозитория Windows) (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
+Дополнительные примеры Dockerfiles для Windows, в разделе [Dockerfile для Windows репозитория] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
 ## <a name="instructions"></a>Инструкции
 
-Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile см. в [Справочник по файлам Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
+Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile Справочник [Dockerfile на Docker.com] (https://docs.docker.com/engine/reference/builder/).
 
 ### <a name="from"></a>FROM
 
@@ -97,7 +98,7 @@ FROM microsoft/windowsservercore
 ```
 # exec form
 
-RUN ["<executable", "<param 1>", "<param 2>"]
+RUN ["<executable>", "<param 1>", "<param 2>"]
 
 # shell form
 

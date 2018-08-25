@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 0ade6677a8cd07f21cd00d019f167685e0ba5e7e
-ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
-ms.translationtype: HT
+ms.openlocfilehash: 0d43176a07b0ba23f6a893c1b3dcfa1ffddc423d
+ms.sourcegitcommit: db508decd9bf6c0dce9952e1a86bf80f00d025eb
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "1876145"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "2315657"
 ---
 # <a name="windows-container-networking"></a>Сетевые подключения контейнеров Windows
 > ***ПРИМЕЧАНИЕ. Сведения об основных сетевых командах, параметрах и синтаксисе Docker см. в разделе [Сетевые подключения контейнеров Docker](https://docs.docker.com/engine/userguide/networking/).*** За исключением случаев, описанных [ниже](#unsupported-features-and-network-options), выполнение всех сетевых команд Docker поддерживается в Windows с помощью того же синтаксиса, что и в Linux. Однако обратите внимание, что сетевые стеки Windows и Linux отличаются друг от друга, и таким образом вы обнаружите, что некоторые сетевые команды Linux (например ifconfig) не поддерживаются в Windows.
@@ -68,7 +68,11 @@ ms.locfileid: "1876145"
 
 
  ## <a name="unsupported-features-and-network-options"></a>Неподдерживаемые функции и сетевые параметры
- Следующие параметры сети на данный момент **НЕ** поддерживаются в Windows:
+ Следующие сетевые параметры, в настоящее время **не** поддерживается в Windows:
+   * Зашифрованные контейнер обмена данными с помощью IPsec.
+   * Поддержка прокси-сервер HTTP для контейнеров.  Предварительные цена для этого можно отслеживать [здесь](https://github.com/Microsoft/hcsshim/pull/163).
+   * Конечные точки подключения к выполняемым контейнеров Hyper-V (горячей заменой).
+   * Сеть в виртуализованной инфраструктуры через драйвер прозрачной сети.
 
  | Команда        | Неподдерживаемый параметр   |
  | ---------------|:--------------------:|
