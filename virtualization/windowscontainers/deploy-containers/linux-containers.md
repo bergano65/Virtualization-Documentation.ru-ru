@@ -2,7 +2,7 @@
 
 Эта функция использует [изоляцию Hyper-V](../manage-containers/hyperv-container.md) для выполнения ядра Linux с необходимыми компонентами ОС для поддержки контейнеров. Изменения Windows и Hyper-V для реализации этой функции начались с _Windows 10 осенью Creators Update_ и _Windows Server версии 1709_, но для объединения всех возможностей потребовалось поработать [проектом Moby](https://www.github.com/moby/moby) с открытым исходным кодом, на котором основана технология Docker, а также с ядром Linux. 
 
-[!VIDEO https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4]
+[Видео о контейнеров Linux](https://sec.ch9.ms/ch9/1e5a/08ff93f2-987e-4f8d-8036-2570dcac1e5a/LinuxContainer.mp4)
 
 Для работы с этой функцией вам понадобятся следующие документы:
 
