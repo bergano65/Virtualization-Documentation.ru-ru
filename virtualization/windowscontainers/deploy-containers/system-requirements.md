@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: 71719fcbb6021bd26a464339a8caa9c4cb5698b9
-ms.sourcegitcommit: 2b5d806fc978e60fb71ce33ef491d4cfd6fc4456
-ms.translationtype: HT
+ms.openlocfilehash: 8ff9373bd943c360079679a7e41256c24aa21aa8
+ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "2596052"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4340872"
 ---
 # <a name="windows-container-requirements"></a>Требования к контейнеру Windows
 
@@ -20,7 +20,7 @@ ms.locfileid: "2596052"
 
 ## <a name="os-requirements"></a>Требования к ОС
 
-- Функция контейнера Windows доступна только в Windows Server сборки 1709, Windows Server 2016 (варианты "Установка основных серверных компонентов" и "С возможностями рабочего стола"), Windows10 Professional и Windows10 Корпоративная (Anniversary Edition).
+- Функция контейнера Windows доступна только в Windows Server 2016 (основной и с возможностями рабочего стола), Windows 10 Профессиональная и Корпоративная (Anniversary Edition) и более поздних версиях.
 - Перед запуском контейнеров Hyper-V необходимо установить роль Hyper-V.
 - На узлах контейнеров Windows Server операционная система Windows должна устанавливаться в каталог C:\. Если развертываются только контейнеры Hyper-V, это ограничение не применяется.
 
@@ -29,7 +29,7 @@ ms.locfileid: "2596052"
 Если вы хотите разместить контейнеры Hyper-V на узле контейнера, работающем на виртуальной машине Hyper-V, и запускать контейнер Windows c виртуальной машины Hyper-V, необходимо включить вложенную виртуализацию. Вложенная виртуализация должна соответствовать следующим требованиям.
 
 - Не менее 4 ГБ ОЗУ для виртуализированного узла Hyper-V.
-- Windows Serverсборки 1709, Windows Server2016 или Windows10 на главном компьютере и Windows Server (полная версия или версия Core) на виртуальной машине.
+- Windows Server 2019 Windows Server версии 1803, Windows Server версии 1709, Windows Server 2016 или Windows 10 на главном компьютере и Windows Server (полная Core) на виртуальной машине.
 - Процессор с Intel VT-x (в настоящий момент эта функция доступна только для процессоров Intel).
 - Для виртуальной машины узла контейнера также понадобится по меньшей мере 2виртуальных процессора.
 
@@ -47,7 +47,7 @@ ms.locfileid: "2596052"
 </thead>
 <tbody>
 <tr valign="top">
-<td><center>Windows Server 2016 (Standard или Datacenter)</center></td>
+<td><center>Windows Server 2016 / 2019 г. (Standard или Datacenter)</center></td>
 <td><center>Server Core или Nano Server</center></td>
 <td><center>Server Core или Nano Server</center></td>
 </tr>
