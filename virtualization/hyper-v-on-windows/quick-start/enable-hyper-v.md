@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: 39499afc93b3329810db30cd32544a41ad138583
-ms.sourcegitcommit: 64c8d5d6f068d385b94db4637259bb3852666efe
-ms.translationtype: HT
+ms.openlocfilehash: dd4021c653d98a3bd7a338d9f502a572830f344d
+ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "1797660"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "4303930"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Установка Hyper-V вWindows10
 
@@ -30,7 +30,7 @@ Hyper-V можно включить разными способами, в том
 
 Роль Hyper-V **невозможно** установить в Windows 10 Домашняя.
 
-Выполните обновление с выпуска Windows 10 Домашняя до выпуска Windows 10 Профессиональная, открыв раздел **Параметры** > **Обновление и безопасность** > **Активация**.
+Выполните обновление с ОС Windows 10 Домашняя до Windows 10 Профессиональная, открыв **Параметры** > **обновление и безопасность** > **активации**.
 
 Дополнительные сведения и советы по устранению неполадок см. в статье [Требования к системе для Hyper-V в Windows10](../reference/hyper-v-requirements.md).
 
