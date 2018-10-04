@@ -39,7 +39,7 @@ docker build -t nanoserverdnc -f Dockerfile-dotnetRuntime .
 ```
 
 ## <a name="run-powershell-core-6-in-a-container"></a>Запуск PowerShell Core 6 в контейнере
-С помощью такого же метода [многоэтапной сборки](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) можно создать контейнер PowerShell Core 6, используя [этот файл PowerShell Dockerfile](https://github.com/PowerShell/PowerShell/blob/master/docker/release/nanoserver-insider/Dockerfile).
+С помощью такого же метода [многоэтапной сборки](https://docs.docker.com/engine/userguide/eng-image/multistage-build/) можно создать контейнер PowerShell Core 6, используя [этот файл PowerShell Dockerfile](https://github.com/PowerShell/PowerShell-Docker/blob/master/release/stable/nanoserver/docker/Dockerfile).
 
 
 Затем выполните команду docker build, чтобы создать образ контейнера PowerShell.
@@ -48,7 +48,7 @@ docker build -t nanoserverdnc -f Dockerfile-dotnetRuntime .
 docker build -t nanoserverPowerShell6 -f Dockerfile-PowerShell6 .
 ```
 
-Дополнительные сведения см. в разделе [PowerShell GitHub](https://github.com/PowerShell/PowerShell/tree/master/docker/release).  Стоит отметить, что ZIP-файл PowerShell содержит подмножество .NET Core 2.0, необходимое для построения PowerShell Core 6.  Если ваши модули PowerShell зависят от .NET Core 2.0, можно создать контейнер PowerShell поверх контейнера Nano .NET Core вместо базового контейнера Nano, т. е. 
+Дополнительные сведения см. в разделе [PowerShell GitHub](https://github.com/PowerShell/PowerShell-Docker/tree/master/release).  Стоит отметить, что ZIP-файл PowerShell содержит подмножество .NET Core 2.0, необходимое для построения PowerShell Core 6.  Если ваши модули PowerShell зависят от .NET Core 2.0, можно создать контейнер PowerShell поверх контейнера Nano .NET Core вместо базового контейнера Nano, т. е. 
 
 ## <a name="next-steps"></a>Дальнейшие действия
 - Используйте один из новых образов контейнеров на основе Nano Server, доступных в Docker Hub, т. е. базовый образ Nano Server, Nano с .NET Core 2.0 и Nano с PowerShell Core 6
