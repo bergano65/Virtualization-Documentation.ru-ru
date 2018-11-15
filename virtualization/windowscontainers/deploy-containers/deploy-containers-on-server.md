@@ -2,18 +2,18 @@
 title: Развертывание контейнеров Windows в Windows Server
 description: Развертывание контейнеров Windows в Windows Server
 keywords: docker, контейнеры
-author: enderb-ms
+author: taylorb-microsoft
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 701112cac9c3f6d647fe5fb70309350fd0d07161
-ms.sourcegitcommit: d69ed13d505e96f514f456cdae0f93dab4fd3746
+ms.openlocfilehash: 0d982996a1aabd434df04551f30725a21b31d500
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4340852"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948013"
 ---
 # <a name="container-host-deployment---windows-server"></a>Развертывание узла контейнера— Windows Server
 
@@ -47,10 +47,10 @@ Restart-Computer -Force
 
 ## <a name="install-a-specific-version-of-docker"></a>Установите это конкретная версия Docker
 
-Доступны в настоящее время два канала для Docker EE для Windows Server:
+Существует в настоящее время два канала доступны для Docker EE для Windows Server:
 
-* `17.06` -Используют эту версию, если вы используете Docker Enterprise Edition (подсистема Docker, UCP, DTR). `17.06` значение по умолчанию.
-* `18.03` -Используют эту версию, если вы используете подсистема Docker EE само по себе.
+* `17.06` -Используйте эту версию, если вы используете Docker Enterprise Edition (подсистема Docker, UCP, DTR). `17.06` значение по умолчанию.
+* `18.03` -Используете эту версию, если вы используете подсистема Docker EE само по себе.
 
 Чтобы установить это конкретная версия, используйте `RequiredVersion` флаг:
 
@@ -66,7 +66,7 @@ Update-Module DockerMsftProvider
 
 ## <a name="update-docker"></a>Обновить Docker
 
-Если необходимо обновить подсистема Docker EE из предыдущих канала к каналу более поздней версии, используйте оба `-Update` и `-RequiredVersion` флаги:
+Если необходимо обновить подсистема Docker EE из предыдущих канала по такому каналу, более поздней версии, используйте оба `-Update` и `-RequiredVersion` флаги:
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03

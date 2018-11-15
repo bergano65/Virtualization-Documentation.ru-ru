@@ -12,15 +12,6 @@
 ## [Шаг 1. Использование образов контейнеров программы предварительной оценки](quick-start/Using-Insider-Container-Images.md)
 ## [Шаг. Сборка и запуск приложения](quick-start/Nano-RS3-.NET-Core-and-PS.md)
 ## [Шаг 3. Известные проблемы](quick-start/Insider-Known-Issues.md)
-## [Предварительная версия контейнеров Linux](deploy-containers/linux-containers.md)
-
-# Развертывание контейнера Windows
-## [Системные требования](deploy-containers/system-requirements.md)
-## [Совместимость версий](deploy-containers/version-compatibility.md)
-## [Развертывание](deploy-containers/deploy-containers-on-server.md)
-## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
-## [Учетные записи службы Active Directory](manage-containers/manage-serviceaccounts.md)
-## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # Управление Docker в Windows
 ## [Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)
@@ -28,7 +19,6 @@
 ## [Оптимизация файлов Dockerfile](manage-docker/optimize-windows-dockerfile.md)
 ## [Хранилище контейнеров](manage-containers/container-storage.md)
 ## [Начало работы с режимом мелких объектов](manage-containers/swarm-mode.md)
-## [Управление Docker через PowerShell](https://github.com/Microsoft/Docker-PowerShell)
 ## [Удаленное управление узлом Docker в Windows](management/manage_remotehost.md)
 ## [Элементы управления ресурсами](manage-containers/resource-controls.md)
 
@@ -39,11 +29,14 @@
 ## [Расширенные параметры сетей](container-networking/advanced.md)
 
 # Kubernetes в Windows 
-## [начало работы](kubernetes/getting-started-kubernetes-windows.md)
-## [Создание главного узла Linux](kubernetes/creating-a-linux-master.md)
-## [Настройка топологии сети](kubernetes/configuring-host-gateway-mode.md)
+## [1 — Обзор](kubernetes/getting-started-kubernetes-windows.md)
+## [2 — Создание главного узла Kubernetes](kubernetes/creating-a-linux-master.md)
+## [3 - Выбор решения сети](kubernetes/network-topologies.md)
+## [4 - присоединения работников Windows](kubernetes/joining-windows-workers.md)
+## [5 - присоединения работников Linux](kubernetes/joining-linux-workers.md)
+## [6 - развертывании Kubernetes ресурсов](kubernetes/deploying-resources.md)
+## [Устранение неполадок](kubernetes/common-problems.md)
 ## [Компиляция двоичных файлов Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
-## [Поиск и устранение неисправностей](kubernetes/common-problems.md)
 
 # Краткое руководство по Service Fabric
 ## [Развертывание первого контейнера](/azure/service-fabric/service-fabric-quickstart-containers)
@@ -63,5 +56,12 @@
 ## [Видеоматериалы и блоги сообщества](communitylinks.md)
 ## [Диагностика](troubleshooting.md)
 
+# Справочник
+## [Системные требования](deploy-containers/system-requirements.md)
+## [Совместимость версий](deploy-containers/version-compatibility.md)
+## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
+## [Контейнеры Linux в Windows](deploy-containers/linux-containers.md)
+## [Учетные записи службы Active Directory](manage-containers/manage-serviceaccounts.md)
+## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
 # [Лицензионное соглашение для образа ОС контейнера](Images_EULA.md)

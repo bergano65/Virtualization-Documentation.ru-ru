@@ -1,18 +1,19 @@
 ---
-title: "Примеры контейнеров Windows"
-description: "Ссылки на популярные проекты и примеры кода, созданные с помощью контейнеров Windows."
-keywords: "docker, контейнеры, windows, примеры"
-author: enderb-ms
+title: Примеры контейнеров Windows
+description: Ссылки на популярные проекты и примеры кода, созданные с помощью контейнеров Windows.
+keywords: docker, контейнеры, windows, примеры
+author: cwilhit
 ms.date: 12/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-ms.openlocfilehash: 45ee10cb8353c1b293b75628f1d023008b2bf150
-ms.sourcegitcommit: c2def00b88a411d25d2d4e97ff020db8dc228581
-ms.translationtype: HT
+ms.openlocfilehash: db3e4541793947bddd1d1da9aaa66d3360c83c55
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6948003"
 ---
 # <a name="windows-container-samples"></a>Примеры контейнеров Windows
 

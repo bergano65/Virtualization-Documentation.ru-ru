@@ -2,28 +2,28 @@
 title: Контейнеры Windows в Windows Server
 description: Краткое руководство по развертыванию контейнеров
 keywords: docker, контейнеры
-author: enderb-ms
+author: cwilhit
 ms.date: 09/26/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: 7d526aa64d478516a3f66acaf62b62b45282e5af
-ms.sourcegitcommit: 3d72f15651da378908f134916cd5c9d2064f8f95
-ms.translationtype: HT
+ms.openlocfilehash: ed60470f18f644fcc4fe741d02e6f6e39af48368
+ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "2256937"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "6947993"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
-Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server2016. Во время этого упражнения вы установите роль контейнера и развернете простой контейнер Windows Server. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
+Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server 2019. Во время этого упражнения вы установите роль контейнера и развернете простой контейнер Windows Server. Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
 
-В этом кратком руководстве рассматриваются контейнеры Windows Server в Windows Server2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
+Это краткое руководство относится к контейнерам Windows Server на Windows Server 2019. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
 
 **Предварительные требования:**
 
-Одна компьютерная система (физическая или виртуальная), работающая под управлением Windows Server2016. Если вы используете Windows Server2016TP5, обновите [Window Server2016 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2016 ).
+Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019. Если вы используете Windows Server 2019 Insider Preview, обновите [Window Server 2019 г., Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 ).
 
 > Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
 
@@ -96,13 +96,13 @@ sconfig
 Используйте команду `docker run` для развертывания контейнера .Net. Эта команда также скачает образ контейнера, что может занять несколько минут.
 
 ```console
-docker run microsoft/dotnet-samples:dotnetapp-nanoserver
+docker run microsoft/dotnet-samples:dotnetapp-nanoserver-1809
 ```
 
 Контейнер запустится, выведет сообщение "Hello world" и завершит работу.
 
 ```console
-         Dotnet-bot: Welcome to using .NET Core!
+         Hello from .NET Core!
     __________________
                       \
                        \
@@ -143,8 +143,8 @@ docker run microsoft/dotnet-samples:dotnetapp-nanoserver
 
 
 **Environment**
-Platform: .NET Core 2.0
-OS: Microsoft Windows 10.0.14393
+Platform: .NET Core
+OS: Microsoft Windows 10.0.17763
 ```
 
 Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com]( https://docs.docker.com/engine/reference/run/).
