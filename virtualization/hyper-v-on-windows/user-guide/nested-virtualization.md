@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: 0b268f796dacd3de60cb5879b1c9c5414b8bdd49
-ms.sourcegitcommit: 9653a3f7451011426f8af934431bb14dbcb30a62
-ms.translationtype: HT
+ms.openlocfilehash: 625a9b36ff782c86065ef3d9124708e5716e066f
+ms.sourcegitcommit: 941a82f463684b893488cd998f79b539c506105b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "2082937"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "7012577"
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>Запуск Hyper-V в виртуальной машине со вложенной виртуализацией
 
@@ -96,7 +96,7 @@ Netsh interface ip add dnsserver “Ethernet” address=<my DNS server>
 
 На схеме ниже показана роль Hyper-V без вложения.  Низкоуровневая оболочка Hyper-V полностью контролирует возможности аппаратной виртуализации (оранжевая стрелка) и скрывает их от операционной системы.
 
-![](./media/HVNoNesting.png)
+![](./media/HVNoNesting.PNG)
 
 На следующей схеме показана роль Hyper-V с включенной вложенной виртуализацией. В этом случае Hyper-V предоставляет расширения аппаратной виртуализации виртуальным машинам. Если вложение включено, гостевая виртуальная машина может установить собственную низкоуровневую оболочку и запускать свои гостевые виртуальные машины.
 
