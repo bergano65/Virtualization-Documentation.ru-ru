@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 8a68bf9e5e78add65aedb51fff8521ee258e353e
-ms.sourcegitcommit: 9a61fc06c25d17ddb61124a21a3ca821828b833d
+ms.openlocfilehash: 970de62c9a0011fa09d6741b2665479efd394313
+ms.sourcegitcommit: 166aa2430ea47d7774392e65a9875501f86dd5ed
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "7460499"
+ms.locfileid: "7460580"
 ---
 # <a name="container-platform-tools-on-windows"></a>Инструменты для платформы контейнера в Windows
 
@@ -46,12 +46,15 @@ ms.locfileid: "7460499"
 
 ## <a name="runhcs"></a>runhcs
 
-RunHCS является разветвление runc.  Как и runc runhcs — клиент командной строки для запуска приложений, упакованных в соответствии с форматом инициативе Open Initiative (Container) и является реализацией требованиям спецификации откройте Initiative контейнера.  
+`runhcs` — это компонент из `runc`.  Например, `runc`, `runhcs` — клиент командной строки для запуска приложений, упакованных в соответствии с форматом инициативе Open Initiative (Container) и является реализацией требованиям спецификации откройте Initiative контейнера.
 
 Функциональные различия между runc и runhcs включают в себя:
 
-* runhcs выполняется в Windows
-* runhcs можно запустить Windows и Linux [контейнеры Hyper-V](../manage-containers/hyperv-container.md) в дополнение к контейнеров Windows процесс.
+* `runhcs` выполняется в Windows.  Обменивается данными с [HCS](containerd.md#hcs) для создания и управления контейнерами.
+* `runhcs` можно выполнить различные типы другой контейнер.
+
+  * Windows и Linux [контейнеры Hyper-V](../manage-containers/hyperv-container.md)
+  * Windows обработать контейнеры (образа контейнера должна соответствовать узлу контейнера)
 
 **Использование:**
 
@@ -89,6 +92,18 @@ runhcs run [ -b bundle ] <container-id>
 
 **Список**является единственным команда, которая можно рассматривать как несколькими контейнерами.  В нем перечислены работы (или приостановки) контейнеров, запущено с помощью runhcs с заданным корнем.
 
+### <a name="hcs"></a>СЛУЖБЫ HCS
+
+У нас есть две программы-оболочки доступны на GitHub для интерфейса с HCS. Так как HCS C API, программы-оболочки облегчают вызова HCS из верхнего уровня языков.  
+
+* [hcsshim](https://github.com/microsoft/hcsshim) - HCSShim записываются в Go и он является основой для runhcs.
+Взять последнюю версию из AppVeyor или выполнять ее сборку самостоятельно.
+* [dotnet computevirtualization](https://github.com/microsoft/dotnet-computevirtualization) -dotnet-computevirtualization является оболочкой для HCS C#.
+
+Если вы хотите использовать HCS (напрямую или через программу-оболочку), или вы хотите сделать нет ли ржавчины или/Haskell/InsertYourLanguage оболочки HCS, оставьте комментарий.
+
+Для более подробно рассмотрим HCS презентация [John Stark DockerCon](https://www.youtube.com/watch?v=85nCF5S8Qok).
+
 ## <a name="containerdcri"></a>containerd/cri
 
 > ! CRI Примечание поддерживается только в Server 2019 или Windows 10 1809 и более поздних версиях.
@@ -103,26 +118,3 @@ runhcs run [ -b bundle ] <container-id>
 ![Средах контейнера на основе Containerd](media/containerd-platform.png)
 
 Хотя runHCS и containerd можно управлять в любой системе Windows Server 2016 или более поздней версии, поддержка модули POD (группы контейнеров) требуется критические изменения контейнером средств в Windows.  Поддержка CRI доступны в Windows Server 2019 или Windows 10 1809 и более поздних версиях.
-
-## <a name="hcs"></a>СЛУЖБЫ HCS
-
-У нас есть две программы-оболочки доступны на GitHub для интерфейса с HCS. Так как HCS C API, программы-оболочки облегчают вызова HCS из верхнего уровня языков.  
-
-### <a name="hcsshim"></a>HCSShim
-
-HCSShim записываются в Go и он является основой для runhcs.
-Взять последнюю версию из AppVeyor или выполнять ее сборку самостоятельно.
-
-Посмотрите на [GitHub](https://github.com/microsoft/hcsshim).
-
-### <a name="dotnet-computevirtualization"></a>DotNet computevirtualization
-
-> ! Обратите внимание, это является эталонной реализацией — использовать его для разработки и тестирования только.
-
-DotNet-computevirtualization является оболочкой для HCS C#.
-
-Посмотрите на [GitHub](https://github.com/microsoft/dotnet-computevirtualization).
-
-Если вы хотите использовать HCS (напрямую или через программу-оболочку), или вы хотите сделать нет ли ржавчины или/Haskell/InsertYourLanguage оболочки HCS, оставьте комментарий.
-
-Для более подробно рассмотрим HCS презентация [John Stark DockerCon](https://www.youtube.com/watch?v=85nCF5S8Qok).
