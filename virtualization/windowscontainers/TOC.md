@@ -35,7 +35,7 @@
 ## [4 - присоединения работников Windows](kubernetes/joining-windows-workers.md)
 ## [5 - присоединения работников Linux](kubernetes/joining-linux-workers.md)
 ## [6 - развертывании Kubernetes ресурсов](kubernetes/deploying-resources.md)
-## [Устранение неполадок](kubernetes/common-problems.md)
+## [Поиск и устранение неисправностей](kubernetes/common-problems.md)
 ## [Компиляция двоичных файлов Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 
 # Краткое руководство по Service Fabric
@@ -61,6 +61,7 @@
 ## [Совместимость версий](deploy-containers/version-compatibility.md)
 ## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
 ## [Контейнеры Linux в Windows](deploy-containers/linux-containers.md)
+## [RunHCS и Containerd](deploy-containers/containerd.md)
 ## [Учетные записи службы Active Directory](manage-containers/manage-serviceaccounts.md)
 ## [Оптимизация антивирусного программного обеспечения](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 
