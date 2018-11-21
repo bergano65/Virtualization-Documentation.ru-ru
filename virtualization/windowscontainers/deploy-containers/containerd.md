@@ -1,5 +1,5 @@
 ---
-title: Создание контейнера стека
+title: Платформа контейнеров Windows
 description: Дополнительные сведения о новых контейнера сборке блоков, доступных в Windows.
 keywords: LCOW, контейнеры linux, docker, контейнеры, containerd, cri, runhcs, runc
 author: scooley
@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: a0e62b32-0c4c-4dd4-9956-8056e9abd9e5
-ms.openlocfilehash: 970de62c9a0011fa09d6741b2665479efd394313
-ms.sourcegitcommit: 166aa2430ea47d7774392e65a9875501f86dd5ed
+ms.openlocfilehash: 5811ea0761567c3a7db036358b24d1a3e7c51baf
+ms.sourcegitcommit: fdaf666973fca37d8c428e0247454dd47c01f1c3
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 11/20/2018
-ms.locfileid: "7460580"
+ms.locfileid: "7460603"
 ---
 # <a name="container-platform-tools-on-windows"></a>Инструменты для платформы контейнера в Windows
 
@@ -106,7 +106,9 @@ runhcs run [ -b bundle ] <container-id>
 
 ## <a name="containerdcri"></a>containerd/cri
 
-> ! CRI Примечание поддерживается только в Server 2019 или Windows 10 1809 и более поздних версиях.
+> [!IMPORTANT]
+> CRI поддерживается только в Server 2019 или Windows 10 1809 и более поздних версиях.  Мы также по-прежнему активно разрабатываем containerd для Windows.
+> Разработки и тестирования только.
 
 Хотя OCI спецификации определяет один контейнер, [CRI](https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/apis/cri/runtime/v1alpha2/api.proto) (интерфейс среды выполнения контейнера) описывает контейнеры как workload(s) в песочнице в общей среде под названием pod.  Модули POD может содержать один или несколько рабочих нагрузок контейнера.  Модули позволяют оркестратора контейнеров, такие как Kubernetes и сетки структуры службы обработки сгруппированных рабочих нагрузок, которые должны находиться на одном узле с некоторыми общими ресурсами, например памяти и vNETs.
 
