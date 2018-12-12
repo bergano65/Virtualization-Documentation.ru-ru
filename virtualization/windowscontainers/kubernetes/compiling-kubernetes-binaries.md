@@ -2,28 +2,33 @@
 title: Компиляция двоичных файлов Kubernetes
 author: gkudra-msft
 ms.author: gekudray
-ms.date: 11/16/2017
+ms.date: 11/02/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: Компиляция и кросс-компиляции двоичных файлов Kubernetes из источника.
-keywords: kubernetes, 1.9, linux, компиляция
-ms.openlocfilehash: fb029b9fef073adb8ce17079b99382d186ad4326
-ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+keywords: kubernetes, 1.12, linux, компиляция
+ms.openlocfilehash: 40bf7e65a8910cdab095abb269aa0a92508189cd
+ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4303900"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "6178877"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Компиляция двоичных файлов Kubernetes #
 Для компиляции двоичных файлов Kubernetes требуется рабочая среда Go. На этой странице описывается несколько способов компиляции двоичных файлов Linux и кросс-компиляции двоичных файлов Windows.
+> [!NOTE] 
+> Эта страница является полностью произвольные и только включено в заинтересованным Kubernetes разработчиков, которым нужно поэкспериментировать с последней & наибольшее исходный код.
+
+> [!tip]
+> Чтобы получать уведомления о новейших достижений, можно подписаться на [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).
 
 ## <a name="installing-go"></a>Установка Go ##
 Для простоты установка Go выполняется во временной настраиваемой папке:
 
 ```bash
 cd ~
-wget https://redirector.gvt1.com/edgedl/go/go1.9.2.linux-amd64.tar.gz -O go1.9.2.tar.gz
-tar -vxzf go1.9.2.tar.gz
+wget https://redirector.gvt1.com/edgedl/go/go1.11.1.linux-amd64.tar.gz -O go1.11.1.tar.gz
+tar -vxzf go1.11.1.tar.gz
 mkdir gopath
 export GOROOT="$HOME/go"
 export GOPATH="$HOME/gopath"
@@ -58,10 +63,10 @@ go get -d $KUBEREPO
 cd $GOPATH/src/$KUBEREPO
 ```
 
-Теперь извлеките ветвь для создания двоичного файла Linux `kubelet`. Это необходимо, чтобы избежать ошибок построения Windows, указанных выше. Здесь мы используем `v1.9.1`. После выполнения операции `git checkout` вы можете применить ожидающие PR, исправления или внести другие изменения в пользовательские двоичные файлы.
+Теперь извлеките ветвь для создания двоичного файла Linux `kubelet`. Это необходимо, чтобы избежать ошибок построения Windows, указанных выше. Здесь мы используем `v1.12.2`. После выполнения операции `git checkout` вы можете применить ожидающие PR, исправления или внести другие изменения в пользовательские двоичные файлы.
 
 ```bash
-git checkout tags/v1.9.1
+git checkout tags/v1.12.2
 make clean && make WHAT=cmd/kubelet
 ```
 
@@ -89,10 +94,10 @@ mkdir -p "${SRC_DIR}"
 git clone https://github.com/kubernetes/kubernetes.git ${SRC_DIR}
 
 cd ${SRC_DIR}
-git checkout tags/v1.9.1
-build/run.sh make kubectl KUBE_BUILD_PLATFORMS=windows/amd64
-build/run.sh make kubelet KUBE_BUILD_PLATFORMS=windows/amd64
-build/run.sh make kube-proxy KUBE_BUILD_PLATFORMS=windows/amd64
+git checkout tags/v1.12.2
+KUBE_BUILD_PLATFORMS=linux/amd64   build/run.sh make WHAT=cmd/kubelet
+KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kubelet 
+KUBE_BUILD_PLATFORMS=windows/amd64 build/run.sh make WHAT=cmd/kube-proxy 
 cp _output/dockerized/bin/windows/amd64/kube*.exe ${DIST_DIR}
 
 ls ${DIST_DIR}

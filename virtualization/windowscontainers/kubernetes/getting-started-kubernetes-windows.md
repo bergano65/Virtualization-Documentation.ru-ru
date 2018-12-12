@@ -2,215 +2,72 @@
 title: Kubernetes в Windows
 author: gkudra-msft
 ms.author: gekudray
-ms.date: 11/16/2017
+ms.date: 11/02/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: Присоединение узла Windows к кластеру Kubernetes с бета-версией 1.9.
-keywords: kubernetes, 1.9, windows, начало работы
+description: Присоединение узла Windows к кластеру Kubernetes с v1.12.
+keywords: kubernetes, 1.12, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: c6127fe8ab9de6a56816fb8187d4dec525425510
-ms.sourcegitcommit: 7c3af076eb8bad98e1c3de0af63dacd842efcfa3
-ms.translationtype: HT
+ms.openlocfilehash: 0e43b2ac5b19d16721c1ba0dd1f34e339223bdaf
+ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "6178907"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows #
+Эта страница служит Обзор для начало работы с Kubernetes в Windows, присоединение узла Windows к кластеру на основе Linux. В выпуске Kubernetes 1.12 в бета-версии Windows Server [версии 1803](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1803#kubernetes) пользователи могут воспользоваться [новейшие возможности](https://kubernetes.io/docs/getting-started-guides/windows/#supported-features) в Kubernetes в Windows:
 
-После выхода версии Kubernetes 1.9 и Windows Server [версии 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709#networking) пользователи могут воспользоваться преимуществами самых новых сетевых компонентов Windows.
-
-  - **Общие секции модулей pod**: модули pod инфраструктуры и рабочих узлов теперь совместно используют сетевую секцию (аналог пространства имен Linux).
-  - **Оптимизация конечных точек**. Благодаря совместному использованию секций службам контейнеров требуется отслеживать в два раза меньше конечных точек, чем раньше.
-  - **Оптимизация пути данных**. Улучшения платформа виртуальной фильтрации и сетевой службы узлов позволяют реализовать балансировку нагрузки на основе ядра.
-
-
-Эта страница служит руководством по присоединению нового узла Windows к существующему кластеру на основе Linux. Чтобы полностью начать с нуля, посетите [эту страницу](./creating-a-linux-master.md) &mdash; один из многих ресурсов, доступных для развертывания кластера Kubernetes &mdash; чтобы узнать, как настроить мастер с нуля так же, как мы.
+  - **упрощенное управления сетями**: используйте Flannel в режим узел шлюз для управления автоматического маршрут между узлами
+  - **улучшения масштабируемости**: хотят раз при запуске контейнера быстрее и надежнее благодаря [без устройства виртуальные сетевые карты для контейнеров Windows Server](https://blogs.technet.microsoft.com/networking/2018/04/27/network-start-up-and-performance-improvements-in-windows-10-spring-creators-update-and-windows-server-version-1803/)
+  - **Изоляция Hyper-v (альфа)**: координации таких действий [контейнеры hyper-v](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers) с изоляцией в режиме ядра для повышения безопасности ([см. в разделе типы контейнеров Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/#windows-container-types))
+  - **подключаемые модули хранилища**: использовать [подключаемый модуль FlexVolume хранилища](https://github.com/Microsoft/K8s-Storage-Plugins) с поддержкой iSCSI и SMB для контейнеров Windows
 
 > [!TIP] 
 > Если вы хотите развернуть кластер в Azure, используйте средство с открытым исходным кодом ACS-Engine. Доступно [пошаговое руководство](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md).
 
-<a name="definitions"></a> Ниже перечислены определения некоторых терминов, упомянутых в этом руководстве.
+## <a name="prerequisites"></a>Необходимые условия ##
 
-  - **Внешняя сеть**— это сеть, в рамках которой взаимодействуют ваши узлы.
-  - <a name="cluster-subnet-def"></a>**Подсеть кластера**— это маршрутизируемая виртуальная сеть. Узлам назначаются более мелкие подсети из модулей pod.
-  - **Подсеть службы**— это немаршрутизируемая чисто виртуальная подсеть в сегменте 11.0/16, которую модули pod используют для доступа к службам независимо от топологии сети. Она преобразуется в маршрутизируемое адресное пространство или из адресного пространства при выполнении `kube-proxy` на узлах.
+### <a name="plan-ip-addressing-for-your-cluster"></a>Планирование IP-адресов для кластера ###
+<a name="definitions"></a>Кластеры Kubernetes со Представляем новый подсетей для модулей POD и служб, важно убедиться, что ни один из них не исключены конфликты находящиеся с любой существующей сети в вашей среде. Ниже приведены адресными пространствами, которые должны быть освобождение успешного развертывания Kubernetes требуются.
+
+| Подсеть / Address диапазона | Описание | Значение по умолчанию |
+| --------- | ------------- | ------------- |
+| <a name="service-subnet-def"></a>**Подсеть службы** | Не являющихся чисто виртуальная подсеть является, которую модули POD немаршрутизируемая доступа к службам независимо от топологии сети. Она преобразуется в маршрутизируемое адресное пространство или из адресного пространства при выполнении `kube-proxy` на узлах. | «10.96.0.0/12» |
+| <a name="cluster-subnet-def"></a>**Подсеть кластера** |  Это глобальные подсети, используемую все модули POD в кластере. Каждый узлов назначается меньше /24 подсети из этого используйте модулей POD. Он должен быть достаточно большим, чтобы разместить все модули, используемые в кластере. Для расчета *Минимальный* размер подсети: `(number of nodes) + (number of nodes * maximum pods per node that you configure)` <p/>Пример для 5 узла кластера для 100 модули POD на каждом узле: `(5) + (5 *  100) = 505`.  | «10.244.0.0/16» |
+| **IP-адрес службы Kubernetes DNS** | IP-адрес службы «с помощью kube-dns», будут использоваться для обнаружение служб DNS разрешение & кластера. | «10.96.0.10» |
+> [!NOTE]
+> Существует другой сети Docker (NAT), который создается по умолчанию при установке Docker. Он не требуется для работы Kubernetes в Windows, как мы назначение IP-адреса из подсети кластера вместо.
+
+### <a name="disable-anti-spoofing-protection"></a>Отключить защиту в защиту от подделок ###
+> [!Important] 
+> Внимательно прочитайте этот раздел, так как она необходима для успешного использования виртуальных машин для развертывания Kubernetes в ОС Windows сегодня любым пользователем.
+
+Убедитесь, спуфинг MAC-адресов и виртуализация включена для узла контейнера Windows виртуальных машин (гостевые ОС). Чтобы добиться этого, необходимо выполните следующую команду от имени администратора на компьютере, где размещаются виртуальные машины (пример, приведенный для Hyper-V):
+
+```powershell
+Set-VMProcessor -VMName "<name>" -ExposeVirtualizationExtensions $true 
+Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing On
+```
+> [!TIP]
+> Если вы используете продуктов на основе VMware в соответствии с потребностями виртуализации, можно найти в Включение [неизбирательный режим](https://kb.vmware.com/s/article/1004099) для требования подмена MAC.
+
+>[!TIP]
+> Если вы развертываете Kubernetes на виртуальных машинах Azure IaaS самостоятельно, можно найти в виртуальные машины, которые поддерживают [вложенную виртуализацию](https://azure.microsoft.com/en-us/blog/nested-virtualization-in-azure/) для этого требования.
 
 ## <a name="what-you-will-accomplish"></a>Цели ##
 
 В рамках этого руководства вы выполните следующие действия.
 
-> [!div class="checklist"]  
-> * Настроим [главный узел Linux](#preparing-the-linux-master).  
-> * Присоединим к нему [рабочий узел Windows](#preparing-a-windows-node).  
-> * Подготовим [топологию сети](#network-topology).  
-> * Развернем [образец службы Windows](#running-a-sample-service).  
-> * Рассмотрим [распространенные проблемы и ошибки](./common-problems.md).  
+> [!div class="checklist"]
+> * Создан узел [главного узла Kubernetes](./creating-a-linux-master.md) .  
+> * Выбор [решения сети](./network-topologies.md).  
+> * Присоединенные к [рабочий узел Windows](./joining-windows-workers.md) или [Linux рабочий узел](./joining-linux-workers.md) к нему.  
+> * Развернуть [Пример Kubernetes ресурсов](./deploying-resources.md).  
+> * Рассмотрим [распространенные проблемы и ошибки](./common-problems.md).
 
-## <a name="preparing-the-linux-master"></a>Подготовка главного узла Linux ##
+## <a name="next-steps"></a>Дальнейшие действия ##
+В этом разделе мы говорили о важных предварительные условия и предположения, необходимая для успешного сегодня развертывания Kubernetes в Windows. Дальше узнать, как для настройки главного узла Kubernetes:
 
-Независимо от того,выполнили ли вы [инструкции](./creating-a-linux-master.md) или уже используете существующий кластер, единственное, что требуется от главного узла Linux— конфигурация сертификата Kubernetes. Она может находится в папке `/etc/kubernetes/admin.conf`, `~/.kube/config`, или в другом месте, в зависимости от настроек.
-
-## <a name="preparing-a-windows-node"></a>Подготовка узла Windows ##
-
-> [!NOTE]  
-> Все фрагменты кода в разделах для Windows должны выполняться в сеансе PowerShell с _повышенными привилегиями_.
-
-Kubernetes использует [Docker](https://www.docker.com/) как оркестратор контейнера, поэтому нам необходимо его установить. Вы можете следовать [официальным инструкциям в документах](../manage-docker/configure-docker-daemon.md#install-docker), [инструкциям Docker](https://store.docker.com/editions/enterprise/docker-ee-server-windows) или выполнить следующие действия.
-
-```powershell
-Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
-Install-Package -Name Docker -ProviderName DockerMsftProvider
-Restart-Computer -Force
-```
-
-Если вы находитесь за прокси-сервером, необходимо определить следующие переменные среды PowerShell.
-```powershell
-[Environment]::SetEnvironmentVariable("HTTP_PROXY", "http://proxy.example.com:80/", [EnvironmentVariableTarget]::Machine)
-[Environment]::SetEnvironmentVariable("HTTPS_PROXY", "http://proxy.example.com:443/", [EnvironmentVariableTarget]::Machine)
-```
-
-[В этом репозитории Майкрософт](https://github.com/Microsoft/SDN) существует набор сценариев, которые помогут вам присоединить этот узел к кластеру. Скачать ZIP-файл напрямую можно [здесь](https://github.com/Microsoft/SDN/archive/master.zip). Единственное, что вам нужно— это папка `Kubernetes/windows`, содержимое которой должно быть перемещено в `C:\k\`.
-
-```powershell
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-wget https://github.com/Microsoft/SDN/archive/master.zip -o master.zip
-Expand-Archive master.zip -DestinationPath master
-mkdir C:/k/
-mv master/SDN-master/Kubernetes/windows/* C:/k/
-rm -recurse -force master,master.zip
-```
-
-Скопируйте файл сертификата, [определенный ранее](#preparing-the-linux-master), в этот новый каталог `C:\k`.
-
-## <a name="network-topology"></a>Топология сети ##
-
-Существует несколько способов сделать виртуальную [подсеть кластера](#cluster-subnet-def) маршрутизируемой. Можно сделать следующее.
-
-  - Настроить [режим узел-шлюз](./configuring-host-gateway-mode.md), задав статические маршруты следующего прыжка между узлами для обеспечения взаимодействия модулей pod.
-  - Настроить интеллектуальный коммутатор верхнего уровня (ToR) для маршрутизации подсети.
-  - Использовать подключаемый модуль наложения стороннего поставщика, например [Flannel](https://coreos.com/flannel/docs/latest/kubernetes.html) (поддержка Flannel в Windows находится на стадии бета-версии).
-
-### <a name="creating-the-pause-image"></a>Создание образа «Пауза» ###
-
-После установки `docker` необходимо подготовить образ «Пауза», используемый Kubernetes для подготовки модулей pod инфраструктуры.
-
-```powershell
-docker pull microsoft/windowsservercore:1709
-docker tag microsoft/windowsservercore:1709 microsoft/windowsservercore:latest
-cd C:/k/
-docker build -t kubeletwin/pause .
-```
-
-> [!NOTE]
-> Добавляется тег `:latest`, так как пример службы, которую вы развернете позднее, зависит от него, хотя это может _быть_ не последний доступный образ Windows Server Core. Следует быть осторожным и не допускать конфликтующих образов контейнеров. При отсутствии ожидаемого тега выполнение операции `docker pull` с несовместимым образом контейнера может привести к [проблемам с развертыванием](./common-problems.md#when-deploying-docker-containers-keep-restarting). 
-
-
-### <a name="downloading-binaries"></a>Скачивание двоичных файлов ###
-Когда происходит операция `pull`, скачайте следующие клиентские двоичные файлы из Kubernetes:
-
-  - `kubectl.exe`
-  - `kubelet.exe`
-  - `kube-proxy.exe`
-
-Вы можете скачать их по ссылкам в файле `CHANGELOG.md` последнего выпуска 1.9. На момент написания этой статьи была доступа версия [1.9.1](https://github.com/kubernetes/kubernetes/releases/tag/v1.9.1), а двоичные файлы Windows доступны [здесь](https://storage.googleapis.com/kubernetes-release/release/v1.9.1/kubernetes-node-windows-amd64.tar.gz). Используйте архиватор, например [7-Zip](http://www.7-zip.org/), чтобы извлечь содержимое архива и разместить двоичные файлы в `C:\k\`.
-
-Чтобы команда `kubectl` была доступна за пределами каталога `C:\k\`, измените переменную среды `PATH`:
-
-```powershell
-$env:Path += ";C:\k"
-```
-
-Чтобы сохранить это изменение, переменную следует изменить на целевом компьютере:
-
-```powershell
-[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\k", [EnvironmentVariableTarget]::Machine)
-```
-
-### <a name="joining-the-cluster"></a>Присоединение к кластеру ###
-Убедитесь, что конфигурация кластера допустима, с помощью следующей команды:
-
-```powershell
-kubectl version
-```
-
-Если возникает ошибка подключения,
-
-```
-Unable to connect to the server: dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.
-```
-
-убедитесь, что конфигурация обнаружена правильно:
-
-```powershell
-kubectl config view
-```
-
-Чтобы изменить расположение, где `kubectl` выполняет поиск файла конфигурации, можно передать параметр `--kubeconfig` или изменить переменную среды `KUBECONFIG`. Например, если конфигурации находится в `C:\k\config`:
-
-```powershell
-$env:KUBECONFIG="C:\k\config"
-```
-
-Чтобы сделать этот параметр постоянным в области текущего пользователя:
-
-```powershell
-[Environment]::SetEnvironmentVariable("KUBECONFIG", "C:\k\config", [EnvironmentVariableTarget]::User)
-```
-
-Теперь узел готов для присоединения к кластеру. Выполните эти сценарии (в указанном порядке) в двух отдельных окнах PowerShell *с повышенными привилегиями*. Параметр `-ClusterCidr` в первом сценарии предназначен для настроенной [подсети кластера](#cluster-subnet-def); здесь ее адрес— `192.168.0.0/16`.
-
-```powershell
-./start-kubelet.ps1 -ClusterCidr 192.168.0.0/16
-./start-kubeproxy.ps1
-```
-
-Узел Windows будет доступен с главного узла Linux в `kubectl get nodes` в течение минуты!
-
-
-### <a name="validating-your-network-topology"></a>Проверка топологии сети ###
-
-Существует несколько основных тестов для проверки правильности конфигурации сети.
-
-  - **Подключение между узлами**. Проверяется связь между главным узлом и рабочими узлами Windows, тест должен завершиться успешно в обоих направлениях.
-
-  - **Подключение подсети модулей pod к узлам**. Проверка связи между виртуальным интерфейсом pod и узлами. Поиск адреса шлюза в `route -n` и `ipconfig` в Linux и Windows соответственно, поиск интерфейса `cbr0`.
-
-Если какие-либо из этих базовых тестов не работают, посетите [страницу устранения неполадок](./common-problems.md#common-networking-errors).
-
-
-## <a name="running-a-sample-service"></a>Запуск образца службы ##
-
-Вы развернете очень простую [веб-службу на основе PowerShell](https://github.com/Microsoft/SDN/blob/master/Kubernetes/WebServer.yaml) для проверки присоединения к кластеру и правильности настройки нашей сети.
-
-На главном узле Linux скачайте и запустите службу:
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/WebServer.yaml -O win-webserver.yaml
-kubectl apply -f win-webserver.yaml
-watch kubectl get pods -o wide
-```
-
-При этом создается развертывание и служба. Модули pod будут неопределенное время отслеживать их состояние— просто нажмите `Ctrl+C` для выхода из команды `watch`, когда завершите наблюдение.
-
-Если все прошло нормально:
-
-  - вы увидите 4 контейнера при выполнении команды `docker ps` в узле Windows;
-  - вы увидите 2 модуля pod при выполнении команды `kubectl get pods` из мастера Linux
-  - `curl` IP-адреса *модуля pod* на порту 80 от главного узла Linux получают ответ от веб-сервера; это подтверждает взаимодействие узлов с модулем pod в сети;
-  - проверка связи *между модулями pod* (в том числе между узлами, если у вас несколько узлов Windows) с помощью `docker exec` выполняется успешно; это подтверждает правильную настройку взаимодействия модулей pod;
-  - `curl` в разделе `kubectl get services` отображается виртуальный *IP-адрес службы* от главного узла Linux и отдельных модулей pod;
-  - `curl` отображается *имя службы* с [DNS-суффиксом Kubernetes по умолчанию](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#services), что подтверждает работу DNS.
-
-> [!Warning]  
-> У узлов Windows не будет доступа к IP-адресу службы. Это [известное ограничение платформы](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip), которое будет устранено в следующем обновлении Windows Server.
-
-
-### <a name="port-mapping"></a>Сопоставление портов ### 
-Можно также получить доступ к службам, размещенным в модулях pod, через соответствующие им узлы путем сопоставления порта на узле. Для демонстрации этой функции существует [еще один образец YAML, доступный](https://github.com/Microsoft/SDN/blob/master/Kubernetes/PortMapping.yaml) путем сопоставления порта 4444 на узле с портом 80 на модуле pod. Чтобы развернуть его, выполните те же действия.
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/PortMapping.yaml -O win-webserver-port-mapped.yaml
-kubectl apply -f win-webserver-port-mapped.yaml
-watch kubectl get pods -o wide
-```
-
-Теперь можно выполнить команду `curl` на IP-адресе *узла* порта 4444 и получить ответ веб-сервера. Имейте в виду, что это приводит к ограничению масштабирования до одного модуля pod на каждом узле, так как должно применяться сопоставление "один-к-одному".
+> [!div class="nextstepaction"]
+> [Создание главного узла Kubernetes](./creating-a-linux-master.md)

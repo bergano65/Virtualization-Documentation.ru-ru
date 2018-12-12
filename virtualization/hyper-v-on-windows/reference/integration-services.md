@@ -1,20 +1,21 @@
 ---
-title: "Службы интеграции Hyper-V"
-description: "Справочник по службам интеграции Hyper-V"
-keywords: "windows10, hyper-v, службы интеграции, компоненты интеграции"
+title: Службы интеграции Hyper-V
+description: Справочник по службам интеграции Hyper-V
+keywords: windows10, hyper-v, службы интеграции, компоненты интеграции
 author: scooley
 ms.date: 05/25/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: c98ab9c32dfcd6e9b3a0258d0282b28d78726f6a
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
-ms.translationtype: HT
+ms.openlocfilehash: 84974f093cc80f8a216518bab051e13397e89b6e
+ms.sourcegitcommit: 4090d158dd3573ea90799de5b014c131a206b000
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "6121634"
 ---
-# Службы интеграции Hyper-V
+# <a name="hyper-v-integration-services"></a>Службы интеграции Hyper-V
 
 Службы интеграции (часто называемые компонентами интеграции) — это службы, позволяющие виртуальной машине связываться с узлом Hyper-V. Многие из этих служб используются для удобства, а другие могут быть достаточно важны для правильной работы виртуальной машины.
 
@@ -24,7 +25,7 @@ ms.lasthandoff: 07/21/2017
 * [управление службами интеграции](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
 
 
-## Краткий справочник
+## <a name="quick-reference"></a>Краткий справочник
 
 | Имя | Название службы Windows | Имя управляющей программы Linux |  Описание | Влияние на виртуальную машину при отключении |
 |:---------|:---------|:---------|:---------|:---------|
@@ -37,7 +38,7 @@ ms.lasthandoff: 07/21/2017
 | [Служба PowerShell Direct для Hyper-V](#hyper-v-powershell-direct-service) | vmicvmsession | недоступен | Позволяет управлять виртуальной машиной с помощью PowerShell без подключения к сети. | Низкий |  
 
 
-## Служба пульса (Hyper-V)
+## <a name="hyper-v-heartbeat-service"></a>Служба пульса (Hyper-V)
 
 **Имя службы Windows:** vmicheartbeat  
 **Имя управляющей программы Linux:** hv_utils  
@@ -49,7 +50,7 @@ ms.lasthandoff: 07/21/2017
 
 Когда Hyper-V сообщает, что состояние виртуальной машины— "Запущена" (см. пример ниже), это означает, что Hyper-V выделил ресурсы для виртуальной машины, и это не означает, что на виртуальной машине установлена или нормально работает операционная система.  Здесь оказывается полезной служба пульсов.  Служба пульсов сообщает Hyper-V о том, что операционная система на виртуальной машине загрузилась.  
 
-### Проверка пульсов с помощью PowerShell
+### <a name="check-heartbeat-with-powershell"></a>Проверка пульсов с помощью PowerShell
 
 Запустите [Get-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx) от имени администратора, чтобы увидеть пульсы от виртуальной машины:
 ``` PowerShell
@@ -67,16 +68,16 @@ DemoVM  Running  Operating normally
 
 
 
-## Служба завершения работы в качестве гостя (Hyper-V)
+## <a name="hyper-v-guest-shutdown-service"></a>Служба завершения работы в качестве гостя (Hyper-V)
 
 **Имя службы Windows:** vmicshutdown  
 **Имя управляющей программы Linux:** hv_utils  
 **Описание.** Позволяет узлу Hyper-V запрашивать завершение работы виртуальной машины.  Компьютер виртуальной машины всегда может принудительно выключить виртуальную машину, но это похоже на нажатие кнопки выключения в отличие от корректного завершения работы.  
 **Добавлено в:** Windows Server2012, Windows8  
-**Влияние:** **высокая степень влияния**. При отключении узел не сможет корректно завершить работу виртуальной машины.  Выключение будет только жестким, что может привести к потере или повреждению данных.  
+**Влияние:** **высокая степень влияния**. При отключении узел не сможет корректно завершить работу виртуальной машины.  Будет жестких выключение, которая может привести к потере данных или данных повреждению.  
 
 
-## Служба синхронизации времени Hyper-V
+## <a name="hyper-v-time-synchronization-service"></a>Служба синхронизации времени Hyper-V
 
 **Имя службы Windows:** vmictimesync  
 **Имя управляющей программы Linux:** hv_utils  
@@ -85,7 +86,7 @@ DemoVM  Running  Operating normally
 **Влияние:** **высокая степень влияния**. При отключении время на виртуальной машине будет случайным образом отклоняться от времени компьютера.  
 
 
-## Служба обмена данными Hyper-V (KVP)
+## <a name="hyper-v-data-exchange-service-kvp"></a>Служба обмена данными Hyper-V (KVP)
 
 **Имя службы Windows:** vmickvpexchange  
 **Имя управляющей программы Linux:** hv_kvp_daemon  
@@ -104,7 +105,7 @@ DemoVM  Running  Operating normally
 * [Data Exchange: Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (Использование пар "ключ-значение" для совместного использования информации на узле и в гостевой ОС Hyper-V).  
 
 
-## Служба запросов на теневое копирование томов Hyper-V
+## <a name="hyper-v-volume-shadow-copy-requestor"></a>Служба запросов на теневое копирование томов Hyper-V
 
 **Имя службы Windows:** vmicvss  
 **Имя управляющей программы Linux:** hv_vss_daemon  
@@ -117,7 +118,7 @@ DemoVM  Running  Operating normally
 Дополнительные сведения о теневом копировании томов см. [здесь](https://msdn.microsoft.com/en-us/library/dd405549.aspx).
 
 
-## Интерфейс гостевой службы Hyper-V
+## <a name="hyper-v-guest-service-interface"></a>Интерфейс гостевой службы Hyper-V
 
 **Имя службы Windows:** vmicguestinterface  
 **Имя управляющей программы Linux:** hv_fcopy_daemon  
@@ -129,7 +130,7 @@ DemoVM  Running  Operating normally
 По умолчанию отключено.  См. раздел [PowerShell Direct с использованием Copy-Item](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item). 
 
 
-## Служба PowerShell Direct для Hyper-V
+## <a name="hyper-v-powershell-direct-service"></a>Служба PowerShell Direct для Hyper-V
 
 **Имя службы Windows:** vmicvmsession  
 **Имя управляющей программы Linux:** отсутствует  
