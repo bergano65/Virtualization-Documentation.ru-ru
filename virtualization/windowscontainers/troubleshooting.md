@@ -1,18 +1,19 @@
 ---
-title: "Устранение неполадок при работе с контейнерами Windows"
-description: "Рекомендации по устранению неполадок, автоматические сценарии и запись в журнал сведений о контейнерах Windows и Docker"
-keywords: "docker, контейнеры, устранение неполадок, журналы"
+title: Устранение неполадок при работе с контейнерами Windows
+description: Рекомендации по устранению неполадок, автоматические сценарии и запись в журнал сведений о контейнерах Windows и Docker
+keywords: docker, контейнеры, устранение неполадок, журналы
 author: PatrickLang
 ms.date: 12/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: 4d4b8a533aa5517c5850967f0b92c97da5190296
-ms.sourcegitcommit: 4042339cfd8a4440a5aba2b6f28968a52ab066fa
-ms.translationtype: HT
+ms.openlocfilehash: d67b38b04cf781ab5cba8e0142831f71b65aa974
+ms.sourcegitcommit: 8ab1fccfc680911493c769157a6cfe7cbcf17bde
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "8972058"
 ---
 # <a name="troubleshooting"></a>Диагностика
 
@@ -90,9 +91,9 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-## <a name="obtaining-stack-dump-and-daemon-data"></a>Получение копии стека и данных управляющей программы.
+## <a name="obtaining-stack-dump"></a>Получение копии стека.
 
-Как правило, эти данные запрашивает только служба поддержки Майкрософт или разработчики Docker. Их можно использовать для диагностики неполадок, приведших к зависанию Docker. 
+Как правило это полезно только в случае явного запроса технической поддержки Майкрософт и разработчиков docker. Его можно использовать для диагностики неполадок, приведших где docker к зависанию. 
 
 Скачайте файл [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
 
@@ -103,11 +104,11 @@ Get-Process dockerd
 docker-signal -pid=<id>
 ```
 
-Выходные файлы будут находиться в корневом каталоге с данными, в котором выполняется Docker. Каталогом по умолчанию является `C:\ProgramData\Docker`. Фактическое расположение можно проверить, выполнив команду `docker info -f "{{.DockerRootDir}}"`.
+Выходной файл будет находиться в корневой папке данных каталог docker запущена в. Каталогом по умолчанию является `C:\ProgramData\Docker`. Фактическое расположение можно проверить, выполнив команду `docker info -f "{{.DockerRootDir}}"`.
 
-Это будут файлы `goroutine-stacks-<timestamp>.log` и `daemon-data-<timestamp>.log`.
+Файл будет `goroutine-stacks-<timestamp>.log`.
 
-Обратите внимание, что файл `daemon-data*.log` может содержать личные данные и его, как правило, следует предоставлять только доверенным специалистам технической поддержки. `goroutine-stacks*.log` не содержит личные сведения.
+Обратите внимание, что `goroutine-stacks*.log` не содержит личные сведения.
 
 
 # <a name="host-compute-service"></a>Служба вычисления узлов
