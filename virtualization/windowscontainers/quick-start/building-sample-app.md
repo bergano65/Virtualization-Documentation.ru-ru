@@ -1,17 +1,18 @@
 ---
-title: "Создание примера приложения"
-description: "Узнайте, как создать пример приложения с помощью контейнеров"
-keywords: "docker, контейнеры"
+title: Создание примера приложения
+description: Узнайте, как создать пример приложения с помощью контейнеров
+keywords: docker, контейнеры
 author: cwilhit
 ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: b1d0c4bcf35cd40e9ca058d4e2a51fa028cade2c
-ms.sourcegitcommit: 04c78918c77d2ad6053e6a95dc57bc488efbbf8b
-ms.translationtype: HT
+ms.openlocfilehash: 20328cb47d106dad153738628fc282d63371a3ab
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973604"
 ---
 # <a name="build-a-sample-app"></a>Создание примера приложения
 
@@ -127,6 +128,7 @@ docker run -d -p 5000:80 --name myapp myasp
 
 Мы успешно преобразовали веб-приложение ASP.NET с помощью Docker и развернули его в работающем контейнере. Но есть и другие действия, которые можно выполнить! Может разбить веб-приложение на дополнительные компоненты— контейнера для запуска веб-API, контейнер, запущенный в интерфейсной части и контейнер с SQL Server.
 
-Теперь, когда вы изучили основы работы с контейнерами, вы можете приступить к разработке прекрасных решений с их помощью. Ниже приведен список других примеров контейнеров.
+Теперь, когда у вас есть зависания контейнеров, создатели перейдите и создавать отличные контейнерного приложения!
 
-[Примеры контейнеров](../samples.md)
+> [!div class="nextstepaction"]
+> [Ознакомьтесь с других примеров контейнеров](../samples.md)

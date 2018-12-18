@@ -1,6 +1,6 @@
 ---
-title: Документация по контейнерам Windows
-description: Документация по контейнерам Windows
+title: Контейнеры в документации по Windows
+description: Документация по запуску контейнеров в Windows
 keywords: docker, контейнеры
 author: cwilhit
 ms.date: 05/02/2016
@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 74c9d604-0915-4d89-bc69-0263b76bc66b
-ms.openlocfilehash: 2b887d8ae92d5134014ea71235237cc446a7816f
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 84e3f318069961853248bcc30abadcd68642649c
+ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6947953"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "8973624"
 ---
-# <a name="windows-containers-documentation"></a>Документация по контейнерам Windows
+# <a name="containers-on-windows-documentation"></a>Контейнеры в документации по Windows
 
 Контейнеры Windows обеспечивают виртуализацию на уровне операционной системы. Они позволяют запускать несколько изолированных приложений в одной системе. Этот набор документации содержит руководства по быстрому запуску, руководства по развертыванию и технические сведения об операциях управления.
 
@@ -34,7 +34,7 @@ ms.locfileid: "6947953"
 <tr>
 <td ><center>![](media/1.png)</center></td>
 <td>**Развертывание**<br /><br />
-Узнайте, как развернуть контейнеры Windows в Windows Server2016.<br /><br />
+Узнайте, как развернуть контейнеры Windows в Windows Server 2019<br /><br />
 <ul>
 <li>[Системные требования](deploy-containers/system-requirements.md)<br /><br /></li>
 <li>[Развертывание узла контейнера](deploy-containers/deploy-containers-on-server.md)<br /><br /></li>
