@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-ms.openlocfilehash: db3e4541793947bddd1d1da9aaa66d3360c83c55
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 6d0f85e46ab5f2c73fb378d4862a2fc3107e47b3
+ms.sourcegitcommit: 69228f28723f366c6b2933c7701077c8df74b32b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948003"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "8976770"
 ---
 # <a name="windows-container-samples"></a>Примеры контейнеров Windows
 
@@ -22,9 +22,10 @@ ms.locfileid: "6948003"
 # <a name="categories"></a>Categories
 
 ## <a name="application-frameworks"></a>Платформы приложений
+
 [aspnet](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/aspnet)
 
-[iis](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis) 
+[iis](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis)
 
 [iis-arr](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/iis-arr)
 
@@ -69,13 +70,13 @@ ms.locfileid: "6948003"
 
 sqlserver-express - [образ Docker Hub](https://hub.docker.com/r/microsoft/mssql-server-windows-express/) или [dockerfile](https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows-express/dockerfile)
 
-
 ## <a name="infrastructure-and-ci-tools"></a>Инфраструктуру и средства CI
+
 [PowerShellDSC_iis-10.0](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/PowerShellDSC_iis-10.0)
 
-
 ## <a name="just-for-fun"></a>Просто для интереса
+
 [MineCraft](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples/MineCraft) 
 
-
 ## <a name="other"></a>другой
+
