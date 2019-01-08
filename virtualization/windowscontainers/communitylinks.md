@@ -1,18 +1,19 @@
 ---
-title: "Видеоматериалы и блоги сообщества"
-description: "Ссылки на отличные видеоматериалы и блоги, предоставленные членами сообщества, посвященного контейнерам Windows"
-keywords: "docker, контейнеры, windows, примеры"
+title: Видеоматериалы и блоги сообщества
+description: Ссылки на отличные видеоматериалы и блоги, предоставленные членами сообщества, посвященного контейнерам Windows
+keywords: docker, контейнеры, windows, примеры
 author: taylorb-microsoft
 ms.date: 12/19/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 0280e8fbe784629fcd2e2ee9695ed5c253a5643f
-ms.sourcegitcommit: 1bd3d86bfbad8351cb19bdc84129dd5aec976c0c
-ms.translationtype: HT
+ms.openlocfilehash: b62ab1b7e1dc5a8ac8bb9e6e06320ccd6a1c1876
+ms.sourcegitcommit: 5300274fd7b88c6cf5e37b2f4c02779efaa3a613
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "8996028"
 ---
 # <a name="community-videos-and-blogs"></a>Видеоматериалы и блоги сообщества
 На этой странице представлены ссылки на видеоматериалы и блоги, созданные членами сообщества контейнеров.  Если вы знаете отличный ресурс или вы сами создали его, отправьте заявку на добавление в этот список.
@@ -27,6 +28,10 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="building-and-examples"></a>Сборка и примеры
 [Обзор .NET и контейнеров](http://blog.alexellis.io/docker-dotnet-containers/)— Алекс Эллис (Alex Ellis)
+
+[Как Dockerize приложений для Windows: 5 шагов](https://blog.sixeyed.com/how-to-dockerize-windows-applications/) -Elton Stoneman
+
+[Модернизация приложений .NET Framework с помощью Docker](https://www.pluralsight.com/courses/modernizing-dotnet-framework-apps-docker?clickid=UVL20JTFpzK6UDSX5n1b5zmyUkgWUPWOz3Pjwg0&irgwc=1&mpid=1197078&utm_source=impactradius&utm_medium=digital_affiliate&utm_campaign=1197078&aid=7010a000001xAKZAA2) - Elton Stoneman
 
 [Docker в Microsoft SQL2016 и ASP.NET](http://blog.alexellis.io/docker-does-sql2016-aspnet/)— Алекс Эллис (Alex Ellis)
 

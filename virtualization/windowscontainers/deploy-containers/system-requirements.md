@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: e736199221f06c572f89e8dafac55ce114bf7481
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 478305ff2298a0392935f9857febc445c1199b83
+ms.sourcegitcommit: 5300274fd7b88c6cf5e37b2f4c02779efaa3a613
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948023"
+ms.lasthandoff: 01/08/2019
+ms.locfileid: "8996048"
 ---
 # <a name="windows-container-requirements"></a>Требования к контейнеру Windows
 
@@ -35,7 +35,7 @@ ms.locfileid: "6948023"
 
 ## <a name="supported-base-images"></a>Поддерживаемые базовые образы
 
-Контейнеры Windows предоставляются в двух базовых образах— Windows Server Core и Nano Server. Не все конфигурации поддерживают оба образа ОС. В этой таблице указаны поддерживаемые конфигурации.
+Контейнеры Windows предоставляются в четыре базовых образов контейнеров: Windows Server Core, Nano Server, Windows и IoT базовая. Не все конфигурации поддерживают оба образа ОС. В этой таблице указаны поддерживаемые конфигурации.
 
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
@@ -48,18 +48,23 @@ ms.locfileid: "6948023"
 <tbody>
 <tr valign="top">
 <td><center>Windows Server 2016 / 2019 г. (Standard или Datacenter)</center></td>
-<td><center>Server Core или Nano Server</center></td>
-<td><center>Server Core или Nano Server</center></td>
+<td><center>Server Core, Nano Server, Windows</center></td>
+<td><center>Server Core, Nano Server, Windows</center></td>
 </tr>
 <tr valign="top">
 <td><center>Сервер Nano Server<a href="#warn-1">*</a></center></td>
 <td><center> Сервер Nano Server</center></td>
-<td><center>Server Core или Nano Server</center></td>
+<td><center>Server Core, Nano Server, Windows</center></td>
 </tr>
 <tr valign="top">
 <td><center>Windows10 Pro или Корпоративная</center></td>
 <td><center>Недоступно</center></td>
-<td><center>Server Core или Nano Server</center></td>
+<td><center>Server Core, Nano Server, Windows</center></td>
+</tr>
+<tr valign="top">
+<td><center>IoT Базовая</center></td>
+<td><center>IoT Базовая</center></td>
+<td><center>Недоступно</center></td>
 </tr>
 </tbody>
 </table>
@@ -84,9 +89,16 @@ ms.locfileid: "6948023"
 | Основные серверные компоненты | 45 МБ                     | 360МБ + файл подкачки 1ГБ |
 
 
-### <a name="nano-server-vs-windows-server-core"></a>Nano Server или Windows Server Core
+### <a name="base-image-differences"></a>Отличия базового образа
 
-Как выбрать между Windows Server Core и Nano Server? Вы можете выбрать любой компонент для сборки, но если вашему приложению необходима полная совместимость с .NET Framework, вам следует использовать [Windows Server Core](https://hub.docker.com/r/microsoft/windowsservercore/). С другой стороне, если ваше приложение создано для облака и использует .NET Core, необходимо использовать [Nano Server](https://hub.docker.com/r/microsoft/nanoserver/). Это связано с тем, что компонент Nano Server был создан для обеспечения максимальной компактности, поэтому несколько ненужных библиотек были удалены. Помните о следующем при разработке с использованием Nano Server:
+Как выбрать вправо базового образа на основе? В то время как вы можете для сборки все, что требуется, ниже перечислены общие рекомендации для каждого изображения:
+
+- [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): Если приложению полной платформе .NET framework, это изображение лучше использовать.
+- [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): для приложений, требующих только .NET Core Nano Server обеспечит гораздо тонкими образа.
+- [Windows](https://hub.docker.com/_/microsoft-windowsfamily-windows): вы можете обнаружить ваше приложение зависит от компонент или DLL, который отсутствует в Server Core или образов Nano Server, таких как библиотеки GDI. Этот образ выполняет зависимостей полный набор Windows.
+- [IoT базовая](https://hub.docker.com/_/microsoft-windows-iotcore): это изображение основная файловая система для [приложения для Интернета вещей](https://developer.microsoft.com/en-us/windows/iot). Следует использовать этот образ контейнера при нацеливании на узле IoT базовая.
+
+Для большинства пользователей Windows Server Core или Nano Server будет наиболее подходящего изображения для использования. Ниже приведены несколько вещей, которые помните о разработке поверх Nano Server.
 
 - стек обслуживания был удален;
 - компонент .NET Core не включен (хотя вы можете использовать [образ .NET Core Nano Server](https://hub.docker.com/r/microsoft/dotnet/));
