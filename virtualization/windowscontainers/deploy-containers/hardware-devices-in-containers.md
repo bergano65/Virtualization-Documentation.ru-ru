@@ -3,12 +3,12 @@ title: Устройства в контейнеры в Windows
 description: Какая поддержка устройства существует для контейнеров в Windows
 keywords: docker, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: b300c9a4262c30da3f6fdf2c4aeedab76b167417
-ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
+ms.openlocfilehash: f70388bf3724af7cb92f20e2053aa4ddb1f953a3
+ms.sourcegitcommit: 5cbaef0806db21d7bbcc99964837f10f4207a51f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001050"
+ms.locfileid: "9001756"
 ---
 # <a name="devices-in-containers-on-windows"></a>Устройства в контейнеры в Windows
 
@@ -43,7 +43,7 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 
 ## <a name="what-devices-are-supported"></a>Новые устройства поддерживают
 
-Сейчас поддерживаются следующие устройства (и их clas интерфейс устройства GUID):
+Следующие устройства (и интерфейс GUID класса устройства) поддерживаются сегодня:
   
 <table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
 <thead>
