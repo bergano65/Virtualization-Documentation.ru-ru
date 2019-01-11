@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: e1a5b80773128af0ba0095d5201e4fa123a1741c
-ms.sourcegitcommit: 99da24a8c075e0096eabd09a29007a65e3ea35b7
+ms.openlocfilehash: caaf4186f43c69dfbc35d04dd8909876ed082906
+ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/04/2018
-ms.locfileid: "6022182"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001003"
 ---
 # <a name="hyper-v-containers"></a>Контейнеры Hyper-V
 
@@ -32,7 +32,7 @@ ms.locfileid: "6022182"
 Управление контейнерами Hyper-V с помощью Docker почти ничем Windows Server. Чтобы создать контейнер Hyper-V с помощью Docker, используйте `--isolation` параметр, чтобы задать `--isolation=hyperv`.
 
 ``` cmd
-docker run -it --isolation=hyperv microsoft/nanoserver cmd
+docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
 ```
 
 ### <a name="isolation-explanation"></a>Пояснения по изоляции
@@ -42,7 +42,7 @@ docker run -it --isolation=hyperv microsoft/nanoserver cmd
 Здесь развертываются контейнеры Windows Server и производится долгосрочный процесс проверки связи ping.
 
 ``` cmd
-docker run -d microsoft/windowsservercore ping localhost -t
+docker run -d mcr.microsoft.com/windows/servercore:1809 ping localhost -t
 ```
 
 С помощью команды `docker top` процесс ping возвращается в том виде, который он имеет внутри контейнера. В этом примере процесс имеет идентификатор 3964.
@@ -66,7 +66,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
 В отличие от предыдущего примера, здесь запускается контейнер Hyper-V с процессом ping. 
 
 ```
-docker run -d --isolation=hyperv microsoft/nanoserver ping -t localhost
+docker run -d --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 ping -t localhost
 ```
 
 Как и прежде, команда `docker top` позволяет вернуть выполняемые процессы из контейнера.

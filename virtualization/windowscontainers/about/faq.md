@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 42e1a0bf58ada40a8f135861646d5c9429e0d5db
-ms.sourcegitcommit: a5f8f99bf8f512a9058b72f1f617f77ecf488c71
+ms.openlocfilehash: 36ef6df0b9736d88fec627e4cb56df023f1a7708
+ms.sourcegitcommit: 4336d7617c30d26a987ad3450b048e17404c365d
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8974016"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001013"
 ---
 # <a name="frequently-asked-questions"></a>Часто задаваемые вопросы
 
@@ -68,4 +68,5 @@ WCOW — это сокращенное обозначение контейнер
 
 Чтобы формат упаковки контейнеров оставался открытым и универсальным, компания Docker основала инициативу Open Container Initiative, среди участников которой и корпорация Майкрософт.
 
-> ! [СОВЕТ] У вас есть рекомендации для дополнением к часто задаваемые вопросы? Мы рекомендуем вам новая проблема обратной связи ниже или открытие Заявку от этих документах с помощью рекомендаций!
+> [!TIP]
+> У вас есть рекомендации для дополнением к часто задаваемые вопросы? Мы рекомендуем вам новая проблема обратной связи ниже или открытие Заявку от этих документах с помощью рекомендаций!
