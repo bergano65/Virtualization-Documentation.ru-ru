@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 5da18c7c1e2fc6882d5879070e91d36d0c0a475a
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 0350e62deef06402991f505dd263db7fd506cba1
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973666"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001590"
 ---
 # <a name="automating-builds-and-saving-images"></a>Автоматизация сборки и сохранения образов
 
@@ -129,6 +129,8 @@ Login Succeeded
 ```console
 docker push <user>/iis-dockerfile
 ```
+
+Как Docker помещает слоями до Docker Hub, docker пропустит слоев, которые уже существуют в центре Docker или в других реестрами (внешнего слои).  Например последних версиях Windows Server Core, размещенных в реестре Microsoft или слои из частного реестра организации, пропущен и не помещается в Docker Hub.
 
 Теперь можно скачать образ контейнера из Docker Hub на любой узел контейнера Windows с помощью `docker pull`. В этом учебнике мы удалим существующий образ и затем извлечем его из Docker Hub. 
 

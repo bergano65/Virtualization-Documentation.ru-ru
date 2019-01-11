@@ -1,5 +1,5 @@
 ---
-title: Присоединении узлов Windows
+title: Присоединение узла Windows
 author: daschott
 ms.author: daschott
 ms.date: 11/02/2018
@@ -8,15 +8,15 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с v1.12.
 keywords: kubernetes, 1.12, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 8051270cac6178bad9adf9a8ef9e2324932f7d01
-ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.openlocfilehash: 764d440837118801226c0bf37f92ffb0d7bdb9e5
+ms.sourcegitcommit: 1aef193cf56dd0870139b5b8f901a8d9808ebdcd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "6179070"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "9001620"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>Присоединение к кластеру узлов Windows Server #
-После [настройки главном узле Kubernetes](./creating-a-linux-master.md) и [выбрать нужную сеть решение](./network-topologies.md), вы готовы для присоединения к узлам Windows Server для формирования кластера. Это требуется некоторые [подготовки на узлах Windows](#preparing-a-windows-node) до присоединения.
+После [настройки Kubernetes главном узле](./creating-a-linux-master.md) и [выбрать нужную сеть решение](./network-topologies.md), вы готовы присоединиться к узлам Windows Server для формирования кластера. Это требуется некоторая [подготовки на узлах Windows](#preparing-a-windows-node) до присоединения.
 
 ## <a name="preparing-a-windows-node"></a>Подготовка узла Windows ##
 > [!NOTE]  
@@ -52,7 +52,7 @@ Start-Service docker
 > Это следует быть осторожным конфликтующих образов контейнеров; не отсутствии ожидаемого тега может привести к `docker pull` несовместимым образом контейнера изображения, что приводит к [проблемам с развертыванием](./common-problems.md#when-deploying-docker-containers-keep-restarting) таких как долгую `ContainerCreating` состояние.
 
 После установки `docker` необходимо подготовить образ «Пауза», используемый Kubernetes для подготовки модулей pod инфраструктуры. Существует три шага: 
-  1. [извлечь образ](#pull-the-image)
+  1. [Получение изображения](#pull-the-image)
   2. [теги его](#tag-the-image) как microsoft / nanoserver:latest
   3. и [его выполнения](#run-the-container)
 
@@ -61,14 +61,14 @@ Start-Service docker
  Извлечь образ для вашего конкретного выпуска Windows. Например, если вы используете Windows Server 2019:
 
  ```powershell
-docker pull microsoft/nanoserver:1803
+docker pull mcr.microsoft.com/windows/nanoserver:1809
  ```
 
 #### <a name="tag-the-image"></a>Тег изображения ####
-Найдите файлы Dockerfile, вы будете использовать далее в этом руководстве `:latest` изображение тега. Тег nanoserver изображение, которое вы только что полученное следующим образом:
+Поиск файлов Dockerfile, вы будете использовать позже в этом руководстве `:latest` изображение тега. Тег nanoserver изображение, которое вы только что полученное следующим образом:
 
 ```powershell
-docker tag microsoft/nanoserver:1803 microsoft/nanoserver:latest
+docker tag mcr.microsoft.com/windows/nanoserver:1809 microsoft/nanoserver:latest
 ```
 
 #### <a name="run-the-container"></a>Запуск контейнера ####
@@ -78,12 +78,12 @@ docker tag microsoft/nanoserver:1803 microsoft/nanoserver:latest
 docker run microsoft/nanoserver:latest
 ```
 
-Вы должны увидеть примерно так:
+Вы увидите примерно так:
 
 ![текст](./media/docker-run-sample.png)
 
 > [!tip]
-> Если вы не можете запустить контейнер Пожалуйста см. в разделе: [соответствующей версии узла контейнера в образ контейнера](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
+> Если вы не можете запустить контейнер сведения см. в разделе: [соответствующей версии узла контейнера в образ контейнера](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
 
 
 #### <a name="prepare-kubernetes-for-windows-directory"></a>Подготовка каталога Kubernetes для Windows ####
@@ -102,7 +102,7 @@ mkdir c:\k
  - Используйте средство, например [7-Zip](http://www.7-zip.org/) , чтобы извлечь содержимое архива и разместить двоичные файлы в `C:\k\`.
 
 #### <a name="optional-setup-kubectl-on-windows"></a>(Необязательно) Настройка kubectl в Windows ####
-Следует вы хотите управлять кластера с Windows, можно сделать с помощью `kubectl` команды. Во-первых, чтобы сделать `kubectl` доступна за пределами `C:\k\` каталога, измените `PATH` переменной среды:
+Следует требуется управлять кластера с Windows, можно сделать с помощью `kubectl` команды. Во-первых, чтобы сделать `kubectl` доступна за пределами `C:\k\` каталога, измените `PATH` переменной среды:
 
 ```powershell
 $env:Path += ";C:\k"
@@ -114,7 +114,7 @@ $env:Path += ";C:\k"
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\k", [EnvironmentVariableTarget]::Machine)
 ```
 
-Затем мы позволит убедиться, что [кластера сертификат](#copy-kubernetes-certificate) действителен. Чтобы задать местоположение где `kubectl` выполняет поиск файла конфигурации, которые можно передавать `--kubeconfig` параметра или изменить `KUBECONFIG` переменной среды. Например, если конфигурации находится в `C:\k\config`:
+Затем мы позволит убедиться, что [кластер сертификат](#copy-kubernetes-certificate) действителен. Чтобы задать местоположение где `kubectl` выполняет поиск файла конфигурации, которые можно передавать `--kubeconfig` параметра или изменить `KUBECONFIG` переменной среды. Например, если конфигурации находится в `C:\k\config`:
 
 ```powershell
 $env:KUBECONFIG="C:\k\config"
@@ -138,19 +138,19 @@ kubectl config view
 Unable to connect to the server: dial tcp [::1]:8080: connectex: No connection could be made because the target machine actively refused it.
 ```
 
-Следует еще раз проверьте расположение kubeconfig или попытаться скопировать его еще раз.
+Следует еще раз проверьте расположение kubeconfig или попытайтесь скопировать его еще раз.
 
 Если вы видите без ошибок узел готов для присоединения к кластеру.
 
 ## <a name="joining-the-windows-node"></a>Присоединение узла Windows ##
-В зависимости от [сетевых решения, которые вы выбрали](./network-topologies.md)вы можете:
+В зависимости от [сетевых решение, которое вы выбрали](./network-topologies.md)вы можете:
 1. [Присоединиться к Windows Server узлы в кластер Flannel](#joining-a-flannel-cluster)
 2. [Присоединиться к Windows Server узлы в кластер с помощью коммутатора верхнего уровня](#joining-a-tor-cluster)
 
 ### <a name="joining-a-flannel-cluster"></a>Присоединение к кластеру Flannel ###
 Существует набор сценариев развертывания Flannel в [этом репозитории Майкрософт](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/l2bridge) , помогут вам присоединить этот узел к кластеру.
 
-Скачать ZIP-файл напрямую можно [здесь](https://github.com/Microsoft/SDN/archive/master.zip). Единственное, вам нужно — это `Kubernetes/flannel/l2bridge` каталога, содержимое которой Извлеките в `C:\k\`:
+Скачать ZIP-файл напрямую можно [здесь](https://github.com/Microsoft/SDN/archive/master.zip). Единственное, вам нужно — это `Kubernetes/flannel/l2bridge` каталог, содержимое которой Извлеките в `C:\k\`:
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -160,7 +160,7 @@ mv master/SDN-master/Kubernetes/flannel/l2bridge/* C:/k/
 rm -recurse -force master,master.zip
 ```
 
-В дополнение к этому необходимо убедиться в правильности подсети кластера (например флажок «10.244.0.0/16») в:
+Помимо этого необходимо обеспечить правильность подсети кластера (например флажок «10.244.0.0/16») в:
 - [NET conf.json](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/net-conf.json)
 
 
@@ -169,13 +169,14 @@ rm -recurse -force master,master.zip
 ![текст](./media/flannel-directory.png)
 
 #### <a name="join-node"></a>Присоединение узла #### 
-Чтобы упростить процесс присоединение узла Windows, вам нужно выполнить один сценарий Windows для запуска `kubelet`, `kube-proxy`, `flanneld`и присоединение узла.
+Чтобы упростить процесс присоединение узла Windows, вам нужно выполнить один сценарий Windows для запуска `kubelet`, `kube-proxy`, `flanneld`и ее узел.
 
 > [!Note]
-> [Этот сценарий](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1) будет загрузить дополнительные файлы, такие как обновить `flanneld` исполняемый файл и [файл Dockerfile для pod инфраструктуры](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/Dockerfile) *и запустить их для вас*. Могут существовать несколько windows powershell, возможность открытии и закрытии а также несколько секунд отказа сети, когда новый внешний виртуальный коммутатор для сети l2bridge pod, создается первый раз.
+> [Этот сценарий](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/l2bridge/start.ps1) будет загрузить дополнительные файлы, такие как обновить `flanneld` исполняемых файлов и [Dockerfile для pod инфраструктуры](https://github.com/Microsoft/SDN/blob/master/Kubernetes/windows/Dockerfile) *и запустить их для вас*. Могут существовать несколько windows powershell, возможность открытия и закрытия а также несколько секунд отказа сети, когда создается новый внешний виртуальный коммутатор для сети l2bridge pod, впервые.
 
 ```powershell
 cd c:\k
+chcp 65001
 .\start.ps1 -ManagementIP <Windows Node IP> -ClusterCIDR <Cluster CIDR> -ServiceCIDR <Service CIDR> -KubeDnsServiceIP <Kube-dns Service IP> 
 ```
 
@@ -192,17 +193,17 @@ cd c:\k
 > [!NOTE]
 > Этот раздел можно пропустить, если вы выбрали Flannel как вашей сети решение [ранее](./network-topologies.md#flannel-in-host-gateway-mode).
 
-Для этого необходимо следуйте инструкциям по [настройке контейнеры Windows Server в Kubernetes для топологии маршрутизации вышестоящего уровня 3](https://kubernetes.io/docs/getting-started-guides/windows/#for-1-upstream-l3-routing-topology-and-2-host-gateway-topology). Сюда входят, чтобы убедиться, что вы настроите маршрутизатор несоответствий так, чтобы префикс pod CIDR назначены узла соответствует его IP-адрес соответствующего узла.
+Для этого необходимо следуйте инструкциям по [настройке контейнеры Windows Server в Kubernetes для топологии маршрутизации вышестоящего уровня 3](https://kubernetes.io/docs/getting-started-guides/windows/#for-1-upstream-l3-routing-topology-and-2-host-gateway-topology). Сюда входят, чтобы убедиться, что вы настроите маршрутизатор несоответствий так, чтобы префикс модуля CIDR назначены узла соответствует его IP-адрес соответствующего узла.
 
-Допустим, новый узел указан как «Готово» `kubectl get nodes`, выполняется kubelet + помощью kube прокси и вы настроили маршрутизатор несоответствий верхнего уровня, вы будете готовы для выполнения следующих действий.
+При условии нового узла отображается как «Готово» `kubectl get nodes`, выполняется kubelet + помощью kube прокси и вы настроили маршрутизатор несоответствий верхнего уровня, вы будете готовы для выполнения следующих действий.
 
 ## <a name="next-steps"></a>Дальнейшие действия ##
 В этом разделе мы рассматривается как присоединить устройство Windows сотрудников к нашей кластера Kubernetes. Теперь все готово для шага 5:
 
 > [!div class="nextstepaction"]
-> [Присоединение к работников Linux](./joining-linux-workers.md)
+> [Присоединение работников Linux](./joining-linux-workers.md)
 
-Кроме того Если у вас нет любой работников Linux вы можете пропустить шаг 6:
+Кроме того Если у вас нет все сотрудники Linux вы можете пропустить шаг 6:
 
 > [!div class="nextstepaction"]
-> [Развертывание Kubernetes ресурсы](./deploying-resources.md)
+> [Развертывание ресурсов Kubernetes](./deploying-resources.md)
