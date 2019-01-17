@@ -3,12 +3,12 @@ title: Устройства в контейнеры в Windows
 description: Какая поддержка устройства существует для контейнеров в Windows
 keywords: docker, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: f70388bf3724af7cb92f20e2053aa4ddb1f953a3
-ms.sourcegitcommit: 5cbaef0806db21d7bbcc99964837f10f4207a51f
+ms.openlocfilehash: 6397a5050ee0c7cb4b62dc935af4975d9ab6b3db
+ms.sourcegitcommit: 1b6a244c3604e48c42c851e580e3b59e2384c91a
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "9001756"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "9014521"
 ---
 # <a name="devices-in-containers-on-windows"></a>Устройства в контейнеры в Windows
 
@@ -17,9 +17,9 @@ ms.locfileid: "9001756"
 ## <a name="requirements"></a>Требования
 
 - Вы должны работать под управлением Windows Server 2019 или более поздней или Windows 10 Pro или Корпоративная с октября 2018 г. обновление
-- Вы должны работать под управлением Docker версии 18.09 или более поздней версии.
 - Вашей версии образа контейнера должна быть 1809 или более поздней версии.
 - Контейнеры должны быть контейнеры Windows в режиме изолированного процесса.
+- Время существования возможностей устройств с Windows в управляющей программы Docker, оно еще не существует в клиента Docker (см. в разделе этого [запроса на включение](https://github.com/docker/cli/pull/1606) для отслеживания). В interrim необходимо выполнить [сборки docker исполняемые файлы](https://github.com/moby/moby/blob/master/docs/contributing/software-req-win.md) из источника moby качестве обхода. Если вы не неудобно делать это, рекомендуется отложить оценить работу этой функции, пока объединены PR, вышеописанные.
 
 ## <a name="run-a-container-with-a-device"></a>Запуск контейнера с устройством
 
