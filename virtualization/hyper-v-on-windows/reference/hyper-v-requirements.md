@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6e5e6b01-7a9d-4123-8cc7-f986e10cd372
-ms.openlocfilehash: 51720a92cd04cfae25c7d0c010ee7b441073dd7e
-ms.sourcegitcommit: 5e5644bff6dba70e384db6c80787b3bbe7adb93c
+ms.openlocfilehash: ba0a0a83d74aa6ae73dabddf4057eebc98700f66
+ms.sourcegitcommit: 51da93c4548c5df7a9f01e54d46d81b338c874cf
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "4303920"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "9031158"
 ---
 # <a name="windows-10-hyper-v-system-requirements"></a>Требования к системе для Hyper-V в Windows 10
 
@@ -58,5 +58,5 @@ Hyper-V доступна в 64-разрядную версию Windows 10 Pro, �
 Если команда **systeminfo** запускается на существующем узле Hyper-V, в разделе Hyper-V Requirements отображается следующее сообщение:
 
 ```
-Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V are not be displayed.
+Hyper-V Requirements: A hypervisor has been detected. Features required for Hyper-V will not be displayed.
 ```
