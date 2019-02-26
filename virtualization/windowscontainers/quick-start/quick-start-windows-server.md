@@ -8,16 +8,16 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: e27148873299543a89eaf92801b40732dd27b402
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 44e415af08881d18ebb2d82f5f79098f7fb034f8
+ms.sourcegitcommit: f172d14ef1ebfb5a9df1b3529e0722d9103e0eba
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973674"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "9112931"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
-Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server 2019.
+Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server 2019 и Windows Server 2016.
 
 В этом кратком руководстве будут выполнены:
 
@@ -27,7 +27,7 @@ ms.locfileid: "8973674"
 
 Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
 
-Это краткое руководство относится к контейнерам Windows Server на Windows Server 2019. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
+Это краткое руководство относится к контейнерам Windows Server в Windows Server 2019 и Windows Server 2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
 
 ## <a name="prerequisites"></a>Необходимые условия
 
@@ -105,10 +105,18 @@ sconfig
 
 В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
 
-Используйте команду `docker run` для развертывания контейнера .Net. Эта команда также скачает образ контейнера, что может занять несколько минут.
+Используйте команду `docker run` для развертывания контейнера .Net. Эта команда также скачает образ контейнера, что может занять несколько минут. В зависимости от версии узла Windows Server выполните следующую команду ниже.
+
+#### <a name="windows-server-2019"></a>WindowsServer2019
 
 ```console
 docker run microsoft/dotnet-samples:dotnetapp-nanoserver-1809
+```
+
+#### <a name="windows-server-2016"></a>WindowsServer2016
+
+```console
+docker run microsoft/dotnet-samples:dotnetapp-nanoserver-sac2016
 ```
 
 Контейнер запустится, выведет сообщение "Hello world" и завершит работу.
