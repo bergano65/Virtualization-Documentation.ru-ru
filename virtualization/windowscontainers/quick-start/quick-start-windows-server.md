@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: 44e415af08881d18ebb2d82f5f79098f7fb034f8
-ms.sourcegitcommit: f172d14ef1ebfb5a9df1b3529e0722d9103e0eba
+ms.openlocfilehash: b58bdd79da1c644281ebd9e79c16587d9fc156f4
+ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "9112931"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "9121046"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
@@ -68,7 +68,8 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-> ! [СОВЕТ] Если вы хотите обновить Docker позже:
+> [!TIP]
+> Если вы хотите обновить Docker позже:
 >  - Проверьте установленную версию с помощью команды `Get-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - Найдите текущую версию с помощью команды `Find-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - После этого выполните обновление с помощью команды `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force` и команды `Start-Service Docker`
