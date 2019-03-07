@@ -8,12 +8,12 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с v1.13.
 keywords: kubernetes, 1.13, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: f9348debf427c47f9326368ff02914603de06a1b
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.openlocfilehash: 2edc940d4132870a6f7d6714bb50faef201136ba
+ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120462"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "9149914"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows #
 Эта страница служит Обзор для Приступая к работе с Kubernetes в Windows, присоединение узла Windows к кластеру на основе Linux. С выпуском Kubernetes 1.13 в Windows Server [версия 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)пользователи могут воспользоваться [новейшие возможности](https://kubernetes.io/docs/getting-started-guides/windows/#supported-features) в Kubernetes в бета-версии Windows:
@@ -45,17 +45,6 @@ ms.locfileid: "9120462"
 > Существует другой сети Docker (NAT), который создается по умолчанию при установке Docker. Он не требуется для работы Kubernetes в Windows, как мы назначение IP-адреса из подсети кластера вместо.
 
 
-### <a name="disable-anti-spoofing-protection-required-for-l2bridge"></a>Отключить защиту в защиту от подделок (требуется для l2bridge) ###
-Следует требуется использовать l2bridge для сети (то есть [flannel узел шлюз](./network-topologies.md#flannel-in-host-gateway-mode)), необходимо убедиться, спуфинг MAC-адресов включена для узла контейнера Windows виртуальных машин (гостевые ОС). Чтобы добиться этого, необходимо выполните следующую команду от имени администратора на компьютере, размещающие виртуальные машины (пример для Hyper-V):
-
-```powershell
-Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing On
-```
-> [!TIP]
-> Если вы используете продуктов на основе VMware в соответствии с потребностями виртуализации, можно найти в включить [неизбирательный режим](https://kb.vmware.com/s/article/1004099) для требования подмена MAC.
-
->[!TIP]
-> При развертывании Kubernetes в Azure или IaaS виртуальные машины на другие поставщики облачных самостоятельно, мы рекомендуем [наложение сети](./network-topologies.md#flannel-in-vxlan-mode) .
 
 ## <a name="what-you-will-accomplish"></a>Цели ##
 
