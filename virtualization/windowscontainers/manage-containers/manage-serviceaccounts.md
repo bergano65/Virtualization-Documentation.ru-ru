@@ -3,17 +3,17 @@ title: Групповые управляемые учетные записи с�
 description: Групповые управляемые учетные записи служб для контейнеров Windows
 keywords: docker, контейнеры, active directory, gmsa
 author: rpsqrd
-ms.date: 03/21/2019
+ms.date: 03/22/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 5f80d245984b0cf5c4503971a74cc8bbcca0c19c
-ms.sourcegitcommit: f53b8b3dc695cdf22106095b15698542140ae088
+ms.openlocfilehash: 17c4089c98a74ea5937bac5d0eb4d4f1749aecf7
+ms.sourcegitcommit: b8afbfb63c33a491d7bad44d8d5962e6a60cb566
 ms.translationtype: MT
 ms.contentlocale: ru-RU
 ms.lasthandoff: 03/22/2019
-ms.locfileid: "9257411"
+ms.locfileid: "9257450"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Групповые управляемые учетные записи служб для контейнеров Windows
 
@@ -288,14 +288,14 @@ Cached Tickets: (2)
 [...]
 ```
 
-Чтобы открыть PowerShell или другое приложение консоли в качестве учетной записи gMSA, можно задать контейнер для запуска учетной записи вместо обычного ContainerAdministrator (или ContainerUser для NanoServer) системы:
+Чтобы открыть PowerShell или другое приложение консоли в качестве учетной записи gMSA, можно задать контейнер для запуска учетную запись вместо обычного ContainerAdministrator (или ContainerUser для NanoServer) сетевая служба:
 
 ```powershell
 # NOTE: you can only run as SYSTEM on Windows Server 1709 and later
-docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\SYSTEM" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
+docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\NETWORK SERVICE" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
 ```
 
-Если вы используете систему, вы можете тестировать проверку подлинности на сетевом управляемой учетной записи, пытаясь подключиться к SYSVOL на контроллере домена:
+Если вы используете как сетевая служба, вы можете тестировать проверку подлинности на сетевом управляемой учетной записи, пытаясь подключиться к SYSVOL на контроллере домена:
 
 ```
 # This command should succeed if you're successfully running as the gMSA
