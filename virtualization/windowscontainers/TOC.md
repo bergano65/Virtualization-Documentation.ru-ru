@@ -55,6 +55,7 @@
 ## [Системные требования](deploy-containers/system-requirements.md)
 ## [Совместимость версий](deploy-containers/version-compatibility.md)
 ## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
+## [Принтер служб](deploy-containers/print-spooler.md)
 ## [Аппаратные устройства в контейнеры](deploy-containers/hardware-devices-in-containers.md)
 ## [Инструменты для платформы контейнера](deploy-containers/containerd.md)
 ## [Групповые управляемые учетные записи служб](manage-containers/manage-serviceaccounts.md)
