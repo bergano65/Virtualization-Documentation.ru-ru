@@ -3,17 +3,17 @@ title: Групповые управляемые учетные записи с�
 description: Групповые управляемые учетные записи служб для контейнеров Windows
 keywords: docker, контейнеры, active directory, gmsa
 author: rpsqrd
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 17c4089c98a74ea5937bac5d0eb4d4f1749aecf7
-ms.sourcegitcommit: b8afbfb63c33a491d7bad44d8d5962e6a60cb566
+ms.openlocfilehash: 20daa81a571fde23b91e24e9713e37d225870ec0
+ms.sourcegitcommit: 1dec99a5b295e8a08022ae3dec128c7c7818ad15
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "9257450"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9262357"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Групповые управляемые учетные записи служб для контейнеров Windows
 
@@ -342,8 +342,8 @@ docker service create --credential-spec "file://contoso_webapp01.json" --hostnam
 
 ### <a name="using-gmsa-with-kubernetes"></a>Использование gMSA с Kubernetes
 
-Для планирования контейнеры Windows с помощью gMSAs в Kubernetes поддерживается в альфа-поддержка начиная с Kubernetes 1.14.
-Проверьте [Windows групповых управляемых учетных записей служб для KEP удостоверений контейнера](https://github.com/kubernetes/enhancements/blob/master/keps/sig-windows/20181221-windows-group-managed-service-accounts-for-container-identity.md) последние сведения об этой функции и сведения о том, как проверить его в дистрибутива Kubernetes.
+Поддержка для планирования контейнеры Windows с помощью gMSAs в Kubernetes доступна как альфа-компонент в Kubernetes 1.14.
+См. в разделе [Настройка gMSA POD в Windows и контейнерах](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) последние сведения об этой функции и сведения о том, как проверить его в дистрибутива Kubernetes.
 
 ## <a name="example-uses"></a>Примеры использования
 
