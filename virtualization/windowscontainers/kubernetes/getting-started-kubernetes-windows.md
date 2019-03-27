@@ -8,18 +8,18 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с v1.13.
 keywords: kubernetes, 1.13, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 2edc940d4132870a6f7d6714bb50faef201136ba
-ms.sourcegitcommit: 817a629f762a4a5d4bcff58302f2bc2408bf8be1
+ms.openlocfilehash: df3185db086e8e38143fe60d90db864038980603
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "9149914"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263491"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows #
-Эта страница служит Обзор для Приступая к работе с Kubernetes в Windows, присоединение узла Windows к кластеру на основе Linux. С выпуском Kubernetes 1.13 в Windows Server [версия 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)пользователи могут воспользоваться [новейшие возможности](https://kubernetes.io/docs/getting-started-guides/windows/#supported-features) в Kubernetes в бета-версии Windows:
+Эта страница служит Обзор для Приступая к работе с Kubernetes в Windows, присоединение узла Windows к кластеру на основе Linux. С выпуском Kubernetes 1.14 в Windows Server [версия 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)пользователи могут воспользоваться следующие функции в Kubernetes в Windows:
 
   - **наложение сеть**: использование Flannel в режиме инкапсуляция для настройки сети виртуальный слой
-    - требуется либо Windows Server 2019 с KB4482887 установлена или [Windows Server vNext предварительные](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) сборки 18317 +
+    - требуется либо Windows Server 2019 с [KB4489899](https://support.microsoft.com/en-us/help/4489899) установлена или [Windows Server vNext предварительные](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) сборки 18317 +
     - требуется Kubernetes v1.14 (или выше) с помощью `WinOverlay` включена функция шлюза
     - требуется Flannel v0.11.0 (или выше)
   - **упрощенное управления сетями**: используйте Flannel в режим узел шлюз управления автоматического маршрут между узлами
@@ -31,7 +31,7 @@ ms.locfileid: "9149914"
 > [!TIP] 
 > Если вы хотите развернуть кластер в Azure, средство с открытым исходным кодом AKS модуля упрощает этот процесс. Доступно [пошаговое руководство](https://github.com/Azure/aks-engine/blob/master/docs/topics/windows.md).
 
-## <a name="prerequisites"></a>Необходимые условия ##
+## <a name="prerequisites"></a>Что вам понадобится ##
 
 ### <a name="plan-ip-addressing-for-your-cluster"></a>Планирование IP-адресов для кластера ###
 <a name="definitions"></a>Кластеры Kubernetes представляться новых подсетей для модулей POD и служб, важно убедиться, что ни один из них не исключены конфликты находящиеся с помощью других существующих сетей в вашей среде. Ниже приведены адресными пространствами, которые должны быть освобождение успешного развертывания Kubernetes требуются.

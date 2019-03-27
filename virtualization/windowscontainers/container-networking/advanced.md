@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 017ff7868d10ed58f749c0ef8824dd32586afb2c
-ms.sourcegitcommit: ec186664e76d413d3bf75f2056d5acb556f4205d
-ms.translationtype: HT
+ms.openlocfilehash: cf5173a98032820e1ad72e99e9b6e874dedbed83
+ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "1876147"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "9263521"
 ---
 # <a name="advanced-network-options-in-windows"></a>Дополнительные параметры сети в Windows
 Ряд параметров сетевых драйверов позволяет воспользоваться преимуществами особых возможностей Windows. 
@@ -92,13 +92,13 @@ docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11
 Мы вносим соответствующие изменения в платформу, чтобы эту проблему можно было автоматически обнаружить/предотвратить. В настоящее время, чтобы убедиться, что на хост-компьютере включен протокол IPv6, можно воспользоваться представленным ниже способом.
 
 ```
-C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters  /v DisabledComponents  /f
+C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Parameters  /v DisabledComponents  /f
 ```
 
 
 #### <a name="linux-containers-on-windows"></a>Контейнеры Linux в Windows
 
-**НОВОЕ.** Мы работаем над возможностью параллельного запуска контейнеров Linux и Windows _без помощи виртуальной машины Linux Moby_. Подробные сведения см. в этой [записи блога о контейнерах Linux в Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/).
+**НОВОЕ.** Мы работаем над возможностью параллельного запуска контейнеров Linux и Windows _без помощи виртуальной машины Linux Moby_. Подробные сведения см. в этой [записи блога о контейнерах Linux в Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/). Вот как [начать работу](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
 > ПРИМЕЧАНИЕ. Решение LCOW приходит на замену виртуальной машине Linux Moby и будет использовать внутренний виртуальный коммутатор "nat" службы HNS по умолчанию.
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Виртуальные машины Moby Linux используют коммутатор DockerNAT с Docker для Windows (продукт [Docker CE](https://www.docker.com/community-edition))
