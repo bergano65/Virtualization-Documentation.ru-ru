@@ -37,7 +37,7 @@
 ### [Присоединение Windows работников](kubernetes/joining-windows-workers.md)
 ### [Присоединение работников Linux](kubernetes/joining-linux-workers.md)
 ### [Развертывание ресурсов Kubernetes](kubernetes/deploying-resources.md)
-### [Устранение неполадок](kubernetes/common-problems.md)
+### [Поиск и устранение неисправностей](kubernetes/common-problems.md)
 ### [Службы Windows на Kubernetes](kubernetes/kube-windows-services.md)
 ### [Компиляция двоичных файлов Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ## Service Fabric в Windows
@@ -56,6 +56,7 @@
 ## [Совместимость версий](deploy-containers/version-compatibility.md)
 ## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
 ## [Принтер служб](deploy-containers/print-spooler.md)
+## [Ускорение GPU](deploy-containers/gpu-acceleration.md)
 ## [Аппаратные устройства в контейнеры](deploy-containers/hardware-devices-in-containers.md)
 ## [Инструменты для платформы контейнера](deploy-containers/containerd.md)
 ## [Групповые управляемые учетные записи служб](manage-containers/manage-serviceaccounts.md)
