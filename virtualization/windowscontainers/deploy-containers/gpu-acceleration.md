@@ -3,12 +3,12 @@ title: Ускорение GPU в контейнерах Windows
 description: Уровень ускорение GPU существует в контейнерах Windows
 keywords: docker, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: 518ce8fd8373060b5ebb1147a2d25e3d24517861
-ms.sourcegitcommit: 3c81b0efd1ac2c4c93d58f16edae1044c9a5ad55
+ms.openlocfilehash: fbee74e1d40838922ae938afd8fda5715a6abaf7
+ms.sourcegitcommit: af1d0d6c0642ee44bd34db7a9a58fe6c65f73a33
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "9284617"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "9285948"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Ускорение GPU в контейнерах Windows
 
@@ -17,7 +17,7 @@ ms.locfileid: "9284617"
 Графических процессоров уже стандартный инструмент для многих популярных рабочих нагрузок, от традиционных визуализации и моделирования на компьютере обучения и вывод. Контейнеры Windows поддерживают ускорение GPU для DirectX и всех платформ, создана на основе его.
 
 > [!IMPORTANT]
-> Для этой функции требуется требуется версия Docker, который поддерживает `--device` параметр командной строки для контейнеров Windows. Формальный поддержка Docker запланирована ближайших выпусках 19.03 модуль Docker EE. До тех пор, [несоответствий источника](https://master.dockerproject.org/) Docker содержит необходимые биты.
+> Для этой функции требуется версию Docker, который поддерживает `--device` параметр командной строки для контейнеров Windows. Формальный поддержка Docker запланирована ближайших выпусках 19.03 модуль Docker EE. До тех пор, [несоответствий источника](https://master.dockerproject.org/) Docker содержит необходимые биты.
 
 ## <a name="requirements"></a>Требования
 
