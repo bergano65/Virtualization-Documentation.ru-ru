@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 42154683-163b-47a1-add4-c7e7317f1c04
-ms.openlocfilehash: db0f8c45c1cdb6617e4c347251284509e2a7d3bc
-ms.sourcegitcommit: 914e0dd1168daf1d2b0f22bd011035016cc08baf
+ms.openlocfilehash: 4ab473c1752c377955bb23bdf6c9ef83a3336aa8
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "9099342"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380128"
 ---
 # <a name="hyper-v-isolation"></a>Изоляция Hyper-V
 
@@ -35,9 +35,9 @@ docker run -it --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 cmd
 
 ### <a name="isolation-explanation"></a>Пояснения по изоляции
 
-Этот пример показывает различия возможностей изоляции Windows Server и Hyper-V. 
+Этот пример показывает различия возможностей изоляции изоляции Hyper-V и Windows Server.
 
-Здесь процесса изолированного контейнера развертывается и производится долгосрочный процесс.
+Здесь процесса изолированного контейнера развертывается и производится долгосрочный процесс ping.
 
 ``` cmd
 docker run -d mcr.microsoft.com/windows/servercore:1809 ping localhost -t
@@ -61,7 +61,7 @@ Handles  NPM(K)    PM(K)      WS(K) VM(M)   CPU(s)     Id  SI ProcessName
      67       5      820       3836 ...71     0.03   3964   3 PING
 ```
 
-В отличие от предыдущего примера здесь запускается изолированного контейнера Hyper-V с процессом ping. 
+В отличие от предыдущего примера здесь запускается изолированного контейнера Hyper-V с процессом ping.
 
 ```
 docker run -d --isolation=hyperv mcr.microsoft.com/windows/nanoserver:1809 ping -t localhost

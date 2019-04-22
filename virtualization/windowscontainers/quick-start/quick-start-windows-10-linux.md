@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 036e4f80eaa6e7ce2c151d7732e670c0492bc61f
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: f9b54dbc9fc7c79bdb9b9aa106d5811401c365f3
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973821"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380468"
 ---
 # <a name="linux-containers-on-windows-10"></a>Контейнеры Linux в Windows 10
 
@@ -30,13 +30,13 @@ ms.locfileid: "8973821"
 
 Это краткое руководство применимо только к Windows 10. Краткое руководство по дополнительной документации можно найти в содержании в левой части этой страницы.
 
-## <a name="prerequisites"></a>Необходимые условия
+## <a name="prerequisites"></a>Что вам понадобится
 
 Убедитесь, что соблюдаются следующие требования:
 - Одна физическая компьютерная система под управлением Windows 10 Профессиональная или Корпоративная начиная с Fall Creators Update (версия 1709) или более поздней версии
 - Убедитесь, что включен [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
 
-***Изоляции Hyper-V:*** Контейнеры Linux в Windows требуется изоляции Hyper-V в Windows 10, чтобы разработчики с соответствующего ядро Linux для запуска контейнера. Более сведения о Hyper-V изоляции можно найти на странице " [сведения о контейнерах Windows](../about/index.md) ".
+***Изоляции Hyper-V:*** Контейнеры Linux в Windows требуется изоляции Hyper-V в Windows 10, чтобы разработчики с соответствующего ядро Linux для запуска контейнера. Более сведения о Hyper-V изоляции можно найти на странице " [контейнеры о Windows](../about/index.md) ".
 
 ## <a name="install-docker-for-windows"></a>Установка Docker для Windows
 
@@ -44,7 +44,7 @@ ms.locfileid: "8973821"
 
 > Если у вас уже есть Docker установки, убедитесь, что у вас есть версии 18.02 или более поздней версии для поддержки LCOW. Проверьте, выполнив `docker -v` или проверки *О Docker*.
 
-> Вариант экспериментальных функций в *Docker параметры > управляющей программы* для запуска контейнеров LCOW необходимо активировать.
+> Для запуска контейнеров LCOW необходимо активировать параметр «экспериментальных функций» в *Docker параметры > управляющей программы* .
 
 ## <a name="run-your-first-lcow-container"></a>Запуск первого контейнера LCOW
 

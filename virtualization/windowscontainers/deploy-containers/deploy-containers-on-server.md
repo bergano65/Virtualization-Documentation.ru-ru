@@ -8,24 +8,24 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: 0d982996a1aabd434df04551f30725a21b31d500
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.openlocfilehash: 35f35b490ce5aa80068578d78a6427ace7352b73
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948013"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380168"
 ---
-# <a name="container-host-deployment---windows-server"></a>Развертывание узла контейнера— Windows Server
+# <a name="container-host-deployment-windows-server"></a>Развертывание узла контейнера: Windows Server
 
 Чтобы развернуть узел контейнера Windows, нужно выполнить разные действия в зависимости от типа операционной системы виртуальной машины и операционной системы сервера виртуальных машин (виртуальная и физическая). Этот документ описывает развертывание узла контейнера Windows в Windows Server2016 или Windows Server Core2016 в физической или виртуальной системе.
 
 ## <a name="install-docker"></a>Установка Docker
 
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker. 
+Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker.
 
-Для установки Docker будет использоваться [модуль PowerShell поставщика OneGet](https://github.com/OneGet/MicrosoftDockerProvider). Поставщик обеспечит работу контейнеров на компьютере и установит Docker. После этого потребуется перезагрузка. 
+Чтобы установить Docker, мы будем использовать [модуль PowerShell поставщика OneGet](https://github.com/OneGet/MicrosoftDockerProvider). Поставщик обеспечит функцию контейнеров на вашем компьютере и установит Docker, после чего потребуется перезагрузка.
 
-Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
+Откройте сеанс PowerShell с повышенными привилегиями и выполните приведенные ниже командлеты.
 
 Установите модуль OneGet PowerShell.
 
@@ -47,7 +47,7 @@ Restart-Computer -Force
 
 ## <a name="install-a-specific-version-of-docker"></a>Установите это конкретная версия Docker
 
-Существует в настоящее время два канала доступны для Docker EE для Windows Server:
+Доступны в настоящее время два канала для Docker EE для Windows Server:
 
 * `17.06` -Используйте эту версию, если вы используете Docker Enterprise Edition (подсистема Docker, UCP, DTR). `17.06` значение по умолчанию.
 * `18.03` -Используете эту версию, если вы используете подсистема Docker EE само по себе.
@@ -78,7 +78,7 @@ Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -Re
 
 С выпуском Windows Server 2019 образы контейнеров следы Microsoft переходе на новый реестра называется реестр контейнера Microsoft. Образы контейнеров, выпущенные корпорацией Майкрософт и впредь обнаружения с помощью Docker Hub. Для новых образов контейнеров, публикации с помощью Windows Server 2019 и так далее, вам ознакомиться с для извлечения их из MCR. Для публикации до Windows Server 2019 старые образы контейнера следует продолжать извлекать их из реестра Docker.
 
-### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 и более поздних версиях
+### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 и более поздних версий
 
 Чтобы установить базовый образ «Windows Server Core», выполните следующую команду:
 
@@ -106,11 +106,11 @@ docker pull microsoft/windowsservercore
 docker pull microsoft/nanoserver
 ```
 
-> Прочтите лицензионное соглашение для образов ОС контейнеров Windows на странице [Лицензионное соглашение](../images-eula.md).
+> Внимательно прочитайте лицензионное соглашение, можно найти здесь: [Лицензионное соглашение](../images-eula.md)для образа ОС контейнеров Windows.
 
-## <a name="hyper-v-container-host"></a>Узел контейнера Hyper-V
+## <a name="hyper-v-isolation-host"></a>Узел изоляции Hyper-V
 
-Чтобы запустить контейнеры Hyper-V, необходима роль Hyper-V. Если сам узел контейнера Windows является виртуальной машиной Hyper-V, перед установкой роли Hyper-V необходимо включить вложенную виртуализацию. Дополнительные сведения о вложенной виртуализации см. в статье [Вложенная виртуализация]( https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
+Необходимо иметь роль Hyper-V для запуска изоляции Hyper-V. Если сам узел контейнера Windows является виртуальной машиной Hyper-V, перед установкой роли Hyper-V необходимо включить вложенную виртуализацию. Дополнительные сведения о вложенной виртуализации см. в статье [Вложенная виртуализация](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/user_guide/nesting).
 
 ### <a name="nested-virtualization"></a>Вложенная виртуализация
 
@@ -132,7 +132,7 @@ Get-VMNetworkAdapter -VMName $vm | Set-VMNetworkAdapter -MacAddressSpoofing On
 
 ### <a name="enable-the-hyper-v-role"></a>Включение роли Hyper-V
 
-Чтобы включить компонент Hyper-V с помощью PowerShell, выполните приведенную ниже команду в сеансе PowerShell с повышенными правами.
+Чтобы включить функцию Hyper-V с помощью PowerShell, выполните следующий командлет в сеансе PowerShell с повышенными привилегиями.
 
 ```PowerShell
 Install-WindowsFeature hyper-v

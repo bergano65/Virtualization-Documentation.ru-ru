@@ -8,21 +8,22 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cf5173a98032820e1ad72e99e9b6e874dedbed83
-ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
+ms.openlocfilehash: 001f1abaeefaf34e12b0f7e3323bf32140080d05
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "9263521"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380008"
 ---
 # <a name="advanced-network-options-in-windows"></a>Дополнительные параметры сети в Windows
+
 Ряд параметров сетевых драйверов позволяет воспользоваться преимуществами особых возможностей Windows. 
 
 ## <a name="switch-embedded-teaming-with-docker-networks"></a>Объединение внедренных коммутаторов с сетями Docker
 
-> Применимо ко всем сетевым драйверам 
+> Применимо ко всем сетевым драйверам
 
-[Объединение внедренных коммутаторов](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) можно применять при создании сетей узлов контейнеров для подсистемы Docker, указав несколько сетевых адаптеров (разделенных запятыми) с помощью параметра `-o com.docker.network.windowsshim.interface`. 
+[Объединение внедренных коммутаторов](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) можно применять при создании сетей узлов контейнеров для подсистемы Docker, указав несколько сетевых адаптеров (разделенных запятыми) с помощью параметра `-o com.docker.network.windowsshim.interface`.
 
 ```
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2", "Ethernet 3" TeamedNet
@@ -30,7 +31,7 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.inte
 
 ## <a name="set-the-vlan-id-for-a-network"></a>Установка идентификатора виртуальной сети для сети
 
-> Применимо к сетевым драйверам "transparent" и "l2bridge" 
+> Применимо к сетевым драйверам "transparent" и "l2bridge"
 
 Чтобы задать идентификатор виртуальной локальной сети для сети, используйте параметр `-o com.docker.network.windowsshim.vlanid=<VLAN ID>` для команды `docker network create`. Например, чтобы создать прозрачную сеть с идентификатором виртуальной сети 11, можно использовать следующую команду.
 

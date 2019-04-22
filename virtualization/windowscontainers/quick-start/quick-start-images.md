@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: a28b9ced2c9669b65bfa02bd02c1061226dcea7e
-ms.sourcegitcommit: f172d14ef1ebfb5a9df1b3529e0722d9103e0eba
+ms.openlocfilehash: 41fa89dcaba38d43d39681240a1a108c9250ba78
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "9112921"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380438"
 ---
 # <a name="automating-builds-and-saving-images"></a>Автоматизация сборки и сохранения образов
 
@@ -21,12 +21,12 @@ ms.locfileid: "9112921"
 
 Это краткое руководство относится к контейнерам Windows Server в Windows Server 2016 или Windows Server 2019 и будет использоваться базовый образ контейнера Windows Server Core. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы.
 
-## <a name="prerequisites"></a>Необходимые условия
+## <a name="prerequisites"></a>Что вам понадобится
 
 Убедитесь, что соблюдаются следующие требования:
 
 - Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019 г. или Windows Server 2016.
-- Настройте на компьютере компонент контейнеров Windows и Docker. Пошаговые инструкции по этим этапам см. в статье [Контейнеры Windows в Windows Server](./quick-start-windows-server.md).
+- Настройте на компьютере компонент контейнеров Windows и Docker. Пошаговое руководство по об этих действиях см. в разделе [контейнеры Windows в Windows Server](./quick-start-windows-server.md).
 - Идентификатор Docker, который будет использоваться для отправки образа контейнера в Docker Hub. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud](https://cloud.docker.com/).
 
 ## <a name="container-image---dockerfile"></a>Образ контейнера — Dockerfile

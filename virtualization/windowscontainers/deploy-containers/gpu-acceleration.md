@@ -3,12 +3,12 @@ title: Ускорение GPU в контейнерах Windows
 description: Уровень ускорение GPU существует в контейнерах Windows
 keywords: docker, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: fbee74e1d40838922ae938afd8fda5715a6abaf7
-ms.sourcegitcommit: af1d0d6c0642ee44bd34db7a9a58fe6c65f73a33
+ms.openlocfilehash: 281241e07e4bc184e73c4e74a117b44253a775be
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "9285948"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380058"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Ускорение GPU в контейнерах Windows
 
@@ -22,6 +22,7 @@ ms.locfileid: "9285948"
 ## <a name="requirements"></a>Требования
 
 Эта функция работать среду должны соответствовать следующим требованиям:
+
 - Узла контейнера должны работать под управлением Windows Server 2019 или Windows 10, версия 1809 или более поздней версии.
 - Базовый образ контейнера должны быть [mcr.microsoft.com/windows:1809](https://hub.docker.com/_/microsoft-windowsfamily-windows) или более поздней версии. Образы контейнеров Windows Server Core и Nano Server в настоящее время не поддерживаются.
 - Узла контейнера должны работать под управлением подсистемы Docker 19.03 или более поздней версии.

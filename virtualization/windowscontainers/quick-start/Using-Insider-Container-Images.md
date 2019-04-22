@@ -70,7 +70,7 @@ docker pull mcr.microsoft.com/windows/servercore/insider
 ```
 
 > [!IMPORTANT]
-> Прочитайте [Лицензионное соглашение](../EULA.md ) образа ОС контейнеров Windows и [Условия использования](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver)программы предварительной оценки Windows.
+> Ознакомьтесь с контейнерами Windows ОС изображение [Лицензионное соглашение](../EULA.md ) и [Условия использования](https://www.microsoft.com/en-us/software-download/windowsinsiderpreviewserver)программы предварительной оценки Windows.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

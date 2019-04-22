@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: dc500a7b6c0f8f078820407e6ed80ca5868bf4f3
-ms.sourcegitcommit: 95cec99aa8e817d3e3cb2163bd62a32d9e8f7181
+ms.openlocfilehash: 07f5929505226a50a161b4ae7df5669c2ad89d83
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "8973654"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380428"
 ---
 # <a name="windows-containers-on-windows-10"></a>Контейнеры Windows в Windows10
 
@@ -30,7 +30,7 @@ ms.locfileid: "8973654"
 
 Это краткое руководство применимо только к Windows 10. Краткое руководство по дополнительной документации можно найти в содержании в левой части этой страницы.
 
-## <a name="prerequisites"></a>Необходимые условия
+## <a name="prerequisites"></a>Что вам понадобится
 Убедитесь, что соблюдаются следующие требования:
 - Одна физическая компьютерная система под управлением Windows 10 Профессиональная или Корпоративная Юбилейное обновление (версия 1607) или более поздней версии. 
 - Убедитесь, что включен [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
@@ -72,7 +72,7 @@ microsoft/nanoserver   latest              105d76d0f40e        4 days ago       
 ```
 
 > [!IMPORTANT]
-> Внимательно прочитайте [Лицензионное соглашение](../images-eula.md)образа ОС контейнеров Windows.
+> Ознакомьтесь с контейнерами Windows образ ОС [Лицензионное соглашение](../images-eula.md).
 
 ## <a name="run-your-first-windows-container"></a>Запуск первого контейнера Windows
 
@@ -122,7 +122,7 @@ docker images
 docker run --rm helloworld cmd.exe /s /c type Hello.txt
 ```
 
-Результат `docker run` команда — создается контейнер Hyper-V из образа «Привет мир», экземпляр cmd запущен в контейнере и выполнить чтение из нашего файла (выходные данные при этом выводятся в оболочке), после чего контейнер останавливается и удаляется.
+Результат `docker run` команда — создается контейнер с изоляцией Hyper-V из образа «Привет мир», экземпляр cmd запуска в контейнере и выполняется считывание наш файл (выходные данные при этом выводятся в оболочке), а затем контейнера останавливается и удаляется.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: b58bdd79da1c644281ebd9e79c16587d9fc156f4
-ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
+ms.openlocfilehash: fd2de24a4c8c03817978a53b340e2a77285c69ad
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9121046"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380418"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
@@ -29,12 +29,12 @@ ms.locfileid: "9121046"
 
 Это краткое руководство относится к контейнерам Windows Server в Windows Server 2019 и Windows Server 2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
 
-## <a name="prerequisites"></a>Необходимые условия
+## <a name="prerequisites"></a>Что вам понадобится
 
 Убедитесь, что соблюдаются следующие требования:
 - Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019. Если вы используете Windows Server 2019 Insider Preview, обновите [Window Server 2019 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 ).
 
-> Критические обновления необходимы для работы контейнеров Windows. Установите все обновления перед выполнением этого учебника.
+> Критические обновления необходимы для работы Windows контейнеров для функции. Установите все обновления перед выполнением этого учебника.
 
 Если вы хотите провести развертывание в Azure, это легко сделать с помощью следующего [шаблона](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template).
 

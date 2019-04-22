@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: bbc405fc2a490cfe5082be112fde724707e24785
-ms.sourcegitcommit: 21d93e5febd9b1b47ae1aa59d08086e6ec1691e0
+ms.openlocfilehash: 24de3d332ae4634f7dca945c1df9182cc1310089
+ms.sourcegitcommit: a5ff22c205149dac4fc05325ef3232089826f1ef
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9121056"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "9380338"
 ---
 # <a name="docker-engine-on-windows"></a>Подсистема Docker в Windows
 
@@ -23,8 +23,8 @@ ms.locfileid: "9121056"
 ## <a name="install-docker"></a>Установка Docker
 Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker (dockerd.exe) и клиента Docker (docker.exe). Самый простой способ установки всех компонентов указан в кратких руководствах по началу работы. Они помогут все Настройка и запуск первого контейнера. 
 
-* [Контейнеры Windows в Windows Server 2019 г.](../quick-start/quick-start-windows-server.md)
-* [Контейнеры Windows в Windows10](../quick-start/quick-start-windows-10.md)
+* [Контейнеры Windows в Windows Server 2019](../quick-start/quick-start-windows-server.md)
+* [Контейнеры Windows в Windows 10](../quick-start/quick-start-windows-10.md)
 
 Сведения об установке с помощью сценария см. в разделе [Использование сценария для установки Docker EE](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 
