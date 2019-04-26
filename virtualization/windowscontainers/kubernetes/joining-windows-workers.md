@@ -9,11 +9,11 @@ description: Присоединение узла Windows к кластеру Kub
 keywords: kubernetes, 1.13, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: ed0f13bd429e88f05469f91c3fc691bf0188b0a2
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120572"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578245"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>Присоединение к кластеру узлов Windows Server #
 После [настройки Kubernetes главном узле](./creating-a-linux-master.md) и [выбрать нужную сеть решение](./network-topologies.md), вы готовы присоединиться к узлам Windows Server для формирования кластера. Это требуется некоторая [подготовки на узлах Windows](#preparing-a-windows-node) до присоединения.

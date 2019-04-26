@@ -8,11 +8,11 @@ ms.prod: containers
 description: Создание главного узла кластера Kubernetes.
 keywords: kubernetes, 1,13, главный узел, linux
 ms.openlocfilehash: 8a3fb073616d115ab84e6cc36f0fb6cedbcf1f7d
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120432"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578255"
 ---
 # <a name="creating-a-kubernetes-master"></a>Создание главного узла Kubernetes #
 > [!NOTE]

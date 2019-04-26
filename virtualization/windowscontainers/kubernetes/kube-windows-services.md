@@ -9,18 +9,18 @@ description: Как выполнять Kubernetes компоненты служ�
 keywords: kubernetes, 1.13, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5c18
 ms.openlocfilehash: 6c68edda6e2017640b0a490c3c30f063c81698b3
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120599"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578645"
 ---
 # <a name="kubernetes-components-as-windows-services"></a>Компоненты Kubernetes как службы Windows 
 
 Некоторым пользователям может потребоваться настроить процессы, такие как flanneld.exe, kubelet.exe, помощью kube-proxy.exe или другие для запуска в качестве службы Windows. Это обеспечивает преимущества дополнительных отказоустойчивость, например процессы, автоматический перезапуск при непредвиденных сбоев процесс или узла.
 
 
-## <a name="prerequisites"></a>Необходимые условия
+## <a name="prerequisites"></a>Что вам понадобится
 1. Вы загрузили [nssm.exe](https://nssm.cc/download) в `c:\k` каталога
 2. Вы к домену узла в кластере и запустите его [install.ps1](https://github.com/Microsoft/SDN/tree/master/Kubernetes/flannel/install.ps1) или [start.ps1](https://github.com/Microsoft/SDN/blob/master/Kubernetes/flannel/start.ps1) на вашем узле ранее
 

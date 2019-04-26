@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 ms.openlocfilehash: 20daa81a571fde23b91e24e9713e37d225870ec0
-ms.sourcegitcommit: 1dec99a5b295e8a08022ae3dec128c7c7818ad15
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "9262357"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574965"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Групповые управляемые учетные записи служб для контейнеров Windows
 
@@ -378,7 +378,7 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 
 Чтобы увидеть это в действии, посмотрите [запись демонстрации](https://youtu.be/cZHPz80I-3s?t=2672) с конференции Microsoft Ignite 2016 (сеанс «Путь к контейнеризации — преобразование рабочих нагрузок в контейнеры»).
 
-## <a name="troubleshooting"></a>Устранение неполадок
+## <a name="troubleshooting"></a>Диагностика
 
 ### <a name="known-issues"></a>Известные проблемы
 

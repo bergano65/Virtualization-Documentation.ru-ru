@@ -37,7 +37,7 @@
 ### [Присоединение Windows работников](kubernetes/joining-windows-workers.md)
 ### [Присоединение работников Linux](kubernetes/joining-linux-workers.md)
 ### [Развертывание ресурсов Kubernetes](kubernetes/deploying-resources.md)
-### [Поиск и устранение неисправностей](kubernetes/common-problems.md)
+### [Диагностика](kubernetes/common-problems.md)
 ### [Службы Windows на Kubernetes](kubernetes/kube-windows-services.md)
 ### [Компиляция двоичных файлов Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ## Service Fabric в Windows

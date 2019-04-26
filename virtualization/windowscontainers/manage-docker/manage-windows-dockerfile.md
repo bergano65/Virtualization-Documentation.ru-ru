@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
 ms.openlocfilehash: a32d66251d8d9dddcd8abb1b64600459c903e317
-ms.sourcegitcommit: 2c22506a7fdbbbe5ab4138281fc9256a98b51efd
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "3386059"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574805"
 ---
 # <a name="dockerfile-on-windows"></a>Dockerfile в Windows
 
@@ -61,11 +61,11 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-Дополнительные примеры файлов Dockerfile для Windows, см. в [Dockerfile for Windows репозитория] (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
+Дополнительные примеры файлов Dockerfile для Windows, см. в разделе [Dockerfile for Windows] репозитория (https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
 ## <a name="instructions"></a>Инструкции
 
-Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile см. в разделе [Справочник по файлам Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
+Инструкции Dockerfile сообщают подсистеме Docker о необходимых шагах для создания образа контейнера. Эти инструкции выполняются по порядку, одна за другой. Ниже приведены сведения о некоторых основных инструкциях Dockerfile. Полный список инструкций Dockerfile, см. в разделе [по Dockerfile на сайте Docker.com] (https://docs.docker.com/engine/reference/builder/).
 
 ### <a name="from"></a>FROM
 
@@ -151,7 +151,7 @@ RUN ["powershell", "New-Item", "c:\\test"]
 
 Если целевая программа представляет собой установщик Windows, то перед запуском самой процедуры (автоматической) установки необходимо извлечь установочные файлы, указав флаг `/x:<directory>`. Также необходимо подождать, пока команда завершит свою работу. В противном случае процесс будет завершен преждевременно и без установки. Дополнительные сведения см. в приведенном ниже примере.
 
-**Примеры**
+**Примеры:**
 
 Этот пример использует систему DISM для установки служб IIS в образе контейнера.
 ```
@@ -199,7 +199,7 @@ COPY test1.txt c:/temp/
 COPY test1.txt c:\temp\
 ```
 
-**Примеры**
+**Примеры:**
 
 Этот пример добавляет содержимое исходного каталога в каталог с именем `sqllite` в образе контейнера.
 ```

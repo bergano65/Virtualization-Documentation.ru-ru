@@ -1,7 +1,7 @@
 ---
-title: "Удаленное управление узлом Docker в Windows"
-description: "Безопасное управление удаленным узлом Docker, работающим в Windows Server."
-keywords: "docker, контейнеры"
+title: Удаленное управление узлом Docker в Windows
+description: Безопасное управление удаленным узлом Docker, работающим в Windows Server.
+keywords: docker, контейнеры
 author: taylorb-microsoft
 ms.date: 02/14/2017
 ms.topic: article
@@ -9,10 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
 ms.openlocfilehash: b975c593bd5c736ec3e7e1e21b76b2f6a2c8f8a4
-ms.sourcegitcommit: 50d31ccdc097f17b8b99cd95da0671de182795cf
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/06/2018
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9575365"
 ---
 # <a name="remote-management-of-a-windows-docker-host"></a>Удаленное управление узлом Docker в Windows
 

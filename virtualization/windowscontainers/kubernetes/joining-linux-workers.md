@@ -9,11 +9,11 @@ description: Присоединение к кластеру Kubernetes с v1.13 
 keywords: kubernetes, 1.13, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: c32cc300fd97eb53605e2f51e6a83e5889747561
-ms.sourcegitcommit: 41318edba7459a9f9eeb182bf8519aac0996a7f1
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "9120472"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9577935"
 ---
 # <a name="joining-linux-nodes-to-a-cluster"></a>Присоединение к кластеру узла Linux
 

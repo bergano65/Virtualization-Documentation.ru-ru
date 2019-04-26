@@ -4,11 +4,11 @@ description: Сборка и запуск контейнеров в нескол
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
 ms.openlocfilehash: c744da429ed8116363437d3117ae1432d7a94f8d
-ms.sourcegitcommit: 4412583b77f3bb4b2ff834c7d3f1bdabac7aafee
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "6948083"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574955"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнеров Windows
 
@@ -31,8 +31,8 @@ Windows Server 2016 и юбилейное обновление Windows 10 (ве�
         <td style="background-color:#F1F8E9"><b>Windows 10 Fall Creators Update</b><br/>Сборки: 16299.*</td>
         <td style="background-color:#F1F8E9"><b>Windows Server версии 1803</b><br/>17134.* сборки</td>
         <td style="background-color:#F1F8E9"><b>Windows 10 версии 1803</b><br/>17134.* сборки</td>
-        <td style="background-color:#F1F8E9"><b>Windows Server 2019 г.</b><br/>17763.* сборки</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10, версия 1809</b><br/>17763.* сборки</td>
+        <td style="background-color:#F1F8E9"><b>WindowsServer2019</b><br/>17763.* сборки</td>
+        <td style="background-color:#F1F8E9"><b>Windows 10 версия 1809</b><br/>17763.* сборки</td>
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server 2016</b><br/>Сборки: 14393.*</td>
@@ -47,7 +47,7 @@ Windows Server 2016 и юбилейное обновление Windows 10 (ве�
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server версии 1709</b><br/>Сборки: 16299.*</td>
-        <td>Не поддерживается.</td>
+        <td>Не поддерживается</td>
         <td>Не поддерживается.</td>
         <td>Поддерживает<br/> `process` или изоляция `hyperv`</td>
         <td>Поддерживает<br/> Только изоляция `hyperv`</td>
@@ -58,7 +58,7 @@ Windows Server 2016 и юбилейное обновление Windows 10 (ве�
     </tr>
     <tr>
         <td style="background-color:#E3F2FD"><b>Windows Server версии 1803</b><br/>17134.* сборки</td>
-        <td>Не поддерживается.</td>
+        <td>Не поддерживается</td>
         <td>Не поддерживается.</td>
         <td>Не поддерживается.</td>
         <td>Не поддерживается.</td>
@@ -68,8 +68,8 @@ Windows Server 2016 и юбилейное обновление Windows 10 (ве�
         <td>Поддерживает<br/> Только изоляция `hyperv`</td>
     </tr>
     <tr>
-        <td style="background-color:#E3F2FD"><b>Windows Server 2019 г.</b><br/>17763.* сборки</td>
-        <td>Не поддерживается.</td>
+        <td style="background-color:#E3F2FD"><b>WindowsServer2019</b><br/>17763.* сборки</td>
+        <td>Не поддерживается</td>
         <td>Не поддерживается.</td>
         <td>Не поддерживается.</td>
         <td>Не поддерживается.</td>

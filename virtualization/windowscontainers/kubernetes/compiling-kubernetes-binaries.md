@@ -8,16 +8,16 @@ ms.prod: containers
 description: Компиляция и кросс-компиляции двоичных файлов Kubernetes из источника.
 keywords: kubernetes, 1.12, linux, компиляция
 ms.openlocfilehash: 40bf7e65a8910cdab095abb269aa0a92508189cd
-ms.sourcegitcommit: 8e9252856869135196fd054e3cb417562f851b51
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "6178877"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9574825"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Компиляция двоичных файлов Kubernetes #
 Для компиляции двоичных файлов Kubernetes требуется рабочая среда Go. На этой странице описывается несколько способов компиляции двоичных файлов Linux и кросс-компиляции двоичных файлов Windows.
 > [!NOTE] 
-> Эта страница является полностью произвольные и только включено в заинтересованным Kubernetes разработчиков, которым нужно поэкспериментировать с последней & наибольшее исходный код.
+> На этой странице включенной полностью произвольные и только разработчикам заинтересованным Kubernetes, поэкспериментировать с последней & наибольшее исходный код.
 
 > [!tip]
 > Чтобы получать уведомления о новейших достижений, можно подписаться на [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).

@@ -7,12 +7,12 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 5975f43859368334cab31b6d0eb37f084e9c03ca
-ms.sourcegitcommit: 51da93c4548c5df7a9f01e54d46d81b338c874cf
+ms.openlocfilehash: d9531164022b99a4be9b3c8e09736828a2da2f61
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "9031178"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9576555"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>Создание виртуальной машины с помощью Hyper-V
 
@@ -22,13 +22,13 @@ ms.locfileid: "9031178"
 
 Выберите вашу операционную систему для получения соответствующего набора инструкций:
 
-* [Windows 10 Fall Creators Update и более поздние версии](quick-create-virtual-machine.md#windows-10-fall-creators-update)
-* [Windows 10 Creators Update](quick-create-virtual-machine.md#windows-10-creators-update)
-* [Юбилейное обновление Windows 10 и более ранние выпуски](quick-create-virtual-machine.md#before-windows-10-creators-update)
+* [Windows 10 Fall Creators Update (версии 1709) и более поздних версиях](quick-create-virtual-machine.md#windows-10-fall-creators-update)
+* [Windows 10 Creators Update (версии 1703)](quick-create-virtual-machine.md#windows-10-creators-update)
+* [Юбилейное обновление Windows 10 (версии 1607) и более ранних версий](quick-create-virtual-machine.md#before-windows-10-creators-update)
 
 Начнем.
 
-## <a name="windows-10-fall-creators-update"></a>Windows 10 Fall Creators Update
+## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Windows 10 Fall Creators Update (Windows 10 версии 1709)
 
 В выпуске Fall Creators Update функция "Быстрое создание" была расширена и теперь включает коллекцию виртуальных машин, которую можно запустить независимо от диспетчера Hyper-V.
 
@@ -53,7 +53,7 @@ ms.locfileid: "9031178"
 
 Вот и все!  Средство быстрого создания сделает все остальное.
 
-## <a name="windows-10-creators-update"></a>Windows 10 Creators Update
+## <a name="windows-10-creators-update-windows-10-version-1703"></a>Windows 10 Creators Update (Windows 10 версии 1703)
 
 ![Снимок экрана пользовательского интерфейса средства быстрого создания](media/quickcreatesteps_inked.jpg)
 
@@ -81,7 +81,7 @@ ms.locfileid: "9031178"
 
 > **Примечание.** Если вы не используете корпоративную лицензию на Windows, требуется отдельная лицензия для Windows, установленная в виртуальной машине. Операционная система виртуальной машины не зависит от операционной системы узла.
 
-## <a name="before-windows-10-creators-update"></a>Версии, предшествующие Windows 10 Creators Update
+## <a name="before-windows-10-creators-update-windows-10-version-1607-and-older"></a>До Windows 10 Creators Update (Windows 10 версии 1607 и более ранние)
 
 Если вы используете не Windows 10 Creators Update или более позднюю версию ОС, выполните следующие инструкции с помощью мастера создания виртуальной машины.
 

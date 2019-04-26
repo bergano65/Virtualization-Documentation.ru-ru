@@ -8,11 +8,11 @@ ms.prod: containers
 description: Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows.
 keywords: kubernetes, 1.12, linux, компиляция
 ms.openlocfilehash: 1c5a5ec90b828a4f2430508f02cb9b9afb1c4d53
-ms.sourcegitcommit: 1715411ac2768159cd9c9f14484a1cad5e7f2a5f
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "9263511"
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9577085"
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.

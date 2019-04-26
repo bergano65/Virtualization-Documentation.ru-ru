@@ -1,7 +1,7 @@
 ---
-title: "Ресурсы сообщества"
-description: "Ресурсы сообщества"
-keywords: "windows10, hyper-v, контейнер, docker"
+title: Ресурсы сообщества
+description: Ресурсы сообщества
+keywords: windows10, hyper-v, контейнер, docker
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
@@ -9,16 +9,17 @@ ms.prod: virtualization
 ms.service: virtualization
 ms.assetid: 731ed95a-ce13-4c6e-a450-49563bdc498c
 ms.openlocfilehash: d4fd2dbaf362ac3ad52667743177a203174b397d
-ms.sourcegitcommit: 65de5708bec89f01ef7b7d2df2a87656b53c3145
-ms.translationtype: HT
+ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/21/2017
+ms.lasthandoff: 04/26/2019
+ms.locfileid: "9578625"
 ---
-# Участие в разработке документации
+# <a name="contribute-to-the-docs"></a>Участие в разработке документации
 
 > **Примечание.** Для участия в составлении документации необходимо иметь учетную запись [GitHub](https://www.github.com).
 
-## Редактирование существующего документа
+## <a name="edit-an-existing-doc"></a>Редактирование существующего документа
 
 1. Найдите документ, который следует отредактировать.  
 
@@ -59,12 +60,12 @@ ms.lasthandoff: 07/21/2017
 
 7. Создание [запроса на включение внесенных изменений](contribute-to-docs.md#pull-requests)  
 
-## Запрос на включение
+## <a name="pull-requests"></a>Запрос на включение
 
 Большинство изменений будут внесены по запросу на включение.  Запрос на включение— способ проверки набора изменений несколькими рецензентами, а также изменения и комментирования текущего содержимого.
 
 
-## Разветвление репозитория и локальное редактирование
+## <a name="fork-the-repo-and-edit-locally"></a>Разветвление репозитория и локальное редактирование
 
 Для длительной работы с документами клонируйте репозиторий в локальную среду и пользуйтесь им на своем компьютере.
 
@@ -85,7 +86,7 @@ ms.lasthandoff: 07/21/2017
   * Пошаговое рассмотрение некоторых удобных функций VSCode для Git
   * Первая фиксация
 
-### Настройка Git
+### <a name="set-up-git"></a>Настройка Git
 
 1. Установите Git (в Windows) [отсюда](https://git-for-windows.github.io/)
 
@@ -179,7 +180,7 @@ ms.lasthandoff: 07/21/2017
   }
   ```
 
-### Проверка и задание учетных данных
+### <a name="validate-and-stash-credentials"></a>Проверка и задание учетных данных
 
   Чтобы проверить, правильно ли настроен репозиторий, попробуйте извлечь новое содержимое.
 
@@ -188,7 +189,7 @@ ms.lasthandoff: 07/21/2017
   ```
 
 
-### Настройка среды редактирования разметки
+### <a name="set-up-markdown-editing-environment"></a>Настройка среды редактирования разметки
 
 1. Скачайте VSCode.
 
