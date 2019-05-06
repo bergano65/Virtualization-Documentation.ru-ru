@@ -3,110 +3,94 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: c744da429ed8116363437d3117ae1432d7a94f8d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 76549bbfbaf374acb79f1be4280949aecf4e87f0
+ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574955"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "9610284"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнеров Windows
 
-Windows Server 2016 и юбилейное обновление Windows 10 (версии 14393) стали первыми выпусками Windows, которые могли выполнять сборку и запускать контейнеры Windows Server. Контейнеры, созданные с помощью этих версий, можно запускать в более поздних выпусках, таких как Windows Server версии 1709, но перед этим необходимо изучить некоторые подробности.
+Windows Server 2016 и Юбилейное обновление Windows 10 (версии 14393) стали первыми выпусками Windows, которые могли выполнять сборку и запускать контейнеры Windows Server. Контейнеры, созданные с помощью этих версий, можно запускать в более поздних выпусках, таких как Windows Server версии 1709, но перед этим необходимо изучить некоторые подробности.
 
-В ходе улучшения функций контейнеров Windows нам пришлось внести некоторые изменения, которые могут повлиять на совместимость. Старые контейнеры будут работать на тех же новых узлах с [изоляцией Hyper-V](../manage-containers/hyperv-container.md), и будет использоваться та же (старая) версия ядра. Тем не менее, если вы хотите запустить контейнер в новой сборке Windows, это можно будет сделать только в новой сборке узла.
+В ходе улучшения функций контейнеров Windows нам пришлось внести некоторые изменения, которые могут повлиять на совместимость. Старые контейнеры будут работать на тех же новых узлах с [изоляцией Hyper-V](../manage-containers/hyperv-container.md)и будет использоваться та же (старая) версия ядра. Тем не менее если вы хотите запустить контейнер в новой сборке Windows, его можно только работать на новой сборке узла.
 
-
-
-<table>
-    <tr>
-    <th style="background-color:#BBDEFB">Версия ОС контейнера</th>
-    <th span='6' style="background-color:#DCEDC8">Версия ОС узла</th>
-    </tr>
-    <tr>
-        <td/>
-        <td style="background-color:#F1F8E9"><b>Windows Server 2016</b><br/>Сборки: 14393.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10 1609, 1703</b><br/>Сборки: 14393.*, 15063.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows Server версии 1709</b><br/>Сборки: 16299.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10 Fall Creators Update</b><br/>Сборки: 16299.*</td>
-        <td style="background-color:#F1F8E9"><b>Windows Server версии 1803</b><br/>17134.* сборки</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10 версии 1803</b><br/>17134.* сборки</td>
-        <td style="background-color:#F1F8E9"><b>WindowsServer2019</b><br/>17763.* сборки</td>
-        <td style="background-color:#F1F8E9"><b>Windows 10 версия 1809</b><br/>17763.* сборки</td>
-    </tr>
-    <tr>
-        <td style="background-color:#E3F2FD"><b>Windows Server 2016</b><br/>Сборки: 14393.*</td>
-        <td>Поддерживает<br/> `process` или изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-    </tr>
-    <tr>
-        <td style="background-color:#E3F2FD"><b>Windows Server версии 1709</b><br/>Сборки: 16299.*</td>
-        <td>Не поддерживается</td>
-        <td>Не поддерживается.</td>
-        <td>Поддерживает<br/> `process` или изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-    </tr>
-    <tr>
-        <td style="background-color:#E3F2FD"><b>Windows Server версии 1803</b><br/>17134.* сборки</td>
-        <td>Не поддерживается</td>
-        <td>Не поддерживается.</td>
-        <td>Не поддерживается.</td>
-        <td>Не поддерживается.</td>
-        <td>Поддерживает<br/> `process` или изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-    </tr>
-    <tr>
-        <td style="background-color:#E3F2FD"><b>WindowsServer2019</b><br/>17763.* сборки</td>
-        <td>Не поддерживается</td>
-        <td>Не поддерживается.</td>
-        <td>Не поддерживается.</td>
-        <td>Не поддерживается.</td>
-        <td>Не поддерживается.</td>
-        <td>Не поддерживается.</td>
-        <td>Поддерживает<br/> `process` или изоляция `hyperv`</td>
-        <td>Поддерживает<br/> Только изоляция `hyperv`</td>
-    </tr>
-</table>               
+|Версия ОС контейнера|Версия ОС узла|Совместимость|
+|---|---|---|
+|Windows Server 2016<br>Сборки: 14393.* |Windows Server 2016<br>Сборки: 14393.* |Поддерживает `process` или `hyperv` изоляции|
+|Windows Server 2016<br>Сборки: 14393.* |Windows Server версии 1709<br>Сборки: 16299.* |Поддерживает только `hyperv` изоляции|
+|Windows Server 2016<br>Сборки: 14393.* |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Поддерживает только `hyperv` изоляции|
+|Windows Server 2016<br>Сборки: 14393.* |Windows Server версии 1803<br>17134.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server 2016<br>Сборки: 14393.* |Windows10 версии1803<br>17134.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server 2016<br>Сборки: 14393.* |WindowsServer2019<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server 2016<br>Сборки: 14393.* |Windows10 версии1809<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
+|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server версии 1709<br>Сборки: 16299.* |Поддерживает `process` или `hyperv` изоляции|
+|Windows Server версии 1709<br>Сборки: 16299.* |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server версии 1803<br>17134.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1709<br>Сборки: 16299.* |Windows10 версии1803<br>17134.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1709<br>Сборки: 16299.* |WindowsServer2019<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1709<br>Сборки: 16299.* |Windows10 версии1809<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1803<br>17134.* сборки |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
+|Windows Server версии 1803<br>17134.* сборки |Windows Server версии 1709<br>Сборки: 16299.* |Не поддерживается.|
+|Windows Server версии 1803<br>17134.* сборки |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Не поддерживается.|
+|Windows Server версии 1803<br>17134.* сборки |Windows Server версии 1803<br>17134.* сборки |Поддерживает `process` или `hyperv` изоляции|
+|Windows Server версии 1803<br>17134.* сборки |Windows10 версии1803<br>17134.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1803<br>17134.* сборки |WindowsServer2019<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
+|Windows Server версии 1803<br>17134.* сборки |Windows10 версии1809<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
+|WindowsServer2019<br>17763.* сборки |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
+|WindowsServer2019<br>17763.* сборки |Windows Server версии 1709<br>Сборки: 16299.* |Не поддерживается.
+|WindowsServer2019<br>17763.* сборки |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Не поддерживается.|
+|WindowsServer2019<br>17763.* сборки |Windows Server версии 1803<br>17134.* сборки |Не поддерживается|
+|WindowsServer2019<br>17763.* сборки |Windows10 версии1803<br>17134.* сборки |Не поддерживается|
+|WindowsServer2019<br>17763.* сборки |WindowsServer2019<br>17763.* сборки |Поддерживает `process` или `hyperv` изоляции|
+|WindowsServer2019<br>17763.* сборки |Windows10 версии1809<br>17763.* сборки |Поддерживает только `hyperv` изоляции|
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>Сопоставление версии узла контейнера с версиями образа контейнера
+
 ### <a name="windows-server-containers"></a>Контейнеры Windows Server
-Так как контейнеры Windows Server и базовые узлы имеют одно ядро, базовые образы контейнера и узла должны совпадать.  Если версии не совпадают, контейнер может запуститься, но работа всех возможностей не гарантируется. Операционная система Windows имеет четыре уровня указания версии: основной номер, дополнительный номер, номер сборки и номер редакции. Например: 10.0.14393.103. Номер сборки (т. е. 14393) меняется только при публикации новых версий операционной системы, например версии 1709, 1803, обновления Fall Creators Update и т. д. Номер редакции (т. е. 103) обновляется по мере установки обновлений Windows.
-#### <a name="build-number-new-release-of-windows"></a>Номер сборки (новая версия Windows)
-Контейнеры Windows Server не будут запускаться, если номера сборки узла контейнера и образа контейнера отличаются. Например: 10.0.14393.* (Windows Server 2016) и 10.0.16299.* (Windows Server версии 1709).  
+
+Так как контейнеры Windows Server и базовые узлы имеют одно ядро, базовые образы контейнера должны совпадать узла. Если версии не совпадают, контейнер может запуститься, но работа всех возможностей не гарантируется. Операционная система Windows имеет четыре уровня указания: основной, вспомогательный номера, сборки и номер редакции. Например версии: 10.0.14393.103 бы основной номер версии 10, дополнительный номер версии 0, номер сборки 14393 и номер версии 103. Номер сборки меняется только в том случае, когда новые версии операционной системы публикации, например версии 1709, 1803, Fall Creators Update и т. д. Номер редакции меняется при установке обновлений Windows.
+
+#### <a name="build-number-new-release-of-windows"></a>Номер сборки (новая версия для Windows)
+
+Контейнеры Windows Server блокируется Если номера сборки узла контейнера и образа контейнера отличаются. Например, когда узла контейнера —: 10.0.14393.* версии (Windows Server 2016) и образ контейнера — версия 10.0.16299.* (Windows Server версии 1709), начнется контейнера.  
+
 #### <a name="revision-number-patching"></a>Номер редакции (исправления)
-Контейнеры Windows Server _не_ блокируются, если номера редакции узла контейнера и образа контейнера отличаются. Например: 10.0.14393.1914.* (Windows Server 2016 с исправлением KB4051033) и 10.0.14393.1944.* (Windows Server 2016 с исправлением KB4053579).  
-Для узлов и образов на основе Windows Server 2016: редакция образа контейнера должна соответствовать узлу с поддерживаемой конфигурацией.  Начиная с Windows Server версии 1709 это требование больше не применяется: редакции образов узла контейнера не обязаны совпадать.  Как всегда, рекомендуется устанавливать последние исправления и обновления системы.
+
+Контейнеры Windows Server не заблокирован, если номера редакции узла контейнера и образа контейнера отличаются. Например если узел контейнера — версия: 10.0.14393.1914.* (Windows Server 2016 с исправлением KB4051033) и образа контейнера — версия 10.0.14393.1944.* (Windows Server 2016 с исправлением KB4053579), изображение будет по-прежнему запустите даже если номер версии числа не совпадают.
+
+Для узлов под управлением Windows Server 2016 или изображений редакция образа контейнера должна соответствовать узлу с поддерживаемой конфигурацией. Тем не менее для узлов или изображения с помощью Windows Server версии 1709 и более поздней версии, это правило не применяется и образов узла контейнера не обязаны совпадать. Мы рекомендуем оставить устанавливать последние исправления и обновления системы.
+
 #### <a name="practical-application"></a>Практическое применение
-Пример 1. Узел контейнера работает под управлением Windows Server 2016 с исправлением KB4041691.  Все контейнеры Windows Server, развернутые на этом узле, должны быть основаны на образах контейнера 10.0.14393.1770.  Если обновление KB4053579 применено к узлу, образы контейнеры необходимо обновить одновременно для сохранения поддержки.
-Пример 2. Узел контейнера работает под управлением Windows Server версии 1709 с исправлением KB4043961.  Все контейнеры Windows Server, развернутые на этом узле, должны быть основано на базовом образе контейнера Windows Server версии 1709 (10.0.16299) , но не обязаны соответствовать KB узла.  Если к узлу применено обновление KB4054517, образы контейнеров необязательно обновлять, хотя это рекомендуется для обеспечения безопасности.
+
+Пример 1: Узел контейнера работает под управлением Windows Server 2016 с исправлением KB4041691. Все контейнеры Windows Server, развернутые на этом узле должны быть основаны на базовых образах версии 10.0.14393.1770. Если вы применяете KB4053579 для контейнера узла, необходимо также обновить изображения, чтобы убедиться, что узел контейнера поддерживает их.
+
+Пример 2: Узел контейнера работает под управлением Windows Server версии 1709 с исправлением kb4043961. Все контейнеры Windows Server, развернутые на этом узле, должны быть основаны на Windows Server версии 1709 (10.0.16299) базовый образ контейнера, но не должны соответствовать KB узла. Если KB4054517 применяется к узлу, образы контейнеров по-прежнему будет поддерживаться, но мы рекомендуем обновить их для устранить все потенциальные проблемы безопасности.
+
 #### <a name="querying-version"></a>Запрос версии
-Метод 1. В версии 1709 появились командная строка и команда `ver` для получения сведений о версиях.
-```
+
+Метод 1: Появились в версии 1709, появились Командная строка и **ver** команда теперь возвращают сведений о версиях.
+
+```batch
 Microsoft Windows [Version 10.0.16299.125]
 (c) 2017 Microsoft Corporation. All rights reserved.
 
 C:\>ver
 
-Microsoft Windows [Version 10.0.16299.125] 
+Microsoft Windows [Version 10.0.16299.125]
 ```
-Метод 2. Запросите следующий раздел реестра: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion. Например:
-```
+
+Метод 2: Запросите следующий раздел реестра: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion
+
+Пример.
+
+```batch
 C:\>reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion" /v BuildLabEx
 ```
-или
-```
+
+```batch
 Windows PowerShell
 Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
@@ -114,78 +98,81 @@ PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows N
 14393.321.amd64fre.rs1_release_inmarket.161004-2338
 ```
 
-Чтобы узнать версию используемого базового образа, просмотрите теги в Центре Docker или хэш-таблицу образа в описании образа.  Информацию о датах выпусках всех сборок и редакций можно найти на странице [журнала обновлений Windows10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history).
+Проверить, какая версия использует ваше базового образа, просмотрите теги в центре Docker или хэш-таблицу образа в описании образа. На странице [Журнал обновлений Windows 10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) перечислены информацию о датах выпусках всех сборок и редакции.
 
 ### <a name="hyper-v-isolation-for-containers"></a>Изоляция Hyper-V для контейнеров
-Контейнеры Windows можно запускать изоляцией Hyper-V и без нее.  Изоляция Hyper-V создает границу безопасности вокруг контейнере с оптимизированной ВМ.  В отличие от стандартных контейнеров Windows, где для контейнеров и узла используется одно ядро, каждый изолированный контейнер Hyper-V использует собственный экземпляр ядра Windows.  Из-за этого в узле контейнера и образе могут быть разные версии ОС (см. матрицу совместимости ниже).  
+
+Контейнеры Windows можно запускать изоляцией Hyper-V и без нее. Изоляция Hyper-V создает границу безопасности вокруг контейнере с оптимизированной ВМ. В отличие от стандартных контейнеров Windows, которые используют контейнеров и узла каждый изолированный контейнер Hyper-V использует собственный экземпляр ядра Windows. Это означает, что могут быть разные версии операционной системы в узле контейнера и образа (Дополнительные сведения см. в разделе следующая Матрица совместимости).  
 
 Для запуска контейнера с изоляцией Hyper-V просто добавьте тег `--isolation=hyperv` в вашу команду docker run.
 
 ## <a name="errors-from-mismatched-versions"></a>Ошибки из-за несовпадения версий
 
-При попытке использования неподдерживаемого сочетания возникает ошибка:
+При попытке использования неподдерживаемого сочетания, вы получите следующую ошибку:
 
-```
+```dockerfile
 docker: Error response from daemon: container b81ed896222eb87906ccab1c3dd2fc49324eafa798438f7979b87b210906f839 encountered an error during CreateContainer: failure in a Windows system call: The operating system of the container does not match the operating system of the host. (0xc0370101) extra info: {"SystemType":"Container","Name":"b81ed896222eb87906ccab1c3dd2fc49324eafa798438f7979b87b210906f839","Owner":"docker","IsDummy":false,"VolumePath":"\\\\?\\Volume{2443d38a-1379-4bcf-a4b7-fc6ad4cd7b65}","IgnoreFlushesDuringBoot":true,"LayerFolderPath":"C:\\ProgramData\\docker\\windowsfilter\\b81ed896222eb87906ccab1c3dd2fc49324eafa798438f7979b87b210906f839","Layers":[{"ID":"1532b584-8431-5b5a-8735-5e1b4fe9c2a9","Path":"C:\\ProgramData\\docker\\windowsfilter\\b2b88bc2a47abcc682e422507abbba9c9b6d826d34e67b9e4e3144cc125a1f80"},{"ID":"a64b8da5-cd6e-5540-bc73-d81acae6da54","Path":"C:\\ProgramData\\docker\\windowsfilter\\5caaedbced1f546bccd01c9d31ea6eea4d30701ebba7b95ee8faa8c098a6845a"}],"HostName":"b81ed896222e","MappedDirectories":[],"HvPartition":false,"EndpointList":["002a0d9e-13b7-42c0-89b2-c1e80d9af243"],"Servicing":false,"AllowUnqualifiedDNSQuery":true}.
 ```
 
-Эту ситуацию можно разрешить следующими способами.
+Вы можете устранить эту ошибку тремя способами:
 
-- Заново создайте контейнер в зависимости от версии `microsoft/nanoserver` или `microsoft/windowsservercore`
-- Если узел более новой версии, используйте `docker run --isolation=hyperv ...`
-- Запустите контейнер на другом узле с такой же версией Windows
+- Заново создайте контейнер в зависимости от правильная версия `microsoft/nanoserver` или `microsoft/windowsservercore`
+- Если узел более новой версии, запустите **"run" docker--изоляции = … hyperv**
+- Попробуйте запустить контейнер на другом узле с такой же версией Windows
 
-## <a name="choosing-container-os-versions"></a>Выбор версии ОС контейнера
+## <a name="choose-which-container-os-version-to-use"></a>Выбор версии ОС контейнера
 
-> Примечание. Тег "latest" будет обновлен вместе с Windows Server 2016, текущим [продуктом LTSC ](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview). Если вам необходимы образы контейнеров, которые соответствуют версии 1709 Windows Server, см. ниже.
+>[!NOTE]
+>Тег» Latest "будет обновляться вместе с Windows Server 2016, текущим [Long-Term Servicing Channel продукта](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview). Приведенные ниже инструкции предназначены для образов контейнеров, которые соответствуют Windows Server версии 1709.
 
-Важно убедиться, что вы знаете, какая версия ОС контейнера вам потребуется для ваших целей. Если вы используете Windows Server версии 1709 и хотите получить последние исправления для нее, используйте тег "1709", когда будете указывать базовую версию ОС образов контейнера. Например:
+Необходимо знать, какая версия, необходимо использовать для контейнера. Например, если вы используете Windows Server версии 1709 и хотите получить последние исправления для нее, следует использовать тег `1709` после указания, какую версию образов требуется, следующим образом:
 
-``` Dockerfile
+``` dockerfile
 FROM microsoft/windowsservercore:1709
 ...
 ```
 
-Тем не менее, если вам требуется определенное исправление Windows Server версии 1709, вы можете указать номер статьи базы знаний в теге. Например, если вам требуется базовый образ контейнера с ОС Nano Server ОС из Windows Server версии 1709 с примененным исправлением KB4043961, укажите следующие данные:
+Тем не менее если вам требуется определенное исправление Windows Server версии 1709, можно указать номер статьи базы Знаний в теге. Например, чтобы получить базовый образ контейнера ОС Nano Server из Windows Server версии 1709 с KB4043961, примененным к ней, необходимо задать его следующим образом:
 
-``` Dockerfile
+``` dockerfile
 FROM microsoft/nanoserver:1709_KB4043961
 ...
 ```
 
-Если же вам требуется базовый образ контейнера ОС Nano Server из Windows Server 2016, вы по-прежнему можете получить последнюю версию этих образов, используя тег "latest":
+Если вам требуется базовый образ Nano Server ОС контейнера Windows Server 2016, можно получить последнюю версию этих образов, используя тег» Latest ":
 
-``` Dockerfile
+``` dockerfile
 FROM microsoft/nanoserver
 ...
 ```
-Вы также можете напрямую указывать требуемые исправления в схеме, которую мы использовали ранее, задавая версию ОС в теге:
 
-``` Dockerfile
+Вы также можете указать точные исправления, необходимые в схеме, которую мы использовали ранее, задавая версию ОС в теге:
+
+``` dockerfile
 FROM microsoft/nanoserver:10.0.14393.1770
 ...
 ```
 
 ## <a name="matching-versions-using-docker-swarm"></a>Сопоставление версий с помощью Docker Swarm
 
-В настоящее время в Docker Swarm не предусмотрен встроенный способ сопоставления версии Windows контейнера с узлом, в котором используется та же версия ОС. Если служба обновляется для использования нового контейнера, она будет успешно запущена.
+Мелких объектов docker в настоящее время не имеет встроенный способ сопоставления версии Windows контейнера используется на узел с той же версии. Если вы обновите службу для использования нового контейнера, она будет успешно запущена.
 
-Если вам необходимо выполнять несколько версий Windows в течение некоторого времени, можно использовать два подхода.  Настройте узлы Windows таким образом, чтобы они всегда использовали изоляцию Hyper-V или ограничения меток.
+Если вам необходимо выполнять несколько версий Windows на продолжительный период времени, существует два подхода можно предпринять: либо настроить узлы Windows всегда использовали изоляцию Hyper-V или ограничения меток.
 
 ### <a name="finding-a-service-that-wont-start"></a>Поиск службы, которая не запускается
 
-Если служба не запускается, элемент `MODE` будет указан как `replicated`, но значение `REPLICAS` будет равно 0. Чтобы проверить, вызвана ли проблема версией ОС, выполните следующие команды:
+Если служба не запускается, вы увидите, что `MODE` — `replicated` , но `REPLICAS` будет равно 0. Чтобы узнать, ли проблема версией ОС, выполните следующие команды:
 
- `docker service ls` — поиск имени службы
+Запустите **ls службы docker** , чтобы найти имя службы:
 
-```
+```dockerfile
 ID                  NAME                MODE                REPLICAS            IMAGE                                             PORTS
 xh6mwbdq2uil        angry_liskov        replicated          0/1                 microsoft/iis:windowsservercore-10.0.14393.1715
 ```
 
-`docker service ps <name>` — получение состояния и последних попыток.
+Запустите **службу docker ps (имя)** для получения состояния и последних попыток:
 
-```
+```dockerfile
 C:\Program Files\Docker>docker service ps angry_liskov
 ID                  NAME                 IMAGE                                             NODE                DESIRED STATE       CURRENT STATE               ERROR                              PORTS
 klkbhn742lv0        angry_liskov.1       microsoft/iis:windowsservercore-10.0.14393.1715   WIN-BSTMQDRQC2E     Ready               Ready 3 seconds ago
@@ -196,24 +183,22 @@ ytnnv80p03xx         \_ angry_liskov.1   microsoft/iis:windowsservercore-10.0.14
 xeqkxbsao57w         \_ angry_liskov.1   microsoft/iis:windowsservercore-10.0.14393.1715   WIN-BSTMQDRQC2E     Shutdown            Failed about a minute ago   "starting container failed: co…"
 ```
 
-Если вы видите сообщение "Ошибка запуска контейнера: ...", для просмотра полного описания ошибки выполните команду `docker service ps --no-trunc <container name>`
+Если вы видите `starting container failed: ...`, вы видите полного описания ошибки с **docker ps службы — нет ОТБР (имя контейнера)**:
 
-
-```
+```dockerfile
 C:\Program Files\Docker>docker service ps --no-trunc angry_liskov
 ID                          NAME                 IMAGE                                                                                                                     NODE                DESIRED STATE       CURRENT STATE                     ERROR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          PORTS
 dwsd6sjlwsgic5vrglhtxu178   angry_liskov.1       microsoft/iis:windowsservercore-10.0.14393.1715@sha256:868bca7e89e1743792e15f78edb5a73070ef44eae6807dc3f05f9b94c23943d5   WIN-BSTMQDRQC2E     Running             Starting less than a second ago                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 y5blbdum70zoh1f6uhx5nxsfv    \_ angry_liskov.1   microsoft/iis:windowsservercore-10.0.14393.1715@sha256:868bca7e89e1743792e15f78edb5a73070ef44eae6807dc3f05f9b94c23943d5   WIN-BSTMQDRQC2E     Shutdown            Failed 39 seconds ago             "starting container failed: container e7b5d3adba7e510569c18d8e55f7c689d7cb92be40a516c91b363e27f84604d0 encountered an error during CreateContainer: failure in a Windows system call: The operating system of the container does not match the operating system of the host. (0xc0370101) extra info: {"SystemType":"Container","Name":"e7b5d3adba7e510569c18d8e55f7c689d7cb92be40a516c91b363e27f84604d0","Owner":"docker","VolumePath":"\\\\?\\Volume{2443d38a-1379-4bcf-a4b7-fc6ad4cd7b65}","IgnoreFlushesDuringBoot":true,"LayerFolderPath":"C:\\ProgramData\\docker\\windowsfilter\\e7b5d3adba7e510569c18d8e55f7c689d7cb92be40a516c91b363e27f84604d0","Layers":[{"ID":"bcf2630f-ea95-529b-b33c-e5cdab0afdb4","Path":"C:\\ProgramData\\docker\\windowsfilter\\200235127f92416724ae1d53ed3fdc86d78767132d019bdda1e1192ee4cf3ae4"},{"ID":"e3ea10a8-4c2f-5b93-b2aa-720982f116f6","Path":"C:\\ProgramData\\docker\\windowsfilter\\0ccc9fa71a9f4c5f6f3bc8134fe3533e454e09f453de662cf99ab5d2106abbdc"},{"ID":"cff5391f-e481-593c-aff7-12e080c653ab","Path":"C:\\ProgramData\\docker\\windowsfilter\\a49576b24cd6ec4a26202871c36c0a2083d507394a3072186133131a72601a31"},{"ID":"499cb51e-b891-549a-b1f4-8a25a4665fbd","Path":"C:\\ProgramData\\docker\\windowsfilter\\fdf2f52c4323c62f7ff9b031c0bc3af42cf5fba91098d51089d039fb3e834c08"},{"ID":"1532b584-8431-5b5a-8735-5e1b4fe9c2a9","Path":"C:\\ProgramData\\docker\\windowsfilter\\b2b88bc2a47abcc682e422507abbba9c9b6d826d34e67b9e4e3144cc125a1f80"},{"ID":"a64b8da5-cd6e-5540-bc73-d81acae6da54","Path":"C:\\ProgramData\\docker\\windowsfilter\\5caaedbced1f546bccd01c9d31ea6eea4d30701ebba7b95ee8faa8c098a6845a"}],"HostName":"e7b5d3adba7e","HvPartition":false,"EndpointList":["298bb656-8800-4948-a41c-1b0500f3d94c"],"AllowUnqualifiedDNSQuery":true}"
 ```
 
-Где показана та же ошибка `CreateContainer: failure in a Windows system call: The operating system of the container does not match the operating system of the host. (0xc0370101)`
-
+Это та же ошибка как `CreateContainer: failure in a Windows system call: The operating system of the container does not match the operating system of the host. (0xc0370101)`.
 
 ### <a name="fix---update-the-service-to-use-a-matching-version"></a>Исправление: обновите службу, чтобы использовать соответствующую версию
 
-При работе с Docker Swarm следует учитывать два момента. Если у вас есть файл Compose, содержащий службу, которая использует образ, созданный не вами, необходимо изменить ссылки соответствующим образом. См. ниже:
+При работе с Docker Swarm следует учитывать два момента. В случае, когда у вас есть файл compose, содержащий службу, которая использует образ, который не был создан необходимо изменить ссылки соответствующим образом. Пример.
 
-``` docker-compose
+``` yaml
 version: '3'
 
 services:
@@ -222,8 +207,9 @@ services:
 ...
 ```
 
-Вторая ситуация— образ, на который вы ссылаетесь, создан вами (например, contoso/myimage):
-``` docker-compose
+Вторая Если вы изображения — это уведомление, вы ссылаетесь, создан (например, contoso/myimage):
+
+```yaml
 version: '3'
 
 services:
@@ -231,94 +217,99 @@ services:
     image: contoso/myimage
 ...
 ```
-В этом случае вы можете использовать метод, описанный в предыдущем разделе, для изменения этого файла dockerfile вместо строки docker-compose.
+
+В этом случае следует использовать метод, описанный в [ошибки из-за несовпадения версий](#errors-from-mismatched-versions) для изменения этого файла dockerfile вместо строки docker-compose.
 
 ### <a name="mitigation---use-hyper-v-isolation-with-docker-swarm"></a>Решение: использование изоляции Hyper-V с Docker Swarm
 
-Существует предложение для поддержки использования изоляции Hyper-V на основе контейнера, но код еще не готов. Ход разработки можно отслеживать на портале [GitHub](https://github.com/moby/moby/issues/31616). До завершения работы узлы необходимо настроить так, чтобы они всегда выполнялись с изоляцией Hyper-V.
+Существует предложение для поддержки использования изоляции Hyper-V на основе каждого контейнера, но еще не готов, код. Ход разработки можно отслеживать на портале [GitHub](https://github.com/moby/moby/issues/31616). До завершения работы узлы необходимо настроить так, чтобы они всегда выполнялись с изоляцией Hyper-V.
 
 Для этого необходимо изменить конфигурацию службы Docker, а затем перезапустить модуль Docker.
 
 1. Измените `C:\ProgramData\docker\config\daemon.json`
 2. Добавьте строку с `"exec-opts":["isolation=hyperv"]`
 
-Примечание. Файл daemon.json по умолчанию не существует. Если вы столкнулись с такой ситуацией при изучении каталога, вам необходимо создать файл. Затем скопируйте в него следующее содержимое:
+    >[!NOTE]
+    >Файл daemon.json по умолчанию не существует. Если вы столкнулись с такой ситуацией при изучении каталога, вам необходимо создать файл. Затем необходимо скопировать в следующем примере:
 
-```JSON
-{
-    "exec-opts":["isolation=hyperv"]
-}
-```
-Сохраните и закройте файл. Затем перезапустите модуль Docker:
+    ```JSON
+    {
+        "exec-opts":["isolation=hyperv"]
+    }
+    ```
 
-```PowerShell
-Stop-Service docker
-Start-Service docker
-```
+3. Закройте и сохраните файл, а затем перезапустите модуль docker, выполнив указанные ниже командлеты в PowerShell:
 
-После перезапуска службы запустите контейнеры. Затем вы можете проверить уровень изоляции контейнера, изучив его:
+    ```powershell
+    Stop-Service docker
+    Start-Service docker
+    ```
 
-```PowerShell
-docker inspect --format='{{json .HostConfig.Isolation}}' $instanceNameOrId
-```
+4. После того, как перезапуска службы запустите контейнеры. Они используют, вы можете проверить уровень изоляции контейнера, изучив его с помощью следующего командлета:
+
+    ```powershell
+    docker inspect --format='{{json .HostConfig.Isolation}}' $instanceNameOrId
+    ```
 
 Функция вернет значение "process" или "hyperv". Если вы изменили файл daemon.json, как описано выше, вы должны получить последнее значение ("hyperv").
 
 ### <a name="mitigation---use-labels-and-constraints"></a>Решение: использование меток и ограничений
 
-**Шаг 1. Добавление метки для каждого узла**
+Вот как использовать меток и ограничений в соответствии с версиями.
 
-На каждом узле добавьте две метки: `OS` и `OsVersion`. Предполагается, что контейнеры выполняются локально, но их также можно настроить для использования удаленного узла.
+1. Добавление метки для каждого узла.
 
-```powershell
-docker node update --label-add OS="windows" $ENV:COMPUTERNAME
-docker node update --label-add OsVersion="$((Get-ComputerInfo).OsVersion)" $ENV:COMPUTERNAME
-```
+    На каждом узле добавьте две метки: `OS` и `OsVersion`. Предполагается, что контейнеры выполняются локально, но их также можно настроить для использования удаленного узла.
 
-Затем вы сможете использовать `docker node inspect`, чтобы просмотреть добавленные новые метки
+    ```powershell
+    docker node update --label-add OS="windows" $ENV:COMPUTERNAME
+    docker node update --label-add OsVersion="$((Get-ComputerInfo).OsVersion)" $ENV:COMPUTERNAME
+    ```
 
-```
-        "Spec": {
-            "Labels": {
-                "OS": "windows",
-                "OsVersion": "10.0.16296"
-            },
-            "Role": "manager",
-            "Availability": "active"
-        }
-```
+    После этого вы сможете использовать, выполнив команду **Проверить узел docker** , что следует отображать только что добавленный метки:
 
-**Шаг 2. Добавление ограничения службы**
+    ```yaml
+           "Spec": {
+                "Labels": {
+                   "OS": "windows",
+                   "OsVersion": "10.0.16296"
+               },
+                "Role": "manager",
+                "Availability": "active"
+            }
+    ```
 
-После добавления метки для каждого узла мы можем обновить ограничения, которые определяют размещение служб. В примере ниже замените "contoso_service" на имя вашей службы:
+2. Добавление ограничения службы.
 
-```
-docker service update \
-    --constraint-add "node.labels.OS == windows" \
-    --constraint-add "node.labels.OsVersion == $((Get-ComputerInfo).OsVersion)" \
-    contoso_service
-```
+    Теперь, когда помеченные каждого узла, вы можете обновить ограничения, которые определяют размещение служб. В следующем примере замените «contoso_service» на имя вашей службы:
 
-После этого будут применены ограничения для запуска узла.
+    ```powershell
+    docker service update \
+        --constraint-add "node.labels.OS == windows" \
+        --constraint-add "node.labels.OsVersion == $((Get-ComputerInfo).OsVersion)" \
+        contoso_service
+    ```
 
-Дополнительные сведения об использовании ограничений службы см. в [справочнике по команде service create](https://docs.docker.com/engine/reference/commandline/service_create/#specify-service-constraints-constraint).
+    После этого будут применены ограничения для запуска узла.
 
+Дополнительные сведения об использовании ограничений службы, ознакомьтесь с [Служба создать ссылку](https://docs.docker.com/engine/reference/commandline/service_create/#specify-service-constraints-constraint).
 
 ## <a name="matching-versions-using-kubernetes"></a>Сопоставление версий с помощью Kubernetes
 
-Та же проблема может возникнуть, если модули pod запланированы для выполнения в Kubernetes. Этого можно избежать помощью аналогичных методов.
+Та же проблема, описанные в [соответствующие версий с помощью режима мелких объектов Docker](#matching-versions-using-docker-swarm) может произойти, если модули POD запланированы для выполнения в Kubernetes. Эту проблему можно избежать с помощью аналогичных методов.
 
-- Выполните построение контейнера на основе той же версии ОС в среде разработки и производственной среде (см. раздел **Выбор версий ОС контейнера** выше).
-- Используйте метки узла и NodeSelector, чтобы назначить модули pod совместимым узлам, если узлы Windows Server 2016 и Windows Server 1709 версии находятся в одном кластере.
+- Заново создайте контейнер в зависимости от той же версии операционной системы в разработки и производственной среде. Чтобы узнать, как, см. в разделе [Выбор какие версии ОС контейнера](#choose-which-container-os-version-to-use).
+- Используйте метки узла и nodeSelectors убедитесь, что модули POD запланированы совместимым узлам, если узлы Windows Server 2016 и Windows Server 1709 версии находятся в одном кластере
 - Используйте отдельные кластеры с разными версиями ОС.
-
 
 ### <a name="finding-pods-failed-on-os-mismatch"></a>Ошибка поиска модулей pod при несоответствии версий ОС
 
-В этом случае развертывание содержит модуль pod, который был назначен узлу с несовпадающей версией ОС и без изоляции Hyper-V. Та же ошибка отображается в событиях, которые возвращает команда `kubectl describe pod <podname>`. После нескольких попыток модуль pod, вероятно, будет в состоянии `CrashLoopBackOff`
+В этом случае развертывание включены pod, который был назначен узлу с несовпадающей версией ОС и без изоляции Hyper-V.
+
+Та же ошибка отображается в событиях, которые возвращает команда `kubectl describe pod <podname>`. После нескольких попыток pod, вероятно, будет в состоянии `CrashLoopBackOff`.
 
 ```
-$ kubectl -n plang describe po fabrikamfiber.web-789699744-rqv6p
+$ kubectl -n plang describe pod fabrikamfiber.web-789699744-rqv6p
 
 Name:           fabrikamfiber.web-789699744-rqv6p
 Namespace:      plang
@@ -377,12 +368,11 @@ Events:
   32m           11s             139     kubelet, 38519acs9011   spec.containers{fabrikamfiberweb}       Warning         BackOff                 Back-off restarting failed container
 ```
 
+### <a name="mitigation---using-node-labels-and-nodeselector"></a>Решение: использование меток узлов и nodeSelector
 
-### <a name="mitigation---using-node-labels--nodeselector"></a>Решение: использование меток узлов и NodeSelector
+Запустите **kubectl получить узел** для получения списка всех узлов. После этого можно запустить **kubectl описания узла (имя узла)** для получения дополнительных сведений.
 
-`kubectl get node` возвращает список всех узлов, после чего можно использовать `kubectl describe node <nodename>` для получения дополнительных сведений. 
-
-В этом случае существует два узла Windows под управлением различных версий:
+В следующем примере два узла Windows работают с различными версиями:
 
 ```
 $ kubectl get node
@@ -448,132 +438,135 @@ System Info:
 
 ```
 
+Мы будем использовать этот пример для отображения как в соответствии с версии:
 
-1. Запомните имя каждого узла и `Kernel Version` из сведений о системе:
+1. Запишите имя каждого узла и `Kernel Version` из сведений о системе.
 
-Имя         | Версия
--------------|--------------------------------------------------------
-38519acs9010 | 14393.1715.amd64fre.rs1_release_inmarket.170906-1810
-38519acs9011 | 16299.0.amd64fre.rs3_release.170922-1354
+    В нашем примере информация будет выглядеть следующим образом:
+
+    Имя         | Версия
+    -------------|--------------------------------------------------------
+    38519acs9010 | 14393.1715.amd64fre.rs1_release_inmarket.170906-1810
+    38519acs9011 | 16299.0.amd64fre.rs3_release.170922-1354
+
+2. Добавьте метку `beta.kubernetes.io/osbuild` для каждого узла. Windows Server 2016 требуется поддержка без изоляции Hyper-V основной и дополнительный номер версии (14393.1715 в этом примере). Windows Server версии 1709 нужно только основной версии (16299 в этом примере) совпадают.
+
+    В этом примере команда для добавления подписи выглядит следующим образом:
+
+    ```
+    $ kubectl label node 38519acs9010 beta.kubernetes.io/osbuild=14393.1715
 
 
+    node "38519acs9010" labeled
+    $ kubectl label node 38519acs9011 beta.kubernetes.io/osbuild=16299
 
-2. Добавьте метку `beta.kubernetes.io/osbuild` для каждого узла. Для Windows Server 2016 требуется поддержка основной и дополнительной версии (14393.1715) без изоляции Hyper-V. Для Windows Server версии 1709 требуется соответствие только основной версии (16299).
+    node "38519acs9011" labeled
 
-Из примера выше:
+    ```
 
-```
-$ kubectl label node 38519acs9010 beta.kubernetes.io/osbuild=14393.1715
+3. Проверьте существовании меток, выполнив **kubectl получить узлы--Показывать подписи**.
 
+    В этом примере выходных данных будет выглядеть следующим образом:
 
-node "38519acs9010" labeled
-$ kubectl label node 38519acs9011 beta.kubernetes.io/osbuild=16299
+    ```
+    $ kubectl get nodes --show-labels
 
-node "38519acs9011" labeled
+    NAME                        STATUS                     AGE       VERSION                    LABELS
+    38519acs9010                Ready,SchedulingDisabled   3d        v1.7.7-7+e79c96c8ff2d8e    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_D2_v2,beta.kubernetes.io/os=windows,beta.kubernetes.io/osbuild=14393.1715,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=38519acs9010
+    38519acs9011                Ready                      3d        v1.7.7-25+bc3094f1d650a2   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=windows,beta.kubernetes.io/osbuild=16299,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=38519acs9011
+    k8s-linuxpool1-38519084-0   Ready                      3d        v1.7.7                     agentpool=linuxpool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_D2_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=k8s-linuxpool1-38519084-0,kubernetes.io/role=agent
+    k8s-master-38519084-0       Ready                      3d        v1.7.7                     beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_D2_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=k8s-master-38519084-0,kubernetes.io/role=master
+    ```
 
-```
+4. Добавьте селекторы узла в развертывания. В этом примере мы добавим `nodeSelector` в спецификации контейнера с `beta.kubernetes.io/os` = windows и `beta.kubernetes.io/osbuild` = 14393.* или 16299 в соответствии с базовой ОС, используемой контейнером.
 
-3. Убедитесь в существовании меток с помощью `kubectl get nodes --show-labels`
+    Ниже приведен полный пример для запуска контейнера, созданного для Windows Server 2016:
 
-```
-$ kubectl get nodes --show-labels
-
-NAME                        STATUS                     AGE       VERSION                    LABELS
-38519acs9010                Ready,SchedulingDisabled   3d        v1.7.7-7+e79c96c8ff2d8e    beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_D2_v2,beta.kubernetes.io/os=windows,beta.kubernetes.io/osbuild=14393.1715,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=38519acs9010
-38519acs9011                Ready                      3d        v1.7.7-25+bc3094f1d650a2   beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_DS1_v2,beta.kubernetes.io/os=windows,beta.kubernetes.io/osbuild=16299,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=38519acs9011
-k8s-linuxpool1-38519084-0   Ready                      3d        v1.7.7                     agentpool=linuxpool1,beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_D2_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=k8s-linuxpool1-38519084-0,kubernetes.io/role=agent
-k8s-master-38519084-0       Ready                      3d        v1.7.7                     beta.kubernetes.io/arch=amd64,beta.kubernetes.io/instance-type=Standard_D2_v2,beta.kubernetes.io/os=linux,failure-domain.beta.kubernetes.io/region=westus2,failure-domain.beta.kubernetes.io/zone=0,kubernetes.io/hostname=k8s-master-38519084-0,kubernetes.io/role=master
-```
-
-4. Добавьте селекторы узла в развертывания
-
-Добавьте `nodeSelector` в спецификации контейнера, используя `beta.kubernetes.io/os` = windows и `beta.kubernetes.io/osbuild` = 14393.* или 16299 в соответствии с базовой ОС, используемой контейнером.
-
-Ниже приведен полный пример для запуска контейнера, созданного для Windows Server 2016:
-
-```yaml
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose-combined.yml
-    kompose.version: 1.2.0 (99f88ef)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: fabrikamfiber.web
-  name: fabrikamfiber.web
-spec:
-  replicas: 1
-  strategy: {}
-  template:
+    ```yaml
+    apiVersion: extensions/v1beta1
+    kind: Deployment
     metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose-combined.yml
+        kompose.version: 1.2.0 (99f88ef)
       creationTimestamp: null
       labels:
         io.kompose.service: fabrikamfiber.web
+      name: fabrikamfiber.web
     spec:
-      containers:
-      - image: patricklang/fabrikamfiber.web:latest
-        name: fabrikamfiberweb
-        ports:
-        - containerPort: 80
-        resources: {}
-      restartPolicy: Always
-      nodeSelector:
-        "beta.kubernetes.io/os": windows
-        "beta.kubernetes.io/osbuild": "14393.1715"
-status: {}
-```
+      replicas: 1
+      strategy: {}
+      template:
+        metadata:
+          creationTimestamp: null
+          labels:
+            io.kompose.service: fabrikamfiber.web
+        spec:
+          containers:
+          - image: patricklang/fabrikamfiber.web:latest
+            name: fabrikamfiberweb
+            ports:
+            - containerPort: 80
+            resources: {}
+          restartPolicy: Always
+          nodeSelector:
+            "beta.kubernetes.io/os": windows
+            "beta.kubernetes.io/osbuild": "14393.1715"
+    status: {}
+    ```
 
-Теперь можно запустить модуль pod в обновленном развертывании. Селекторы узла также отображаются в `kubectl describe pod <podname>`, что позволяет проверить их добавление.
+    Теперь можно запустить модуль pod в обновленном развертывании. Селекторы узла также отображаются в `kubectl describe pod <podname>`, поэтому можно запустить эту команду, чтобы проверить их добавление.
 
-```
-$ kubectl -n plang describe po fa
+    Выходные данные для нашего примера выглядит следующим образом:
 
-Name:           fabrikamfiber.web-1780117715-5c8vw
-Namespace:      plang
-Node:           38519acs9010/10.240.0.4
-Start Time:     Tue, 10 Oct 2017 01:43:28 +0000
-Labels:         io.kompose.service=fabrikamfiber.web
-                pod-template-hash=1780117715
-Annotations:    kubernetes.io/created-by={"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"plang","name":"fabrikamfiber.web-1780117715","uid":"6a07aaf3-ad5c-11e7-b16e-000d3...
-Status:         Running
-IP:             10.244.1.84
-Created By:     ReplicaSet/fabrikamfiber.web-1780117715
-Controlled By:  ReplicaSet/fabrikamfiber.web-1780117715
-Containers:
-  fabrikamfiberweb:
-    Container ID:       docker://c94594fb53161f3821cf050d9af7546991aaafbeab41d333d9f64291327fae13
-    Image:              patricklang/fabrikamfiber.web:latest
-    Image ID:           docker-pullable://patricklang/fabrikamfiber.web@sha256:562741016ce7d9a232a389449a4fd0a0a55aab178cf324144404812887250ead
-    Port:               80/TCP
-    State:              Running
-      Started:          Tue, 10 Oct 2017 01:43:42 +0000
-    Ready:              True
-    Restart Count:      0
-    Environment:        <none>
-    Mounts:
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-rw9dn (ro)
-Conditions:
-  Type          Status
-  Initialized   True
-  Ready         True
-  PodScheduled  True
-Volumes:
-  default-token-rw9dn:
-    Type:       Secret (a volume populated by a Secret)
-    SecretName: default-token-rw9dn
-    Optional:   false
-QoS Class:      BestEffort
-Node-Selectors: beta.kubernetes.io/os=windows
-                beta.kubernetes.io/osbuild=14393.1715
-Tolerations:    <none>
-Events:
-  FirstSeen     LastSeen        Count   From                    SubObjectPath                           Type            Reason                  Message
-  ---------     --------        -----   ----                    -------------                           --------        ------                  -------
-  5m            5m              1       default-scheduler                                               Normal          Scheduled               Successfully assigned fabrikamfiber.web-1780117715-5c8vw to 38519acs9010
-  5m            5m              1       kubelet, 38519acs9010                                           Normal          SuccessfulMountVolume   MountVolume.SetUp succeeded for volume "default-token-rw9dn"
-  5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Pulling                 pulling image "patricklang/fabrikamfiber.web:latest"
-  5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Pulled                  Successfully pulled image "patricklang/fabrikamfiber.web:latest"
-  5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Created                 Created container
-  5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Started                 Started container
-```
+    ```
+    $ kubectl -n plang describe po fa
+
+    Name:           fabrikamfiber.web-1780117715-5c8vw
+    Namespace:      plang
+    Node:           38519acs9010/10.240.0.4
+    Start Time:     Tue, 10 Oct 2017 01:43:28 +0000
+    Labels:         io.kompose.service=fabrikamfiber.web
+                    pod-template-hash=1780117715
+    Annotations:    kubernetes.io/created-by={"kind":"SerializedReference","apiVersion":"v1","reference":{"kind":"ReplicaSet","namespace":"plang","name":"fabrikamfiber.web-1780117715","uid":"6a07aaf3-ad5c-11e7-b16e-000d3...
+    Status:         Running
+    IP:             10.244.1.84
+    Created By:     ReplicaSet/fabrikamfiber.web-1780117715
+    Controlled By:  ReplicaSet/fabrikamfiber.web-1780117715
+    Containers:
+      fabrikamfiberweb:
+        Container ID:       docker://c94594fb53161f3821cf050d9af7546991aaafbeab41d333d9f64291327fae13
+        Image:              patricklang/fabrikamfiber.web:latest
+        Image ID:           docker-pullable://patricklang/fabrikamfiber.web@sha256:562741016ce7d9a232a389449a4fd0a0a55aab178cf324144404812887250ead
+        Port:               80/TCP
+        State:              Running
+          Started:          Tue, 10 Oct 2017 01:43:42 +0000
+        Ready:              True
+        Restart Count:      0
+        Environment:        <none>
+        Mounts:
+          /var/run/secrets/kubernetes.io/serviceaccount from default-token-rw9dn (ro)
+    Conditions:
+      Type          Status
+      Initialized   True
+      Ready         True
+      PodScheduled  True
+    Volumes:
+      default-token-rw9dn:
+        Type:       Secret (a volume populated by a Secret)
+        SecretName: default-token-rw9dn
+        Optional:   false
+    QoS Class:      BestEffort
+    Node-Selectors: beta.kubernetes.io/os=windows
+                    beta.kubernetes.io/osbuild=14393.1715
+    Tolerations:    <none>
+    Events:
+      FirstSeen     LastSeen        Count   From                    SubObjectPath                           Type            Reason                  Message
+      ---------     --------        -----   ----                    -------------                           --------        ------                  -------
+      5m            5m              1       default-scheduler                                               Normal          Scheduled               Successfully assigned fabrikamfiber.web-1780117715-5c8vw to 38519acs9010
+      5m            5m              1       kubelet, 38519acs9010                                           Normal          SuccessfulMountVolume   MountVolume.SetUp succeeded for volume "default-token-rw9dn"
+      5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Pulling                 pulling image "patricklang/fabrikamfiber.web:latest"
+      5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Pulled                  Successfully pulled image "patricklang/fabrikamfiber.web:latest"
+      5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Created                 Created container
+      5m            5m              1       kubelet, 38519acs9010   spec.containers{fabrikamfiberweb}       Normal          Started                 Started container
+    ```
