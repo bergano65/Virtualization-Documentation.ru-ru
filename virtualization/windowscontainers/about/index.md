@@ -1,15 +1,20 @@
 ---
 title: О контейнерах Windows
 description: Дополнительные сведения о контейнерах Windows.
-keywords: 'docker, контейнеры'
+keywords: docker, контейнеры
 author: taylorb-microsoft
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
+ms.openlocfilehash: bf503971ee8b4c0bbe6b9812b2f4965560ff466c
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.translationtype: MT
+ms.contentlocale: ru-RU
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620862"
 ---
-
 # <a name="containers-on-windows"></a>Контейнеры в Windows
 
 ## <a name="what-are-containers"></a>Что такое контейнеры
@@ -51,7 +56,7 @@ ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
 
 Всем, кто работал с виртуальными машинами, контейнеры могут показаться чем-то знакомым. Контейнер работает под управлением операционной системы и содержит файловую систему, к нему можно получить сетевой доступ, чем напоминает физический или виртуальный компьютер. При этом у контейнеров и виртуальных машин совершенно разные технология и принцип работы.
 
-Марк Руссинович (Mark Russinovich), гуру Microsoft Azure, написал [прекрасную статью в блоге](https://azure.microsoft.com/en-us/blog/containers-docker-windows-and-trends/), в которой подробно описаны различия.
+Марк Руссинович (Mark Russinovich), гуру Microsoft Azure, написал [прекрасную статью в блоге](https://azure.microsoft.com/blog/containers-docker-windows-and-trends/), в которой подробно описаны различия.
 
 ## <a name="windows-container-types"></a>Типы контейнеров Windows
 

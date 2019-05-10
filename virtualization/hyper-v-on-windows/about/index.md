@@ -7,12 +7,12 @@ ms.date: 06/25/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: eb2b827c-4a6c-4327-9354-50d14fee7ed8
-ms.openlocfilehash: d71c5d2ae3c8ff78e36cc54686b10b1dc745e0c3
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 14e0f57ca0c952239847e493740048e14889e6d7
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576355"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620722"
 ---
 # <a name="introduction-to-hyper-v-on-windows-10"></a>Знакомство с Hyper-V в Windows 10
 
@@ -42,7 +42,7 @@ Hyper-V доступна в 64-разрядных версиях Windows 10 Pro,
 
 Hyper-V можно запустить на большинстве компьютеров, однако каждая виртуальная машина является отдельной операционной системой.  Как правило, на компьютере с 4ГБ ОЗУ можно запустить одну или несколько виртуальных машин, однако для запуска дополнительных виртуальных машин либо установки и запуска ресурсоемкого ПО, такого как игры, видеоредакторы или программы для технического проектирования, потребуются дополнительные ресурсы.
 
-Дополнительные сведения о требованиях Hyper-V к системе и о том, как проверить, будет ли Hyper-V работать на конкретном компьютере, см. в статье [Справочник по требования к системе для Hyper-V](..\reference\hyper-v-requirements.md).
+Дополнительные сведения о требованиях Hyper-V к системе и о том, как проверить, будет ли Hyper-V работать на конкретном компьютере, см. в статье [Справочник по требования к системе для Hyper-V](../reference/hyper-v-requirements.md).
 
 ## <a name="operating-systems-you-can-run-in-a-virtual-machine"></a>Операционные системы, которые можно запустить на виртуальной машине
 
@@ -50,7 +50,7 @@ Hyper-V в Windows поддерживает много операционных 
 
 Напоминаем, что необходимо иметь действующую лицензию на все операционные системы, используемые на виртуальной машине.
 
-Дополнительные сведения об операционных системах, которые поддерживаются как гостевые в Hyper-V в Windows, см. в статьях [Гостевые операционные системы, поддерживаемые в Windows](supported-guest-os.md) и [Гостевые операционные системы, поддерживаемые в Linux](https://technet.microsoft.com/library/dn531030.aspx).
+Дополнительные сведения об операционных системах, которые поддерживаются как гостевые в Hyper-V в Windows, см. в статьях [Гостевые операционные системы, поддерживаемые в Windows](supported-guest-os.md) и [Гостевые операционные системы, поддерживаемые в Linux](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows).
 
 ## <a name="differences-between-hyper-v-on-windows-and-hyper-v-on-windows-server"></a>Различия между Hyper-V в Windows и Windows Server
 
@@ -79,4 +79,4 @@ Hyper-V в Windows поддерживает много операционных 
 
 ## <a name="next-step"></a>Дальнейшие действия
 
-[Установка Hyper-V в Windows10](..\quick-start\enable-hyper-v.md)
+[Установка Hyper-V в Windows10](../quick-start/enable-hyper-v.md)

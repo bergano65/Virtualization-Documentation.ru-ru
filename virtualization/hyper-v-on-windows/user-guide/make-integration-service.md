@@ -7,12 +7,12 @@ ms.date: 04/07/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 1ef8f18c-3d76-4c06-87e4-11d8d4e31aea
-ms.openlocfilehash: 966ca3ff267e03e8c380391281c8dde723e4b1dd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f33f6deb977ff96da0b70a7e14bf4896af0307eb
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575334"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620652"
 ---
 # <a name="make-your-own-integration-services"></a>Создайте собственные службы интеграции
 
@@ -27,7 +27,7 @@ ms.locfileid: "9575334"
 **Поддерживаемые гостевые операционные системы**
 * Windows 10 и более поздние версии
 * Windows Server 2016 и более поздние версии
-* Гостевые ОС Linux со службами интеграции Linux Integration Services (см. статью [Поддерживаемые виртуальные машины Linux и FreeBSD для Hyper-V в Windows](https://technet.microsoft.com/library/dn531030.aspx))
+* Гостевые ОС Linux со службами интеграции Linux Integration Services (см. статью [Поддерживаемые виртуальные машины Linux и FreeBSD для Hyper-V в Windows](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Linux-and-FreeBSD-virtual-machines-for-Hyper-V-on-Windows))
 > **Примечание.** Ядро поддерживаемой гостевой ОС Linux должно поддерживать следующее:
 > ```bash
 > CONFIG_VSOCKET=y
@@ -117,9 +117,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Virtualization\G
 
 В большинстве случаев, чтобы определить сокет, требуется семейство адресов, тип соединения и протокол.
 
-Вот простое [определение сокета](
-https://msdn.microsoft.com/en-us/library/windows/desktop/ms740506(v=vs.85).aspx
-)
+Вот простое [определение сокета](https://docs.microsoft.com/windows/desktop/api/winsock2/nf-winsock2-socket)
 
 ``` C
 // Windows
@@ -152,7 +150,7 @@ int sock = socket(AF_VSOCK, SOCK_STREAM, 0);
 
 Привязка связывает сокет со сведениями о подключении.
 
-Определение этой функции скопировано ниже для удобства. Подробнее о привязке см. [здесь](https://msdn.microsoft.com/en-us/library/windows/desktop/ms737550.aspx).
+Определение этой функции скопировано ниже для удобства. Подробнее о привязке см. [здесь](https://docs.microsoft.com/windows/desktop/api/winsock/nf-winsock-bind).
 
 ``` C
 // Windows
@@ -202,7 +200,7 @@ struct sockaddr_vm {
   ```PowerShell
   (Get-VM -Name $VMName).Id
   ```
-* Идентификатор службы— код GUID, [описанный выше](#RegisterANewApplication), под которым приложение зарегистрировано в реестре узла Hyper-V.
+* Идентификатор службы— код GUID, [описанный выше](#register-a-new-application), под которым приложение зарегистрировано в реестре узла Hyper-V.
 
 Кроме того, для идентификатора виртуальной машины доступен ряд подстановочных знаков.
 
@@ -229,6 +227,6 @@ struct sockaddr_vm {
 Socket() Bind() Connect() Send() Listen() Accept()
 
 ## <a name="useful-links"></a>Полезные ссылки
-[Полный API WinSock](https://msdn.microsoft.com/en-us/library/windows/desktop/ms741394.aspx)
+[Полный API WinSock](https://docs.microsoft.com/windows/desktop/WinSock/winsock-functions)
 
 [Справочник по службам интеграции Hyper-V](../reference/integration-services.md)

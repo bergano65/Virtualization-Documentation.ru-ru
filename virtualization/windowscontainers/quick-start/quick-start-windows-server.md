@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: fd2de24a4c8c03817978a53b340e2a77285c69ad
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: df0470fd44c823fe14411d6d3d29188e980d1780
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576715"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621202"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
@@ -32,7 +32,7 @@ ms.locfileid: "9576715"
 ## <a name="prerequisites"></a>Что вам понадобится
 
 Убедитесь, что соблюдаются следующие требования:
-- Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019. Если вы используете Windows Server 2019 Insider Preview, обновите [Window Server 2019 Evaluation](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2019 ).
+- Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019. Если вы используете Windows Server 2019 Insider Preview, обновите [Window Server 2019 Evaluation](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ).
 
 > Критические обновления необходимы для работы Windows контейнеров для функции. Установите все обновления перед выполнением этого учебника.
 
@@ -168,7 +168,7 @@ Platform: .NET Core
 OS: Microsoft Windows 10.0.17763
 ```
 
-Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com]( https://docs.docker.com/engine/reference/run/).
+Дополнительные сведения о команде Docker Run см. в [справке по команде Docker Run на сайте Docker.com](https://docs.docker.com/engine/reference/run/).
 
 ## <a name="next-steps"></a>Дальнейшие действия
 

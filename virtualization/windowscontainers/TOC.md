@@ -37,7 +37,7 @@
 ### [Присоединение Windows работников](kubernetes/joining-windows-workers.md)
 ### [Присоединение работников Linux](kubernetes/joining-linux-workers.md)
 ### [Развертывание ресурсов Kubernetes](kubernetes/deploying-resources.md)
-### [Диагностика](kubernetes/common-problems.md)
+### [Устранение неполадок](kubernetes/common-problems.md)
 ### [Службы Windows на Kubernetes](kubernetes/kube-windows-services.md)
 ### [Компиляция двоичных файлов Kubernetes](kubernetes/compiling-kubernetes-binaries.md)
 ## Решение Service fabric в Windows
@@ -47,9 +47,9 @@
 ### [Начало работы с режимом мелких объектов](manage-containers/swarm-mode.md)
 
 # Сообщество и поддержка
-## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers)
+## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 ## [Видеоматериалы и блоги сообщества](communitylinks.md)
-## [Диагностика](troubleshooting.md)
+## [Устранение неполадок](troubleshooting.md)
 
 # Справочник
 ## [Требования к системе](deploy-containers/system-requirements.md)
@@ -60,7 +60,7 @@
 ## [Аппаратные устройства в контейнеры](deploy-containers/hardware-devices-in-containers.md)
 ## [Инструменты для платформы контейнера](deploy-containers/containerd.md)
 ## [Групповые управляемые учетные записи служб](manage-containers/manage-serviceaccounts.md)
-## [Оптимизация антивирусного](https://msdn.microsoft.com/en-us/windows/hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
+## [Оптимизация антивирусного](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Контейнеры Linux в Windows](deploy-containers/linux-containers.md)
 
 # [Примеры контейнеров](samples.md)

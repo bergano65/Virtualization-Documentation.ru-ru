@@ -8,12 +8,12 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с v1.13.
 keywords: kubernetes, 1.13, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: ed0f13bd429e88f05469f91c3fc691bf0188b0a2
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: fec18baa58ae6aa7d637be575548a1823a551207
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578245"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620992"
 ---
 # <a name="joining-windows-server-nodes-to-a-cluster"></a>Присоединение к кластеру узлов Windows Server #
 После [настройки Kubernetes главном узле](./creating-a-linux-master.md) и [выбрать нужную сеть решение](./network-topologies.md), вы готовы присоединиться к узлам Windows Server для формирования кластера. Это требуется некоторая [подготовки на узлах Windows](#preparing-a-windows-node) до присоединения.
@@ -83,7 +83,7 @@ docker run microsoft/nanoserver:latest
 ![текст](./media/docker-run-sample.png)
 
 > [!tip]
-> Если вы не можете запустить контейнер сведения см. в разделе: [соответствующей версии узла контейнера в образ контейнера](https://docs.microsoft.com/en-us/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
+> Если вы не можете запустить контейнер сведения см. в разделе: [соответствующей версии узла контейнера в образ контейнера](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility#matching-container-host-version-with-container-image-versions)
 
 
 #### <a name="prepare-kubernetes-for-windows-directory"></a>Подготовка каталога Kubernetes для Windows ####
@@ -97,12 +97,12 @@ mkdir c:\k
 Скопируйте файл сертификата Kubernetes (`$HOME/.kube/config`) [от главного узла](./creating-a-linux-master.md#collect-cluster-information) в новый метод `C:\k` каталога.
 
 > [!tip]
-> Средства, такие как [xcopy](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/xcopy) или [WinSCP](https://winscp.net/eng/download.php) можно использовать для перемещения между узлами в файле конфигурации.
+> Средства, такие как [xcopy](https://docs.microsoft.com/windows-server/administration/windows-commands/xcopy) или [WinSCP](https://winscp.net/eng/download.php) можно использовать для перемещения между узлами в файле конфигурации.
 
 #### <a name="download-kubernetes-binaries"></a>Скачать двоичных файлов Kubernetes ####
 Чтобы иметь возможность выполнить Kubernetes, сначала необходимо загрузить `kubectl`, `kubelet`, и `kube-proxy` двоичных файлов. Вы можете скачать их по ссылкам в `CHANGELOG.md` файл [последних выпусках](https://github.com/kubernetes/kubernetes/releases/).
  - Например вот [v1.13 двоичные файлы узла](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.13.md#node-binaries).
- - Используйте средство, например [Expand архива](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) извлечь содержимое архива и разместить двоичные файлы в `C:\k\`.
+ - Используйте средство, например [Expand архива](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) извлечь содержимое архива и разместить двоичные файлы в `C:\k\`.
 
 #### <a name="optional-setup-kubectl-on-windows"></a>(Необязательно) Настройка kubectl в Windows ####
 Следует требуется управлять кластера с Windows, можно сделать с помощью `kubectl` команды. Во-первых, чтобы сделать `kubectl` доступна за пределами `C:\k\` каталога, измените `PATH` переменной среды:
@@ -213,7 +213,7 @@ IP-адрес узла Windows. Вы можете использовать `ipco
 
 
 # [<a name="kubednsserviceip"></a>KubeDnsServiceIP](#tab/KubeDnsServiceIP)
-, [IP-адрес службы Kubernetes DNS](./getting-started-kubernetes-windows.md#kube-dns-def).
+, [IP-адрес службы Kubernetes DNS](./getting-started-kubernetes-windows.md#plan-ip-addressing-for-your-cluster).
 
 |  |  | 
 |---------|---------|

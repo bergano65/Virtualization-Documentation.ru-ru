@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 07f5929505226a50a161b4ae7df5669c2ad89d83
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: be6be81e995dce8ebd757c73793f474f4b0909bf
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575525"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620742"
 ---
 # <a name="windows-containers-on-windows-10"></a>Контейнеры Windows в Windows10
 
@@ -33,7 +33,7 @@ ms.locfileid: "9575525"
 ## <a name="prerequisites"></a>Что вам понадобится
 Убедитесь, что соблюдаются следующие требования:
 - Одна физическая компьютерная система под управлением Windows 10 Профессиональная или Корпоративная Юбилейное обновление (версия 1607) или более поздней версии. 
-- Убедитесь, что включен [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
+- Убедитесь, что включен [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
 
 ***Изоляции Hyper-V:*** Контейнеры Windows Server требуется изоляции Hyper-V в Windows 10, чтобы разработчики с тем же версию ядра и конфигурации, который будет использоваться в рабочей среде, более сведения о Hyper-V изоляции можно найти на странице " [сведения о контейнерах Windows](../about/index.md) ".
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
-ms.openlocfilehash: 3991895d381897f27c34aa7840fde44d2cedae7e
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f2df1496b798646b590c9cd3eaf101aef24b507d
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576565"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620662"
 ---
 # <a name="working-with-hyper-v-and-windows-powershell"></a>Работа с Hyper-V и Windows PowerShell
 
@@ -29,16 +29,16 @@ Get-Command -Module hyper-v | Out-GridView
 ```
   Отобразится примерно следующее:
 
-  ![](media\command_grid.png)
+  ![](./media/command_grid.png)
 
 3. Чтобы получить дополнительные сведения о конкретной команде PowerShell, введите команду `Get-Help`. Например, запустив указанную ниже команду, вы получите информацию о команде `Get-VM` Hyper-V.
 
   ```powershell
-Get-Help Get-VM
-```
+  Get-Help Get-VM
+  ```
  Отобразится информация о синтаксисе команды, обязательных и дополнительных параметрах, а также псевдонимах, которые можно использовать.
 
- ![](media\get_help.png)
+ ![](./media/get_help.png)
 
 
 ### <a name="return-a-list-of-virtual-machines"></a>Получение списка виртуальных машин
@@ -48,13 +48,13 @@ Get-Help Get-VM
 1. В PowerShell запустите следующую команду:
  
  ```powershell
-Get-VM
-```
+ Get-VM
+ ```
  Отобразится примерно следующее:
 
- ![](media\get_vm.png)
+ ![](./media/get_vm.png)
 
-2. Чтобы извлечь список только тех виртуальных машин, которые включены в данный момент, добавьте к команде `Get-VM` фильтр. Фильтр можно добавить командой `Where-Object`. Дополнительные сведения о фильтрации см. в статье [Использование командлета Where-Object](https://technet.microsoft.com/en-us/library/ee177028.aspx).   
+2. Чтобы извлечь список только тех виртуальных машин, которые включены в данный момент, добавьте к команде `Get-VM` фильтр. Фильтр можно добавить командой `Where-Object`. Дополнительные сведения о фильтрации см. в статье [Использование командлета Where-Object](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-powershell-1.0/ee177028(v=technet.10)>).
 
  ```powershell
  Get-VM | where {$_.State -eq 'Running'}
@@ -76,13 +76,13 @@ Get-VM
 2. Чтобы запустить все отключенные на данный момент виртуальные машины, получить список этих машин и передать список команде `Start-VM`, используется следующая команда:
 
   ```powershell
- Get-VM | where {$_.State -eq 'Off'} | Start-VM
- ```
+  Get-VM | where {$_.State -eq 'Off'} | Start-VM
+  ```
 3. Чтобы завершить работу всех работающих виртуальных машин, запустите это:
  
   ```powershell
- Get-VM | where {$_.State -eq 'Running'} | Stop-VM
- ```
+  Get-VM | where {$_.State -eq 'Running'} | Stop-VM
+  ```
 
 ### <a name="create-a-vm-checkpoint"></a>Создание контрольной точки виртуальной машины
 
@@ -96,26 +96,26 @@ Get-VM
 Следующий пример демонстрирует создание виртуальной машины в интегрированной среде сценариев (ISE) PowerShell. Это простой пример. Его можно усложнить, добавив дополнительные функции PowerShell и расширенные сценарии развертывания виртуальной машины.
 
 1. Чтобы открыть среду ISE PowerShell, нажмите кнопку "Пуск" и введите **PowerShell ISE**.
-2. Запустите указанный ниже код для создания виртуальной машины. Подробные сведения о команде `New-VM` см. в документации по команде [New-VM](https://technet.microsoft.com/en-us/library/hh848537.aspx).
+2. Запустите указанный ниже код для создания виртуальной машины. Подробные сведения о команде `New-VM` см. в документации по команде [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps).
 
-  ```powershell
- $VMName = "VMNAME"
+ ```powershell
+  $VMName = "VMNAME"
 
- $VM = @{
-     Name = $VMName 
-     MemoryStartupBytes = 2147483648
-     Generation = 2
-     NewVHDPath = "C:\Virtual Machines\$VMName\$VMName.vhdx"
-     NewVHDSizeBytes = 53687091200
-     BootDevice = "VHD"
-     Path = "C:\Virtual Machines\$VMName"
-     SwitchName = (Get-VMSwitch).Name
- }
+  $VM = @{
+      Name = $VMName
+      MemoryStartupBytes = 2147483648
+      Generation = 2
+      NewVHDPath = "C:\Virtual Machines\$VMName\$VMName.vhdx"
+      NewVHDSizeBytes = 53687091200
+      BootDevice = "VHD"
+      Path = "C:\Virtual Machines\$VMName"
+      SwitchName = (Get-VMSwitch).Name
+  }
 
- New-VM @VM
-  ```
+  New-VM @VM
+ ```
 
 ## <a name="wrap-up-and-references"></a>Подведение итогов и справочные материалы
 
-Этот документ позволяет ознакомиться с модулем PowerShell Hyper-V на примере некоторых простых шагов, а также отдельными примерами сценариев. Дополнительные сведения о модуле PowerShell для Hyper-V см. в [справочнике по командлетам Windows PowerShell для Hyper-V](https://technet.microsoft.com/%5Clibrary/Hh848559.aspx).  
+Этот документ позволяет ознакомиться с модулем PowerShell Hyper-V на примере некоторых простых шагов, а также отдельными примерами сценариев. Дополнительные сведения о модуле PowerShell для Hyper-V см. в [справочнике по командлетам Windows PowerShell для Hyper-V](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps).  
  

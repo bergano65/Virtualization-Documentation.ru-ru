@@ -3,12 +3,12 @@ title: Устройства в контейнеры в Windows
 description: Какая поддержка устройства существует для контейнеров в Windows
 keywords: docker, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: 18ae4ab229a677c63c3e17d684a3c3193df49c5e
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: f32ba3de347bcf968088d2f3f20f22f82166d652
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576685"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621562"
 ---
 # <a name="devices-in-containers-on-windows"></a>Устройства в контейнеры в Windows
 
@@ -33,7 +33,7 @@ ms.locfileid: "9576685"
 docker run --isolation=process --device="class/{interface class GUID}" mcr.microsoft.com/windows/servercore:1809
 ```
 
-Необходимо заменить `{interface class guid}` с соответствующие [GUID класса интерфейса устройства](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/overview-of-device-interface-classes), который можно найти в разделе ниже.
+Необходимо заменить `{interface class guid}` с соответствующие [GUID класса интерфейса устройства](https://docs.microsoft.com/windows-hardware/drivers/install/overview-of-device-interface-classes), который можно найти в разделе ниже.
 
 Для запуска контейнера с несколькими устройствами, используйте следующую команду и строка друг с другом несколько `--device` аргументы:
 

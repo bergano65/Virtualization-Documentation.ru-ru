@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: aee64ad0-752f-4075-a115-2d6b983b4f49
-ms.openlocfilehash: 26eaca5a583f8b2e11ca1e05e2fa9a4366fd8837
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: afbbcf120961081191aaf9051866427c9ce1478e
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577415"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621282"
 ---
 # <a name="hypervisor-specifications"></a>Спецификации гипервизора
 
@@ -21,7 +21,7 @@ ms.locfileid: "9577415"
 
 Верхнеуровневая функциональная спецификация (TLFS) гипервизора Hyper-V описывает видимое извне поведение гипервизора для других компонентов операционной системы. Эта спецификация предназначена для разработчиков операционных систем на виртуальных машинах.
   
-> На спецификацию распространяется действие Обещания в отношении открытых спецификаций корпорации Майкрософт.  Дополнительные сведения см. в статье [Microsoft Open Specification Promise](https://msdn.microsoft.com/en-us/openspecifications) (Обещание в отношении открытых спецификаций корпорации Майкрософт).  
+> На спецификацию распространяется действие Обещания в отношении открытых спецификаций корпорации Майкрософт.  Дополнительные сведения см. в статье [Microsoft Open Specification Promise](https://docs.microsoft.com/openspecs/dev_center/ms-devcentlp/51a0d3ff-9f77-464c-b83f-2de08ed28134) (Обещание в отношении открытых спецификаций корпорации Майкрософт).  
 
 #### <a name="download"></a>Скачать
 Выпуск | Документ

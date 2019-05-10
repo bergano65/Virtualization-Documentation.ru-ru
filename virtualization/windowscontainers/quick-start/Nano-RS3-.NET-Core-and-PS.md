@@ -2,7 +2,7 @@
 
 Компоненты .NET Core и PowerShell были удалены из этого выпуска базового образа контейнера ОС Nano Server, однако .NET Core и PowerShell поддерживаются как дополнительный контейнер многоуровневый контейнер поверх базового контейнера Nano Server.  
 
-Если контейнер будет запускать неуправляемый код или открытые платформы, такие как Node.js, Python, Ruby и т. д, базового контейнера Nano Server будет достаточно.  Одна из особенностей состоит в том, что определенный неуправляемый код может не выполняться из-за [экономии занимаемого места](https://docs.microsoft.com/en-us/windows-server/get-started/nano-in-semi-annual-channel) в этом выпуске по сравнению с Windows Server 2016. Если вы заметили какие-либо проблемы, сообщите нам на [форумах](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowscontainers). 
+Если контейнер будет запускать неуправляемый код или открытые платформы, такие как Node.js, Python, Ruby и т. д, базового контейнера Nano Server будет достаточно.  Одна из особенностей состоит в том, что определенный неуправляемый код может не выполняться из-за [экономии занимаемого места](https://docs.microsoft.com/windows-server/get-started/nano-in-semi-annual-channel) в этом выпуске по сравнению с Windows Server 2016. Если вы заметили какие-либо проблемы, сообщите нам на [форумах](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers). 
 
 Чтобы создать контейнер из файла Dockerfile, используйте команду docker build, а чтобы запустить его — docker run.  Следующая команда скачивает базовый образ ОС контейнера Nano Server, что может занять несколько минут, а также выводит текст «Hello World»! в консоли узла.
 
@@ -10,7 +10,7 @@
 docker run microsoft/nanoserver-insider cmd /c echo Hello World!
 ```
 
-Вы можете создавать более сложные приложения с помощью [файлов Dockerfile в Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile), используя такой синтаксис Dockerfile, как FROM, RUN, COPY, ADD, CMD и т. д. Хотя выполнить определенные команды сразу из этого базового образа не удастся, теперь вы сможете создавать образы контейнеров, которые содержат только то, что необходимо для работы вашего приложения.
+Вы можете создавать более сложные приложения с помощью [файлов Dockerfile в Windows](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile), используя такой синтаксис Dockerfile, как FROM, RUN, COPY, ADD, CMD и т. д. Хотя выполнить определенные команды сразу из этого базового образа не удастся, теперь вы сможете создавать образы контейнеров, которые содержат только то, что необходимо для работы вашего приложения.
 
 Так как компоненты .NET Core PowerShell недоступны в базовом образе ОС контейнера Nano Server, одна из проблем заключается в создании контейнера с содержимым в сжатом формате ZIP. С помощью функции [многоэтапной сборки](https://docs.docker.com/engine/userguide/eng-image/multistage-build/), доступной в Docker 17.05, вы можете использовать PowerShell в другом контейнере, чтобы извлечь содержимое и скопировать его в контейнер Nano. Этот подход можно применять для создания контейнера .NET Core и PowerShell. 
 

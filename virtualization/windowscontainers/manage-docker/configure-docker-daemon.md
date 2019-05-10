@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 354469199f3c7e886760e8a391edccde067986af
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: a04d356415e7bed84980747edc927cc1eaa1e7c1
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610294"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621092"
 ---
 # <a name="docker-engine-on-windows"></a>Подсистема Docker в Windows
 
@@ -220,7 +220,7 @@ Remove-Item "C:\ProgramData\Docker" -Recurse
 Сюда входят компонент «Контейнеры», который автоматически включается в любом экземпляре Windows 10 или Windows Server 2016 при установке Docker. Это также может быть компонент «Hyper-V», который автоматически включается в Windows 10 при установке Docker, однако в Windows Server 2016 он включается вручную.
 
 >[!IMPORTANT]
->[Функция Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/about/) — это общий компонент виртуализации, позволяющий гораздо больше, чем просто контейнеров. Прежде чем отключить Hyper-V, убедитесь, что нет других виртуальных компонентов в системе, требующих Hyper-V.
+>[Функция Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/) — это общий компонент виртуализации, позволяющий гораздо больше, чем просто контейнеров. Прежде чем отключить Hyper-V, убедитесь, что нет других виртуальных компонентов в системе, требующих Hyper-V.
 
 Удаление компонентов Windows в Windows 10.
 

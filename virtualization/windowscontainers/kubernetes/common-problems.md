@@ -6,13 +6,13 @@ ms.date: 11/02/2018
 ms.topic: troubleshooting
 ms.prod: containers
 description: Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows.
-keywords: kubernetes, 1.12, linux, компиляция
-ms.openlocfilehash: 1c5a5ec90b828a4f2430508f02cb9b9afb1c4d53
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+keywords: kubernetes, 1.14, linux, компиляция
+ms.openlocfilehash: fbb5b8474323a7d418de972bffbb9e005c94cb85
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577085"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622999"
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.
@@ -124,13 +124,18 @@ Get-VMNetworkAdapter -VMName "<name>" | Set-VMNetworkAdapter -MacAddressSpoofing
 > При развертывании Kubernetes в Azure или IaaS виртуальные машины на другие поставщики облачных самостоятельно, можно также использовать [наложение сеть](./network-topologies.md#flannel-in-vxlan-mode) вместо.
 
 ### <a name="my-windows-pods-cannot-launch-because-of-missing-runflannelsubnetenv"></a>Модули POD в Windows не удается запустить из-за отсутствующих /run/flannel/subnet.env ###
-Это означает, что Flannel невозможность запуска правильно. Можно либо попробовать перезапустить flanneld.exe или скопировать файлы по вручную из `/run/flannel/subnet.env` от главного узла Kubernetes для `C:\run\flannel\subnet.env` на рабочий узел Windows и изменять `FLANNEL_SUBNET` строки, чтобы другое значение. Например, при необходимости 10.244.4.1/24 подсети узел:
+Это означает, что Flannel невозможность запуска правильно. Можно либо попробовать перезапустить flanneld.exe или скопировать файлы по вручную из `/run/flannel/subnet.env` от главного узла Kubernetes для `C:\run\flannel\subnet.env` на рабочий узел Windows и изменять `FLANNEL_SUBNET` строки, чтобы подсети, который был назначен. Например, если узел подсети 10.244.4.1/24 была назначена:
 ```
 FLANNEL_NETWORK=10.244.0.0/16
 FLANNEL_SUBNET=10.244.4.1/24
 FLANNEL_MTU=1500
 FLANNEL_IPMASQ=true
 ```
+Он был безопасным для разрешить flanneld.exe создает этот файл для вас.
+
+### <a name="pod-to-pod-connectivity-between-hosts-is-broken-on-my-kubernetes-cluster-running-on-vsphere"></a>POD модулей pod связи между узлами делится на мой кластера Kubernetes с операционной системой на vSphere 
+Так как vSphere и Flannel резервирует 4789 (порт по умолчанию ИНКАПСУЛЯЦИЯ) для сети наложения, могут оказаться перехвата пакетов. Если vSphere используется для сетей наложения, его следует настроить, чтобы использовать другой порт, чтобы освободить 4789.  
+
 
 ### <a name="my-endpointsips-are-leaking"></a>Утечки Мои конечных точек или IP-адреса ###
 Существует 2 в настоящее время известных проблем, которые могут привести к конечные точки, чтобы стать причиной утечки данных. 

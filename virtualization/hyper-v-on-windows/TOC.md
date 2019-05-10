@@ -21,11 +21,11 @@
 # Справочные материалы
 ## [Требования к системе для Hyper-V](reference/hyper-v-requirements.md)
 ## [Поддерживаемые гостевые операционные системы](about/supported-guest-os.md)
-## [PowerShell для Hyper-V](https://technet.microsoft.com/library/hh848559.aspx)
+## [PowerShell для Hyper-V](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps)
 ## [Службы интеграции Hyper-V](reference/integration-services.md)
 ## [Архитектура Hyper-V](reference/hyper-v-architecture.md)
 ## [Спецификации гипервизора](reference/tlfs.md)
 ## [Резервное копирование подходы Hyper-V](reference/HyperVBackupApproaches.md)
 
 # Сообщество и поддержка
-## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/en-US/home?forum=winserverhyperv)
+## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)

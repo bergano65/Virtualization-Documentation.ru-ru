@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1ecb85a6-d938-4c30-a29b-d18bd007ba08
-ms.openlocfilehash: 18ab4d1d87c22f70fe09aae5222a7d125ac9c974
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 2771989b7745605fb3ce4f95e162ae8b03180b0f
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578675"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621582"
 ---
 # <a name="configure-nested-vms-to-communicate-with-resources-in-an-azure-virtual-network"></a>Настройка вложенных виртуальных машин для связи с ресурсами Azure виртуальной сети
 
@@ -26,7 +26,7 @@ ms.locfileid: "9578675"
 
 Перед запуском см в этом руководстве:
 
-1. Читать [руководство предоставленной здесь](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/nested-virtualization) о вложенной виртуализации.
+1. Читать [руководство предоставленной здесь](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) о вложенной виртуализации.
 2. Эта статья всего до реализации.
 
 ## <a name="high-level-overview-of-what-were-doing-and-why"></a>Наши высокого уровня Обзор и преимущества
@@ -108,7 +108,7 @@ ms.locfileid: "9578675"
 1. Установите роль DHCP: `Install-WindowsFeature DHCP -IncludeManagementTools`
 2. Создание области DHCP: `Add-DhcpServerV4Scope -Name "Nested VMs" -StartRange 10.0.2.2 -EndRange 10.0.2.254 -SubnetMask 255.255.255.0`
 3. Настройте параметры DNS и шлюз по умолчанию для области: `Set-DhcpServerV4OptionValue -DnsServer 168.63.129.16 -Router 10.0.2.1`
-    * Не забудьте ввода допустимые DNS-сервера, если вы хотите, чтобы разрешения имен для работы. В этом случае я использую [рекурсивный Azure DNS](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
+    * Не забудьте ввода допустимые DNS-сервера, если вы хотите, чтобы разрешения имен для работы. В этом случае я использую [рекурсивный Azure DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 
 ## <a name="installing-remote-access"></a>Установка удаленного доступа
 
@@ -145,7 +145,7 @@ ms.locfileid: "9578675"
 
 ## <a name="creating-a-route-table-within-azure"></a>Создание таблицу маршрутизации в Azure
 
-См. в [этой статье](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal) более подробно о чтения на создание и управление ими маршруты в Azure.
+См. в [этой статье](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-portal) более подробно о чтения на создание и управление ими маршруты в Azure.
 
 1. Перейдите к https://portal.azure.com.
 2. В верхнем левом углу выберите «Создать ресурс».

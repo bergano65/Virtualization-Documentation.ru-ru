@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5ceb9626-7c48-4d42-81f8-9c936595ad85
-ms.openlocfilehash: d3543d9e6f9e28278ab9f64fb1f4fa19d1507b08
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 5ab7f684bba9cfa73c59b58ce660d3d519be0b72
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574795"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621442"
 ---
 # <a name="getting-started-with-swarm-mode"></a>Начало работы с режимом мелких объектов 
 
@@ -30,9 +30,9 @@ ms.locfileid: "9574795"
 
 ## <a name="swarm-mode-system-requirements"></a>Системные требования для режима мелких объектов
 
-По крайней мере один физический или виртуальный компьютер системы (использовать все возможности режима мелких объектов по крайней мере два узла рекомендуется) под управлением **Windows 10 Creators Update** или **Windows Server 2016** *со всеми последние updates\ **, программой установки как узел контейнера (см. раздел, [контейнеры Windows в Windows 10](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10) или [контейнеры Windows в Windows Server](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server) для Дополнительные сведения о том, как приступить к работе с контейнерами Docker в Windows 10).
+По крайней мере один физический или виртуальный компьютер системы (использовать все возможности режима мелких объектов по крайней мере два узла рекомендуется) под управлением **Windows 10 Creators Update** или **Windows Server 2016** *со всеми последние updates\ **, программой установки как узел контейнера (см. раздел, [контейнеры Windows в Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10) или [контейнеры Windows в Windows Server](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server) для Дополнительные сведения о том, как приступить к работе с контейнерами Docker в Windows 10).
 
-\***Примечание**. Для работы режима мелких объектов Docker в Windows Server 2016 требуется обновление [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217).
+\***Примечание**. Для работы режима мелких объектов Docker в Windows Server 2016 требуется обновление [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217).
 
 **Модуль Docker 1.13.0 или более поздней версии**
 

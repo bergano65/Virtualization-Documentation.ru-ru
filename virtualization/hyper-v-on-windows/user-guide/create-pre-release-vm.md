@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
-ms.openlocfilehash: ea91ea0ffca5479cb0593ef9961625f7b7ab1f42
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 8f1c1b96fe88f46a24b8ebb46d4f387c9717f6ba
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577425"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620712"
 ---
 # <a name="try-pre-release-features-for-hyper-v"></a>Оценка функций предварительной версии Hyper-V
 
@@ -36,17 +36,17 @@ ms.locfileid: "9577425"
 
 1. На рабочем столе Windows нажмите кнопку "Пуск" и введите любую часть имени **Windows PowerShell**.
 2. Щелкните правой кнопкой мыши элемент **Windows PowerShell** и выберите пункт **Запуск от имени администратора**.
-3. Используйте командлет [New-VM](https://technet.microsoft.com/library/hh848537.aspx) с флагом -Prerelease для создания виртуальной машины предварительной версии. Например, выполните следующую команду, где "VM Name"— это имя создаваемой виртуальной машины.
+3. Используйте командлет [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps) с флагом -Prerelease для создания виртуальной машины предварительной версии. Например, выполните следующую команду, где "VM Name"— это имя создаваемой виртуальной машины.
 
 ``` PowerShell
 New-VM -Name <VM Name> -Prerelease
 ```
 Другие примеры использования флага -Prerelease:
- - Создание виртуальной машины, использующей существующий виртуальный жесткий диск или новый жесткий диск. Примеры PowerShell см. в статье [Создание виртуальной машины с использованием Hyper-V в Windows Server2016 Technical Preview](https://technet.microsoft.com/library/mt126140.aspx#BKMK_PowerShell).
- - Создание виртуального жесткого диска, с которого загружается образ операционной системы. Примеры PowerShell см. в статье [Развертывание виртуальной машины Windows с использованием Hyper-V в Windows10](https://msdn.microsoft.com/en-us/virtualization/hyperv_on_windows/quick_start/walkthrough_create_vm).
+ - Создание виртуальной машины, использующей существующий виртуальный жесткий диск или новый жесткий диск. Примеры PowerShell см. в статье [Создание виртуальной машины с использованием Hyper-V в Windows Server2016 Technical Preview](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/Create-a-virtual-machine-in-Hyper-V#BKMK_PowerShell).
+ - Создание виртуального жесткого диска, с которого загружается образ операционной системы. Примеры PowerShell см. в статье [Развертывание виртуальной машины Windows с использованием Hyper-V в Windows10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/create-virtual-machine).
 
  Примеры, приведенные в этих статьях, работают для узлов Hyper-V под управлением Windows10 или Windows Server2016 Technical Preview. Однако сейчас флаг -Prerelease можно использовать только для создания виртуальной машины предварительной версии на узлах Hyper-V под управлением Windows Server2016 Technical Preview.
 
 ## <a name="see-also"></a>См. также
--  [Блог по виртуализации](https://blogs.technet.microsoft.com/virtualization/)—вы можете узнать о доступных функциях предварительной версии и оценить их.
-- [Поддерживаемые версии конфигурации виртуальной машины](https://technet.microsoft.com/library/mt695898.aspx#BKMK_SupportedConfigVersions)— вы можете узнать, как проверить версию конфигурации виртуальной машины и какие версии поддерживаются корпорацией Майкрософт.
+-  [Блог по виртуализации](https://techcommunity.microsoft.com/t5/Virtualization/bg-p/Virtualization)—вы можете узнать о доступных функциях предварительной версии и оценить их.
+- [Поддерживаемые версии конфигурации виртуальной машины](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server#BKMK_SupportedConfigVersions)— вы можете узнать, как проверить версию конфигурации виртуальной машины и какие версии поддерживаются корпорацией Майкрософт.

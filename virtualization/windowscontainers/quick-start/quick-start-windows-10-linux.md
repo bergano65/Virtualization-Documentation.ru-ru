@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: f9b54dbc9fc7c79bdb9b9aa106d5811401c365f3
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 357fc101b2b0e4d6ccdf53a948ab8d91d19a1522
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578635"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621572"
 ---
 # <a name="linux-containers-on-windows-10"></a>Контейнеры Linux в Windows 10
 
@@ -34,7 +34,7 @@ ms.locfileid: "9578635"
 
 Убедитесь, что соблюдаются следующие требования:
 - Одна физическая компьютерная система под управлением Windows 10 Профессиональная или Корпоративная начиная с Fall Creators Update (версия 1709) или более поздней версии
-- Убедитесь, что включен [Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
+- Убедитесь, что включен [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
 
 ***Изоляции Hyper-V:*** Контейнеры Linux в Windows требуется изоляции Hyper-V в Windows 10, чтобы разработчики с соответствующего ядро Linux для запуска контейнера. Более сведения о Hyper-V изоляции можно найти на странице " [контейнеры о Windows](../about/index.md) ".
 

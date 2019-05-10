@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 84974f093cc80f8a216518bab051e13397e89b6e
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9577435"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621212"
 ---
 # <a name="hyper-v-integration-services"></a>Службы интеграции Hyper-V
 
@@ -22,7 +22,7 @@ ms.locfileid: "9577435"
 В этой статье приведены справочные сведения по каждой из служб интеграции, доступной в Windows.  Она также является отправной точкой для получения любых сведений, связанных с конкретными службами интеграции и их историей.
 
 **Руководства пользователя:**  
-* [управление службами интеграции](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/manage/manage-Hyper-V-integration-services)
+* [управление службами интеграции](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/Manage-Hyper-V-integration-services)
 
 
 ## <a name="quick-reference"></a>Краткий справочник
@@ -52,7 +52,7 @@ ms.locfileid: "9577435"
 
 ### <a name="check-heartbeat-with-powershell"></a>Проверка пульсов с помощью PowerShell
 
-Запустите [Get-VM](https://technet.microsoft.com/en-us/library/hh848479.aspx) от имени администратора, чтобы увидеть пульсы от виртуальной машины:
+Запустите [Get-VM](https://docs.microsoft.com/powershell/module/hyper-v/get-vm?view=win10-ps) от имени администратора, чтобы увидеть пульсы от виртуальной машины:
 ``` PowerShell
 Get-VM -VMName $VMName | select Name, State, Status
 ```
@@ -102,7 +102,7 @@ DemoVM  Running  Operating normally
 
 
 **Руководства пользователя:**  
-* [Data Exchange: Using key-value pairs to share information between the host and guest on Hyper-V](https://technet.microsoft.com/en-us/library/dn798287.aspx) (Использование пар "ключ-значение" для совместного использования информации на узле и в гостевой ОС Hyper-V).  
+* [Data Exchange: Using key-value pairs to share information between the host and guest on Hyper-V](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn798287(v=ws.11)) (Использование пар "ключ-значение" для совместного использования информации на узле и в гостевой ОС Hyper-V).  
 
 
 ## <a name="hyper-v-volume-shadow-copy-requestor"></a>Служба запросов на теневое копирование томов Hyper-V
@@ -113,9 +113,9 @@ DemoVM  Running  Operating normally
 **Добавлено в:** Windows Server2012, Windows8  
 **Влияние.** При отключении невозможно выполнить резервное копирование виртуальной машины во время выполнения (с помощью VSS).  
 
-Служба запросов на теневое копирование томов необходима для службы теневого копирования томов ([VSS](https://msdn.microsoft.com/en-us/library/aa384589.aspx)).  Служба теневого копирования томов (VSS) захватывает и копирует образы для резервного копирования в работающих системах, в частности на серверах, без существенного снижения производительности и с сохранением стабильности работы служб, предоставляемых этими системами.  Для этого служба интеграции координирует рабочие нагрузки виртуальной машины с процессом резервного копирования узла.
+Служба запросов на теневое копирование томов необходима для службы теневого копирования томов ([VSS](https://docs.microsoft.com/windows/desktop/VSS/overview-of-processing-a-backup-under-vss)).  Служба теневого копирования томов (VSS) захватывает и копирует образы для резервного копирования в работающих системах, в частности на серверах, без существенного снижения производительности и с сохранением стабильности работы служб, предоставляемых этими системами.  Для этого служба интеграции координирует рабочие нагрузки виртуальной машины с процессом резервного копирования узла.
 
-Дополнительные сведения о теневом копировании томов см. [здесь](https://msdn.microsoft.com/en-us/library/dd405549.aspx).
+Дополнительные сведения о теневом копировании томов см. [здесь](https://docs.microsoft.com/previous-versions/windows/desktop/virtual/backing-up-and-restoring-virtual-machines).
 
 
 ## <a name="hyper-v-guest-service-interface"></a>Интерфейс гостевой службы Hyper-V
@@ -124,7 +124,7 @@ DemoVM  Running  Operating normally
 **Имя управляющей программы Linux:** hv_fcopy_daemon  
 **Описание.** Предоставляет интерфейс для узла Hyper-V для двунаправленного копирования файлов с виртуальной машины и на виртуальную машину.  
 **Добавлено в:** Windows Server2012R2, Windows8.1  
-**Влияние.** При отключении узел не может копировать файлы в гостевую ОС и из нее с помощью `Copy-VMFile`.  Ознакомьтесь с дополнительными сведениями о [командлете Copy-VMFile](https://technet.microsoft.com/library/dn464282.aspx).  
+**Влияние.** При отключении узел не может копировать файлы в гостевую ОС и из нее с помощью `Copy-VMFile`.  Ознакомьтесь с дополнительными сведениями о [командлете Copy-VMFile](https://docs.microsoft.com/powershell/module/hyper-v/copy-vmfile?view=win10-ps).  
 
 **Примечания.**  
 По умолчанию отключено.  См. раздел [PowerShell Direct с использованием Copy-Item](../user-guide/powershell-direct.md#copy-files-with-new-pssession-and-copy-item). 

@@ -3,12 +3,12 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: 76549bbfbaf374acb79f1be4280949aecf4e87f0
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: 9e20a28f62ec4bb9456307acb7768e1123a57188
+ms.sourcegitcommit: 03e9203e9769997d8be3f66dc7935a3e5c0a83e1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610284"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9621632"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнеров Windows
 
@@ -98,7 +98,7 @@ PS C:\Users\Administrator> (Get-ItemProperty 'HKLM:\SOFTWARE\Microsoft\Windows N
 14393.321.amd64fre.rs1_release_inmarket.161004-2338
 ```
 
-Проверить, какая версия использует ваше базового образа, просмотрите теги в центре Docker или хэш-таблицу образа в описании образа. На странице [Журнал обновлений Windows 10](https://support.microsoft.com/en-us/help/12387/windows-10-update-history) перечислены информацию о датах выпусках всех сборок и редакции.
+Проверить, какая версия использует ваше базового образа, просмотрите теги в центре Docker или хэш-таблицу образа в описании образа. На странице [Журнал обновлений Windows 10](https://support.microsoft.com/help/12387/windows-10-update-history) перечислены информацию о датах выпусках всех сборок и редакции.
 
 ### <a name="hyper-v-isolation-for-containers"></a>Изоляция Hyper-V для контейнеров
 
@@ -123,33 +123,33 @@ docker: Error response from daemon: container b81ed896222eb87906ccab1c3dd2fc4932
 ## <a name="choose-which-container-os-version-to-use"></a>Выбор версии ОС контейнера
 
 >[!NOTE]
->Тег» Latest "будет обновляться вместе с Windows Server 2016, текущим [Long-Term Servicing Channel продукта](https://docs.microsoft.com/en-us/windows-server/get-started/semi-annual-channel-overview). Приведенные ниже инструкции предназначены для образов контейнеров, которые соответствуют Windows Server версии 1709.
+>Начиная с 16 апреля 2019 г. тег» Latest "больше не публикации и не поддерживается для [Windows базовые образы ОС контейнера](https://hub.docker.com/_/microsoft-windows-base-os-images). Следует объявите конкретного тега при получении или ссылки на изображения из этих репозитории.
 
-Необходимо знать, какая версия, необходимо использовать для контейнера. Например, если вы используете Windows Server версии 1709 и хотите получить последние исправления для нее, следует использовать тег `1709` после указания, какую версию образов требуется, следующим образом:
+Необходимо знать, какая версия, необходимо использовать для контейнера. Например, если вы хотите Windows Server версия 1809 как контейнер ОС и хотите получить последние исправления для нее, следует использовать тег `1809` после указания, какую версию образов требуется, следующим образом:
 
 ``` dockerfile
-FROM microsoft/windowsservercore:1709
+FROM mcr.microsoft.com/windows/nanoserver:1809
 ...
 ```
 
-Тем не менее если вам требуется определенное исправление Windows Server версии 1709, можно указать номер статьи базы Знаний в теге. Например, чтобы получить базовый образ контейнера ОС Nano Server из Windows Server версии 1709 с KB4043961, примененным к ней, необходимо задать его следующим образом:
+Тем не менее если вам требуется определенное исправление Windows Server версия 1809, можно указать номер статьи базы Знаний в теге. Например, чтобы получить базовый образ контейнера ОС Nano Server из Windows Server версия 1809 с KB4493509, примененным к ней, необходимо задать его следующим образом:
 
 ``` dockerfile
-FROM microsoft/nanoserver:1709_KB4043961
-...
-```
-
-Если вам требуется базовый образ Nano Server ОС контейнера Windows Server 2016, можно получить последнюю версию этих образов, используя тег» Latest ":
-
-``` dockerfile
-FROM microsoft/nanoserver
+FROM mcr.microsoft.com/windows/nanoserver:1809-KB4493509
 ...
 ```
 
 Вы также можете указать точные исправления, необходимые в схеме, которую мы использовали ранее, задавая версию ОС в теге:
 
 ``` dockerfile
-FROM microsoft/nanoserver:10.0.14393.1770
+FROM mcr.microsoft.com/windows/nanoserver:10.0.17763.437
+...
+```
+
+Базовые образы Server Core, на основе Windows Server 2019 и Windows Server 2016, освобождает [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/en-us/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . Если для экземпляра требуется использовать в качестве контейнера образ Server Core операционной системы Windows Server 2019 и хотите получить последние исправления для него, вы можете указать LTSC выпуски следующим образом:
+
+``` dockerfile
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 ...
 ```
 

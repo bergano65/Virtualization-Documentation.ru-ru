@@ -5,27 +5,27 @@ ms.author: gekudray
 ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: Присоединение узла Windows к кластеру Kubernetes с v1.13.
-keywords: kubernetes, 1.13, windows, начало работы
+description: Присоединение узла Windows к кластеру Kubernetes с v1.14.
+keywords: kubernetes, 1.14, windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 7c3a0111b3d19ae1b513a84665f870bba24ae33d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576993"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622929"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows
 
-Эта страница служит Обзор для Приступая к работе с Kubernetes в Windows, присоединение узла Windows к кластеру на основе Linux. С выпуском Kubernetes 1.14 в Windows Server [версия 1809](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)пользователи могут воспользоваться следующие функции в Kubernetes в Windows:
+Эта страница служит Обзор для Приступая к работе с Kubernetes в Windows, присоединение узла Windows к кластеру на основе Linux. С выпуском Kubernetes 1.14 в Windows Server [версия 1809](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1809#container-networking-with-kubernetes)пользователи могут воспользоваться следующие функции в Kubernetes в Windows:
 
 - **наложение сеть**: использование Flannel в режиме инкапсуляция для настройки сети виртуальный слой
-    - требуется либо Windows Server 2019 с [KB4489899](https://support.microsoft.com/en-us/help/4489899) установлена или [Windows Server vNext предварительные](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) сборки 18317 +
+    - требуется либо Windows Server 2019 с [KB4489899](https://support.microsoft.com/help/4489899) установлена или [Windows Server vNext предварительные](https://blogs.windows.com/windowsexperience/tag/windows-insider-program/) сборки 18317 +
     - требуется Kubernetes v1.14 (или выше) с помощью `WinOverlay` включена функция шлюза
     - требуется Flannel v0.11.0 (или выше)
 - **упрощенное управления сетями**: используйте Flannel в режим узел шлюз управления автоматического маршрут между узлами.
-- **улучшения масштабируемости**: хотят время запуска контейнера быстрее и надежнее благодаря [без устройства виртуальные сетевые карты для контейнеров Windows Server](https://blogs.technet.microsoft.com/networking/2018/04/27/network-start-up-and-performance-improvements-in-windows-10-spring-creators-update-and-windows-server-version-1803/).
-- **Изоляция Hyper-V (альфа)**: планировать [изоляции Hyper-V](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers) с изоляцией в режиме ядра для повышения безопасности. Дополнительные сведения, [типы контейнеров Windows](https://docs.microsoft.com/en-us/virtualization/windowscontainers/about/#windows-container-types).
+- **улучшения масштабируемости**: хотят время запуска контейнера быстрее и надежнее благодаря [без устройства виртуальные сетевые карты для контейнеров Windows Server](https://techcommunity.microsoft.com/t5/Networking-Blog/Network-start-up-and-performance-improvements-in-Windows-10/ba-p/339716).
+- **Изоляция Hyper-V (альфа)**: планировать [изоляции Hyper-V](https://kubernetes.io/docs/getting-started-guides/windows/#hyper-v-containers) с изоляцией в режиме ядра для повышения безопасности. Дополнительные сведения, [типы контейнеров Windows](https://docs.microsoft.com/virtualization/windowscontainers/about/#windows-container-types).
     - требуется Kubernetes v1.10 (или выше) с помощью `HyperVContainer` шлюз функция включена.
 - **подключаемые модули хранилища**: использовать [подключаемый модуль FlexVolume хранилища](https://github.com/Microsoft/K8s-Storage-Plugins) с поддержкой iSCSI и SMB для контейнеров Windows.
 

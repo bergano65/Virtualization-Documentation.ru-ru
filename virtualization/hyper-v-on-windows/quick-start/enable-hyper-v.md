@@ -7,12 +7,12 @@ ms.date: 02/15/2019
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 752dc760-a33c-41bb-902c-3bb2ecd9ac86
-ms.openlocfilehash: 53152d0237a7f81858a5cb2f0fd8aabd439c4613
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: a710f8d60f9d82be7fe02b950a9782b94f3ae6e4
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578275"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620732"
 ---
 # <a name="install-hyper-v-on-windows-10"></a>Установка Hyper-V вWindows10
 
@@ -64,7 +64,7 @@ Hyper-V можно включить разными способами, в том
 
   ![Окно консоли с процессом включения Hyper-V.](media/dism_upd.png)
 
-Дополнительные сведения о DISM см. в разделе [Техническое руководство по DISM](https://technet.microsoft.com/en-us/library/hh824821.aspx).
+Дополнительные сведения о DISM см. в разделе [Техническое руководство по DISM](<https://docs.microsoft.com/previous-versions/windows/it-pro/windows-8.1-and-8/hh824821(v=win.10)>).
 
 ## <a name="enable-the-hyper-v-role-through-settings"></a>Включение роли Hyper-V через раздел "Параметры"
 

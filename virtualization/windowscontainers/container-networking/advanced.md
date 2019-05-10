@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 001f1abaeefaf34e12b0f7e3323bf32140080d05
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 97e5c598613c806e9f26687951999438fba72a8c
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9575085"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620882"
 ---
 # <a name="advanced-network-options-in-windows"></a>Дополнительные параметры сети в Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "9575085"
 
 > Применимо ко всем сетевым драйверам
 
-[Объединение внедренных коммутаторов](https://technet.microsoft.com/en-us/windows-server-docs/networking/technologies/hyper-v-virtual-switch/rdma-and-switch-embedded-teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) можно применять при создании сетей узлов контейнеров для подсистемы Docker, указав несколько сетевых адаптеров (разделенных запятыми) с помощью параметра `-o com.docker.network.windowsshim.interface`.
+[Объединение внедренных коммутаторов](https://docs.microsoft.com/windows-server/virtualization/hyper-v-virtual-switch/RDMA-and-Switch-Embedded-Teaming#a-namebkmksswitchembeddedaswitch-embedded-teaming-set) можно применять при создании сетей узлов контейнеров для подсистемы Docker, указав несколько сетевых адаптеров (разделенных запятыми) с помощью параметра `-o com.docker.network.windowsshim.interface`.
 
 ```
 C:\> docker network create -d transparent -o com.docker.network.windowsshim.interface="Ethernet 2", "Ethernet 3" TeamedNet
@@ -80,13 +80,13 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.dnss
 
 ## <a name="vfp"></a>VFP
 
-Дополнительные сведения см. в [этой статье](https://www.microsoft.com/en-us/research/project/azure-virtual-filtering-platform/).
+Дополнительные сведения см. в [этой статье](https://www.microsoft.com/research/project/azure-virtual-filtering-platform/).
 
 ## <a name="tips--insights"></a>Советы и полезные рекомендации
 Ниже приведен список полезных советов и рекомендаций, составленный на основе стандартных вопросов о сетевых подключениях контейнеров Windows, которые задают участники сообщества.
 
 #### <a name="hns-requires-that-ipv6-is-enabled-on-container-host-machines"></a>Для работы службы HNS требуется включить IPv6 на хост-машинах контейнеров 
-В рамках обновления [KB4015217](https://support.microsoft.com/en-us/help/4015217/windows-10-update-kb4015217) для работы службы HNS требуется включить IPv6 на узлах контейнеров Windows. При возникновении описанной ниже ошибки есть вероятность, что протокол IPv6 отключен на хост-компьютере.
+В рамках обновления [KB4015217](https://support.microsoft.com/help/4015217/windows-10-update-kb4015217) для работы службы HNS требуется включить IPv6 на узлах контейнеров Windows. При возникновении описанной ниже ошибки есть вероятность, что протокол IPv6 отключен на хост-компьютере.
 ```
 docker: Error response from daemon: container e15d99c06e312302f4d23747f2dfda4b11b92d488e8c5b53ab5e4331fd80636d encountered an error during CreateContainer: failure in a Windows system call: Element not found.
 ```
@@ -99,7 +99,7 @@ C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Para
 
 #### <a name="linux-containers-on-windows"></a>Контейнеры Linux в Windows
 
-**НОВОЕ.** Мы работаем над возможностью параллельного запуска контейнеров Linux и Windows _без помощи виртуальной машины Linux Moby_. Подробные сведения см. в этой [записи блога о контейнерах Linux в Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/). Вот как [начать работу](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
+**НОВОЕ.** Мы работаем над возможностью параллельного запуска контейнеров Linux и Windows _без помощи виртуальной машины Linux Moby_. Подробные сведения см. в этой [записи блога о контейнерах Linux в Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/). Вот как [начать работу](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
 > ПРИМЕЧАНИЕ. Решение LCOW приходит на замену виртуальной машине Linux Moby и будет использовать внутренний виртуальный коммутатор "nat" службы HNS по умолчанию.
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Виртуальные машины Moby Linux используют коммутатор DockerNAT с Docker для Windows (продукт [Docker CE](https://www.docker.com/community-edition))
@@ -163,7 +163,7 @@ C:\> docker run -it --network=MyTransparentNet --ip=10.123.174.105 windowsserver
 PS C:\> restart-service hns
 PS C:\> restart-service docker
 ```
-* Другой вариант— использовать "-o com.docker.network.windowsshim.interface1", чтобы привязать внешний виртуальный коммутатор прозрачной сети к определенному сетевому адаптеру, который еще не используется в узле контейнера (например, сетевой адаптер, отличный от используемого виртуальным коммутатором, созданным внешними средствами). Параметр "-o" описан выше, в разделе [Прозрачная сеть](https://msdn.microsoft.com/virtualization/windowscontainers/management/container_networking#transparent-network) этого документа.
+* Другой вариант— использовать "-o com.docker.network.windowsshim.interface1", чтобы привязать внешний виртуальный коммутатор прозрачной сети к определенному сетевому адаптеру, который еще не используется в узле контейнера (например, сетевой адаптер, отличный от используемого виртуальным коммутатором, созданным внешними средствами). "-O параметр описан в разделе" [Создание нескольких прозрачных сетей на одном узле контейнера](advanced.md#creating-multiple-transparent-networks-on-a-single-container-host) "этого документа.
 
 
 ## <a name="windows-server-2016-work-arounds"></a>Обходные пути известных проблем в Windows Server 2016 

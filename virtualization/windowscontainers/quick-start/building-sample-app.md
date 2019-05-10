@@ -7,18 +7,18 @@ ms.date: 07/25/2017
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 970f039e97ce0628c7a7f78c417017fc95570f82
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 9cfb5cb062259e906ce499423619ec7a5b814ac9
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9576885"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620842"
 ---
 # <a name="build-a-sample-app"></a>Создание примера приложения
 
 В этом упражнении показано, как преобразовать пример приложения ASP.net для запуска в контейнере. Если вы хотите узнать, как использовать контейнеры в Windows 10, изучите раздел [Краткое руководство для Windows 10](./quick-start-windows-10.md).
 
-Это краткое руководство применимо только к Windows 10. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы. Так как этот учебник посвящен контейнерам, мы будем писать код только с помощью контейнеров. Если вам нужен учебник для разработки с нуля, его можно найти в [документации по ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-mvc-app-xplat/).
+Это краткое руководство применимо только к Windows 10. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы. Так как этот учебник посвящен контейнерам, мы будем писать код только с помощью контейнеров. Если вам нужен учебник для разработки с нуля, его можно найти в [документации по ASP.NET Core](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app-xplat/).
 
 Если у вас на компьютере не установлен элемент управления версиями Git, его можно скачать здесь: [Git](https://git-scm.com/download).
 

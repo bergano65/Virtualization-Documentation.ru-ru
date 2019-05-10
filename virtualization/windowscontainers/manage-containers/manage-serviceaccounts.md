@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: a2fc3b74a7be109caf078553e471d1c3743f217a
-ms.sourcegitcommit: c48dcfe43f73b96e0ebd661164b6dd164c775bfa
+ms.openlocfilehash: d4a59f351cad36219e8289f9d58b55250c99fc6e
+ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "9610314"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "9620902"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Групповые управляемые службы учетных записей для контейнеров Windows
 
@@ -21,7 +21,7 @@ ms.locfileid: "9610314"
 
 Несмотря на то, что контейнеры Windows невозможно присоединить к домену, они могут по-прежнему использовать удостоверения домена Active Directory для поддержки различных сценариях проверки подлинности.
 
-Чтобы добиться этого, можно настроить контейнера Windows для запуска с [групповой управляемой учетной записью службы](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (gMSA), который — это специальный тип учетной записи службы, введены в Windows Server 2012 для нескольких компьютеров к общему идентификатору без необходимости Чтобы узнать свой пароль.
+Чтобы добиться этого, можно настроить контейнера Windows для запуска с [групповой управляемой учетной записью службы](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) (gMSA), который — это специальный тип учетной записи службы, введены в Windows Server 2012 для нескольких компьютеров к общему идентификатору без необходимости Чтобы узнать свой пароль.
 
 При запуске контейнера с gMSA узла контейнера извлекает gMSA пароль от контроллера домена Active Directory и переводит на него экземпляр контейнера. Контейнер будет использовать учетные данные gMSA всякий раз, когда его учетная запись компьютера (SYSTEM) необходим доступ к сетевым ресурсам.
 
@@ -31,9 +31,9 @@ ms.locfileid: "9610314"
 
 Для запуска контейнера Windows с помощью групповой управляемой учетной записи службы, необходимо следующее:
 
-- Домен Active Directory с помощью по крайней мере один контроллер домена под управлением Windows Server 2012 или более поздней версии. Нет леса или домена функционального уровня требований для использования gMSAs, но пароли gMSA может быть только распределенных контроллерами домена под управлением Windows Server 2012 или более поздней версии. Дополнительные сведения см. в разделе [требования к Active Directory для gMSAs](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req).
+- Домен Active Directory с помощью по крайней мере один контроллер домена под управлением Windows Server 2012 или более поздней версии. Нет леса или домена функционального уровня требований для использования gMSAs, но пароли gMSA может быть только распределенных контроллерами домена под управлением Windows Server 2012 или более поздней версии. Дополнительные сведения см. в разделе [требования к Active Directory для gMSAs](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/getting-started-with-group-managed-service-accounts#BKMK_gMSA_Req).
 - Разрешение на создание управляемой учетной записи. Создание управляемой учетной записи службы, необходимо иметь права администратора домена или использовать учетную запись, которая была делегированные разрешения *Создание msDS-GroupManagedServiceAccount объектов* .
-- Доступ к Интернету, чтобы загрузить модуль credentialspec среды PowerShell. Если вы работаете в изолированной среде, вы можете [Сохранить модуль](https://docs.microsoft.com/en-us/powershell/module/powershellget/save-module?view=powershell-5.1) на компьютере с internet доступ и скопировать его в узел компьютера или контейнер разработки.
+- Доступ к Интернету, чтобы загрузить модуль credentialspec среды PowerShell. Если вы работаете в изолированной среде, вы можете [Сохранить модуль](https://docs.microsoft.com/powershell/module/powershellget/save-module?view=powershell-5.1) на компьютере с internet доступ и скопировать его в узел компьютера или контейнер разработки.
 
 ## <a name="one-time-preparation-of-active-directory"></a>Одноразовый подготовки Active Directory
 
@@ -93,7 +93,7 @@ Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 
 > [!TIP]
 > Вам потребуется использовать учетной записи, которая входит в группу безопасности **Администраторов домена** или была делегированные разрешения **msDS-GroupManagedServiceAccount создание объектов** на выполните следующие команды.
-> Командлет [New-ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) является частью средства AD PowerShell из [Средства удаленного администрирования сервера](https://aka.ms/rsat).
+> Командлет [New-ADServiceAccount](https://docs.microsoft.com/powershell/module/addsadministration/new-adserviceaccount?view=win10-ps) является частью средства AD PowerShell из [Средства удаленного администрирования сервера](https://aka.ms/rsat).
 
 ```powershell
 # Replace 'WebApp01' and 'contoso.com' with your own gMSA and domain names, respectively
@@ -122,7 +122,7 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
 2. Убедитесь, что ваш узел входит в группу безопасности управления доступом к gMSA пароль.
 3. Перезагрузите компьютер, поэтому он получает его новый членство в группе.
 4. Настройка [Docker рабочего стола для Windows 10](https://docs.docker.com/docker-for-windows/install/) или [Docker для Windows Server](https://docs.docker.com/install/windows/docker-ee/).
-5. (Рекомендуется) Убедитесь, что основное приложение может использовать учетной записи gMSA, выполнив [Тест-ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/activedirectory/test-adserviceaccount). Если команда возвращает **значение False**, смотрите в разделе " [Устранение неполадок](#troubleshooting) " для диагностики действия.
+5. (Рекомендуется) Убедитесь, что основное приложение может использовать учетной записи gMSA, выполнив [Тест-ADServiceAccount](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount). Если команда возвращает **значение False**, смотрите в разделе " [Устранение неполадок](#troubleshooting) " для диагностики действия.
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
@@ -310,7 +310,7 @@ d----l        2/27/2019   8:09 PM                contoso.com
 
 Service Fabric поддерживает контейнеров под управлением Windows с помощью gMSA, при указании спецификации расположение учетных данных в манифесте приложения. Необходимо создать файл спецификации учетных данных и поместить в подкаталог **CredentialSpecs** каталога данных Docker на каждом узле таким образом, чтобы Service Fabric можно найти его. Можно запустить командлет **Get-CredentialSpec** частью [credentialspec среды PowerShell](https://aka.ms/credspec), необходимо убедиться, если ваш спецификации учетных данных в нужное место.
 
-См. в разделе [Краткое руководство: развертывание контейнеров Windows на Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-quickstart-containers) и [Настройка gMSA для контейнеров Windows, работающих на Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers) Дополнительные сведения о том, как настроить приложение.
+См. в разделе [Краткое руководство: развертывание контейнеров Windows на Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers) и [Настройка gMSA для контейнеров Windows, работающих на Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers) Дополнительные сведения о том, как настроить приложение.
 
 ### <a name="how-to-use-gmsa-with-docker-swarm"></a>Использование gMSA с Docker Swarm
 
@@ -359,7 +359,7 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 
 Чтобы увидеть это в действии, ознакомьтесь с [запись демонстрации](https://youtu.be/cZHPz80I-3s?t=2672) доступны из Microsoft Ignite 2016 в сеансе «стека путь к контейнеризации — преобразование рабочих нагрузок в контейнеры».
 
-## <a name="troubleshooting"></a>Диагностика
+## <a name="troubleshooting"></a>Устранение неполадок
 
 ### <a name="known-issues"></a>Известные проблемы
 
@@ -390,7 +390,7 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 #### <a name="make-sure-the-host-can-use-the-gmsa"></a>Убедитесь, что основное приложение может использовать gMSA
 
 1. Убедитесь, что узел является подключено к домену и может связаться с контроллером домена.
-2. Установите средства AD PowerShell из средства удаленного администрирования сервера и выполните [Тест-ADServiceAccount](https://docs.microsoft.com/en-us/powershell/module/activedirectory/test-adserviceaccount) имеет ли компьютер доступа для получения доступным последней. Если командлет возвращает **значение False**, компьютер не имеет доступа к паролю gMSA.
+2. Установите средства AD PowerShell из средства удаленного администрирования сервера и выполните [Тест-ADServiceAccount](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount) имеет ли компьютер доступа для получения доступным последней. Если командлет возвращает **значение False**, компьютер не имеет доступа к паролю gMSA.
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
@@ -480,4 +480,4 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-- [Общие сведения о группе управляемых учетных записей служб](https://docs.microsoft.com/en-us/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
+- [Общие сведения о группе управляемых учетных записей служб](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)

@@ -6,17 +6,17 @@ ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: Создание главного узла кластера Kubernetes.
-keywords: kubernetes, 1,13, главный узел, linux
-ms.openlocfilehash: 8a3fb073616d115ab84e6cc36f0fb6cedbcf1f7d
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+keywords: kubernetes, 1,14, главный узел, linux
+ms.openlocfilehash: b1ec23b039ce6f5c42859452ecf3a8a5b35e006c
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9578255"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622959"
 ---
 # <a name="creating-a-kubernetes-master"></a>Создание главного узла Kubernetes #
 > [!NOTE]
-> В этом руководстве были проверены на Kubernetes v1.13. Из-за изменчивости Kubernetes от версии к версии в этом разделе могут привести к предположения, которые не содержат true для всех будущих версий. Официальной документации по инициализации образцов Kubernetes с помощью kubeadm можно найти [здесь](https://kubernetes.io/docs/setup/independent/install-kubeadm/). Просто поверх включите [планирования раздел смешанных ОС](#enable-mixed-os-scheduling) .
+> В этом руководстве были проверены на Kubernetes v1.14. Из-за изменчивости Kubernetes от версии к версии в этом разделе могут привести к предположения, которые не содержат true для всех будущих версий. Официальной документации по инициализации образцов Kubernetes с помощью kubeadm можно найти [здесь](https://kubernetes.io/docs/setup/independent/install-kubeadm/). Просто поверх включите [планирования раздел смешанных ОС](#enable-mixed-os-scheduling) .
 
 > [!NOTE]  
 > Недавно обновленный компьютер под управлением Linux для этой операции требуется вдоль; Kubernetes основных и подробных данных ресурсов, как [помощью kube-dns](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/), [помощью kube заданий](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/)и [помощью kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/) не были перенесены в Windows еще. 
