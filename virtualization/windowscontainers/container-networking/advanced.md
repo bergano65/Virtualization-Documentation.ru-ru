@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 97e5c598613c806e9f26687951999438fba72a8c
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 492e3b0ba3b1abe1109de3f6091f5b60831036df
+ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620882"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "9622979"
 ---
 # <a name="advanced-network-options-in-windows"></a>Дополнительные параметры сети в Windows
 
@@ -41,6 +41,22 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.vlan
 Когда вы настраиваете идентификатор VLAN для сети, вы настраиваете изоляцию VLAN для любых конечных точек контейнера, которые будут присоединены к этой сети.
 
 > Убедитесь, что сетевой адаптер узла (физический) находится в магистральном режиме, чтобы весь помеченный трафик обрабатывался виртуальным коммутатором с портом vNIC (конечной точки контейнера) в режиме доступа в нужной сети VLAN.
+
+## <a name="specify-outboundnat-policy-for-a-network"></a>Укажите OutboundNAT политики сети
+
+> Область применения сетей l2bridge
+
+Обычно при создании `l2bridge` сети контейнера с помощью `docker network create`, конечные точки контейнера не имеют HNS OutboundNAT применена политика, полученные в контейнерах, когда не удается связаться с Интернетом. Если вы создаете сеть, вы можете использовать `-o com.docker.network.windowsshim.enable_outboundnat=<true|false>` вариант, чтобы применить политику OutboundNAT HNS для предоставления доступа контейнеров к внешнему миру:
+
+```
+C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true MyL2BridgeNetwork
+```
+
+Если существует набор назначения (например контейнера в подключения необходим), для которых мы не хотим NAT'ing выполнялся, нам также нужно указать ExceptionList:
+
+```
+C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true -o com.docker.network.windowsshim.outboundnat_exceptions=10.244.10.0/24
+```
 
 ## <a name="specify-the-name-of-a-network-to-the-hns-service"></a>Указание имени сети для службы HNS
 

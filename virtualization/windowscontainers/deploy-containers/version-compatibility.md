@@ -3,12 +3,12 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: 9e20a28f62ec4bb9456307acb7768e1123a57188
-ms.sourcegitcommit: 03e9203e9769997d8be3f66dc7935a3e5c0a83e1
+ms.openlocfilehash: 64b6b400e12060b86594b90474fdedd73dfef45e
+ms.sourcegitcommit: 561eaf94c0c0698d43228ebfcd316a7fcd835a59
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621632"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "9622789"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнеров Windows
 
@@ -116,7 +116,7 @@ docker: Error response from daemon: container b81ed896222eb87906ccab1c3dd2fc4932
 
 Вы можете устранить эту ошибку тремя способами:
 
-- Заново создайте контейнер в зависимости от правильная версия `microsoft/nanoserver` или `microsoft/windowsservercore`
+- Заново создайте контейнер в зависимости от правильная версия `mcr.microsoft.com/windows/nanoserver` или `mcr.microsoft.com/windows/servercore`
 - Если узел более новой версии, запустите **"run" docker--изоляции = … hyperv**
 - Попробуйте запустить контейнер на другом узле с такой же версией Windows
 
