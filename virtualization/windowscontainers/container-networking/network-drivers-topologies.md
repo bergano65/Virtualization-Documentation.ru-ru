@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 358b58da0fc51c03766198e4b25b8b043b2a5029
-ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
+ms.openlocfilehash: 40e877c8999574f21ecb9586c3f2bc012607177f
+ms.sourcegitcommit: 40b929dbc72aa308d8e46765ac61616a35b31791
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "9622909"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "9634393"
 ---
 # <a name="windows-container-network-drivers"></a>Сетевые драйверы контейнеров Windows  
 
@@ -22,8 +22,10 @@ ms.locfileid: "9622909"
 - **nat**— контейнеры, подключенные к сети, которая была создана с помощью драйвера "nat", будут подключены к *внутреннему* коммутатору Hyper-V и получать IP-адрес из указанного пользователем префикса IP-адреса (``--subnet``). Перенаправление и сопоставление портов из узла контейнера в конечные точки контейнера поддерживается.
   
   >[!NOTE]
-  >Несколько сетей NAT поддерживаются, если у вас установлен Windows 10 Creators Update.
+  > Для сетей NAT, созданных на Windows Server 2019 (или выше), больше не сохраняются после перезагрузки.
 
+  > Несколько сетей NAT поддерживаются, если у вас установлен Windows 10 Creators Update (или выше).
+  
 - **transparent**— контейнеры, подключенные к сети, которая была создана с помощью драйвера "transparent", будут подключены к физической сети напрямую через *внешний* коммутатор Hyper-V. IP-адреса из физической сети могут назначаться статически (необходим заданный пользователем параметр ``--subnet``) или динамически с помощью внешнего DHCP-сервера.
   
   >[!NOTE]
