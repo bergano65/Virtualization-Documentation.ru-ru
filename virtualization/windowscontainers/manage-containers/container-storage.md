@@ -3,12 +3,12 @@ title: Хранилище контейнеров Windows Server
 description: Методы использования узла и других типов хранилища контейнерами Windows Server
 keywords: контейнеры, том, хранилище, подключение, подключение с привязкой
 author: patricklang
-ms.openlocfilehash: 87b9c364bfdec2b445bb06caf0e9fd4d849119d4
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 20179f09260b6ae5de802c2372958356f8de3aee
+ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620872"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "9680944"
 ---
 # <a name="overview"></a>Обзор
 
@@ -101,7 +101,7 @@ ms.locfileid: "9620872"
 
 ##### <a name="configuration-steps"></a>Этапы настройки
 
-1. На узле контейнера глобально сопоставление удаленной общей папке SMB:
+1. На узле контейнера выполните глобальную карту удаленного общего доступа к SMB.
     ```
     $creds = Get-Credential
     New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
@@ -135,3 +135,6 @@ ms.locfileid: "9620872"
 3. Запись некоторых файлов в каталог c:\data в контейнере, а затем остановка работы контейнера.
 4. `docker run -v unwound:c:\data microsoft/windowsservercore` - Запуск нового контейнера.
 5. Выполнение `dir c:\data` в новом контейнере—- файлы по-прежнему там.
+
+> [!NOTE]
+> Windows Server преобразует целевые пути (путь внутри контейнера) в «строчные», в противном случае — прописные. i. e. `-v unwound:c:\MyData`или `-v unwound:/app/MyData` в контейнерах Linux может привести к тому, что каталог будет находиться в `c:\mydata`контейнере `/app/mydata` или в контейнерах Linux, сопоставленных (и создаваемых, если она не существует).
