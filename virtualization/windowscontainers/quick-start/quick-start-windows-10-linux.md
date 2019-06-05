@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 91031f9394cb3fcb1af6c4813f8805ad6f79bf8c
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 926e5cd64053b5ea795bb2c75a231700aed443ca
+ms.sourcegitcommit: f6457ee0635864e8e8bb07da43a6f76388ee3cd1
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9681104"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "9734658"
 ---
 # <a name="linux-containers-on-windows-10"></a>Контейнеры Linux в Windows 10
 
@@ -32,13 +32,9 @@ ms.locfileid: "9681104"
 
 ## <a name="prerequisites"></a>Что вам понадобится
 
-Убедитесь, что вы отвечаете на следующие требования: _Лт__лт__лт__лт__лт__лт__лт_ HEAD
-- Одна физическая компьютерная система под управлением Windows 10 профессиональная или Корпоративная с обновлениями для дизайнеров (версия 1709) или более поздней.
-- Убедитесь, что включена [технология Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
-=======
+Убедитесь, что вы отвечаете на следующие требования:
 - Одна физическая компьютерная система под управлением Windows 10 профессиональная, Windows 10 корпоративный или Windows Server 2019 версии 1809 или более поздней.
-- Убедитесь, что включена [технология Hyper-V](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
->>>>>>> Источник и образец
+- Убедитесь, что включена [технология Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) .
 
 ***Изоляция Hyper-V:*** Контейнеры Linux в Windows требуют изоляции Hyper-V в Windows 10 для предоставления разработчикам соответствующего ядра Linux для выполнения контейнера. Дополнительные сведения об изоляции Hyper-V можно найти на странице [о контейнерах Windows](../about/index.md) .
 
@@ -48,7 +44,7 @@ ms.locfileid: "9681104"
 
 > Если вы уже установили Dock, убедитесь в том, что у вас установлена версия 18,02 или более поздней версии для поддержки ЛКОВ. Проверьте, запустив `docker -v` или проверяя закрепление. **
 
-> Для запуска ЛКОВ контейнеров необходимо активировать параметр "экспериментальные функции" в *_Гт_ демоне параметров Dock* .
+> Для запуска контейнеров ЛКОВ необходимо активировать параметр "экспериментальные функции" в *параметрах стыковочного > DAEMON* .
 
 ## <a name="run-your-first-lcow-container"></a>Выполнение первого контейнера ЛКОВ
 
