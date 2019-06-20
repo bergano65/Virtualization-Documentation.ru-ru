@@ -40,7 +40,7 @@
 ### [Присоединение к сотрудникам Windows](kubernetes/joining-windows-workers.md)
 ### [Присоединение к сотрудникам Linux](kubernetes/joining-linux-workers.md)
 ### [Развертывание ресурсов Кубернетес](kubernetes/deploying-resources.md)
-### [Устранение неполадок](kubernetes/common-problems.md)
+### [Поиск и устранение неисправностей](kubernetes/common-problems.md)
 ### [Службы Windows на Кубернетес](kubernetes/kube-windows-services.md)
 ### [Компиляция двоичных файлов Кубернетес](kubernetes/compiling-kubernetes-binaries.md)
 ## Фабрика служб в Windows
@@ -52,11 +52,12 @@
 # Сообщество и поддержка
 ## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 ## [Видеоролики и блоги сообщества](communitylinks.md)
-## [Устранение неполадок](troubleshooting.md)
+## [Поиск и устранение неисправностей](troubleshooting.md)
 
 # Справочник
 ## [Требования к системе](deploy-containers/system-requirements.md)
 ## [Совместимость версий](deploy-containers/version-compatibility.md)
+## [Базовые циклы обслуживания образов](deploy-containers/base-image-lifecycle.md)
 ## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
 ## [Службы печати](deploy-containers/print-spooler.md)
 ## [Ускорение GPU](deploy-containers/gpu-acceleration.md)
