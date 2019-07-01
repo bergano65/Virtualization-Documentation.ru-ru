@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
-ms.openlocfilehash: 18a2d6e58127aba456b279d217794ab5469b06d7
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: daecf2701972a00f4587b409c2271a23a70684ab
+ms.sourcegitcommit: 66f6cba600432f8fac1c214f357b27eb783cb1ff
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620692"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "9794591"
 ---
 # <a name="hyper-v-on-windows-10"></a>Hyper-V в Windows10 
 
@@ -21,40 +21,22 @@ ms.locfileid: "9620692"
 
 В следующих документах подробно описывается функция Hyper-V в Windows10, приводится краткое интерактивное руководство и содержатся ссылки на дополнительные ресурсы и форумы сообщества. 
 
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:100%" cellpadding="15" cellspacing="3">
-    <tr valign="top">
-        <td><center>![](./media/MeetsRequirements_65.png)</center></td>
-        <td valign="top">
-            <p><strong>О Hyper-V в Windows</strong></p>
-            <p>Следующие статьи содержат введение в Hyper-V в ОС Windows и сведения об этой технологии.</p>
-            <ul>
-                <li class="unordered">[Введение в Hyper-V](./about/index.md)<br /><br /></li>
-                <li class="unordered">[Поддерживаемые гостевые операционные системы](about\supported-guest-os.md)<br /><br /></li>
-            </ul>   
-        </td>
-    </tr>
-    <tr valign="top">
-        <td><center>![](./media/All_ContentTypeIcons_VisualWalkthrough_65.png)</center></td>
-        <td valign="top">
-            <p><strong>Начало работы с Hyper-V</strong></p>
-            <p>В следующих документах содержится краткое интерактивное введение в Hyper-V в Windows10.</p>
-            <ul>
-                <li class="unordered">[Установка Hyper-V](quick-start\enable-hyper-v.md)<br /><br /></li>
-                <li class="unordered">[Создание виртуальной машины](quick-start\create-virtual-machine.md)<br /><br /></li>
-                <li class="unordered">[Создание виртуального коммутатора](quick-start\connect-to-network.md)<br /><br /></li>
-                <li class="unordered">[Hyper-V и PowerShell](quick-start\try-hyper-v-powershell.md)<br /><br /></li>
-            </ul>
-        </td>
-    </tr>
-    <tr valign="top">
-        <td><center>![](./media/Chat_65.png)</center></td>
-        <td valign="top">
-            <p><strong>Связь с сообществом и поддержка</strong></p>
-            <p>Дополнительные ресурсы технической поддержки и сообщества.</p>
-            <ul>
-                <li class="unordered">[Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)<br /><br /></li>
-                <li class="unordered">[Ресурсы сообщества для Hyper-V и контейнеров Windows](/virtualization/community/index.md)<br /><br /></li>
-            </ul>   
-        </td>
-    </tr>
-</table>
+## <a name="about-hyper-v-on-windows"></a>О Hyper-V в Windows
+Следующие статьи содержат введение в Hyper-V в ОС Windows и сведения об этой технологии.
+
+* [Введение в Hyper-V](./about/index.md)
+* [Поддерживаемые гостевые операционные системы](about\supported-guest-os.md)
+
+## <a name="get-started-with-hyper-v"></a>Начало работы с Hyper-V
+В следующих документах содержится краткое интерактивное введение в Hyper-V в Windows10.
+
+* [Установка Hyper-V](quick-start\enable-hyper-v.md)
+* [Создание виртуальной машины](quick-start\create-virtual-machine.md)
+* [Создание виртуального коммутатора](quick-start\connect-to-network.md)
+* [Hyper-V и PowerShell](quick-start\try-hyper-v-powershell.md)
+
+## <a name="connect-with-community-and-support"></a>Связь с сообществом и поддержка
+Дополнительные ресурсы технической поддержки и сообщества.
+
+* [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)
+* [Ресурсы сообщества для Hyper-V и контейнеров Windows](/virtualization/community/index.md)
