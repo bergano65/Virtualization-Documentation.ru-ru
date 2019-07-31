@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: 66723f33-b12c-49d1-82cf-71ba9d6087e9
-ms.openlocfilehash: 7882e89368bb88390c2efa93c3f2a8f04bb7a37a
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 94ac197f5bc660e52d215fa132eae78f521e1c30
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620782"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882897"
 ---
 # <a name="create-virtual-machine-with-hyper-v-on-windows-10"></a>Создание виртуальной машины с помощью Hyper-V в Windows10
 
@@ -30,7 +30,7 @@ ms.locfileid: "9620782"
   > **Примечание.** Это имя, используемое Hyper-V для виртуальной машины, а не имя компьютера, присвоенное гостевой операционной системе, которая будет развернута внутри виртуальной машины.
 
 1. Выберите расположение, где будут храниться файлы виртуальной машины (например, **c:\virtualmachine**). Можно также оставить расположение по умолчанию. По завершении нажмите кнопку **Далее**.
-    
+
   ![](media/new_vm_upd.png)
 
 1. Выберите поколение виртуальной машины и нажмите кнопку **Далее**.  

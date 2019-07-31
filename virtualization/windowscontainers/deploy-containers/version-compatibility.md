@@ -3,12 +3,12 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: 4d01fb1d11ee9e8a5fa4271699a5a7c59c27409d
-ms.sourcegitcommit: 71e46750813a996cecc445181974a79b95affc8c
+ms.openlocfilehash: 019dafe855e0fba696db4618a862ec086d435005
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "9685349"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882997"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнера Windows
 
@@ -16,53 +16,85 @@ ms.locfileid: "9685349"
 
 В ходе улучшения функций контейнеров Windows нам пришлось внести некоторые изменения, которые могут повлиять на совместимость. Старые контейнеры будут выполняться одинаково на более новых узлах с [изоляцией Hyper-V](../manage-containers/hyperv-container.md)и будут использовать одну и ту же (более старую) версию ядра. Тем не менее, если вы хотите выполнить контейнер на основе более новой сборки Windows, он может выполняться только в новой сборке узла.
 
-|Версия ОС контейнера|Версия ОС узла|Совместимость|
-|---|---|---|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows Server версии 1903<br>Сборка 18362. * |Поддержка `process` и `hyperv` изоляция|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows 10 версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows10 версии1809<br>Сборка 17763. * |Не поддерживается|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |WindowsServer2019<br>Сборка 17763. * |Не поддерживается|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows10 версии1803<br>Сборка 17134. * |Не поддерживается|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows Server версии 1803<br>Сборка 17134. * |Не поддерживается|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Не поддерживается.|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows Server версии 1709<br>Сборки: 16299.* |Не поддерживается.|
-|Windows Server 2019, версия 1903<br>Сборка 18362. * |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
-|WindowsServer2019<br>Сборка 17763. * |Windows Server версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|WindowsServer2019<br>Сборка 17763. * |Windows 10 версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|WindowsServer2019<br>Сборка 17763. * |Windows10 версии1809<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|WindowsServer2019<br>Сборка 17763. * |WindowsServer2019<br>Сборка 17763. * |Поддержка `process` и `hyperv` изоляция|
-|WindowsServer2019<br>Сборка 17763. * |Windows10 версии1803<br>Сборка 17134. * |Не поддерживается|
-|WindowsServer2019<br>Сборка 17763. * |Windows Server версии 1803<br>Сборка 17134. * |Не поддерживается|
-|WindowsServer2019<br>Сборка 17763. * |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Не поддерживается.|
-|WindowsServer2019<br>Сборка 17763. * |Windows Server версии 1709<br>Сборки: 16299.* |Не поддерживается.|
-|WindowsServer2019<br>Сборка 17763. * |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows Server версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows 10 версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows10 версии1809<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1803<br>Сборка 17134. * |WindowsServer2019<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows10 версии1803<br>Сборка 17134. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows Server версии 1803<br>Сборка 17134. * |Поддержка `process` и `hyperv` изоляция|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Не поддерживается.|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows Server версии 1709<br>Сборки: 16299.* |Не поддерживается.|
-|Windows Server версии 1803<br>Сборка 17134. * |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows 10 версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows10 версии1809<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |WindowsServer2019<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows10 версии1803<br>Сборка 17134. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server версии 1803<br>Сборка 17134. * |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Поддерживается `hyperv` только изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server версии 1709<br>Сборки: 16299.* |Поддержка `process` и `hyperv` изоляция|
-|Windows Server версии 1709<br>Сборки: 16299.* |Windows Server 2016<br>Сборки: 14393.* |Не поддерживается|
-|Windows Server 2016<br>Сборки: 14393.* |Windows Server версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows 10 версии 1903<br>Сборка 18362. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows10 версии1809<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |WindowsServer2019<br>Сборка 17763. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows 10 Fall Creators Update<br>Сборки: 16299.* |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows Server версии 1803<br>Сборка 17134. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows10 версии1803<br>Сборка 17134. * |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows Server версии 1709<br>Сборки: 16299.* |Поддерживается `hyperv` только изоляция|
-|Windows Server 2016<br>Сборки: 14393.* |Windows Server 2016<br>Сборки: 14393.* |Поддержка `process` и `hyperv` изоляция|
+## <a name="windows-server-version-1903-host-os-compatibility"></a>Совместимость операционной системы Windows Server версии 1903
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Да|Да|
+|WindowsServer2019|Да|Нет|
+|Windows Server версии 1803|Да|Нет|
+|Windows Server версии 1709|Да|Нет|
+|Windows Server 2016|Да|Нет|
+
+## <a name="windows-server-2019-host-os-compatibility"></a>Совместимость с ОС Windows Server 2019 Host
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Нет|Нет|
+|WindowsServer2019|Да|Да|
+|Windows Server версии 1803|Да|Нет|
+|Windows Server версии 1709|Да|Нет|
+|Windows Server 2016|Да|Нет|
+
+## <a name="windows-server-version-1803-host-os-compatibility"></a>Совместимость операционной системы Windows Server версии 1803
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Нет|Нет|
+|WindowsServer2019|Нет|Нет|
+|Windows Server версии 1803|Да|Да|
+|Windows Server версии 1709|Да|Нет|
+|Windows Server 2016|Да|Нет|
+
+## <a name="windows-server-version-1709-host-os-compatibility"></a>Совместимость операционной системы Windows Server версии 1709
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Нет|Нет|
+|WindowsServer2019|Нет|Нет|
+|Windows Server версии 1803|Нет|Нет|
+|Windows Server версии 1709|Да|Да|
+|Windows Server 2016|Да|Нет|
+
+## <a name="windows-10-version-1903-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1903
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Нет|Нет|
+|WindowsServer2019|Нет|Нет|
+|Windows Server версии 1803|Нет|Нет|
+|Windows Server версии 1709|Нет|Нет|
+|Windows Server 2016|Да|Да|
+
+## <a name="windows-10-version-1809-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1809
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Нет|Нет|
+|WindowsServer2019|Да|Нет|
+|Windows Server версии 1803|Да|Нет|
+|Windows Server версии 1709|Да|Нет|
+|Windows Server 2016|Да|Нет|
+
+## <a name="windows-10-version-1803-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1803
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows обслуживает версию 1903|Нет|Нет|
+|WindowsServer2019|Нет|Нет|
+|Windows Server версии 1803|Да|Нет||
+|Windows Server версии 1709|Да|Нет|
+|Windows Server 2016|Да|Нет|
+
+## <a name="windows-10-fall-creators-update-host-os-compatibility"></a>Windows 10 — создатели обновлений для обеспечения совместимости с ОС узла
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1903|Нет|Нет|
+|WindowsServer2019|Нет|Нет|
+|Windows Server версии 1803|Нет|Нет|
+|Windows Server версии 1709|Да|Нет|
+|Windows Server 2016|Да|Нет|
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>Соответствующая хостная версия контейнера с версиями изображений контейнера
 
@@ -163,7 +195,7 @@ FROM mcr.microsoft.com/windows/nanoserver:10.0.17763.437
 ...
 ```
 
-Базовые образы ядра сервера, основанные на Windows Server 2019 и Windows Server 2016, являются выпусками [долгосрочного канала обслуживания (лтск)](https://docs.microsoft.com/en-us/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . Если вы хотите, чтобы в качестве версии Windows Server 2019 в качестве операционной системы контейнера вашего сервера имелись самые последние исправления, вы можете указать такие выпуски ЛТСК, как показано ниже.
+Базовые образы ядра сервера, основанные на Windows Server 2019 и Windows Server 2016, являются выпусками [долгосрочного канала обслуживания (лтск)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) . Если вы хотите, чтобы в качестве версии Windows Server 2019 в качестве операционной системы контейнера вашего сервера имелись самые последние исправления, вы можете указать такие выпуски ЛТСК, как показано ниже.
 
 ``` dockerfile
 FROM mcr.microsoft.com/windows/servercore:ltsc2019

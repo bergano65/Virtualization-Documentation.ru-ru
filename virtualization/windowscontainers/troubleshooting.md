@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ebd79cd3-5fdd-458d-8dc8-fc96408958b5
-ms.openlocfilehash: dfa558f3b17362b6f9af429842282309430e1da3
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 652b1a8e0ab12ac67dd2754051e36c523e3de509
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620942"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882947"
 ---
 # <a name="troubleshooting"></a>Диагностика
 
@@ -28,7 +28,7 @@ Invoke-WebRequest https://aka.ms/Debug-ContainerHost.ps1 -UseBasicParsing | Invo
 
 
 ## <a name="finding-logs"></a>Нахождение журналов
-Существует ряд служб, которые используются для управления контейнерами Windows. В следующих разделах показано, где найти журналы каждой из служб.
+Существует несколько служб, используемых для управления контейнерами Windows. В следующих разделах показано, где найти журналы каждой из служб.
 
 # <a name="docker-engine"></a>Подсистема Docker
 Подсистема Docker записывает сообщения в журнал событий приложений Windows, а не в файл журнала. Эти журналы можно легко прочитать, отсортировать и отфильтровать с помощью Windows PowerShell.
@@ -71,7 +71,7 @@ SERVICE_NAME: docker
 - Добавьте экранирующий символ "\" для каждой кавычки (").
 - Заключите всю команду в кавычки (").
 
-После запустите `sc.exe config docker binpath= `, добавив новую строку. Пример. 
+После запустите `sc.exe config docker binpath=`, добавив новую строку. Пример. 
 ```
 sc.exe config docker binpath= "\"C:\Program Files\Docker\dockerd.exe\" --run-service -D"
 ```
@@ -91,9 +91,9 @@ sc.exe stop docker
 <path\to\>dockerd.exe -D > daemon.log 2>&1
 ```
 
-## <a name="obtaining-stack-dump"></a>Получение копии стека.
+## <a name="obtaining-stack-dump"></a>Получение дампа стека.
 
-Как правило это полезно только в случае явного запроса технической поддержки Майкрософт и разработчиков docker. Его можно использовать для диагностики неполадок, приведших где docker к зависанию. 
+Как правило, это полезно, только если вы явным образом запросили разработчики службы поддержки Майкрософт или закрепления. Она может использоваться для диагностики ситуации, когда Dock зависла. 
 
 Скачайте файл [docker-signal.exe](https://github.com/jhowardmsft/docker-signal).
 
@@ -104,11 +104,11 @@ Get-Process dockerd
 docker-signal -pid=<id>
 ```
 
-Выходной файл будет находиться в корневой папке данных каталог docker запущена в. Каталогом по умолчанию является `C:\ProgramData\Docker`. Фактическое расположение можно проверить, выполнив команду `docker info -f "{{.DockerRootDir}}"`.
+Выходной файл будет находиться в закрепление корневого каталога данных, в котором он находится. Каталогом по умолчанию является `C:\ProgramData\Docker`. Фактическое расположение можно проверить, выполнив команду `docker info -f "{{.DockerRootDir}}"`.
 
 Файл будет `goroutine-stacks-<timestamp>.log`.
 
-Обратите внимание, что `goroutine-stacks*.log` не содержит личные сведения.
+Обратите `goroutine-stacks*.log` внимание, что не содержит персональных данных.
 
 
 # <a name="host-compute-service"></a>Служба вычисления узлов
@@ -131,12 +131,12 @@ Get-WinEvent -LogName Microsoft-Windows-Hyper-V-Compute-Operational
 ```PowerShell
 # Enable the analytic logs
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:true /q:true
-     
+
 # <reproduce your issue>
-     
+
 # Export to an evtx
 wevtutil.exe epl Microsoft-Windows-Hyper-V-Compute-Analytic <hcslog.evtx>
-     
+
 # Disable
 wevtutil.exe sl Microsoft-Windows-Hyper-V-Compute-Analytic /e:false /q:true
 ```

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 1f8a691c-ca75-42da-8ad8-a35611ad70ec
-ms.openlocfilehash: ea6fb4471cf337ff17bb1f936caea192bccaf404
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: e69775c15359645f3659c9bee3562733415228d5
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621162"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9882887"
 ---
 # <a name="set-up-a-nat-network"></a>Настройка сети NAT
 
@@ -148,7 +148,7 @@ PS C:\> Get-NetNat | Remove-NetNAT (again, this will remove the NAT but keep the
 PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared prefix>
 PS C:\> Start-Service docker
 ```
-Docker и HNS будет назначение IP-адреса для контейнеров Windows и администрирования назначить IP-адреса виртуальных машин с установленной различие двух.
+Dock/HNS назначает IP-адреса контейнерам Windows, а администратор назначает им IP-адреса для виртуальных машин из набора отличий двух.
 
 Пользователь установил компонент "Контейнеры Windows" с работающей подсистемой Docker и хочет подключить виртуальные машины к сети NAT.
 ```
@@ -162,7 +162,7 @@ PS C:\> New-NetNat -Name SharedNAT -InternalIPInterfaceAddressPrefix <shared pre
 PS C:\> New-VirtualSwitch -Type internal (attach VMs to this new vSwitch)
 PS C:\> Start-Service docker
 ```
-Docker и HNS будет назначение IP-адреса для контейнеров Windows и администрирования назначить IP-адреса виртуальных машин с установленной различие двух.
+Dock/HNS назначает IP-адреса контейнерам Windows, а администратор назначает им IP-адреса для виртуальных машин из набора отличий двух.
 
 В итоге вы должны получить два внутренних коммутатора виртуальных машин и один общий для них коммутатор NetNat.
 

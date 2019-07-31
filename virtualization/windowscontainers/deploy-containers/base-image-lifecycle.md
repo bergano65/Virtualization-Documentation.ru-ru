@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: c26f4b225287fbc25566e36376eb8cd604d45a68
-ms.sourcegitcommit: 9cd1aa792a417e71192c7aa39e409ae6ca0bc710
+ms.openlocfilehash: d3a8240dbba8af3c74ce5d185620e129d103ef81
+ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "9788557"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "9883187"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Базовые циклы обслуживания образов
 
@@ -35,4 +35,4 @@ ms.locfileid: "9788557"
 |Основные серверные компоненты                      |Долгосрочные        |1607   |14393   |15октября 2016г.  |11 января 2022 г.                 |11.01.2027           |
 |Сервер Nano Server                      |Половина годового      |1607   |14393   |15октября 2016г.  |10/09/2018                 |Н/Д                  |
 
-Требования для обслуживания и другие дополнительные сведения можно найти в разделе [вопросы и ответы о жизненном цикле Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products), [сведения о выпуске Windows Server](https://docs.microsoft.com/en-us/windows-server/get-started/windows-server-release-info)и в [репозитории образов базовой ОС Windows](https://hub.docker.com/_/microsoft-windows-base-os-images).
+Требования для обслуживания и другие дополнительные сведения можно найти в разделе [вопросы и ответы о жизненном цикле Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products), [сведения о выпуске Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)и в [репозитории образов базовой ОС Windows](https://hub.docker.com/_/microsoft-windows-base-os-images).
