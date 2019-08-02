@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows.
 keywords: кубернетес, 1,14, Linux, компиляция
-ms.openlocfilehash: bdf1fd78bbbebcad3562872d9e71c961be6c64eb
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: a0b24782a0e511dfc8b6cf1a0c0bc24882ff977a
+ms.sourcegitcommit: 42cb47ba4f3e22163869d094bd0c9cff415a43b0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883007"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "9884995"
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.
@@ -68,6 +68,12 @@ Restart-Service HNS
 \\Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\vmsmp\parameters\NicList
 ```
 
+### <a name="containers-on-my-flannel-host-gw-deployment-on-azure-cannot-reach-the-internet"></a>Контейнеры на моем Фланнел Host-GW развертывания в Azure не могут получить доступ к Интернету ###
+При развертывании Фланнел в режиме host-GW в Azure пакеты должны пройти по физическому узлу на vSwitch. Пользователи должны программировать пользовательские [маршруты](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview#user-defined) типа "виртуальное устройство" для каждой подсети, назначенной узлу. Это можно сделать на портале Azure (например, в [этом](https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-create-route-table-portal)разделе) или с `az` помощью службы Azure CLI. Ниже приведен пример УДР с именем "Мирауте" с помощью команд AZ для узла с IP-10.0.0.4 и соответствующей подсетью Pod 10.244.0.0/24:
+```
+az network route-table create --resource-group <my_resource_group> --name BridgeRoute 
+az network route-table route create  --resource-group <my_resource_group> --address-prefix 10.244.0.0/24 --route-table-name BridgeRoute  --name MyRoute --next-hop-type VirtualAppliance --next-hop-ip-address 10.0.0.4 
+```
 
 ### <a name="my-windows-pods-cannot-ping-external-resources"></a>Не удается проверить связь с внешними ресурсами в Windows. ###
 В Windows не установлены правила исходящих сообщений, запрограммированные для протокола ICMP уже сегодня. Тем не менее, TCP/UDP поддерживается. При попытке продемонстрировать подключение к ресурсам за пределами кластера, подставьте `ping <IP>` соответствующие `curl <IP>` команды.
