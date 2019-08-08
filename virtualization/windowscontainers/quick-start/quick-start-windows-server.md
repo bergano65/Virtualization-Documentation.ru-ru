@@ -8,33 +8,33 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: e3b2a4dc-9082-4de3-9c95-5d516c03482b
-ms.openlocfilehash: df0470fd44c823fe14411d6d3d29188e980d1780
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 665e6186ff5f9530f12ba3d0a400d82bcac755a7
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621202"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9999201"
 ---
 # <a name="windows-containers-on-windows-server"></a>Контейнеры Windows в Windows Server
 
-Это упражнение посвящено основным аспектам развертывания и использования функции контейнеров Windows в Windows Server 2019 и Windows Server 2016.
+В этом упражнении вы ознакомитесь с базовым развертыванием и использованием функции контейнера Windows в Windows Server 2019 и Windows Server 2016.
 
-В этом кратком руководстве будут выполнены:
+Это краткое руководство поможет вам сделать следующее:
 
 1. Включение функции контейнеров в Windows Server
-2. Установка Docker
-3. Так как простой контейнер Windows
+2. Установка стыковочного узла
+3. Выполнение простого контейнера Windows
 
 Если вам необходимо ознакомиться с контейнерами, изучите раздел [О контейнерах](../about/index.md).
 
-Это краткое руководство относится к контейнерам Windows Server в Windows Server 2019 и Windows Server 2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
+Это краткое руководство относится только к контейнерам Windows Server в Windows Server 2019 и Windows Server 2016. Дополнительную документацию к краткому руководству, в том числе по контейнерам в Windows10, можно найти в содержании в левой части этой страницы.
 
 ## <a name="prerequisites"></a>Что вам понадобится
 
-Убедитесь, что соблюдаются следующие требования:
-- Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019. Если вы используете Windows Server 2019 Insider Preview, обновите [Window Server 2019 Evaluation](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ).
+Убедитесь, что вы отвечаете на следующие требования:
+- Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019. Если вы используете Windows Server 2019 Insider Preview, пожалуйста, обновите [ознакомительную версию до Window server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ).
 
-> Критические обновления необходимы для работы Windows контейнеров для функции. Установите все обновления перед выполнением этого учебника.
+> Для функционирования функции контейнера Windows необходимо, чтобы были важны важные обновления. Установите все обновления перед выполнением этого учебника.
 
 Если вы хотите провести развертывание в Azure, это легко сделать с помощью следующего [шаблона](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-server-container-tools/containers-azure-template).
 
@@ -46,7 +46,7 @@ ms.locfileid: "9621202"
 
 ## <a name="install-docker"></a>Установка Docker
 
-Для установки Docker мы будем использовать [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget) , который можно использовать с поставщиками для выполнения установки: в данном случае [MicrosoftDockerProvider](https://github.com/OneGet/MicrosoftDockerProvider). Поставщик включит функцию контейнеров на вашем компьютере. Вы также установите Docker, после чего потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
+Чтобы установить Dock, мы будем использовать [модуль PowerShell поставщика онежет](https://github.com/oneget/oneget) , который работает с поставщиками для выполнения установки, в этом случае [микрософтдоккерпровидер](https://github.com/OneGet/MicrosoftDockerProvider). Поставщик включит функцию контейнеров на вашем компьютере. Вы также установите Docker, после чего потребуется перезагрузка. Docker необходим для работы с контейнерами Windows. Он состоит из подсистемы Docker и клиента Docker.
 
 Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
 
@@ -69,7 +69,7 @@ Restart-Computer -Force
 ```
 
 > [!TIP]
-> Если вы хотите обновить Docker позже:
+> Если вы хотите обновить закрепление позже, выполните указанные ниже действия.
 >  - Проверьте установленную версию с помощью команды `Get-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - Найдите текущую версию с помощью команды `Find-Package -Name Docker -ProviderName DockerMsftProvider`
 >  - После этого выполните обновление с помощью команды `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force` и команды `Start-Service Docker`
@@ -106,7 +106,7 @@ sconfig
 
 В этом упражнении вы скачаете предварительно созданный пример образа .NET из реестра Docker Hub и развернете простой контейнер с приложением .NET Hello World.  
 
-Используйте команду `docker run` для развертывания контейнера .Net. Эта команда также скачает образ контейнера, что может занять несколько минут. В зависимости от версии узла Windows Server выполните следующую команду ниже.
+Используйте команду `docker run` для развертывания контейнера .Net. Эта команда также скачает образ контейнера, что может занять несколько минут. В зависимости от версии Windows Server, используемой на вашем компьютере, выполните следующую команду ниже.
 
 #### <a name="windows-server-2019"></a>WindowsServer2019
 
@@ -173,4 +173,4 @@ OS: Microsoft Windows 10.0.17763
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Узнайте, как Автоматизация сборки контейнера и сохранение изображений](./quick-start-images.md)
+> [Сведения о том, как автоматизировать построения контейнера и сохранение изображений.](./quick-start-images.md)

@@ -3,17 +3,17 @@ title: Групповые управляемые учетные записи с�
 description: Групповые управляемые учетные записи служб для контейнеров Windows
 keywords: Dock, контейнеры, Active Directory, гмса
 author: rpsqrd
-ms.date: 06/12/2019
+ms.date: 08/02/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: b908a35f63b2f25da3fb19c0f96b55fe3e513350
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: ec57152cf077f5007f4bf44a9ec902941c3bc749
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883177"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998361"
 ---
 # <a name="group-managed-service-accounts-for-windows-containers"></a>Групповые управляемые учетные записи служб для контейнеров Windows
 
@@ -86,8 +86,8 @@ Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 |--------------|----------------|--------|
 |ФИО | Любое действительное имя учетной записи. | `WebApp01` |
 |Атрибуты | Доменное имя, добавляемое к имени учетной записи. | `WebApp01.contoso.com` |
-|СервицепринЦипалнамес | Установите по крайней мере имя участника-службы узла, при необходимости добавьте другие протоколы. | `'host/WebApp01', 'host/WebApp01.contoso.com'` |
-|ПринЦипалсалловедторетриевеманажедпассворд | Группа безопасности, содержащая узлы вашего контейнера. | `WebApp01Hosts` |
+|сервицепринЦипалнамес | Установите по крайней мере имя участника-службы узла, при необходимости добавьте другие протоколы. | `'host/WebApp01', 'host/WebApp01.contoso.com'` |
+|принЦипалсалловедторетриевеманажедпассворд | Группа безопасности, содержащая узлы вашего контейнера. | `WebApp01Hosts` |
 
 После того как вы решили имя для вашего Гмса, выполните следующие командлеты в PowerShell, чтобы создать группу безопасности и Гмса.
 
@@ -99,7 +99,7 @@ Add-KdsRootKey -EffectiveTime (Get-Date).AddHours(-10)
 # Replace 'WebApp01' and 'contoso.com' with your own gMSA and domain names, respectively
 
 # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-# To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+# To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
 # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
 # Create the security group
@@ -126,7 +126,7 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-    # To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+    # To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
     # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
     Test-ADServiceAccount WebApp01
@@ -146,7 +146,7 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
 
 1. Установка средств AD PowerShell для RSAT
     - Для Windows Server выполните **установку-WINDOWSFEATURE RSAT-AD-PowerShell**.
-    - В Windows 10 версии 1809 или более поздней выполните командлет **Install-виндовскапабилити-Online "RSAT. ActiveDirectory. DS-LDS ~ 0.0.1.0"**.
+    - В Windows 10 версии 1809 или более поздней выполните командлет **Add-виндовскапабилити-Online-Name. ActiveDirectory. DS-LDS. Tools ~ ~ ~ ~ 0.0.1.0 '**.
     - Для более ранних версий Windows 10 вы <https://aka.ms/rsat>видите.
 2. Чтобы установить последнюю версию [модуля PowerShell кредентиалспек](https://aka.ms/credspec), выполните следующий командлет:
 
@@ -394,7 +394,7 @@ EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-    # To install the AD module on Windows 10 version 1809 or later, run Install-WindowsCapability -Online 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
+    # To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
     # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
 
     Test-ADServiceAccount WebApp01

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 492e3b0ba3b1abe1109de3f6091f5b60831036df
-ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
+ms.openlocfilehash: 6480f0657d7def8d6da69bfc52ace81d08b0add4
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "9622979"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998812"
 ---
 # <a name="advanced-network-options-in-windows"></a>Дополнительные параметры сети в Windows
 
@@ -42,17 +42,17 @@ C:\> docker network create -d transparent -o com.docker.network.windowsshim.vlan
 
 > Убедитесь, что сетевой адаптер узла (физический) находится в магистральном режиме, чтобы весь помеченный трафик обрабатывался виртуальным коммутатором с портом vNIC (конечной точки контейнера) в режиме доступа в нужной сети VLAN.
 
-## <a name="specify-outboundnat-policy-for-a-network"></a>Укажите OutboundNAT политики сети
+## <a name="specify-outboundnat-policy-for-a-network"></a>Указание политики Аутбаунднат для сети
 
-> Область применения сетей l2bridge
+> Применимо к l2bridge сетям
 
-Обычно при создании `l2bridge` сети контейнера с помощью `docker network create`, конечные точки контейнера не имеют HNS OutboundNAT применена политика, полученные в контейнерах, когда не удается связаться с Интернетом. Если вы создаете сеть, вы можете использовать `-o com.docker.network.windowsshim.enable_outboundnat=<true|false>` вариант, чтобы применить политику OutboundNAT HNS для предоставления доступа контейнеров к внешнему миру:
+Обычно при создании сети `l2bridge` контейнера с использованием `docker network create`конечных точек контейнера не применяется политика HNS аутбаунднат, что приводит к невозможности доступа контейнеров к внешнему миру. Если вы создаете сеть, вы можете использовать `-o com.docker.network.windowsshim.enable_outboundnat=<true|false>` параметр для применения политики АУТБАУНДНАТа HNS для предоставления контейнерам доступа к внешним миром.
 
 ```
 C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true MyL2BridgeNetwork
 ```
 
-Если существует набор назначения (например контейнера в подключения необходим), для которых мы не хотим NAT'ing выполнялся, нам также нужно указать ExceptionList:
+Если существует набор конечных объектов (например, контейнер для подключения к контейнеру) для тех случаев, когда нам не нужно Нат'инг, нам также нужно указать список исключений.
 
 ```
 C:\> docker network create -d l2bridge -o com.docker.network.windowsshim.enable_outboundnat=true -o com.docker.network.windowsshim.outboundnat_exceptions=10.244.10.0/24
@@ -115,7 +115,7 @@ C:\> reg delete HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Tcpip6\Para
 
 #### <a name="linux-containers-on-windows"></a>Контейнеры Linux в Windows
 
-**НОВОЕ.** Мы работаем над возможностью параллельного запуска контейнеров Linux и Windows _без помощи виртуальной машины Linux Moby_. Подробные сведения см. в этой [записи блога о контейнерах Linux в Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/). Вот как [начать работу](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
+**НОВОЕ.** Мы работаем над возможностью параллельного запуска контейнеров Linux и Windows _без помощи виртуальной машины Linux Moby_. Подробные сведения см. в этой [записи блога о контейнерах Linux в Windows (LCOW)](https://blog.docker.com/2017/11/docker-for-windows-17-11/). Ниже показано, как приступить к [работе](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10-linux).
 > ПРИМЕЧАНИЕ. Решение LCOW приходит на замену виртуальной машине Linux Moby и будет использовать внутренний виртуальный коммутатор "nat" службы HNS по умолчанию.
 
 #### <a name="moby-linux-vms-use-dockernat-switch-with-docker-for-windows-a-product-of-docker-cehttpswwwdockercomcommunity-edition"></a>Виртуальные машины Moby Linux используют коммутатор DockerNAT с Docker для Windows (продукт [Docker CE](https://www.docker.com/community-edition))
@@ -179,7 +179,7 @@ C:\> docker run -it --network=MyTransparentNet --ip=10.123.174.105 windowsserver
 PS C:\> restart-service hns
 PS C:\> restart-service docker
 ```
-* Другой вариант— использовать "-o com.docker.network.windowsshim.interface1", чтобы привязать внешний виртуальный коммутатор прозрачной сети к определенному сетевому адаптеру, который еще не используется в узле контейнера (например, сетевой адаптер, отличный от используемого виртуальным коммутатором, созданным внешними средствами). "-O параметр описан в разделе" [Создание нескольких прозрачных сетей на одном узле контейнера](advanced.md#creating-multiple-transparent-networks-on-a-single-container-host) "этого документа.
+* Другой вариант— использовать "-o com.docker.network.windowsshim.interface1", чтобы привязать внешний виртуальный коммутатор прозрачной сети к определенному сетевому адаптеру, который еще не используется в узле контейнера (например, сетевой адаптер, отличный от используемого виртуальным коммутатором, созданным внешними средствами). Параметр "-o" описан далее в разделе [Создание множественных прозрачных сетей для одного узла контейнера](advanced.md#creating-multiple-transparent-networks-on-a-single-container-host) этого документа.
 
 
 ## <a name="windows-server-2016-work-arounds"></a>Обходные пути известных проблем в Windows Server 2016 

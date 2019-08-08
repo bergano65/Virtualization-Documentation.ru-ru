@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
-ms.openlocfilehash: 69eb4bbd94aee203f22384b6e0db6e922b3bf474
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 2cc5853648a9e1bb62ae684472fa7d9512cdb978
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621112"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998341"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Реализация элементов управления ресурсами для контейнеров Windows
 Существует несколько элементов управления ресурсами, которые можно реализовать на уровне контейнера и ресурса.  По умолчанию управление контейнерами осуществляется как типичными ресурсами Windows, которое обычно основано на справедливом распределении, однако с помощью конфигурации этих элементов управления разработчик или администратор может ограничить использование ресурсов.  Можно управлять следующими ресурсами: ЦП или процессор, память или ОЗУ, диск или хранилище, сеть или пропускная способность.

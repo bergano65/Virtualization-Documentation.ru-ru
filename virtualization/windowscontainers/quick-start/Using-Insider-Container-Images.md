@@ -11,7 +11,7 @@
 - Одна компьютерная система (физическая или виртуальная) с последней сборкой Windows Server из программы предварительной оценки Windows и (или) последней сборкой Windows 10 из программы предварительной оценки Windows.
 
 > [!IMPORTANT]
-> Необходимо использовать сборку Windows Server из программы предварительной оценки Windows Server или сборку Windows 10 из программы предварительной оценки Windows использовать базовый образ, описанные ниже. Если у вас не установлена одна из этих сборок, использование этих базовых образов приведет к сбою запуска контейнера.
+> Вы должны использовать сборку Windows Server из программы предварительной оценки Windows Server или для сборки Windows 10 из программы предварительной оценки Windows, чтобы использовать базовое изображение, описанное ниже. Если у вас не установлена одна из этих сборок, использование этих базовых образов приведет к сбою запуска контейнера.
 
 ## <a name="install-docker-enterprise-edition-ee"></a>Установка Docker Enterprise Edition (EE)
 
@@ -20,7 +20,7 @@ Docker EE необходим для работы с контейнерами Win
 Для установки Docker EE будет использоваться модуль PowerShell поставщика OneGet. Поставщик обеспечит работу контейнеров на компьютере и установит Docker EE. После этого потребуется перезагрузка. Откройте сеанс PowerShell с повышенными правами и выполните следующие команды.
 
 > [!NOTE]
-> Установки Docker EE в сборках программы предварительной оценки Windows Server требуется поставщик OneGet, отличный от адреса для других-сборок. Если Docker EE и поставщик DockerMsftProvider OneGet уже установлены, удалите их перед продолжением.
+> Для установки дока в сборках программы предварительной оценки Windows Server требуется иной поставщик Онежет, чем тот, который используется для сборок, не являющихся участниками программы предварительной оценки. Если Docker EE и поставщик DockerMsftProvider OneGet уже установлены, удалите их перед продолжением.
 
 ```powershell
 Stop-Service docker
@@ -52,10 +52,10 @@ Restart-Computer -Force
 
 | Базовый образ ОС                       | Использование                      |
 |-------------------------------------|----------------------------|
-| mcr.Microsoft.com/Windows/servercore         | Рабочая среда и разработка |
-| mcr.Microsoft.com/Windows/nanoserver              | Рабочая среда и разработка |
-| mcr.Microsoft.com/Windows/servercore/Insider | Только разработка           |
-| mcr.Microsoft.com/Windows/nanoserver/Insider        | Только разработка           |
+| mcr.microsoft.com/windows/servercore         | Рабочая среда и разработка |
+| mcr.microsoft.com/windows/nanoserver              | Рабочая среда и разработка |
+| mcr.microsoft.com/windows/servercore/insider | Только разработка           |
+| mcr.microsoft.com/windows/nanoserver/insider        | Только разработка           |
 
 Чтобы получить базовый образ Nano Server для участников программы предварительной оценки, выполните следующую команду:
 
@@ -70,9 +70,9 @@ docker pull mcr.microsoft.com/windows/servercore/insider
 ```
 
 > [!IMPORTANT]
-> Ознакомьтесь с контейнерами Windows ОС изображение [Лицензионное соглашение](../EULA.md ) и [Условия использования](https://www.microsoft.com/software-download/windowsinsiderpreviewserver)программы предварительной оценки Windows.
+> Пожалуйста, прочтите [лицензионное соглашение](../EULA.md ) на использование образа ОС для контейнеров Windows и [условия использования](https://www.microsoft.com/software-download/windowsinsiderpreviewserver)программы предварительной оценки Windows.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
 > [!div class="nextstepaction"]
-> [Сборка и запуск примера приложения](./Nano-RS3-.NET-Core-and-PS.md)
+> [Создание и выполнение примера приложения](./Nano-RS3-.NET-Core-and-PS.md)

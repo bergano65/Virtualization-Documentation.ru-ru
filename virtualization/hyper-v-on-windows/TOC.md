@@ -16,7 +16,7 @@
 ## [Создание виртуального коммутатора](quick-start/connect-to-network.md)
 ## [Создание службы интеграции](user-guide/make-integration-service.md)
 ## [Перенос WMI Hyper-V](user-guide/refactor-wmiv1-to-wmiv2.md)
-## [Вложенных виртуальных машин в Azure виртуальных сетей](user-guide/nested-virtualization-azure-virtual-network.md) 
+## [Вложенные виртуальные машины в виртуальных сетях Azure](user-guide/nested-virtualization-azure-virtual-network.md) 
 
 # Справочные материалы
 ## [Требования к системе для Hyper-V](reference/hyper-v-requirements.md)
@@ -25,7 +25,7 @@
 ## [Службы интеграции Hyper-V](reference/integration-services.md)
 ## [Архитектура Hyper-V](reference/hyper-v-architecture.md)
 ## [Спецификации гипервизора](reference/tlfs.md)
-## [Резервное копирование подходы Hyper-V](reference/HyperVBackupApproaches.md)
+## [Подходы к резервному копированию Hyper-V](reference/HyperVBackupApproaches.md)
 
 # Сообщество и поддержка
 ## [Форумы по Hyper-V](https://social.technet.microsoft.com/Forums/windowsserver/home?forum=winserverhyperv)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: ba4eb594-0cdb-4148-81ac-a83b4bc337bc
-ms.openlocfilehash: f4c6b37c6e33593be0237bd4059435a99c2bdd86
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: e045539b189eb8cd1594da0784ab0c88e848c948
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620832"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998781"
 ---
 # <a name="container-host-deployment-windows-server"></a>Развертывание узла контейнера: Windows Server
 
@@ -21,11 +21,11 @@ ms.locfileid: "9620832"
 
 ## <a name="install-docker"></a>Установка Docker
 
-Docker необходим для работы с контейнерами Windows. Docker состоит из подсистемы Docker и клиента Docker.
+Docker необходим для работы с контейнерами Windows. Dock состоит из подсистемы DOCKER и клиента Dock.
 
-Чтобы установить Docker, мы будем использовать [модуль PowerShell поставщика OneGet](https://github.com/OneGet/MicrosoftDockerProvider). Поставщик обеспечит функцию контейнеров на вашем компьютере и установит Docker, после чего потребуется перезагрузка.
+Чтобы установить стыковочный элемент, мы будем использовать [модуль PowerShell поставщика онежет](https://github.com/OneGet/MicrosoftDockerProvider). Поставщик включит функцию контейнеров на вашем компьютере и установит закрепление, которое потребуется перезагрузить.
 
-Откройте сеанс PowerShell с повышенными привилегиями и выполните приведенные ниже командлеты.
+Откройте сеанс PowerShell с повышенными привилегиями и выполните следующие командлеты.
 
 Установите модуль OneGet PowerShell.
 
@@ -45,54 +45,54 @@ Install-Package -Name docker -ProviderName DockerMsftProvider
 Restart-Computer -Force
 ```
 
-## <a name="install-a-specific-version-of-docker"></a>Установите это конкретная версия Docker
+## <a name="install-a-specific-version-of-docker"></a>Установка определенной версии дока
 
-Доступны в настоящее время два канала для Docker EE для Windows Server:
+В настоящее время в Docks EE для Windows Server доступно два канала:
 
-* `17.06` -Используйте эту версию, если вы используете Docker Enterprise Edition (подсистема Docker, UCP, DTR). `17.06` значение по умолчанию.
-* `18.03` -Используете эту версию, если вы используете подсистема Docker EE само по себе.
+* `17.06` -Используйте эту версию, если вы используете закрепление Enterprise Edition (механизм стыковки, точка управления служебной программой, DTR). `17.06` является значением по умолчанию.
+* `18.03` -Используйте эту версию, если вы используете только ядро EE.
 
-Чтобы установить это конкретная версия, используйте `RequiredVersion` флаг:
+Чтобы установить определенную версию, используйте `RequiredVersion` флаг:
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Force -RequiredVersion 18.03
 ```
 
-Установка определенных версий Docker EE может потребоваться обновление ранее установленных модулей DockerMsftProvider. Чтобы обновить:
+Для установки конкретных версий Dock для EE может потребоваться обновление ранее установленных модулей Доккермсфтпровидер. Для обновления:
 
 ```PowerShell
 Update-Module DockerMsftProvider
 ```
 
-## <a name="update-docker"></a>Обновить Docker
+## <a name="update-docker"></a>Обновить закрепление
 
-Если необходимо обновить подсистема Docker EE из предыдущих канала по такому каналу, более поздней версии, используйте оба `-Update` и `-RequiredVersion` флаги:
+Если вам нужно обновить модуль Dock EE с более ранней версии канала на более поздний, используйте оба `-Update` `-RequiredVersion` флажка.
 
 ```PowerShell
 Install-Package -Name docker -ProviderName DockerMsftProvider -Update -Force -RequiredVersion 18.03
 ```
 
-## <a name="install-base-container-images"></a>Установка базовых образов контейнеров
+## <a name="install-base-container-images"></a>Установка изображений базового контейнера
 
 Перед началом работы с контейнерами Windows необходимо установить базовый образ. Базовые образы доступны при использовании Windows Server Core и Nano Server в качестве операционной системы контейнера. Подробные сведения об образах контейнеров Docker см. в разделе [Создание собственных образов на сайте docker.com](https://docs.docker.com/engine/tutorials/dockerimages/).
 
-С выпуском Windows Server 2019 образы контейнеров следы Microsoft переходе на новый реестра называется реестр контейнера Microsoft. Образы контейнеров, выпущенные корпорацией Майкрософт и впредь обнаружения с помощью Docker Hub. Для новых образов контейнеров, публикации с помощью Windows Server 2019 и так далее, вам ознакомиться с для извлечения их из MCR. Для публикации до Windows Server 2019 старые образы контейнера следует продолжать извлекать их из реестра Docker.
+При выпуске Windows Server 2019 изображения контейнеров Microsoft Sources перемещаются в новый раздел реестра Microsoft Container. Изображения контейнера, опубликованные корпорацией Microsoft, должны быть обнаружены через стыковочный узел. Для новых изображений контейнера, опубликованных в Windows Server 2019 и более поздних, вы должны найти их в мкр. Для старых изображений контейнера, опубликованных до Windows Server 2019, необходимо по-прежнему получать их из реестра Dock.
 
-### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 и более поздних версий
+### <a name="windows-server-2019-and-newer"></a>Windows Server 2019 и более поздние версии
 
-Чтобы установить базовый образ «Windows Server Core», выполните следующую команду:
+Чтобы установить базовый образ "Windows Server Core", выполните указанные ниже действия.
 
 ```PowerShell
 docker pull mcr.microsoft.com/windows/servercore:ltsc2019
 ```
 
-Чтобы установить базовый образ «Nano Server», выполните следующую команду:
+Чтобы установить базовый образ "Nano Server", выполните указанные ниже действия.
 
 ```PowerShell
 docker pull mcr.microsoft.com/windows/nanoserver:1809
 ```
 
-### <a name="windows-server-2016-versions-1607-1803"></a>Windows Server 2016 (версии 1607 1803)
+### <a name="windows-server-2016-versions-1607-1803"></a>Windows Server 2016 (версии 1607-1803)
 
 Чтобы установить базовый образ Windows Server Core, выполните следующую команду:
 
@@ -106,11 +106,11 @@ docker pull microsoft/windowsservercore
 docker pull microsoft/nanoserver
 ```
 
-> Внимательно прочитайте лицензионное соглашение, можно найти здесь: [Лицензионное соглашение](../images-eula.md)для образа ОС контейнеров Windows.
+> Пожалуйста, ознакомьтесь с лицензионным соглашением Windows Containers OS, которое можно найти здесь – [EULA](../images-eula.md).
 
 ## <a name="hyper-v-isolation-host"></a>Узел изоляции Hyper-V
 
-Необходимо иметь роль Hyper-V для запуска изоляции Hyper-V. Если сам узел контейнера Windows является виртуальной машиной Hyper-V, перед установкой роли Hyper-V необходимо включить вложенную виртуализацию. Дополнительные сведения о вложенной виртуализации см. в статье [Вложенная виртуализация](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Для выполнения изоляции Hyper-V необходима роль Hyper-V. Если сам узел контейнера Windows является виртуальной машиной Hyper-V, перед установкой роли Hyper-V необходимо включить вложенную виртуализацию. Дополнительные сведения о вложенной виртуализации см. в статье [Вложенная виртуализация](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
 
 ### <a name="nested-virtualization"></a>Вложенная виртуализация
 

@@ -1,6 +1,6 @@
 ---
 title: Примеры контейнеров Windows
-description: Ссылки на популярные проекты и примеры кода, с помощью контейнеров Windows.
+description: Найдите ссылки на популярные проекты и примеры кода с помощью контейнеров Windows.
 keywords: docker, контейнеры, windows, примеры
 author: cwilhit
 ms.date: 12/19/2016
@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 5c6f6350-f8d6-4426-b53d-9fb09c2bf267
-ms.openlocfilehash: fb6910f535337d25b7635ffe339345a7063daa92
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.openlocfilehash: 35becf36d086e325b9c9b0c57fb4a9df65eb57b7
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574555"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998751"
 ---
 # <a name="windows-container-samples"></a>Примеры контейнеров Windows
 

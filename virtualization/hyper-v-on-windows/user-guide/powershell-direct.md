@@ -8,22 +8,22 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: ea6b71200d3115ba3d156b2c133e1be2fa495261
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620922"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998731"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>Автоматизация виртуальных машин и управление ими с помощью PowerShell
 
 С помощью PowerShell Direct можно запускать произвольный код PowerShell на виртуальной машине с Windows10 или Windows Server2016 с узла Hyper-V независимо от конфигурации сети и параметров удаленного управления.
 
-Ниже перечислены некоторые способы, которые можно запустить PowerShell Direct:
+Ниже приведены некоторые способы запуска PowerShell Direct.
 
 * [Интерактивный сеанс с помощью командлета Enter-PSSession](#create-and-exit-an-interactive-powershell-session)
-* [Как часть одиночных для выполнения одной команды или сценария с помощью командлета Invoke-Command](#run-a-script-or-command-with-invoke-command)
-* [Постоянный сеанс (сборка 14280 и более поздние версии) с помощью New-PSSession, командлетам Remove-PSSession и Copy-Item](#copy-files-with-new-pssession-and-copy-item)
+* [Как раздел с одним использованием для выполнения одной команды или сценария с помощью командлет Invoke-Command.](#run-a-script-or-command-with-invoke-command)
+* [В качестве материализованного сеанса (сборка 14280 и более поздние версии) с помощью командлетов New-PSSession, Copy-Item и Remove-PSSession](#copy-files-with-new-pssession-and-copy-item)
 
 ## <a name="requirements"></a>Требования
 **Требования к операционной системе:**

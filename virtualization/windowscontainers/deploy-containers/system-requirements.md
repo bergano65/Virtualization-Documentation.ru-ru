@@ -7,12 +7,12 @@ ms.date: 09/26/2016
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: d3df0631a8a61db16ad207f49163a7304c5db717
-ms.sourcegitcommit: a7f9ab96be359afb37783bbff873713770b93758
+ms.openlocfilehash: 5fc9b5c9135e87a0d3246952c35c9755e9ad209e
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "9681054"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998471"
 ---
 # <a name="windows-container-requirements"></a>Требования к контейнеру Windows
 
@@ -21,72 +21,21 @@ ms.locfileid: "9681054"
 ## <a name="os-requirements"></a>Требования к ОС
 
 - Контейнер Windows доступен только в Windows Server 2016 (ядро и с возможностями рабочего стола), Windows 10 профессиональная и Enterprise (годовщина выпуска) и более поздних версий.
-<<<<<<< HEAD
 - Перед выполнением изоляции Hyper-V необходимо установить роль Hyper-V.
 - На узлах контейнеров Windows Server операционная система Windows должна устанавливаться в каталог C:\. Это ограничение не применяется, если развертываются только изолированные контейнеры Hyper-V.
-=======
-- Роль Hyper-V должна быть установлена перед выполнением контейнеров с изоляцией Hyper-V.
-- На узлах контейнеров Windows Server операционная система Windows должна устанавливаться в каталог C:\. Если развертываются только контейнеры Hyper-V, это ограничение не применяется.
->>>>>>> Источник и образец
 
 ## <a name="virtualized-container-hosts"></a>Виртуализированные узлы контейнера
 
-_Лт__лт__лт__лт__лт__лт__лт_ HEAD если узел контейнера Windows будет запущен с помощью виртуальной машины Hyper-V, а также будет размещена изоляция Hyper-V, необходимо включить вложенную виртуализацию. Вложенная виртуализация имеет следующие требования: = = = = = = =, если узел контейнера Windows будет запускаться с помощью виртуальной машины Hyper-V, а также будет размещать контейнеры с изоляцией Hyper-V, необходимо включить вложенную виртуализацию. Вложенная виртуализация должна соответствовать следующим требованиям.
->>>>>>> Источник и образец
+Если узел контейнера Windows будет запущен с виртуальной машины Hyper-V, а также будет размещена изоляция Hyper-V, необходимо включить вложенную виртуализацию. Вложенная виртуализация должна соответствовать следующим требованиям.
 
 - Не менее 4 ГБ ОЗУ для виртуализированного узла Hyper-V.
 - Windows Server 2019, Windows Server версии 1803, Windows Server версии 1709, Windows Server 2016 или Windows 10 в системе размещения и Windows Server (Full, Core) на виртуальной машине.
 - Процессор с Intel VT-x (в настоящий момент эта функция доступна только для процессоров Intel).
-<<<<<<< HEAD
 - Виртуальная машина контейнера также должна иметь по крайней мере два виртуальных процессора.
 
 ## <a name="supported-base-images"></a>Поддерживаемые базовые образы
 
-<a name="windows-containers-are-offered-with-four-container-base-images-windows-server-core-nano-server-windows-and-iot-core-not-all-configurations-support-both-os-images-this-table-details-the-supported-configurations"></a>Контейнеры Windows предлагаются четырьмя базовыми изображениями контейнера: Windows Server Core, Nano Server, Windows и IoT основы. Не все конфигурации поддерживают оба образа ОС. В этой таблице указаны поддерживаемые конфигурации.
-=======
-- Для виртуальной машины узла контейнера также понадобится по меньшей мере 2виртуальных процессора.
-
-## <a name="supported-base-images"></a>Поддерживаемые базовые образы
-
 Контейнеры Windows предлагаются четырьмя базовыми изображениями контейнера: Windows Server Core, Nano Server, Windows и IoT основы. Не все конфигурации поддерживают оба образа ОС. В этой таблице указаны поддерживаемые конфигурации.
-
-<table border="1" style="background-color:FFFFCC;border-collapse:collapse;border:1px solid FFCC00;color:000000;width:75%" cellpadding="5" cellspacing="5">
-<thead>
-<tr valign="top">
-<th><center>Гостевая операционная система</center></th>
-<th><center>Контейнер Windows Server</center></th>
-<th><center>Изоляция Hyper-V</center></th>
-</tr>
-</thead>
-<tbody>
-<tr valign="top">
-<td><center>Windows Server 2016/2019 (Standard или Datacenter)</center></td>
-<td><center>Server Core, Nano Server, Windows</center></td>
-<td><center>Server Core, Nano Server, Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>Сервер Nano Server<a href="#warn-1">*</a></center></td>
-<td><center> Сервер Nano Server</center></td>
-<td><center>Server Core, Nano Server, Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>Windows10 Pro или Корпоративная</center></td>
-<td><center>Windows<a href="#warn-2">**</a></center></td>
-<td><center>Server Core, Nano Server, Windows</center></td>
-</tr>
-<tr valign="top">
-<td><center>IoT Базовая</center></td>
-<td><center>IoT Базовая</center></td>
-<td><center>Недоступно</center></td>
-</tr>
-</tbody>
-</table>
-
-> [!Warning]  
-> <span id="warn-1">* Начиная с Windows Server, версия 1709 Nano Server больше не доступна в качестве узла контейнера.</span>
-
-> <span id="warn-2">* * Требуется Windows 10 октября Update 2018, и вы напрямую запрашиваете изоляцию процессов с помощью `--isolation=process` флага при запуске контейнеров через `docker run`.</span>
->>>>>>> Источник и образец
 
 |Операционная система узла|Контейнер Windows|Изоляция Hyper-V|
 |---------------------|-----------------|-----------------|

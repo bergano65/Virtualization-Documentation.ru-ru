@@ -7,12 +7,12 @@ ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: ae4a18ed-996b-4104-90c5-539c90798e4c
-ms.openlocfilehash: e3255d236a3fbb5ac4d908143750b84e3db82ceb
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 25c72b910af15fc0b498a5b2abce72d32e6d1efd
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621102"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9999041"
 ---
 # <a name="supported-windows-guests"></a>Поддерживаемые гостевые ОС Windows
 
@@ -37,8 +37,8 @@ ms.locfileid: "9621102"
 | Windows 10 | 32 |Режим расширенного сеанса не работает в выпуске Windows 10 Домашняя |
 | Windows8.1 | 32 | |
 | Windows 8 | 32 ||
-| Windows7 с пакетом обновления1 (SP1) | 4 | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
-| Windows7 | 4 | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
+| Windows7 с пакетом обновления1 (SP1) | четырехпроцессорном | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
+| Windows7 | четырехпроцессорном | Выпуски Максимальная, Корпоративная и Профессиональная (32-разрядные и 64-разрядные). |
 | Windows Vista с пакетом обновления 2 (SP2) | 2 | Business, Enterprise и Ultimate, включая выпуски N и KN |
 | - | | |
 | [Windows Server Semi-Annual Channel](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview) | 64 | |
@@ -47,8 +47,8 @@ ms.locfileid: "9621102"
 | WindowsServer2012R2 | 64 | |
 | Windows Server2012 | 64 | |
 | Windows Server2008R2 с пакетом обновления1 (SP1) | 64 | Выпуски Datacenter, Enterprise, Standard и Web. |
-| Windows Server2008 с пакетом обновления2 (SP2) | 4 | Выпуски Datacenter, Enterprise, Standard и Web (32-разрядные и 64-разрядные). |
-| Windows Home Server 2011 | 4 | |
+| Windows Server2008 с пакетом обновления2 (SP2) | четырехпроцессорном | Выпуски Datacenter, Enterprise, Standard и Web (32-разрядные и 64-разрядные). |
+| Windows Home Server 2011 | четырехпроцессорном | |
 | Windows Small Business Server 2011 | Выпуск Essentials Edition — 2, Standard Edition — 4 | |
 
 > Windows 10 можно запустить в качестве гостевой операционной системы на узлах Hyper-V с Windows 8.1 и Windows Server 2012 R2.

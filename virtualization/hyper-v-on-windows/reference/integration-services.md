@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 6568b68a77fc5506b58249caea44ec78e3e44de2
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9621212"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9998941"
 ---
 # <a name="hyper-v-integration-services"></a>Службы интеграции Hyper-V
 
@@ -74,7 +74,7 @@ DemoVM  Running  Operating normally
 **Имя управляющей программы Linux:** hv_utils  
 **Описание.** Позволяет узлу Hyper-V запрашивать завершение работы виртуальной машины.  Компьютер виртуальной машины всегда может принудительно выключить виртуальную машину, но это похоже на нажатие кнопки выключения в отличие от корректного завершения работы.  
 **Добавлено в:** Windows Server2012, Windows8  
-**Влияние:** **высокая степень влияния**. При отключении узел не сможет корректно завершить работу виртуальной машины.  Будет жесткого выключения питания, которая может привести к потере данных или данные повреждению.  
+**Влияние:** **высокая степень влияния**. При отключении узел не сможет корректно завершить работу виртуальной машины.  Все выключенные функции будут жестко отключены, что может привести к потере данных или повреждению данных.  
 
 
 ## <a name="hyper-v-time-synchronization-service"></a>Служба синхронизации времени Hyper-V

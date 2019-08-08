@@ -8,28 +8,28 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: db360bdd2b62667ab017549b3c179d11278abc19
-ms.sourcegitcommit: 34d8b2ca5eebcbdb6958560b1f4250763bee5b48
+ms.openlocfilehash: 93c56dba88715df41cab054cda676879b275380b
+ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "9620802"
+ms.lasthandoff: 08/07/2019
+ms.locfileid: "9999211"
 ---
 # <a name="automating-builds-and-saving-images"></a>Автоматизация сборки и сохранения образов
 
-В предыдущем кратком руководстве по Windows Server мы создали контейнер Windows на основе предварительно созданного примера .Net Core. В этом упражнении показано, как создать собственный образ контейнера из файла Dockerfile и сохранения образа контейнера в общедоступном реестре Docker Hub.
+В предыдущем кратком руководстве по Windows Server мы создали контейнер Windows на основе предварительно созданного примера .Net Core. В этом упражнении показано, как создать собственный образ контейнера из Доккерфиле и сохранить изображение контейнера в общедоступном реестре Hub.
 
-Это краткое руководство относится к контейнерам Windows Server в Windows Server 2016 или Windows Server 2019 и будет использоваться базовый образ контейнера Windows Server Core. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы.
+Это краткое руководство относится только к контейнерам Windows Server в Windows Server 2019 или Windows Server 2016 и использует базовое изображение контейнера Windows Server Core. Дополнительную документацию по быстрому началу работы можно найти в содержании в левой части этой страницы.
 
 ## <a name="prerequisites"></a>Что вам понадобится
 
-Убедитесь, что соблюдаются следующие требования:
+Убедитесь, что вы отвечаете на следующие требования:
 
-- Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019 г. или Windows Server 2016.
-- Настройте на компьютере компонент контейнеров Windows и Docker. Пошаговое руководство по об этих действиях см. в разделе [контейнеры Windows в Windows Server](./quick-start-windows-server.md).
+- Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019 или Windows Server 2016.
+- Настройте эту систему с помощью функции контейнера Windows и стыковочного узла. Пошаговые инструкции по выполнению этих действий можно найти [в разделе контейнеры Windows на Windows Server](./quick-start-windows-server.md).
 - Идентификатор Docker, который будет использоваться для отправки образа контейнера в Docker Hub. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud](https://cloud.docker.com/).
 
-## <a name="container-image---dockerfile"></a>Образ контейнера — Dockerfile
+## <a name="container-image---dockerfile"></a>Изображение контейнера — Доккерфиле
 
 Хотя контейнер можно вручную создать, изменить и поместить в новый образ контейнера, Docker предоставляет способ автоматизации этого процесса с помощью Dockerfile. Для этого упражнения требуется идентификатор Docker. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud](https://cloud.docker.com/).
 
@@ -93,7 +93,7 @@ CONTAINER ID   IMAGE            COMMAND               CREATED              STATU
 c1dc6c1387b9   iis-dockerfile   "ping -t localhost"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp   cranky_brown
 ```
 
-Остановка контейнера.
+Остановить контейнер.
 
 ```console
 docker stop <container name>
@@ -105,7 +105,7 @@ docker stop <container name>
 docker rm -f <container name>
 ```
 
-## <a name="docker-push"></a>Операция отправки в docker
+## <a name="docker-push"></a>Push-закрепление
 
 Образы контейнеров Docker можно хранить в реестре контейнеров. Если образ хранится в реестре, его можно извлечь для последующего использования на нескольких различных узлах контейнеров. Docker предоставляет открытый реестр для хранения образов контейнеров в [Docker Hub](https://hub.docker.com/).
 
@@ -130,7 +130,7 @@ Login Succeeded
 docker push <user>/iis-dockerfile
 ```
 
-Как Docker помещает слоями до Docker Hub, docker пропустит слоев, которые уже существуют в центре Docker или в других реестрами (внешнего слои).  Например последних версиях Windows Server Core, размещенных в реестре Microsoft или слои из частного реестра организации, пропущен и не помещается в Docker Hub.
+Поскольку Dock помещает каждый слой вверх на закрепляемый центр, закрепление будет пропускать слои, уже существующие в центре Dock, или в другие реестры (внешние слои).  Например, последние версии ядра Windows Server, размещенные в реестре Microsoft Container, или слои из закрытого системного реестра, будут пропущены, а не помещены в закрепляемый центр.
 
 Теперь можно скачать образ контейнера из Docker Hub на любой узел контейнера Windows с помощью `docker pull`. В этом учебнике мы удалим существующий образ и затем извлечем его из Docker Hub. 
 
