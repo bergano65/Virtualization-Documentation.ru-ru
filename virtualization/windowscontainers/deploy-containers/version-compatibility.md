@@ -3,18 +3,21 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: 019dafe855e0fba696db4618a862ec086d435005
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 84c78947284e18dac347bc04b1ea5fcd96e3a814
+ms.sourcegitcommit: c9062b2c75838fcac64e8cd9bcc75d2f1a324d76
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9882997"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "10008660"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнера Windows
 
 Обновления годовщины для Windows Server 2016 и Windows 10 (обе версии 14393) были первыми выпусками Windows, которые могут создавать и запускать контейнеры Windows Server. Контейнеры, созданные с помощью этих версий, можно запускать в более поздних выпусках, таких как Windows Server версии 1709, но перед этим необходимо изучить некоторые подробности.
 
 В ходе улучшения функций контейнеров Windows нам пришлось внести некоторые изменения, которые могут повлиять на совместимость. Старые контейнеры будут выполняться одинаково на более новых узлах с [изоляцией Hyper-V](../manage-containers/hyperv-container.md)и будут использовать одну и ту же (более старую) версию ядра. Тем не менее, если вы хотите выполнить контейнер на основе более новой сборки Windows, он может выполняться только в новой сборке узла.
+
+>[!NOTE]
+> \ * Windows Server версии 1709 больше не поддерживается. Дополнительные сведения можно найти в разделе [жизненный цикл обслуживания образов](base-image-lifecycle.md).
 
 ## <a name="windows-server-version-1903-host-os-compatibility"></a>Совместимость операционной системы Windows Server версии 1903
 
@@ -23,7 +26,7 @@ ms.locfileid: "9882997"
 |Windows Server версии 1903|Да|Да|
 |WindowsServer2019|Да|Нет|
 |Windows Server версии 1803|Да|Нет|
-|Windows Server версии 1709|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
 |Windows Server 2016|Да|Нет|
 
 ## <a name="windows-server-2019-host-os-compatibility"></a>Совместимость с ОС Windows Server 2019 Host
@@ -33,7 +36,7 @@ ms.locfileid: "9882997"
 |Windows Server версии 1903|Нет|Нет|
 |WindowsServer2019|Да|Да|
 |Windows Server версии 1803|Да|Нет|
-|Windows Server версии 1709|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
 |Windows Server 2016|Да|Нет|
 
 ## <a name="windows-server-version-1803-host-os-compatibility"></a>Совместимость операционной системы Windows Server версии 1803
@@ -43,18 +46,28 @@ ms.locfileid: "9882997"
 |Windows Server версии 1903|Нет|Нет|
 |WindowsServer2019|Нет|Нет|
 |Windows Server версии 1803|Да|Да|
-|Windows Server версии 1709|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
 |Windows Server 2016|Да|Нет|
 
-## <a name="windows-server-version-1709-host-os-compatibility"></a>Совместимость операционной системы Windows Server версии 1709
+## <a name="windows-server-version-1709-host-os-compatibility"></a>Windows Server, версия 1709, совместимость с ОС Host *
 
 |ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
 |---|:---:|:---:|
 |Windows Server версии 1903|Нет|Нет|
 |WindowsServer2019|Нет|Нет|
 |Windows Server версии 1803|Нет|Нет|
-|Windows Server версии 1709|Да|Да|
+|Windows Server версии 1709 *|Да|Да|
 |Windows Server 2016|Да|Нет|
+
+## <a name="windows-server-2016-host-os-compatibility"></a>Совместимость с ОС Windows Server 2016 Host
+
+|ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server 2019, версия 1903|Нет|Нет|
+|WindowsServer2019|Нет|Нет|
+|Windows Server версии 1803|Нет|Нет|
+|Windows Server версии 1709 *|Нет|Нет|
+|Windows Server 2016|Да|Да|
 
 ## <a name="windows-10-version-1903-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1903
 
@@ -63,7 +76,7 @@ ms.locfileid: "9882997"
 |Windows Server версии 1903|Нет|Нет|
 |WindowsServer2019|Нет|Нет|
 |Windows Server версии 1803|Нет|Нет|
-|Windows Server версии 1709|Нет|Нет|
+|Windows Server версии 1709 *|Нет|Нет|
 |Windows Server 2016|Да|Да|
 
 ## <a name="windows-10-version-1809-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1809
@@ -73,7 +86,7 @@ ms.locfileid: "9882997"
 |Windows Server версии 1903|Нет|Нет|
 |WindowsServer2019|Да|Нет|
 |Windows Server версии 1803|Да|Нет|
-|Windows Server версии 1709|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
 |Windows Server 2016|Да|Нет|
 
 ## <a name="windows-10-version-1803-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1803
@@ -83,7 +96,7 @@ ms.locfileid: "9882997"
 |Windows обслуживает версию 1903|Нет|Нет|
 |WindowsServer2019|Нет|Нет|
 |Windows Server версии 1803|Да|Нет||
-|Windows Server версии 1709|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
 |Windows Server 2016|Да|Нет|
 
 ## <a name="windows-10-fall-creators-update-host-os-compatibility"></a>Windows 10 — создатели обновлений для обеспечения совместимости с ОС узла
@@ -93,7 +106,7 @@ ms.locfileid: "9882997"
 |Windows Server версии 1903|Нет|Нет|
 |WindowsServer2019|Нет|Нет|
 |Windows Server версии 1803|Нет|Нет|
-|Windows Server версии 1709|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
 |Windows Server 2016|Да|Нет|
 
 ## <a name="matching-container-host-version-with-container-image-versions"></a>Соответствующая хостная версия контейнера с версиями изображений контейнера
@@ -131,7 +144,7 @@ C:\>ver
 Microsoft Windows [Version 10.0.16299.125]
 ```
 
-Способ 2: запросите следующий раздел реестра: Хкэй_локал_мачине\софтваре\микрософт\виндовс Нт\куррентверсион
+Способ 2: запросите следующий раздел реестра: HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Нт\куррентверсион
 
 Пример.
 
@@ -330,7 +343,7 @@ services:
 
 2. Добавление ограничения службы.
 
-    Теперь, когда вы подписаны каждым узлом, вы можете обновлять ограничения, определяющие размещение служб. В следующем примере замените слово "контосо_сервице" на имя реальной услуги:
+    Теперь, когда вы подписаны каждым узлом, вы можете обновлять ограничения, определяющие размещение служб. В следующем примере замените слово "contoso_service" на имя реальной услуги:
 
     ```powershell
     docker service update \
