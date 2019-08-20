@@ -3,12 +3,12 @@ title: Устройства в контейнерах в Windows
 description: Какая поддержка устройств существует для контейнеров в Windows
 keywords: Dock, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: ee9c5da5ef87dceb3374977670da2ea50ea87382
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: 1ad63c158a42f116882c949b242274dde8d893fc
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883167"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10045034"
 ---
 # <a name="devices-in-containers-on-windows"></a>Устройства в контейнерах в Windows
 
@@ -77,12 +77,12 @@ docker run --isolation=process --device="class/{interface class GUID}" --device=
 </tbody>
 </table>
 
-> [!TIP]
-> Перечисленные выше устройства являются единственными __ устройствами, поддерживаемыми в контейнерах Windows уже сегодня. При попытке передать любые другие GUID класса произойдет сбой при запуске контейнера.
+> [!IMPORTANT]
+> Поддержка устройств зависит от драйвера. Попытка передать идентификаторы GUID класса, не указанные в приведенной выше таблице, может привести к неопределенному поведению.
 
 ## <a name="hyper-v-isolated-windows-container-support"></a>Поддержка контейнера Windows с изолированной изоляцией Hyper-V
 
-Назначение устройств и общий доступ к устройствам для рабочих нагрузок в контейнерах Windows с изоляцией Hyper-V не поддерживается в настоящее время.
+Назначение устройств и общий доступ к устройствам для рабочих нагрузок в контейнерах Windows с изоляцией Hyper-V в настоящее время не поддерживаются.
 
 ## <a name="hyper-v-isolated-linux-container-support"></a>Поддержка контейнеров в среде Linux с изоляцией Hyper-V
 

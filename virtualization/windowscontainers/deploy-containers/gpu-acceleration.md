@@ -3,18 +3,21 @@ title: Ускорение GPU в контейнерах Windows
 description: Уровень аппаратного ускорения, имеющегося в контейнерах Windows
 keywords: Dock, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: 6e5010efee10f9b488cbeb57b14bc86f30c1e766
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: c6746b45caece9802134831eb6cb3da885957ac5
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883277"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10045044"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Ускорение GPU в контейнерах Windows
 
 Для многих контейнерных нагрузок вычислительные ресурсы ЦП обеспечивают достаточную производительность. Тем не менее, для определенного класса рабочей нагрузки одновременные вычисления, предоставляемые графическими процессорами (графические процессоры), могут ускорить операции по заказам величин, повышая затраты и улучшая пропускную способность.
 
 Графические процессоры — это распространенный инструмент для многих популярных рабочих нагрузок: традиционная визуализация и имитация для машинного обучения и вывода. Контейнеры Windows поддерживают ускорение GPU для DirectX и все платформы, созданные на его основе.
+
+> [!NOTE]
+> Эта функция доступна на классическом компьютере Dock, версии 2,1 и подсистемы DOCKER — Enterprise, версии 19,03 или более поздней.
 
 ## <a name="requirements"></a>Требования
 
@@ -42,8 +45,12 @@ docker run --isolation process --device class/5B45201D-F2F2-4F3B-85BB-30FF1F9535
 
 ## <a name="hyper-v-isolated-windows-container-support"></a>Поддержка контейнера Windows с изолированной изоляцией Hyper-V
 
-Ускорение GPU для рабочих нагрузок в контейнерах Windows с изолированным управлением Hyper-V не поддерживается в настоящее время.
+Ускорение GPU для рабочих нагрузок в контейнерах Windows с изолированной изоляцией (Hyper-V) в настоящее время не поддерживается.
 
 ## <a name="hyper-v-isolated-linux-container-support"></a>Поддержка контейнеров в среде Linux с изоляцией Hyper-V
 
-Ускорение GPU для рабочих нагрузок в контейнерах Linux с изолированным управлением Hyper-V не поддерживается в настоящее время.
+Ускорение GPU для рабочих нагрузок в контейнерах Linux с изолированным управлением Hyper-V в настоящее время не поддерживается.
+
+## <a name="more-information"></a>Дополнительные сведения
+
+Полный пример приложения с контейнером, в котором используется ускорение GPU, можно найти в разделе [Пример контейнера DirectX](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/directx).

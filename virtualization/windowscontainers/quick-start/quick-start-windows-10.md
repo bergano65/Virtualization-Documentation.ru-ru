@@ -3,23 +3,19 @@ title: Контейнеры для Windows и Linux в Windows 10
 description: Краткое руководство по развертыванию контейнеров
 keywords: Dock, Containers, ЛКОВ
 author: taylorb-microsoft
-ms.date: 11/8/2018
+ms.date: 08/16/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 094d7adde67b243a4bcadb1580e239d2175562c7
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: aa7a20d914fdb65597c0f31ef6d53b91f6497be4
+ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998191"
+ms.lasthandoff: 08/20/2019
+ms.locfileid: "10044964"
 ---
 # <a name="windows-containers-on-windows-10"></a>Контейнеры Windows в Windows10
-
-> [!div class="op_single_selector"]
-> - [Контейнеры Linux в Windows](quick-start-windows-10-linux.md)
-> - [Контейнеры Windows в Windows](quick-start-windows-10.md)
 
 С помощью этого упражнения вы сможете создавать и запускать контейнеры Windows в Windows 10.
 
@@ -61,6 +57,9 @@ ms.locfileid: "9998191"
 ```console
 docker pull mcr.microsoft.com/windows/nanoserver:1809
 ```
+
+> [!NOTE]
+> Если появляется сообщение об ошибке `no matching manifest for unknown in the manifest list entries`, убедитесь, что вы не ожидаете вытягивания контейнера Linux.
 
 После его получения выполните команду `docker images`, чтобы вывести список установленных образов. В данном случае будет отображен образ Nano Server.
 
