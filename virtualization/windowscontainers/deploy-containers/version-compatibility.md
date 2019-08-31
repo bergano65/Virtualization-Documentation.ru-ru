@@ -3,12 +3,12 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: 84c78947284e18dac347bc04b1ea5fcd96e3a814
-ms.sourcegitcommit: c9062b2c75838fcac64e8cd9bcc75d2f1a324d76
+ms.openlocfilehash: 5fe1cca67c330cb59362e82762651d719708b526
+ms.sourcegitcommit: 27e9cd37beaf11e444767699886e5fdea5e1a2d0
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "10008660"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "10058509"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнера Windows
 
@@ -73,11 +73,11 @@ ms.locfileid: "10008660"
 
 |ОС контейнера|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
 |---|:---:|:---:|
-|Windows Server версии 1903|Нет|Нет|
-|WindowsServer2019|Нет|Нет|
-|Windows Server версии 1803|Нет|Нет|
-|Windows Server версии 1709 *|Нет|Нет|
-|Windows Server 2016|Да|Да|
+|Windows Server версии 1903|Да|Нет|
+|WindowsServer2019|Да|Нет|
+|Windows Server версии 1803|Да|Нет|
+|Windows Server версии 1709 *|Да|Нет|
+|Windows Server 2016|Да|Нет|
 
 ## <a name="windows-10-version-1809-host-os-compatibility"></a>Совместимость операционной системы Windows 10 версии 1809
 
