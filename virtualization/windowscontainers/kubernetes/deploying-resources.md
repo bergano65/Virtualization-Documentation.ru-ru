@@ -8,12 +8,12 @@ ms.prod: containers
 description: Развертывание Кубернетес ресаурецес на кластере с смешанными ОС Кубернетес
 keywords: кубернетес, 1,14, Windows, Приступая к работе
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: 8c21581433f672a22a247db6643a19168eedea6c
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: e6c569ae8d5bf50e24ea0fc7a6dd04734b60a863
+ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883197"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "10069948"
 ---
 # <a name="deploying-kubernetes-resources"></a>Развертывание ресурсов Кубернетес #
 Если у вас есть кластер Кубернетес, состоящий минимум из 1 основного и 1 рабочего, вы можете развернуть Кубернетес ресурсов.
@@ -54,18 +54,6 @@ watch kubectl get pods -o wide
 
 > [!Note]  
 > *Узлы контейнера* Windows **не** смогут получать доступ к IP-адресу службы из служб, запланированных на них. Это известное [ограничение на платформы](./common-problems.md#my-windows-node-cannot-access-my-services-using-the-service-ip) , которое будет улучшено в будущих версиях Windows Server. Тем ** не менее **, Windows, возможно,** сможет получить доступ к IP-адресу службы.
-
-### <a name="port-mapping"></a>Сопоставление порта ### 
-Можно также получить доступ к службам, размещенным в модулях pod, через соответствующие им узлы путем сопоставления порта на узле. Для демонстрации этой функции существует [еще один образец YAML, доступный](https://github.com/Microsoft/SDN/blob/master/Kubernetes/PortMapping.yaml) путем сопоставления порта 4444 на узле с портом 80 на модуле pod. Чтобы развернуть его, выполните те же действия.
-
-```bash
-wget https://raw.githubusercontent.com/Microsoft/SDN/master/Kubernetes/PortMapping.yaml -O win-webserver-port-mapped.yaml
-kubectl apply -f win-webserver-port-mapped.yaml
-watch kubectl get pods -o wide
-```
-
-Теперь можно выполнить команду `curl` на IP-адресе *узла* порта 4444 и получить ответ веб-сервера. Имейте в виду, что это приводит к ограничению масштабирования до одного модуля pod на каждом узле, так как должно применяться сопоставление "один-к-одному".
-
 
 ## <a name="next-steps"></a>Дальнейшие действия ##
 В этом разделе мы рассмотрели планирование ресурсов Кубернетес на узлах Windows. На этом руководстве завершается. Если возникли проблемы, ознакомьтесь с разделом устранение неполадок:

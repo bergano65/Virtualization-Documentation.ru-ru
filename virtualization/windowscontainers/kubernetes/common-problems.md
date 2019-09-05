@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows.
 keywords: кубернетес, 1,14, Linux, компиляция
-ms.openlocfilehash: a0b24782a0e511dfc8b6cf1a0c0bc24882ff977a
-ms.sourcegitcommit: 42cb47ba4f3e22163869d094bd0c9cff415a43b0
+ms.openlocfilehash: b6e4e648ff050e13a0930f2834949867e44ce895
+ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "9884995"
+ms.lasthandoff: 09/04/2019
+ms.locfileid: "10069938"
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.
@@ -43,6 +43,9 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 Дополнительные сведения можно найти в разделе официальные документы [об использовании НССМ](https://nssm.cc/usage) .
 
 ## <a name="common-networking-errors"></a>Общие сетевые ошибки ##
+
+### <a name="hostport-publishing-is-not-working"></a>Публикация Хостпорт не работает ###
+Сейчас невозможно опубликовать порты с помощью поля Кубернетес `containers.ports.hostPort` , так как это поле не соблюдается подключаемыми модулями Windows CNI. Используйте публикацию Нодепорт, чтобы время публикации портов на узле.
 
 ### <a name="i-am-seeing-errors-such-as-hnscall-failed-in-win32-the-wrong-diskette-is-in-the-drive"></a>Я вижу ошибки, например "Хнскалл", не удалось найти в Win32 неправильной диск. ###
 Эта ошибка может возникать при внесении настраиваемых изменений в объекты HNS или установке нового обновления Windows, которое вносит изменения в службе HNS без разрыва старых объектов HNS. Оно указывает на то, что объект HNS, который был ранее создан перед обновлением, несовместим с текущей установленной версией службе HNS.
