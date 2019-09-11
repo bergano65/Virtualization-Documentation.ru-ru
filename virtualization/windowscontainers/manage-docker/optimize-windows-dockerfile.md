@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb2848ca-683e-4361-a750-0d1d14ec8031
-ms.openlocfilehash: 056ab87189e8e423df5758be0f622a43b92c9056
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.openlocfilehash: ae633c7ba5d9672335addcc582988fc47c13ed79
+ms.sourcegitcommit: f3b6b470dd9cde8e8cac7b13e7e7d8bf2a39aa34
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9882957"
+ms.lasthandoff: 09/10/2019
+ms.locfileid: "10077455"
 ---
 # <a name="optimize-windows-dockerfiles"></a>Оптимизация файлов Dockerfile в Windows
 
@@ -23,12 +23,12 @@ ms.locfileid: "9882957"
 
 Прежде чем вы сможете оптимизировать свою сборку дока, вам нужно знать, как работает сборка Dock. В процессе сборки Docker используется файл Dockerfile, а также поочередно выполняются все активные инструкции, каждая в своем собственном временном контейнере. В результате для каждой активной инструкции создается новый слой образа.
 
-Например, в следующем примере Доккерфиле используется образ `windowsservercore` базовой ОС, установка IIS и создание простого веб-сайта.
+Например, в следующем примере Доккерфиле используется образ `mcr.microsoft.com/windows/servercore:ltsc2019` базовой ОС, установка IIS и создание простого веб-сайта.
 
 ```dockerfile
 # Sample Dockerfile
 
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 RUN dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
@@ -67,7 +67,7 @@ f0e017e5b088        21 seconds ago       cmd /S /C echo "Hello World - Dockerfil
 Следующий несгруппированный пример Доккерфиле загружает Python для Windows, устанавливает его и удаляет скачанный установочный файл после завершения установки. В этом Доккерфиле каждому действию назначается собственная `RUN` инструкция.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command Invoke-WebRequest "https://www.python.org/ftp/python/3.5.1/python-3.5.1.exe" -OutFile c:\python-3.5.1.exe
 RUN powershell.exe -Command Start-Process c:\python-3.5.1.exe -ArgumentList '/quiet InstallAllUsers=1 PrependPath=1' -Wait
@@ -88,7 +88,7 @@ a395ca26777f        15 seconds ago      cmd /S /C powershell.exe -Command Remove
 Второй пример — это Доккерфиле, который выполняет точную операцию. Однако все связанные действия сгруппированы в рамках одной `RUN` инструкции. Каждый шаг `RUN` инструкции находится на новой строке доккерфиле, а символ "\ \" используется для переноса строк.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command \
   $ErrorActionPreference = 'Stop'; \
@@ -113,7 +113,7 @@ IMAGE               CREATED             CREATED BY                              
 В следующем примере Доккерфиле пакеты Python загружаются, выполняются, а затем удаляются. Все это выполняется в рамках одной операции `RUN` и создает всего один слой образа.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell.exe -Command \
   $ErrorActionPreference = 'Stop'; \
@@ -131,7 +131,7 @@ RUN powershell.exe -Command \
 В приведенном ниже примере пакеты Apache и Visual Studio, распространяемые вместе, загружаются, устанавливаются и удаляются путем удаления файлов, которые больше не нужны. Это делается с помощью одной `RUN` инструкции. Если какое – либо из этих действий будет Обновлено, все действия будут перезапущены.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -Command \
 
@@ -167,7 +167,7 @@ IMAGE               CREATED             CREATED BY                              
 По сравнению с этим действием можно разделить на три `RUN` команды. В этом случае каждая `RUN` инструкция кэшируется на уровне изображения контейнера, и только те из них, которые были изменены, должны быть повторно запущены в последующих сборках доккерфиле.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
@@ -209,7 +209,7 @@ d43abb81204a        7 days ago          cmd /S /C powershell -Command  Sleep 2 ;
 В следующих примерах показано, как заказ инструкций Доккерфиле может влиять на эффективность кэширования. Этот простой пример Доккерфиле состоит из четырех пронумерованных папок.  
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN mkdir test-1
 RUN mkdir test-2
@@ -233,7 +233,7 @@ afba1a3def0a        38 seconds ago       cmd /S /C mkdir test-4   42.46 MB
 Следующий Доккерфиле немного изменился, и третья `RUN` инструкция изменилась на новый файл. При запуске сборки Docker для этого файла Dockerfile три первых инструкции, которые идентичны инструкциям з прошлого примера, используют кэшированные слои образа. Тем не менее, поскольку `RUN` Инструкция по изменению не кэшируется, создается новый слой для инструкции Changed и всех последующих инструкций.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN mkdir test-1
 RUN mkdir test-2
@@ -265,7 +265,7 @@ c92cc95632fb        28 seconds ago      cmd /S /C mkdir test-4   5.644 MB
 ```dockerfile
 # Sample Dockerfile
 
-from windowsservercore
+from mcr.microsoft.com/windows/servercore:ltsc2019
 run dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 run echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 cmd [ "cmd" ]
@@ -276,7 +276,7 @@ cmd [ "cmd" ]
 ```dockerfile
 # Sample Dockerfile
 
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 RUN dism /online /enable-feature /all /featurename:iis-webserver /NoRestart
 RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
@@ -287,7 +287,7 @@ CMD [ "cmd" ]
 Длинные и сложные операции можно разделить на несколько строк с помощью символа обратной косой черты `\` . Следующий файл Dockerfile устанавливает распространяемый пакет Visual Studio, удаляет файлы установщика и затем создает файл конфигурации. Все эти три операции указаны на одной строке.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -Command c:\vcredist_x86.exe /quiet ; Remove-Item c:\vcredist_x86.exe -Force ; New-Item c:\config.ini
 ```
@@ -295,7 +295,7 @@ RUN powershell -Command c:\vcredist_x86.exe /quiet ; Remove-Item c:\vcredist_x86
 Команду можно разбить на обратные косые черты таким образом, чтобы каждая операция из `RUN` одной инструкции была указана в отдельной строке.
 
 ```dockerfile
-FROM windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 RUN powershell -Command \
     $ErrorActionPreference = 'Stop'; \
