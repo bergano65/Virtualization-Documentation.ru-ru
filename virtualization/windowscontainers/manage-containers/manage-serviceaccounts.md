@@ -1,21 +1,21 @@
 ---
-title: Групповые управляемые учетные записи служб для контейнеров Windows
-description: Групповые управляемые учетные записи служб для контейнеров Windows
-keywords: Dock, контейнеры, Active Directory, гмса
+title: Создание Гмсас для контейнеров Windows
+description: Инструкции по созданию групповых управляемых учетных записей служб (Гмсас) для контейнеров Windows.
+keywords: Dock, Containers, Active Directory, гмса, групповая управляемая учетная запись службы, групповая управляемая учетные записи служб
 author: rpsqrd
-ms.date: 08/02/2019
+ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: ec57152cf077f5007f4bf44a9ec902941c3bc749
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 9ed9029e534d56bfe1830281d0bfd3ddde0cee9e
+ms.sourcegitcommit: 5d4b6823b82838cb3b574da3cd98315cdbb95ce2
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998361"
+ms.lasthandoff: 09/11/2019
+ms.locfileid: "10079668"
 ---
-# <a name="group-managed-service-accounts-for-windows-containers"></a>Групповые управляемые учетные записи служб для контейнеров Windows
+# <a name="create-gmsas-for-windows-containers"></a>Создание Гмсас для контейнеров Windows
 
 Для упрощения проверки подлинности и авторизации между пользователями, компьютерами и другими сетевыми ресурсами в сетях на основе Windows обычно используется Active Directory (AD). Разработчики корпоративных приложений часто разрабатывать приложения, которые должны быть интегрированы в AD, и выполняются на серверах, подключенных к домену, чтобы использовать встроенную проверку подлинности Windows, благодаря которой пользователи и другие службы могут автоматически и прозрачно входить в приложение с удостоверениями.
 
@@ -121,8 +121,8 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
 1. Присоедините компьютер к домену Active Directory.
 2. Убедитесь, что ваш узел входит в группу безопасности, управляющую доступом к паролю Гмса.
 3. Перезагрузите компьютер, чтобы он получит новое членство в группе.
-4. Настройте классическое приложение [Dock для Windows 10](https://docs.docker.com/docker-for-windows/install/) или [Dock для Windows Server](https://docs.docker.com/install/windows/docker-ee/).
-5. Рекомендуется Убедитесь, что узел может использовать учетную запись Гмса, выполнив [Test-адсервицеаккаунт](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount). Если команда возвращает **значение "ложь**", ознакомьтесь с разделом [Устранение неполадок](#troubleshooting) для диагностики.
+4. Настройте [классическое приложение Dock для Windows 10](https://docs.docker.com/docker-for-windows/install/) или [Dock для Windows Server](https://docs.docker.com/install/windows/docker-ee/).
+5. Рекомендуется Убедитесь, что узел может использовать учетную запись Гмса, выполнив [Test-адсервицеаккаунт](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount). Если команда возвращает **значение "ложь**", следуйте [инструкциям по устранению неполадок](gmsa-troubleshooting.md#make-sure-the-host-can-use-the-gmsa).
 
     ```powershell
     # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
@@ -178,321 +178,17 @@ Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "Contain
     Get-CredentialSpec
     ```
 
-## <a name="configure-your-application-to-use-the-gmsa"></a>Настройка приложения для использования Гмса
+## <a name="next-steps"></a>Дальнейшие действия
 
-В типичной конфигурации для контейнера используется только одна учетная запись Гмса, которая используется всякий раз, когда учетная запись контейнера пытается выполнить проверку подлинности для сетевых ресурсов. Это означает, что ваше приложение должно работать как **Локальная система** или **Сетевая служба** , если требуется использовать удостоверение гмса.
+Теперь, когда вы настроили свою учетную запись Гмса, вы можете использовать ее в следующих случаях:
 
-### <a name="run-an-iis-app-pool-as-network-service"></a>Запуск пула приложений IIS как сетевой службы
+- [Настройка приложений](gmsa-configure-app.md)
+- [Работа с контейнерами](gmsa-run-container.md)
+- [Контейнеры для оркестрации](gmsa-orchestrate-containers.md)
 
-Если вы размещаете веб-сайт IIS в вашем контейнере, все, что нужно сделать, чтобы использовать Гмса, — это настроить удостоверение пула приложений на **сетевую службу**. Это можно сделать в Доккерфиле, добавив следующую команду:
-
-```dockerfile
-RUN %windir%\system32\inetsrv\appcmd.exe set AppPool DefaultAppPool -processModel.identityType:NetworkService
-```
-
-Если ранее вы использовали статические учетные данные пользователя для пула приложений IIS, рассматривайте Гмса как замену для этих учетных данных. Вы можете изменить Гмса между приложениями, тестами и производственными средами, а IIS автоматически берет текущее удостоверение, не изменяя изображение контейнера.
-
-### <a name="run-a-windows-service-as-network-service"></a>Запуск службы Windows в качестве сетевой службы
-
-Если приложение-контейнер выполняется как служба Windows, вы можете настроить службу для работы в качестве **сетевой службы** в доккерфиле:
-
-```dockerfile
-RUN sc.exe config "YourServiceName" obj= "NT AUTHORITY\NETWORK SERVICE" password= ""
-```
-
-### <a name="run-arbitrary-console-apps-as-network-service"></a>Запуск произвольного консольного приложения в качестве сетевой службы
-
-Для универсальных консольных приложений, не размещенных в службах IIS или Service Manager, зачастую проще запускать контейнер как **сетевую службу** , чтобы приложение автоматически наследовало контекст гмса. Эта функция доступна в Windows Server версии 1709.
-
-Добавьте следующую строку в Доккерфиле, чтобы она выполнялась как сетевая служба по умолчанию:
-
-```dockerfile
-USER "NT AUTHORITY\NETWORK SERVICE"
-```
-
-Вы также можете подключаться к контейнеру как к сетевой службе на основе одной из `docker exec`них. Это особенно полезно, если вы можете устранить проблемы с подключением в работающем контейнере, если контейнер обычно не запускается как сетевая служба.
-
-```powershell
-# Opens an interactive PowerShell console in the container (id = 85d) as the Network Service account
-docker exec -it --user "NT AUTHORITY\NETWORK SERVICE" 85d powershell
-```
-
-## <a name="run-a-container-with-a-gmsa"></a>Выполнение контейнера с Гмса
-
-Чтобы выполнить контейнер с Гмса, укажите в качестве файла спецификации учетных данных `--security-opt` параметр [выполнения Dock](https://docs.docker.com/engine/reference/run):
-
-```powershell
-# For Windows Server 2016, change the image name to mcr.microsoft.com/windows/servercore:ltsc2016
-docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
-```
-
->[!IMPORTANT]
->В Windows Server 2016 версий 1709 и 1803 имя узла контейнера должно совпадать с коротким именем Гмса.
-
-В предыдущем примере именем учетной записи SAM Гмса является "webapp01", поэтому имя узла контейнера также называется "webapp01".
-
-В Windows Server 2019 и более поздних версиях поле HostName не является обязательным, но контейнер будет по-прежнему определяться именем Гмса, а не именем узла, даже если явным образом вы явно задаете его.
-
-Чтобы проверить, правильно ли работает Гмса, выполните в контейнере следующий командлет:
-
-```powershell
-# Replace contoso.com with your own domain
-PS C:\> nltest /sc_verify:contoso.com
-
-Flags: b0 HAS_IP  HAS_TIMESERV
-Trusted DC Name \\dc01.contoso.com
-Trusted DC Connection Status Status = 0 0x0 NERR_Success
-Trust Verification Status = 0 0x0 NERR_Success
-The command completed successfully
-```
-
-Если состояние подключения доверенного домена и состояние проверки доверия не `NERR_Success`заданы, ознакомьтесь с разделом устранение [неполадок](#troubleshooting) , чтобы ознакомиться с рекомендациями по ее отладке.
-
-Вы можете проверить удостоверение Гмса в контейнере, выполнив следующую команду и проверив имя клиента:
-
-```powershell
-PS C:\> klist get krbtgt
-
-Current LogonId is 0:0xaa79ef8
-A ticket to krbtgt has been retrieved successfully.
-
-Cached Tickets: (2)
-
-#0>     Client: webapp01$ @ CONTOSO.COM
-        Server: krbtgt/webapp01 @ CONTOSO.COM
-        KerbTicket Encryption Type: AES-256-CTS-HMAC-SHA1-96
-        Ticket Flags 0x40a10000 -> forwardable renewable pre_authent name_canonicalize
-        Start Time: 3/21/2019 4:17:53 (local)
-        End Time:   3/21/2019 14:17:53 (local)
-        Renew Time: 3/28/2019 4:17:42 (local)
-        Session Key Type: AES-256-CTS-HMAC-SHA1-96
-        Cache Flags: 0
-        Kdc Called: dc01.contoso.com
-
-[...]
-```
-
-Чтобы открыть PowerShell или другое консольное приложение в качестве учетной записи Гмса, вы можете задать для него разрешение на работу с учетной записью Network Service, а не с обычной Контаинерадминистратор (или Контаинерусер для сервера для серверов).
-
-```powershell
-# NOTE: you can only run as Network Service or SYSTEM on Windows Server 1709 and later
-docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\NETWORK SERVICE" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
-```
-
-Если вы используете сетевую службу, вы можете проверить подлинность сети как Гмса, пытаясь подключиться к SYSVOL на контроллере домена.
-
-```powershell
-# This command should succeed if you're successfully running as the gMSA
-PS C:\> dir \\contoso.com\SYSVOL
-
-
-    Directory: \\contoso.com\sysvol
-
-
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-d----l        2/27/2019   8:09 PM                contoso.com
-```
-
-## <a name="orchestrate-containers-with-gmsa"></a>Контейнеры для оркестрации с помощью Гмса
-
-В рабочих средах часто используется контейнерная Orchestrator для развертывания приложений и служб и управления ими. Каждая из этих Orchestrator имеет собственные парадигмы управления и отвечает за принятие спецификаций учетных данных для предоставления платформе контейнера Windows.
-
-При работе с контейнерами с помощью Гмсас убедитесь в том, что:
-
-> [!div class="checklist"]
-> * Все узлы контейнеров, которые можно запланировать для выполнения контейнеров с Гмсас, являются присоединенными к домену
-> * Узлы контейнера имеют доступ, чтобы получить пароли для всех Гмсас, используемых контейнерами.
-> * Файлы спецификаций учетных данных создаются и отправляются в Orchestrator или копируются на каждый узел контейнера в зависимости от того, как Orchestrator предпочитает их обрабатывать.
-> * Сети контейнеров позволяют контейнерам взаимодействовать с контроллерами домена Active Directory для получения билетов Гмса
-
-### <a name="how-to-use-gmsa-with-service-fabric"></a>Использование Гмса с фабрикой служб
-
-Фабрика служб поддерживает выполнение контейнеров Windows с помощью Гмса, если указать расположение спецификаций учетных данных в манифесте приложения. Вам потребуется создать файл спецификации учетных данных и поместить его в подкаталог **кредентиалспекс** каталога данных Dock на каждом узле, чтобы структура обслуживания могла ее найти. Вы можете выполнить командлет **Get-кредентиалспек** , который входит в состав [модуля кредентиалспек PowerShell](https://aka.ms/credspec), чтобы проверить, правильно ли указано расположение вашей учетной записи.
-
-Дополнительные сведения о том, как настроить приложение, [можно найти в разделе Краткое руководство: развертывание контейнеров Windows в структуре обслуживания](https://docs.microsoft.com/azure/service-fabric/service-fabric-quickstart-containers) и [Настройка Гмса для контейнеров Windows, работающих в структуре служб](https://docs.microsoft.com/azure/service-fabric/service-fabric-setup-gmsa-for-windows-containers) .
-
-### <a name="how-to-use-gmsa-with-docker-swarm"></a>Использование Гмса с Dock Сварм
-
-Чтобы использовать Гмса с контейнерами, управляемыми стыковочным узлом Сварм, запустите команду [Create Service Dock](https://docs.docker.com/engine/reference/commandline/service_create/) с `--credential-spec` параметром:
-
-```powershell
-docker service create --credential-spec "file://contoso_webapp01.json" --hostname "WebApp01" <image name>
-```
-
-Дополнительные сведения об использовании спецификаций учетных данных с помощью служб Dock можно найти в [Сварм примере Dock](https://docs.docker.com/engine/reference/commandline/service_create/#provide-credential-specs-for-managed-service-accounts-windows-only) .
-
-### <a name="how-to-use-gmsa-with-kubernetes"></a>Использование Гмса с Кубернетес
-
-Поддержка планирования контейнеров Windows с помощью Гмсас в Кубернетес доступна в виде альфа-функции в Кубернетес 1,14. Более подробную информацию об этой функции можно найти в разделе [Настройка гмса для Windows и контейнерах](https://kubernetes.io/docs/tasks/configure-pod-container/configure-gmsa) , а также о том, как ее можно протестировать в дистрибутиве кубернетес.
-
-## <a name="example-uses"></a>Пример использует
-
-### <a name="sql-connection-strings"></a>Строки соединения SQL
-
-Если служба выполняется в контейнере как Local System или Network Service, она может использовать встроенную проверку подлинности Windows для подключения к Microsoft SQL Server.
-
-Ниже приведен пример строки подключения, в которой для проверки подлинности в SQL Server используется удостоверение контейнера.
-
-```sql
-Server=sql.contoso.com;Database=MusicStore;Integrated Security=True;MultipleActiveResultSets=True;Connect Timeout=30
-```
-
-На Microsoft SQL Server создайте имя для входа с использованием домена и имени групповой управляемой учетной записи службы, после которых указан символ "$". Создав учетную запись, вы можете добавить ее к пользователю в базе данных и предоставить ей соответствующие разрешения на доступ.
-
-Пример.
-
-```sql
-CREATE LOGIN "DEMO\WebApplication1$"
-    FROM WINDOWS
-    WITH DEFAULT_DATABASE = "MusicStore"
-GO
-
-USE MusicStore
-GO
-CREATE USER WebApplication1 FOR LOGIN "DEMO\WebApplication1$"
-GO
-
-EXEC sp_addrolemember 'db_datareader', 'WebApplication1'
-EXEC sp_addrolemember 'db_datawriter', 'WebApplication1'
-```
-
-Чтобы посмотреть, как это работает, ознакомьтесь с [записанной демонстрацией](https://youtu.be/cZHPz80I-3s?t=2672) , доступной в Microsoft Ignite 2016 в сеансе "Обучите путь к контейнерам — преобразование рабочих нагрузок в контейнеры".
-
-## <a name="troubleshooting"></a>Поиск и устранение неисправностей
-
-### <a name="known-issues"></a>Известные проблемы
-
-#### <a name="container-hostname-must-match-the-gmsa-name-for-windows-server-2016-and-windows-10-versions-1709-and-1803"></a>Имя узла в контейнере должно совпадать с именем Гмса для Windows Server 2016 и Windows 10, версии 1709 и 1803
-
-Если вы используете Windows Server 2016 версии 1709 или 1803, имя узла вашего контейнера должно совпадать с именем учетной записи SAM в Гмса.
-
-Если имя узла не совпадает с именем Гмса, входящий запрос проверки подлинности NTLM и трансляция Name/SID (используемая многими библиотеками, например с поставщиком роли членства ASP.NET) завершатся сбоем. Kerberos продолжает работать в обычном режиме, даже если имя HostName и Гмса не совпадают.
-
-Это ограничение было исправлено в Windows Server 2019, где контейнер будет всегда использовать свое имя Гмса в сети независимо от назначенного имени узла.
-
-#### <a name="using-a-gmsa-with-more-than-one-container-simultaneously-leads-to-intermittent-failures-on-windows-server-2016-and-windows-10-versions-1709-and-1803"></a>Использование Гмса с более чем одним контейнером одновременно приводит к периодическим сбоям в Windows Server 2016 и Windows 10, версия 1709 и 1803
-
-Так как все контейнеры должны использовать одно и то же имя узла, вторая проблема повлияет на версии Windows, предшествующие Windows Server 2019 и Windows 10, версия 1809. Если нескольким контейнерам назначаются одинаковые идентификаторы и имена узлов, состояние гонки может возникнуть, если два контейнера одновременно говорят на один контроллер домена. Если другой контейнер взаимодействии с одним и тем же контроллером домена, он будет отменять связь с любыми предыдущими контейнерами с помощью того же удостоверения. Это может привести к неустранимым ошибкам проверки подлинности и иногда может рассматриваться как `nltest /sc_verify:contoso.com` сбой доверия при выполнении внутри контейнера.
-
-Мы изменили поведение в Windows Server 2019, чтобы отделить удостоверение контейнера от имени компьютера, разрешая нескольким контейнерам одновременно использовать один и тот же Гмса.
-
-#### <a name="you-cant-use-gmsas-with-hyper-v-isolated-containers-on-windows-10-versions-1703-1709-and-1803"></a>Нельзя использовать Гмсас с изолированными контейнерами Hyper-V в Windows 10 версий 1703, 1709 и 1803
-
-Если при попытке использовать Гмса с изолированным контейнером Hyper-V в Windows 10 и Windows Server версии 1703, 1709 и 1803, Инициализация контейнера перестанет отвечать на запросы и произойдет сбой.
-
-Эта ошибка исправлена в Windows Server 2019 и Windows 10 версии 1809. Вы также можете запускать изолированные контейнеры Hyper-V с Гмсас в Windows Server 2016 и Windows 10 версии 1607.
-
-### <a name="general-troubleshooting-guidance"></a>Общие рекомендации по устранению неполадок
-
-Если при работе с контейнером с помощью Гмса возникают ошибки, эти инструкции могут помочь вам определить основную причину.
-
-#### <a name="make-sure-the-host-can-use-the-gmsa"></a>Проверка того, что узел может использовать Гмса
-
-1. Убедитесь, что узел подключен к домену и может подключиться к контроллеру домена.
-2. Установите инструменты AD PowerShell из RSAT и запустите [Test-адсервицеаккаунт](https://docs.microsoft.com/powershell/module/activedirectory/test-adserviceaccount) , чтобы убедиться, что у компьютера есть доступ к извлечению гмса. Если командлет возвращает **false**, компьютер не имеет доступа к паролю гмса.
-
-    ```powershell
-    # To install the AD module on Windows Server, run Install-WindowsFeature RSAT-AD-PowerShell
-    # To install the AD module on Windows 10 version 1809 or later, run Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'
-    # To install the AD module on older versions of Windows 10, see https://aka.ms/rsat
-
-    Test-ADServiceAccount WebApp01
-    ```
-
-3. Если **Test-адсервицеаккаунт** возвращает **значение false**, убедитесь, что узел принадлежит группе безопасности, которая может получить доступ к паролю гмса.
-
-    ```powershell
-    # Get the current computer's group membership
-    Get-ADComputer $env:computername | Get-ADPrincipalGroupMembership | Select-Object DistinguishedName
-
-    # Get the groups allowed to retrieve the gMSA password
-    # Change "WebApp01" for your own gMSA name
-    (Get-ADServiceAccount WebApp01 -Properties PrincipalsAllowedToRetrieveManagedPassword).PrincipalsAllowedToRetrieveManagedPassword
-    ```
-
-4. Если ваш узел входит в группу безопасности, которой разрешено извлекать пароль Гмса, но все еще не проходит **тестирование — адсервицеаккаунт**, вам может потребоваться перезагрузить компьютер, чтобы получить новый билет, отражающий текущее участие в группах.
-
-#### <a name="check-the-credential-spec-file"></a>Проверка файла спецификации учетных данных
-
-1. Запустите **Get-кредентиалспек** из [модуля кредентиалспек PowerShell](https://aka.ms/credspec) , чтобы найти все спецификации учетных данных на компьютере. Спецификации учетных данных должны храниться в каталоге "Кредентиалспекс" в корневом каталоге Dock. Корневой каталог Dock можно найти, запустив **сведения о Dock-f "{{. Доккеррутдир}} "**.
-2. Откройте файл Кредентиалспек и убедитесь в том, что указанные ниже поля заполнены должным образом.
-    - **SID**: SID учетной записи гмса
-    - **Мачинеаккаунтнаме**: имя учетной записи SAM гмса (не включать полное доменное имя или знак доллара)
-    - **Днстринаме**: полное доменное имя леса Active Directory
-    - **DnsName**: полное доменное имя домена, к которому относится гмса
-    - **Нетбиоснаме**: NetBIOS-имя для домена, которому принадлежит гмса
-    - **Граупманажедсервицеаккаунтс/имя**: имя учетной записи SAM гмса (не включать полное доменное имя или знак доллара)
-    - **Граупманажедсервицеаккаунтс/Scope**: одна запись для доменного имени домена, а другая — для NetBIOS
-
-    Введенные данные должны выглядеть так, как показано в приведенном ниже примере полной спецификации учетных данных.
-
-    ```json
-    {
-        "CmsPlugins": [
-            "ActiveDirectory"
-        ],
-        "DomainJoinConfig": {
-            "Sid": "S-1-5-21-702590844-1001920913-2680819671",
-            "MachineAccountName": "webapp01",
-            "Guid": "56d9b66c-d746-4f87-bd26-26760cfdca2e",
-            "DnsTreeName": "contoso.com",
-            "DnsName": "contoso.com",
-            "NetBiosName": "CONTOSO"
-        },
-        "ActiveDirectoryConfig": {
-            "GroupManagedServiceAccounts": [
-                {
-                    "Name": "webapp01",
-                    "Scope": "contoso.com"
-                },
-                {
-                    "Name": "webapp01",
-                    "Scope": "CONTOSO"
-                }
-            ]
-        }
-    }
-    ```
-
-3. Убедитесь, что путь к файлу спецификации учетных данных правильный для вашего решения для согласования. Если вы используете закрепление, убедитесь, что команда «контейнер выполнения» `--security-opt="credentialspec=file://NAME.json"`содержит, где "Name. JSON" заменяется именем **Get-кредентиалспек**. Имя — это имя плоского файла относительно папки Кредентиалспекс в корневом каталоге Dock.
-
-#### <a name="check-the-firewall-configuration"></a>Проверка конфигурации брандмауэра
-
-Если вы используете ограниченную политику брандмауэра для контейнера или сети узла, она может заблокировать необходимые подключения к контроллеру домена Active Directory или DNS-серверу.
-
-| Протокол и порт | Описание |
-|-------------------|---------|
-| TCP и UDP 53 | DNS |
-| TCP и UDP 88 | Kerberos |
-| TCP 139 | Служба |
-| TCP и UDP 389 | LDAP |
-| TCP 636 | LDAP SSL |
-
-Возможно, потребуется разрешить доступ к дополнительным портам в зависимости от типа трафика, отправляемого контейнером на контроллер домена.
-Полный список портов, используемых службой каталогов Active Directory, можно найти в разделе [Active Directory и требования к порту доменных служб Active Directory](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) .
-
-#### <a name="check-the-container"></a>Проверка контейнера
-
-1. Если вы используете версию Windows, предшествующую Windows Server 2019 или Windows 10, версия 1809, имя узла-контейнера должно совпадать с именем Гмса. Убедитесь, `--hostname` что параметр соответствует краткому имени гмса (отсутствует компонент домена, например "webapp01", а не "webapp01.contoso.com").
-
-2. Проверьте конфигурацию сети контейнера, чтобы убедиться в том, что контейнер может разрешать и получать доступ к контроллеру домена Гмса домена. Неправильно настроенные DNS-серверы в контейнере являются типичными причинами проблем с удостоверениями.
-
-3. Убедитесь, что контейнер имеет допустимое подключение к домену, выполнив следующий командлет в контейнере (с `docker exec` помощью или эквивалента).
-
-    ```powershell
-    nltest /sc_verify:contoso.com
-    ```
-
-    Проверка доверия должна возвращаться `NERR_SUCCESS` в том случае, если доступен гмса и сетевое подключение позволяет контейнеру взаимодействовать с доменом. Если это не удается, проверьте конфигурацию сети для узла и контейнера. Обе возможности должны поддерживать связь с контроллером домена.
-
-4. Убедитесь, что ваше приложение [настроено на использование гмса](#configure-your-application-to-use-the-gmsa). При использовании Гмса учетная запись пользователя в контейнере не меняется. Вместо этого Системная учетная запись использует Гмса, когда он обобщается с другими сетевыми ресурсами. Это означает, что ваше приложение должно работать как сетевая служба или локальная система, чтобы использовать удостоверение Гмса.
-
-    > [!TIP]
-    > Если вы запустили `whoami` или используете другое средство для идентификации контекста текущего пользователя в контейнере, имя гмса не отображается. Это связано с тем, что вы всегда будете входить в контейнер в качестве локального пользователя, а не с учетной записью домена. Гмса используется учетной записью компьютера при обращении к сетевым ресурсам, поэтому ваше приложение должно работать как сетевая служба или локальная система.
-
-5. Наконец, если контейнер настроен правильно, но пользователи или другие службы не могут автоматически пройти проверку подлинности в вашем контейнерном приложении, проверьте SPN в учетной записи Гмса. Клиенты будут искать учетную запись Гмса по имени, по которому он достиг вашего приложения. Это может означать, что вам понадобятся дополнительные `host` SPN для гмса, если, например, клиенты подключаются к вашему приложению с помощью подсистемы балансировки нагрузки или другого DNS-имени.
+Если во время установки возникнут проблемы, ознакомьтесь с нашим [руководством по устранению неполадок для поиска](gmsa-troubleshooting.md) возможных решений.
 
 ## <a name="additional-resources"></a>Дополнительные ресурсы
 
-- [Общие сведения о групповой управляемой учетной записи службы](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview)
+- Дополнительные сведения о Гмсас можно найти в разделе [Общие сведения о групповой управляемой учетной записи служб](https://docs.microsoft.com/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview).
+- Видеоролик — это [Записанный ролик](https://youtu.be/cZHPz80I-3s?t=2672) , который можно посмотреть в Ignite 2016.

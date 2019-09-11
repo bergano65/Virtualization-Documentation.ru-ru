@@ -41,7 +41,12 @@
 ### [Стыковочный Сварм](manage-containers/swarm-mode.md)
 ### [Удаленное управление узлом закрепления Windows](management/manage_remotehost.md)
 ## Рабочих нагрузок
-### [Групповые управляемые учетные записи служб](manage-containers/manage-serviceaccounts.md)
+### Групповые управляемые учетные записи служб
+#### [Создайте групповую управляемую учетную запись службы.](manage-containers/manage-serviceaccounts.md)
+#### [Настройка приложения для использования Гмса](manage-containers/gmsa-configure-app.md)
+#### [Выполнение контейнера с Гмса](manage-containers/gmsa-run-container.md)
+#### [Согласование контейнеров с Гмса](manage-containers/gmsa-orchestrate-containers.md)
+#### [Устранение неполадок Гмсас](manage-containers/gmsa-troubleshooting.md)
 ### [Службы печати](deploy-containers/print-spooler.md)
 ## Сеть
 ### [Обзор](container-networking/architecture.md)
