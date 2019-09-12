@@ -38,6 +38,11 @@
 ### [Выполнение первого контейнера ЛКОВ](quick-start/quick-start-windows-10-linux.md)
 
 # Понятия
+## Основные сведения о контейнере Windows
+### [Элементы управления ресурсами](manage-containers/resource-controls.md)
+### [Изоляция Hyper-V](manage-containers/hyperv-container.md)
+### [Совместимость версий](deploy-containers/version-compatibility.md)
+### [Базовые образы контейнеров](manage-containers/container-base-images.md)
 ## Docker
 ### [Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)
 ### [Стыковочный Сварм](manage-containers/swarm-mode.md)
@@ -60,11 +65,8 @@
 ## Устройства
 ### [Аппаратные устройства](deploy-containers/hardware-devices-in-containers.md)
 ### [Ускорение GPU](deploy-containers/gpu-acceleration.md)
-## [Элементы управления ресурсами](manage-containers/resource-controls.md)
-## [Изоляция Hyper-V](manage-containers/hyperv-container.md)
 
 # Справочник
-## [Совместимость версий](deploy-containers/version-compatibility.md)
 ## [Базовые циклы обслуживания образов](deploy-containers/base-image-lifecycle.md)
 ## [Оптимизация защиты от вирусов](https://docs.microsoft.com/windows-hardware/drivers/ifs/anti-virus-optimization-for-windows-containers)
 ## [Инструменты платформы контейнеров](deploy-containers/containerd.md)
