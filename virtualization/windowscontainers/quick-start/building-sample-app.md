@@ -7,30 +7,20 @@ ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: f5a51fd1211868195126f06d917c0bef6e496c3d
-ms.sourcegitcommit: f3b6b470dd9cde8e8cac7b13e7e7d8bf2a39aa34
+ms.openlocfilehash: 8165d9c7ee3744fae31711e28be028208140813e
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "10077475"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129274"
 ---
 # <a name="containerize-a-net-core-app"></a>Контаинеризе приложения .NET Core
 
-
-В этом кратком руководстве вы узнаете, как контаинеризе простое приложение .NET Core. Ты:
-
-> [!div class="checklist"]
-> * Копирование примера источника приложения из GitHub
-> * Создание доккерфиле для создания изображения контейнера с источником приложения
-> * Проверка контейнера приложения .NET Core в локальной среде DOCKER
-
-## <a name="before-you-begin"></a>Перед началом работы
-
-В этом кратком руководстве предполагается, что ваша среда разработки уже настроена на использование контейнеров. Если у вас нет среды, настроенной для контейнеров, посетите краткое руководство по началу работы с [Windows 10](./quick-start-windows-10.md) , чтобы узнать, как приступить к работе.
+Этот сегмент предполагает, что ваша среда разработки уже настроена на использование контейнеров. Если у вас нет среды, настроенной для контейнеров, перейдите по фразе "[Настройка среды](./set-up-environment.md)", чтобы узнать, как начать работу.
 
 На вашем компьютере должна быть установлена система управления версиями Git. Вы можете взять его сюда: [Git](https://git-scm.com/download)
 
-## <a name="getting-started"></a>Начало работы
+## <a name="clone-the-sample-code"></a>Копирование примера кода
 
 Весь образец исходного кода контейнера хранится в разделе " [виртуализация — документация](https://github.com/MicrosoftDocs/Virtualization-Documentation) Git" в папке с `windows-container-samples`именем "". Клонировать этот репозиторий Git в рабочий каталог курент.
 

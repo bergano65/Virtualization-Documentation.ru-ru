@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 6885400c-5623-4cde-8012-f6a00019fafa
-ms.openlocfilehash: 953dfaf71170de656f4e6ba5e91d524708d5a12a
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: c84a6652b5918238ee8ef6e1fa7a9b2aa596aefd
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998221"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129264"
 ---
 # <a name="docker-engine-on-windows"></a>Подсистема Docker в Windows
 
@@ -21,14 +21,13 @@ ms.locfileid: "9998221"
 
 ## <a name="install-docker"></a>Установка Docker
 
-Для работы с контейнерами Windows требуется закрепление. Docker состоит из подсистемы Docker (dockerd.exe) и клиента Docker (docker.exe). Самый простой способ получить все, что вы установили, — это краткое руководство, которое поможет вам настроить и запустить первый контейнер.
+Для работы с контейнерами Windows требуется закрепление. Docker состоит из подсистемы Docker (dockerd.exe) и клиента Docker (docker.exe). Самый простой способ установить все это в кратком руководстве, которое поможет вам настроить и запустить первый контейнер.
 
-- [Контейнеры Windows в Windows Server 2019](../quick-start/quick-start-windows-server.md)
-- [Контейнеры Windows в Windows 10](../quick-start/quick-start-windows-10.md)
+- [Установка Docker](../quick-start/set-up-environment.md)
 
-Для установки программы-дока в сценариях установки ознакомьтесь с разделом [Использование сценария](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
+Для установки программы-дока в сценариях установки ознакомьтесь с [разделом использование сценария](https://docs.docker.com/install/windows/docker-ee/#use-a-script-to-install-docker-ee).
 
-Прежде чем использовать Dock, необходимо установить изображения контейнера. Дополнительные сведения можно найти [в руководстве краткое руководство по работе с изображениями](../quick-start/quick-start-images.md).
+Прежде чем использовать Dock, необходимо установить изображения контейнера. Дополнительные сведения можно найти в разделе [документы по основным изображениям контейнера](../manage-containers/container-base-images.md).
 
 ## <a name="configure-docker-with-a-configuration-file"></a>Настройка Dock с помощью файла конфигурации
 
@@ -224,14 +223,14 @@ Remove-Item "C:\ProgramData\Docker" -Recurse
 
 Чтобы удалить компоненты Windows в Windows 10, выполните указанные ниже действия.
 
-- **** На >  **панели** > управления выберите программы**и компоненты** > , чтобы**включить или выключить компоненты Windows**.
-- Найдите имя компонента или функций, которые вы хотите отключить — в этом случае — контейнеры **** и (необязательно) **Hyper-V**.
+- На **панели** >  > управления**выберите программы****и компоненты** > , чтобы**включить или выключить компоненты Windows**.
+- Найдите имя компонента или функций, которые вы хотите отключить — в этом случае — **контейнеры** и (необязательно) **Hyper-V**.
 - Снимите флажок рядом с названием функции, которую вы хотите отключить.
 - Нажмите кнопку **"ОК"**
 
 Чтобы удалить компоненты Windows в Windows Server 2016, выполните указанные ниже действия.
 
-В сеансе PowerShell с повышенными привилегиями выполните следующие командлеты, **** чтобы отключить контейнеры и (необязательно) компоненты **Hyper-V** из системы.
+В сеансе PowerShell с повышенными привилегиями выполните следующие командлеты, чтобы отключить **контейнеры** и (необязательно) компоненты **Hyper-V** из системы.
 
 ```powershell
 Remove-WindowsFeature Containers

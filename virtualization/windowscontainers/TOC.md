@@ -6,15 +6,9 @@
 ## [Вопросы и ответы](about/faq.md)
 
 # Начало работы
-## Windows 10
-### [Выполнение первого контейнера ВКОВ](quick-start/quick-start-windows-10.md)
-### [Создание примера приложения](quick-start/building-sample-app.md)
-## Windows Server
-### [Запуск первого контейнера Windows Server](quick-start/quick-start-windows-server.md)
-### [Автоматизация построения контейнера](quick-start/quick-start-images.md)
-## Участник программы предварительной оценки Windows
-### [Использование изображений для участников программы предварительной оценки](quick-start/Using-Insider-Container-Images.md)
-### [Сборка и запуск приложения](quick-start/Nano-RS3-.NET-Core-and-PS.md)
+## [Настройка среды](quick-start/set-up-environment.md)
+## [Выполнение первого контейнера](quick-start/run-your-first-container.md)
+## [Контаинеризе пример приложения](quick-start/building-sample-app.md)
 
 # Учебники
 ## Создание контейнера Windows

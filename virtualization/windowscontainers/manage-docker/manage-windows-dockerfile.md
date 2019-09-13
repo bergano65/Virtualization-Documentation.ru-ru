@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 75fed138-9239-4da9-bce4-4f2e2ad469a1
-ms.openlocfilehash: f23fe8c5e5ad9dc3257f8b99d239b5fc97607add
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 9fef74c029dc3efc220b1f9924d2695cdbaa61be
+ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998241"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "10129304"
 ---
 # <a name="dockerfile-on-windows"></a>Dockerfile в Windows
 
@@ -31,7 +31,7 @@ ms.locfileid: "9998241"
 
 В этой статье рассказывается о том, как использовать Доккерфилес с контейнерами Windows, понимать их базовый синтаксис и наиболее распространенные инструкции по Доккерфиле.
 
-В этом документе обсуждается концепция изображений контейнера и слоев изображений контейнера. Если вы хотите узнать больше о изображениях и слоях изображений, ознакомьтесь [с руководством краткое руководство](../quick-start/quick-start-images.md)по работе с изображениями.
+В этом документе обсуждается концепция изображений контейнера и слоев изображений контейнера. Если вы хотите узнать больше о изображениях и слоях изображений, ознакомьтесь с разделами [базовые изображения контейнера](../manage-containers/container-base-images.md).
 
 Полный взгляд на Доккерфилес можно найти в разделе [Справочник по доккерфиле](https://docs.docker.com/engine/reference/builder/).
 
@@ -61,7 +61,7 @@ RUN echo "Hello World - Dockerfile" > c:\inetpub\wwwroot\index.html
 CMD [ "cmd" ]
 ```
 
-Дополнительные примеры Доккерфилес для Windows можно найти в репозитории [доккерфиле для Windows](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
+Дополнительные примеры Доккерфилес для Windows можно найти в [репозитории доккерфиле для Windows](https://github.com/Microsoft/Virtualization-Documentation/tree/master/windows-container-samples).
 
 ## <a name="instructions"></a>Инструкции
 
@@ -69,7 +69,7 @@ CMD [ "cmd" ]
 
 ### <a name="from"></a>FROM
 
-Инструкция `FROM` задает образ контейнера, который будет применяться при создании нового образа. Например, при использовании инструкции `FROM microsoft/windowsservercore` полученный образ является производным и зависимым от базового образа ОС Windows Server Core. Если указанный образ отсутствует в системе, где выполняется процесс сборки Docker, подсистема Docker попытается скачать его из общедоступного или частного реестра образов.
+Инструкция `FROM` задает образ контейнера, который будет применяться при создании нового образа. Например, при использовании инструкции `FROM mcr.microsoft.com/windows/servercore` полученный образ является производным и зависимым от базового образа ОС Windows Server Core. Если указанный образ отсутствует в системе, где выполняется процесс сборки Docker, подсистема Docker попытается скачать его из общедоступного или частного реестра образов.
 
 Формат инструкции FROM имеет следующий вид:
 
@@ -162,7 +162,7 @@ RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart
 RUN powershell.exe -Command Start-Process c:\vcredist_x86.exe -ArgumentList '/quiet' -Wait
 ```
 
-Подробные сведения о инструкции по ЗАПУСКу можно найти в разделе [Справка](https://docs.docker.com/engine/reference/builder/#run)по запуску.
+Подробные сведения о инструкции по ЗАПУСКу можно найти в разделе [Справка по запуску](https://docs.docker.com/engine/reference/builder/#run).
 
 ### <a name="copy"></a>COPY
 
