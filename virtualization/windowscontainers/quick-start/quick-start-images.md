@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 93c56dba88715df41cab054cda676879b275380b
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 01e687cfa2fd479eb87e5639581e1552ed801aef
+ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9999211"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "10135337"
 ---
 # <a name="automating-builds-and-saving-images"></a>Автоматизация сборки и сохранения образов
 
@@ -159,4 +159,4 @@ docker pull <user>/iis-dockerfile
 Если вы хотите узнать, как создать пакет примера приложения ASP.NET, посетите ссылки на учебники для Windows 10, показанные ниже.
 
 > [!div class="nextstepaction"]
-> [Контейнеры в Windows 10](./quick-start-windows-10.md)
+> [Контейнеры в Windows 10](./set-up-environment.md?tabs=Windows-10-Client)
