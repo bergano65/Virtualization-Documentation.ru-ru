@@ -8,14 +8,14 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 479e05b1-2642-47c7-9db4-d2a23592d29f
-ms.openlocfilehash: 01e687cfa2fd479eb87e5639581e1552ed801aef
-ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
+ms.openlocfilehash: 99b324c8cae5c8c8ed887b6e39d6818d9eddba15
+ms.sourcegitcommit: 668d0c0a81e6d74d75a655be5a47c2bbc5e268de
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "10135337"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "10138505"
 ---
-# <a name="automating-builds-and-saving-images"></a>Автоматизация сборки и сохранения образов
+# <a name="automating-builds-and-saving-images"></a>Автоматизация сборок и сохранение изображений
 
 В предыдущем кратком руководстве по Windows Server мы создали контейнер Windows на основе предварительно созданного примера .Net Core. В этом упражнении показано, как создать собственный образ контейнера из Доккерфиле и сохранить изображение контейнера в общедоступном реестре Hub.
 
@@ -26,7 +26,7 @@ ms.locfileid: "10135337"
 Убедитесь, что вы отвечаете на следующие требования:
 
 - Одна компьютерная система (физическая или виртуальная) под управлением Windows Server 2019 или Windows Server 2016.
-- Настройте эту систему с помощью функции контейнера Windows и стыковочного узла. Пошаговые инструкции по выполнению этих действий можно найти [в разделе контейнеры Windows на Windows Server](./quick-start-windows-server.md).
+- Настройте эту систему с помощью функции контейнера Windows и стыковочного узла. Пошаговое руководство по этим действиям можно найти в разделе [Начало работы: Настройка среды для контейнеров](../quick-start/set-up-environment.md).
 - Идентификатор Docker, который будет использоваться для отправки образа контейнера в Docker Hub. Если у вас нет идентификатора Docker, зарегистрируйтесь для его получения в [Docker Cloud](https://cloud.docker.com/).
 
 ## <a name="container-image---dockerfile"></a>Изображение контейнера — Доккерфиле
@@ -159,4 +159,4 @@ docker pull <user>/iis-dockerfile
 Если вы хотите узнать, как создать пакет примера приложения ASP.NET, посетите ссылки на учебники для Windows 10, показанные ниже.
 
 > [!div class="nextstepaction"]
-> [Контейнеры в Windows 10](./set-up-environment.md?tabs=Windows-10-Client)
+> [Контейнеры в Windows 10](set-up-environment.md?tabs=Windows-10-Client)

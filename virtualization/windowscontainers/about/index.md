@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8e273856-3620-4e58-9d1a-d1e06550448
-ms.openlocfilehash: dbe0e629428bbd8ecfe3ec01bb1a69e3c9c3e231
-ms.sourcegitcommit: 9100d2218c160bbe9fbf24f3524c8ff5e3dd826c
+ms.openlocfilehash: 55fc032613b901ef1f5f9cf989891ceef99aac36
+ms.sourcegitcommit: 668d0c0a81e6d74d75a655be5a47c2bbc5e268de
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "10135347"
+ms.lasthandoff: 09/19/2019
+ms.locfileid: "10138515"
 ---
 # <a name="about-windows-containers"></a>О контейнерах Windows
 
@@ -81,8 +81,4 @@ ms.locfileid: "10135347"
 
 ## <a name="try-windows-server-containers"></a>Использование контейнеров Windows Server
 
-Готовы воспользоваться всеми преимуществами контейнеров? Ниже приведены статьи, которые помогут вам приступить к работе.
-
-Сведения о том, как настроить контейнер на сервере Windows Server, можно найти в [кратком руководстве по Windows Server](../quick-start/quick-start-windows-server.md).
-
-Чтобы настроить контейнер в Windows 10, ознакомьтесь со [статьей начало работы: Настройка среды для контейнеров](../quick-start/set-up-environment.md?tabs=Windows-10-Client).
+Чтобы приступить к работе с контейнерами на Windows Server или Windows 10, ознакомьтесь со [статьей начало работы: Настройка среды для контейнеров](../quick-start/set-up-environment.md).
