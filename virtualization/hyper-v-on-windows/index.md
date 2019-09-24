@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 05269ce0-a54f-4ad8-af75-2ecf5142b866
-ms.openlocfilehash: daecf2701972a00f4587b409c2271a23a70684ab
-ms.sourcegitcommit: 66f6cba600432f8fac1c214f357b27eb783cb1ff
+ms.openlocfilehash: 0621a06832844b0350b33c763f0546afa9b596e6
+ms.sourcegitcommit: 62fff5436770151a28b6fea2be3a8818564f3867
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "9794591"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "10147307"
 ---
 # <a name="hyper-v-on-windows-10"></a>Hyper-V в Windows10 
 
@@ -25,15 +25,15 @@ ms.locfileid: "9794591"
 Следующие статьи содержат введение в Hyper-V в ОС Windows и сведения об этой технологии.
 
 * [Введение в Hyper-V](./about/index.md)
-* [Поддерживаемые гостевые операционные системы](about\supported-guest-os.md)
+* [Поддерживаемые гостевые операционные системы](about/supported-guest-os.md)
 
 ## <a name="get-started-with-hyper-v"></a>Начало работы с Hyper-V
 В следующих документах содержится краткое интерактивное введение в Hyper-V в Windows10.
 
-* [Установка Hyper-V](quick-start\enable-hyper-v.md)
-* [Создание виртуальной машины](quick-start\create-virtual-machine.md)
-* [Создание виртуального коммутатора](quick-start\connect-to-network.md)
-* [Hyper-V и PowerShell](quick-start\try-hyper-v-powershell.md)
+* [Установка Hyper-V](quick-start/enable-hyper-v.md)
+* [Создание виртуальной машины](quick-start/create-virtual-machine.md)
+* [Создание виртуального коммутатора](quick-start/connect-to-network.md)
+* [Hyper-V и PowerShell](quick-start/try-hyper-v-powershell.md)
 
 ## <a name="connect-with-community-and-support"></a>Связь с сообществом и поддержка
 Дополнительные ресурсы технической поддержки и сообщества.
