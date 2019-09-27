@@ -1,5 +1,5 @@
 ---
-title: Сведения об оркестрации для контейнеров Windows
+title: Общие сведения об оркестрации для контейнера Windows
 description: Сведения о orchestrations Containers для Windows.
 keywords: docker, контейнеры
 author: Heidilohr
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 1ccf63b0ae55501ba32f8bdd61994e7f8006b5e6
-ms.sourcegitcommit: daf1d2b5879c382404fc4d59f1c35c88650e20f7
+ms.openlocfilehash: 99a3b47a9d80e21c246fb3b4f61d650557eb37fa
+ms.sourcegitcommit: e9dda81f1f68359ece9ef132a184a30880bcdb1b
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "9674901"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "10161791"
 ---
-# <a name="about-windows-container-orchestrators"></a>Сведения об оркестрации для контейнеров Windows
+# <a name="windows-container-orchestration-overview"></a>Общие сведения об оркестрации для контейнера Windows
 
 Из-за небольшого размера и ориентации приложения контейнеры идеально подходят для сред гибкой доставки и архитектур, основанных на микрослужбах. Тем не менее, среда, использующая контейнеры и микросерверы, может иметь сотни или тысячи компонентов, которые нужно отслеживать. Вы можете вручную управлять несколькими десятками виртуальных машин или физическими серверами, но вы не можете правильно управлять средой рабочей шкалы на рабочем месте без автоматизации. Эта задача должна относиться к Orchestrator, а это процесс, который автоматизирует и управляет большим количеством контейнеров и их взаимодействии.
 

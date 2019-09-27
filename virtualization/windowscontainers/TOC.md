@@ -33,14 +33,16 @@
 
 # Понятия
 ## Основные сведения о контейнере Windows
-### [Элементы управления ресурсами](manage-containers/resource-controls.md)
-### [Изоляция Hyper-V](manage-containers/hyperv-container.md)
-### [Совместимость версий](deploy-containers/version-compatibility.md)
 ### [Базовые образы контейнеров](manage-containers/container-base-images.md)
+### [Режимы изоляции](manage-containers/hyperv-container.md)
+### [Совместимость версий](deploy-containers/version-compatibility.md)
+### [Элементы управления ресурсами](manage-containers/resource-controls.md)
 ## Docker
 ### [Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)
 ### [Стыковочный Сварм](manage-containers/swarm-mode.md)
 ### [Удаленное управление узлом закрепления Windows](management/manage_remotehost.md)
+## Гармоничное взаимодействие с контейнерами
+### [Обзор](about/overview-container-orchestrators.md)
 ## Рабочих нагрузок
 ### Групповые управляемые учетные записи служб
 #### [Создайте групповую управляемую учетную запись службы.](manage-containers/manage-serviceaccounts.md)
