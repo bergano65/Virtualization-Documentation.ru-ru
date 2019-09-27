@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 25de368c-5a10-40a4-b4aa-ac8c9a9ca022
-ms.openlocfilehash: 0aa93b721ab1279cb789e3a18cad04bb668d2644
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: af12aff787cf178ff80d5db15cc926266816882f
+ms.sourcegitcommit: 579349d7bc6a7dbf68445339c468ad8d2b87d7de
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998521"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "10152735"
 ---
 # <a name="frequently-asked-questions-about-containers"></a>Ответы на часто задаваемые вопросы о контейнерах
 
