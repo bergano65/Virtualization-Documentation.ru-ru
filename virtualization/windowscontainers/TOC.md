@@ -14,19 +14,15 @@
 ## Создание контейнера Windows
 ### [Написание Доккерфиле](manage-docker/manage-windows-dockerfile.md)
 ### [Оптимизация Доккерфиле](manage-docker/optimize-windows-dockerfile.md)
-## Kubernetes в Windows
-### [Kubernetes в Windows](kubernetes/getting-started-kubernetes-windows.md)
-### [Создание образца Кубернетес](kubernetes/creating-a-linux-master.md)
-### [Выберите сетевое решение](kubernetes/network-topologies.md)
-### [Присоединение к сотрудникам Windows](kubernetes/joining-windows-workers.md)
-### [Присоединение к сотрудникам Linux](kubernetes/joining-linux-workers.md)
-### [Развертывание ресурсов Кубернетес](kubernetes/deploying-resources.md)
-### [Поиск и устранение неисправностей](kubernetes/common-problems.md)
-### [Службы Windows на Кубернетес](kubernetes/kube-windows-services.md)
-### [Компиляция двоичных файлов Кубернетес](kubernetes/compiling-kubernetes-binaries.md)
-## Фабрика служб в Windows
+## Запуск в службе Azure Кубернетес
+### [Создание кластера контейнера Windows на АКС](/azure/aks/windows-container-cli)
+### [Текущие ограничения](/azure/aks/windows-node-limitations)
+## Запуск в структуре служб
 ### [Развертывание первого контейнера](/azure/service-fabric/service-fabric-quickstart-containers)
 ### [Развертывание приложения .NET в контейнере Windows](/azure/service-fabric/service-fabric-host-app-in-a-container)
+## Запуск в службе приложений Azure
+### [Краткое руководство по службам приложений Azure](/azure/app-service/app-service-web-get-started-windows-container)
+### [Миграция приложения ASP.NET с контейнерами Windows и службой приложений Azure](/azure/app-service/app-service-web-tutorial-windows-containers-custom-fonts)
 ## Контейнеры Linux в Windows
 ### [Обзор](deploy-containers/linux-containers.md)
 ### [Выполнение первого контейнера ЛКОВ](quick-start/quick-start-windows-10-linux.md)
@@ -39,10 +35,24 @@
 ### [Элементы управления ресурсами](manage-containers/resource-controls.md)
 ## Docker
 ### [Подсистема Docker в Windows](manage-docker/configure-docker-daemon.md)
-### [Стыковочный Сварм](manage-containers/swarm-mode.md)
 ### [Удаленное управление узлом закрепления Windows](management/manage_remotehost.md)
 ## Гармоничное взаимодействие с контейнерами
 ### [Обзор](about/overview-container-orchestrators.md)
+### Kubernetes в Windows
+#### [Kubernetes в Windows](kubernetes/getting-started-kubernetes-windows.md)
+#### [Создание образца Кубернетес](kubernetes/creating-a-linux-master.md)
+#### [Выберите сетевое решение](kubernetes/network-topologies.md)
+#### [Присоединение к сотрудникам Windows](kubernetes/joining-windows-workers.md)
+#### [Присоединение к сотрудникам Linux](kubernetes/joining-linux-workers.md)
+#### [Развертывание ресурсов Кубернетес](kubernetes/deploying-resources.md)
+#### [Поиск и устранение неисправностей](kubernetes/common-problems.md)
+#### [Службы Windows на Кубернетес](kubernetes/kube-windows-services.md)
+#### [Компиляция двоичных файлов Кубернетес](kubernetes/compiling-kubernetes-binaries.md)
+### Фабрика служб
+#### [Структура и контейнеры служб](/azure/service-fabric/service-fabric-containers-overview)
+#### [Управление ресурсами](/azure/service-fabric/service-fabric-resource-governance)
+### Стыковочный Сварм
+#### [Режим Сварм](manage-containers/swarm-mode.md)
 ## Рабочих нагрузок
 ### Групповые управляемые учетные записи служб
 #### [Создайте групповую управляемую учетную запись службы.](manage-containers/manage-serviceaccounts.md)
@@ -58,6 +68,7 @@
 ### [Настройка расширенных сетевых параметров](container-networking/advanced.md)
 ## Хранение
 ### [Обзор](manage-containers/container-storage.md)
+### [Постоянное хранилище](manage-containers/persistent-storage.md)
 ## Устройства
 ### [Аппаратные устройства](deploy-containers/hardware-devices-in-containers.md)
 ### [Ускорение GPU](deploy-containers/gpu-acceleration.md)
