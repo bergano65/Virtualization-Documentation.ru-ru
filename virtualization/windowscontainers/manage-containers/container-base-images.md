@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: f5dcaf4958828b1bcf31a96e5fb70eda0508eb96
-ms.sourcegitcommit: e9dda81f1f68359ece9ef132a184a30880bcdb1b
+ms.openlocfilehash: 2a69fbace51589cce08476bd68fdb5c34a7907e6
+ms.sourcegitcommit: d0411b05d1ef7328a770766b84fd0743f9d9c237
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "10161751"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "10254274"
 ---
 # <a name="container-base-images"></a>Базовые образы контейнеров
 
@@ -124,9 +124,21 @@ docker pull mcr.microsoft.com/windows/servercore:ltsc2019
 - **Вы строите приложение для Windows на основе .NET Core?** Если ответ на этот вопрос равен Да, необходимо выбрать `Nanoserver`.
 - **Вы строите приложение IoT?** Если ответ на этот вопрос равен Да, необходимо выбрать `IoT Core`.
 - **Является ли образ контейнера основных компонентов Windows Server отсутствующим зависимостям для вашего приложения?** Если ответ на этот вопрос равен Да, вы должны попробовать цель `Windows`. Это изображение значительно больше, чем другие базовые изображения, но оно содержит множество основных библиотек Windows (например, библиотеки GDI).
+- **Вы являетесь участником программы предварительной оценки Windows?** Если да, следует использовать версию программы предварительной оценки. Ознакомьтесь с разрешениями "базовые образы для участников программы предварительной оценки Windows" ниже.
 
 > [!TIP]
 > Многие пользователи Windows хотят контаинеризе приложения, которые имеют зависимость от .NET. В дополнение к четырем основным изображениям, описанным здесь, корпорация Майкрософт публикует несколько изображений контейнера Windows, которые предварительно настроены для распространенных платформ Microsoft Framework, таких как изображение [.NET Framework](https://hub.docker.com/_/microsoft-dotnet-framework) и изображение [ASP .NET](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/) .
+
+### <a name="base-images-for-windows-insiders"></a>Базовые образы для участников программы предварительной оценки Windows
+
+Корпорация Майкрософт предоставляет версии для участников программы предварительной оценки для каждого базового образа контейнера. Эти образы участников программы предварительной оценки включают в себя новейшее и более глубокое развитие функций в наших образах. При запуске основного приложения, которое является версией для участников программы предварительной оценки Windows (программа предварительной оценки Windows или Windows Server Insider), предпочтительнее использовать эти образы. Образы участников программы предварительной оценки доступны в центре стыковочного узла:
+
+- [mcr.microsoft.com/windows/servercore/insider](https://hub.docker.com/_/microsoft-windows-servercore-insider)
+- [mcr.microsoft.com/windows/nanoserver/insider](https://hub.docker.com/_/microsoft-windows-nanoserver-insider)
+- [mcr.microsoft.com/windows/iotcore/insider](https://hub.docker.com/_/microsoft-windows-iotcore-insider)
+- [mcr.microsoft.com/windows/insider](https://hub.docker.com/_/microsoft-windows-insider)
+
+Чтобы узнать больше, прочтите сведения о [контейнерах с помощью программы предварительной оценки Windows](../deploy-containers/insider-overview.md) .
 
 ### <a name="windows-server-core-vs-nanoserver"></a>Основной сервер Windows Server или VS
 

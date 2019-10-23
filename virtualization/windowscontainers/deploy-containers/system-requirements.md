@@ -3,24 +3,25 @@ title: Требования к контейнеру Windows
 description: Требования к контейнеру Windows.
 keywords: метаданные, контейнеры
 author: taylorb-microsoft
-ms.date: 09/26/2016
+ms.author: taylorb
+ms.date: 10/22/2019
 ms.topic: deployment-article
 ms.prod: windows-containers
 ms.assetid: 3c3d4c69-503d-40e8-973b-ecc4e1f523ed
-ms.openlocfilehash: df5d8e17d0d512f7f53fcacf6c2c2a2652f3e7c0
-ms.sourcegitcommit: 73134bf279f3ed18235d24ae63cdc2e34a20e7b7
+ms.openlocfilehash: 74f501e5efab3a93e60c9d4797464cea283cdc0b
+ms.sourcegitcommit: d0411b05d1ef7328a770766b84fd0743f9d9c237
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "10107868"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "10254264"
 ---
 # <a name="windows-container-requirements"></a>Требования к контейнеру Windows
 
 В этом руководстве перечислены требования для узла контейнера Windows.
 
-## <a name="os-requirements"></a>Требования к ОС
+## <a name="operating-system-requirements"></a>Требования к операционной системе
 
-- Контейнер Windows доступен только в Windows Server 2016 (ядро и с возможностями рабочего стола), Windows 10 профессиональная и Enterprise (годовщина выпуска) и более поздних версий.
+- Контейнер Windows доступен в выпусках Windows Server (полуфабрикаты канала), Windows Server 2019, Windows Server 2016 и Windows 10 профессиональная и Enterprise Edition (версия 1607 и более поздние версии).
 - Перед выполнением изоляции Hyper-V необходимо установить роль Hyper-V.
 - На узлах контейнеров Windows Server операционная система Windows должна устанавливаться в каталог C:\. Это ограничение не применяется, если развертываются только изолированные контейнеры Hyper-V.
 
@@ -29,7 +30,7 @@ ms.locfileid: "10107868"
 Если узел контейнера Windows будет запущен с виртуальной машины Hyper-V, а также будет размещена изоляция Hyper-V, необходимо включить вложенную виртуализацию. Вложенная виртуализация должна соответствовать следующим требованиям.
 
 - Не менее 4 ГБ ОЗУ для виртуализированного узла Hyper-V.
-- Windows Server 2019, Windows Server версии 1803, Windows Server версии 1709, Windows Server 2016 или Windows 10 в системе размещения и Windows Server (Full, Core) на виртуальной машине.
+- Windows Server (одновременный канал), Windows Server 2019, Windows Server 2016 или Windows 10 в основной системе; и Windows Server (Full или Server Core) на виртуальной машине.
 - Процессор с Intel VT-x (в настоящий момент эта функция доступна только для процессоров Intel).
 - Виртуальная машина контейнера также должна иметь по крайней мере два виртуальных процессора.
 
@@ -47,9 +48,13 @@ ms.locfileid: "10107868"
 | Сервер Nano Server | 40 МБ                     | 130 МБ + 1 ГБ (файл подкачки) |
 | Основные серверные компоненты | 50 МБ                     | 325 МБ + 1 ГБ (файл подкачки) |
 
-#### <a name="windows-server-version-1709"></a>Windows Server версии 1709
+#### <a name="windows-server-semi-annual-channel"></a>Windows Server (Semi-Annual Channel)
 
 | Основной образ  | Контейнер Windows Server | Изоляция Hyper-V    |
 | ----------- | ------------------------ | -------------------- |
 | Сервер Nano Server | 30 МБАЙТ                     | 110 Мб + 1 ГБ (файл подкачки) |
 | Основные серверные компоненты | 45 МБ                     | 360 МБ + 1 ГБ (файл подкачки) |
+
+## <a name="see-also"></a>См. также
+
+[Политика поддержки для контейнеров и стыковочных окон в локальных сценариях](https://support.microsoft.com/help/4489234/support-policy-for-windows-containers-and-docker-on-premises)

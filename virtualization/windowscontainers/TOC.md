@@ -2,6 +2,7 @@
 
 # Обзор
 ## [О контейнерах Windows](about/index.md)
+## [Контейнеры и виртуальные машины](about/containers-vs-vm.md)
 ## [Требования к системе](deploy-containers/system-requirements.md)
 ## [Вопросы и ответы](about/faq.md)
 
@@ -26,6 +27,8 @@
 ## Контейнеры Linux в Windows
 ### [Обзор](deploy-containers/linux-containers.md)
 ### [Выполнение первого контейнера ЛКОВ](quick-start/quick-start-windows-10-linux.md)
+## Использование контейнеров с программой предварительной оценки Windows
+### [Обзор](deploy-containers/insider-overview.md)
 
 # Понятия
 ## Основные сведения о контейнере Windows
@@ -66,7 +69,7 @@
 ### [Сетевые топологии и драйверы](container-networking/network-drivers-topologies.md)
 ### [Сетевая изоляция и безопасность](container-networking/network-isolation-security.md)
 ### [Настройка расширенных сетевых параметров](container-networking/advanced.md)
-## Хранение
+## Хранилище
 ### [Обзор](manage-containers/container-storage.md)
 ### [Постоянное хранилище](manage-containers/persistent-storage.md)
 ## Устройства
