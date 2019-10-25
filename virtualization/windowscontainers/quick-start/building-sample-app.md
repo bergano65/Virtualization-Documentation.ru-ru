@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: 8165d9c7ee3744fae31711e28be028208140813e
-ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
+ms.openlocfilehash: cf8a14002e962242c34e9a10086120e6942d382b
+ms.sourcegitcommit: 6080b2c5053720490d374f6fb0daa870d5ddd4e8
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "10129274"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "10257778"
 ---
 # <a name="containerize-a-net-core-app"></a>Контаинеризе приложения .NET Core
 
@@ -28,11 +28,14 @@ ms.locfileid: "10129274"
 git clone https://github.com/MicrosoftDocs/Virtualization-Documentation.git
 ```
 
-Перейдите к каталогу примеров, найденному в разделе `<directory where clone occured>\Virtualization-Documentation\windows-container-samples\asp-net-getting-started` , и создайте доккерфиле. [Доккерфиле](https://docs.docker.com/engine/reference/builder/) — это файл Makefile — список инструкций, которые указывают обработчику контейнеров, как должно быть построено изображение контейнера.
+Перейдите к каталогу примеров, найденному в разделе `Virtualization-Documentation\windows-container-samples\asp-net-getting-started` , и создайте доккерфиле. [Доккерфиле](https://docs.docker.com/engine/reference/builder/) — это файл Makefile — список инструкций, которые указывают обработчику контейнеров, как должно быть построено изображение контейнера.
 
 ```Powershell
-#Create the dockerfile for our project
-New-Item -name dockerfile -type file
+# navigate into the sample directory
+Set-Location -Path Virtualization-Documentation\windows-container-samples\asp-net-getting-started
+
+# create the Dockerfile for our project
+New-Item -Name Dockerfile -ItemType file
 ```
 
 ## <a name="write-the-dockerfile"></a>Написание доккерфиле
