@@ -3,12 +3,12 @@ title: Ускорение GPU в контейнерах Windows
 description: Уровень аппаратного ускорения, имеющегося в контейнерах Windows
 keywords: Dock, контейнеры, устройства, оборудование
 author: cwilhit
-ms.openlocfilehash: c6746b45caece9802134831eb6cb3da885957ac5
-ms.sourcegitcommit: 2f8fd4b2e7113fbb7c323d89f3c72df5e1a4437e
+ms.openlocfilehash: 8f63c74d7839385e21206188263b9e5d08e7eb60
+ms.sourcegitcommit: da762ce138467e50dce22d5086ad407138b38e48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "10045044"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "10261863"
 ---
 # <a name="gpu-acceleration-in-windows-containers"></a>Ускорение GPU в контейнерах Windows
 
@@ -24,7 +24,7 @@ ms.locfileid: "10045044"
 Для работы этой функции необходимо, чтобы ваша среда соответствовала следующим требованиям:
 
 - Узел контейнера должен работать под управлением Windows Server 2019 или Windows 10 версии 1809 или более поздней.
-- Базовое изображение контейнера должно быть [MCR.Microsoft.com/Windows:1809](https://hub.docker.com/_/microsoft-windowsfamily-windows) или более новым. В настоящее время образы контейнеров "ядро сервера Windows Server" и "Nano Server" не поддерживаются.
+- Базовое изображение контейнера должно быть [MCR.Microsoft.com/Windows:1809](https://hub.docker.com/_/microsoft-windows) или более новым. В настоящее время образы контейнеров "ядро сервера Windows Server" и "Nano Server" не поддерживаются.
 - Ведущему узлу должно быть присвоено средство Dock 19,03 или более поздней версии.
 - На узле контейнера должен быть установлен драйвер дисплея версии WDDM 2,5 или более поздней.
 

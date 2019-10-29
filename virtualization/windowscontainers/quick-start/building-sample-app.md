@@ -7,12 +7,12 @@ ms.date: 09/10/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: cf8a14002e962242c34e9a10086120e6942d382b
-ms.sourcegitcommit: 6080b2c5053720490d374f6fb0daa870d5ddd4e8
+ms.openlocfilehash: db3caea3f7911ec6641930302198f976bd61240d
+ms.sourcegitcommit: da762ce138467e50dce22d5086ad407138b38e48
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "10257778"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "10261833"
 ---
 # <a name="containerize-a-net-core-app"></a>Контаинеризе приложения .NET Core
 
@@ -121,7 +121,7 @@ docker run -d -p 5000:80 --name myapp my-asp-app
 * `--name myapp` Указывает Dock для предоставления этому контейнеру удобного имени для запроса (вместо поиска идентификатора контаиенр, назначенного во время выполнения Dock.)
 * `my-asp-app` — Это изображение, которое будет использоваться для запуска Dock. Это изображение контейнера, созданное как кулминатион `docker build` процесса.
 
-Откройте веб-браузер веб-браузера и перейдите `https://localhost:5000` в раздел для гритед с помощью контейнера приложения.
+Откройте веб-браузер веб-браузера и перейдите `http://localhost:5000` в раздел для гритед с помощью контейнера приложения.
 
 >![](media/SampleAppScreenshot.png)
 
