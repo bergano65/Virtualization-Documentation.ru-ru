@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 6480f0657d7def8d6da69bfc52ace81d08b0add4
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: deea1bfbcd3032f52a6912eb0c36ba467d8b9a9c
+ms.sourcegitcommit: b38f6abb399c87c57e1bb146f3dbcdaefd991245
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998812"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "10276497"
 ---
 # <a name="advanced-network-options-in-windows"></a>Дополнительные параметры сети в Windows
 
@@ -162,7 +162,6 @@ C:\> docker run -it --network=MyTransparentNet --ip=10.123.174.105 windowsserver
 
 #### <a name="ip-assignment-on-stopped-vs-running-containers"></a>Назначение IP-адресов: остановленные и запущенные контейнеры
 Назначение статических IP-адресов выполняется непосредственно на сетевом адаптере контейнера и должно осуществляться, только когда контейнер находится в ОСТАНОВЛЕННОМ состоянии. "Горячее добавление" сетевых адаптеров контейнера или внесение изменений в сетевой стек не поддерживаются (в Windows Server 2016) во время выполнения контейнера.
-> Примечание. Это поведение меняется в обновлении Windows10 Creators Update, так как теперь платформа поддерживает "горячее добавление". Эта возможность приводит к сквозному запуску после объединения этого [отложенного в сети запроса на включение Docker](https://github.com/docker/libnetwork/pull/1661)
 
 #### <a name="existing-vswitch-not-visible-to-docker-can-block-transparent-network-creation"></a>Уже имеющийся виртуальный коммутатор (подсистема Docker его не видит) может блокировать создание прозрачный сети
 Если при создании прозрачной сети возникнет ошибка, возможно, в системе есть внешний виртуальный коммутатор, который не был автоматически обнаружен Docker и не позволяет привязать прозрачную сеть к внешнему сетевому адаптеру узла контейнера. 
