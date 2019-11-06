@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: cff56843a0eeb48ca5d19b694eb8eb4e758002aa
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 8d2ddb80aa05b511dbc8c9532654b18956e340da
+ms.sourcegitcommit: 7fd95333bd7fd2ef3627b0b5c558067e0bd0e09f
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998461"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "10276519"
 ---
 # <a name="windows-container-networking"></a>Сетевые контейнеры Windows
 
@@ -58,7 +58,7 @@ ms.locfileid: "9998461"
 - Сеть NAT по умолчанию: служба HNS создает правила перенаправления портов WinNAT/сопоставления с соответствующими разрешающими правилами брандмауэра Windows.
 - Остальные сети: служба HNS использует виртуальную платформу фильтрации для создания политики
     - Сюда входит следующее: балансировка нагрузки, списки управления доступом, инкапсуляция и т.д.
-    - Наши API-интерфейсы и схема службы HNS **будут опубликованы в ближайшее время**.
+    - Ищите наши API-интерфейсы и схема, опубликованные [здесь](https://docs.microsoft.com/en-us/windows-server/networking/technologies/hcn/hcn-top)
 
 ![текст](media/HNS-Management-Stack.png)
 
