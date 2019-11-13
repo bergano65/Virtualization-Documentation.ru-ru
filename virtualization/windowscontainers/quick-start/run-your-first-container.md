@@ -3,94 +3,94 @@ title: Контейнеры для Windows и Linux в Windows 10
 description: Краткое руководство по развертыванию контейнеров
 keywords: Dock, Containers, ЛКОВ
 author: cwilhit
-ms.date: 09/11/2019
+ms.author: crwilhit
+ms.date: 11/12/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
-ms.openlocfilehash: 3d651a4a68acefa25f1b647b1b33618bbfb91ae9
-ms.sourcegitcommit: 868a64eb97c6ff06bada8403c6179185bf96675f
+ms.openlocfilehash: a664b5b8eb87adffdf7eba3ffca9f4194128df80
+ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "10129386"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "10288132"
 ---
-# <a name="get-started-run-your-first-container"></a>Начало работы: выполнение первого контейнера
+# <a name="get-started-run-your-first-windows-container"></a>Начало работы: запуск первого контейнера Windows
 
-В [предыдущем сегменте](./set-up-environment.md)мы настроили среду для выполнения контейнеров. В этом упражнении показано, как извлечь изображение контейнера и запустить его.
+В этой статье описано, как выполнить первый контейнер Windows после настройки среды, как описано в разделе Начало [работы с Windows для контейнеров](./set-up-environment.md). Для запуска контейнера сначала необходимо установить базовый образ, который предоставляет основу для создания базового уровня служб операционной системы для контейнера. Затем вы создаете и запускаете изображение контейнера, которое основывается на базовом изображении. Подробнее читайте в статье.
 
-## <a name="install-container-base-image"></a>Базовый образ контейнера установки
+## <a name="install-a-container-base-image"></a>Установка базового образа контейнера
 
-Создаются экземпляры всех контейнеров `container images`. Microsoft поддерживает несколько начальных изображений (называемых `base images`) для выбора из них. Приведенная ниже команда извлекает базовый образ Nano Server.
+Все контейнеры создаются из изображений контейнера. Корпорация Майкрософт поддерживает несколько начальных изображений, которые называются базовыми изображениями (Дополнительные сведения можно найти в разделе [основные образы контейнера](../manage-containers/container-base-images.md)). Эти процедуры загружают (загрузки и устанавливаются) базового образа облегченного Nano Server.
 
-```console
-docker pull mcr.microsoft.com/windows/nanoserver:1809
-```
+1. Откройте окно командной строки (например, встроенная командная строка, PowerShell или [терминал Windows](https://www.microsoft.com/p/windows-terminal-preview/9n0dx20hk701?activetab=pivot:overviewtab)), а затем выполните следующую команду, чтобы скачать и установить базовый образ:
 
-> [!TIP]
-> Если появляется сообщение об ошибке `no matching manifest for unknown in the manifest list entries`, убедитесь, что на панели Dock не настроено выполнение контейнеров Linux.
+   ```console
+   docker pull mcr.microsoft.com/windows/nanoserver:1903
+   ```
 
-После того как изображение будет извлечено, вы можете убедиться, что оно установлено на вашем компьютере, запросите репозиторий локального образа стыковочного узла. При выполнении команды `docker images` возвращается список установленных изображений (в данном случае — образ Nano Server).
+   > [!TIP]
+   > Если появляется сообщение об ошибке `no matching manifest for unknown in the manifest list entries`, убедитесь в том, что Dock не настроен для работы с контейнерами Linux.
 
-```console
-docker images
+2. После завершения загрузки изображения прочтите [лицензионное соглашение](../images-eula.md) , пока не дождитесь завершения сеанса, и запросите его в вашем локальном репозитории образов. Выполнение команды `docker images` возвращает список установленных изображений.
 
-REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
-```
+   Ниже приведен пример выходных данных, демонстрирующих изображение Nano Server.
 
-> [!IMPORTANT]
-> Пожалуйста, прочтите [лицензионное соглашение](../images-eula.md)для образа ОС Windows Containers.
+   ```console
+   REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
+   microsoft/nanoserver   latest              105d76d0f40e        4 days ago          652 MB
+   ```
 
-## <a name="run-your-first-windows-container"></a>Запуск первого контейнера Windows
+## <a name="run-a-windows-container"></a>Запуск контейнера Windows
 
-В этом простом примере будет создан и развернуто изображение контейнера "Hello World". Для оптимальной работы выполните эти команды в оболочке Windows CMD или PowerShell с повышенными привилегиями.
+В этом простом примере будет создан и развернуто изображение контейнера "Hello World". Для оптимальной работы выполните эти команды в окне командной строки с повышенными привилегиями (но не используйте среду Windows PowerShell ISE — она не работает для интерактивных сеансов с контейнерами, так как контейнеры отображаются для зависания).
 
-> Интегрированная среда сценариев Windows PowerShell не работает в интерактивных сеансах с контейнерами. Даже если контейнер запускается, он зависает.
+1. Запустите контейнер с интерактивным сеансом из `nanoserver` образа, введя в окне командной строки следующую команду:
 
-Сначала запустите контейнер с помощью интерактивного сеанса из образа `nanoserver`. После начала работы над контейнером в контейнере будет представлена Командная оболочка.  
+   ```console
+   docker run -it mcr.microsoft.com/windows/nanoserver:1903 cmd.exe
+   ```
+2. После запуска контейнера окно командной строки изменит контекст на контейнер. В контейнере мы создадим простой текстовый файл "Hello World", а затем выполни контейнер, введя следующие команды:
 
-```console
-docker run -it mcr.microsoft.com/windows/nanoserver:1809 cmd.exe
-```
+   ```cmd
+   echo "Hello World!" > Hello.txt
+   exit
+   ```   
 
-В контейнере будет создан простой текстовый файл "Здравствуй, мир".
+3. Получите идентификатор контейнера для контейнера, который вы только что вышли, запустив команду [Dock PS](https://docs.docker.com/engine/reference/commandline/ps/) :
 
-```cmd
-echo "Hello World!" > Hello.txt
-```   
+   ```console
+   docker ps -a
+   ```
 
-После завершения выйдите из контейнера.
+4. Создайте новый образ HelloWorld, включающий изменения в первом контейнере, который вы запустили. Для этого выполните команду [commit Dock](https://docs.docker.com/engine/reference/commandline/commit/) , заменив `<containerid>` ее идентификатором контейнера.
 
-```cmd
-exit
-```
+   ```console
+   docker commit <containerid> helloworld
+   ```
 
-Создание нового изображения контейнера из измененного контейнера. Чтобы просмотреть список контейнеров, которые выполняются или вышли из приложения, выполните указанные ниже действия и запишите идентификатор контейнера.
+   После завершения вы получите пользовательский образ, содержащий скрипт "Привет мир". Это может быть показано с помощью команды [Images Dock](https://docs.docker.com/engine/reference/commandline/images/) .
 
-```console
-docker ps -a
-```
+   ```console
+   docker images
+   ```
 
-Выполните следующую команду для создания нового образа "Привет мир". Замените `<containerid>` на идентификатор контейнера.
+   Ниже приведен пример выходных данных.
 
-```console
-docker commit <containerid> helloworld
-```
+   ```console
+   REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
+   helloworld                             latest              a1064f2ec798        10 seconds ago      258MB
+   mcr.microsoft.com/windows/nanoserver   1903                2b9c381d0911        3 weeks ago         256MB
+   ```
 
-После завершения вы получите пользовательский образ, содержащий скрипт "Привет мир". Чтобы убедиться в этом, используйте следующую команду.
+5. Наконец, запустите новый контейнер с помощью команды " [выполнить Dock](https://docs.docker.com/engine/reference/commandline/run/) " с `--rm` параметром, который автоматически удаляет контейнер после того, как Командная строка (cmd. exe) прекратит работу.
 
-```console
-docker images
-```
+   ```console
+   docker run --rm helloworld cmd.exe /s /c type Hello.txt
+   ```
 
-Наконец, запустите контейнер с помощью `docker run` команды.
-
-```console
-docker run --rm helloworld cmd.exe /s /c type Hello.txt
-```
-
-В результате выполнения `docker run` команды контейнер был создан на основе изображения "HelloWorld", экземпляр Cmd был запущен в контейнере и выполнил чтение нашего файла (вывод Echo в оболочке), а затем контейнер остановлен и удален.
+   Результат заключается в том, что контейнер создан из изображения "HelloWorld", экземпляр Cmd. exe был запущен в контейнере, который считывает наш файл и выводит содержимое файла в оболочку, а затем контейнер остановлен и удален.
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
