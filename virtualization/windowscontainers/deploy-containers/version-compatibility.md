@@ -3,12 +3,12 @@ title: Совместимость версий контейнеров Windows
 description: Сборка и запуск контейнеров в нескольких версиях Windows
 keywords: метаданные, контейнеры, версия
 author: taylorb-microsoft
-ms.openlocfilehash: 74e708969a33b9d98b627165a9a47b8017ce2129
-ms.sourcegitcommit: 604323c8815860679cd13e96b2f533b7a0e83c23
+ms.openlocfilehash: 1f068cd011b2172e75c240d566473ccab25d984a
+ms.sourcegitcommit: 48ede8f27e089926b5b867037f31d14500af84ce
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "10286528"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "10296034"
 ---
 # <a name="windows-container-version-compatibility"></a>Совместимость версий контейнера Windows
 
@@ -62,6 +62,15 @@ ms.locfileid: "10286528"
 
 <!-- start tab view -->
 
+# [<a name="windows-10-version-1909"></a>Windows 10 версии 1909](#tab/windows-10-1909)
+
+|Версия базового образа контейнера (ОС)|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
+|---|:---:|:---:|
+|Windows Server версии 1909|&#10004;|&#10060;|
+|Windows Server версии 1903|&#10004;|&#10060;|
+|WindowsServer2019|&#10004;|&#10060;|
+|WindowsServer2016|&#10004;|&#10060;|
+
 # [<a name="windows-10-version-1903"></a>Windows 10 версии 1903](#tab/windows-10-1903)
 
 |Версия базового образа контейнера (ОС)|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
@@ -69,7 +78,6 @@ ms.locfileid: "10286528"
 |Windows Server версии 1909|&#10060;|&#10060;|
 |Windows Server версии 1903|&#10004;|&#10060;|
 |WindowsServer2019|&#10004;|&#10060;|
-|Windows Server версии 1803|&#10004;|&#10060;|
 |WindowsServer2016|&#10004;|&#10060;|
 
 # [<a name="windows-10-version-1809"></a>Windows10 версии1809](#tab/windows-10-1809)
@@ -79,15 +87,6 @@ ms.locfileid: "10286528"
 |Windows Server версии 1909|&#10060;|&#10060;|
 |Windows Server версии 1903|&#10060;|&#10060;|
 |WindowsServer2019|&#10004;|&#10060;|
-|WindowsServer2016|&#10004;|&#10060;|
-
-# [<a name="windows-10-version-1803"></a>Windows10 версии1803](#tab/windows-10-1803)
-
-|Версия базового образа контейнера (ОС)|Поддержка изоляции Hyper-V|Поддержка изоляции процессов|
-|---|:---:|:---:|
-|Windows Server версии 1909|&#10060;|&#10060;|
-|Windows Server версии 1903|&#10060;|&#10060;|
-|WindowsServer2019|&#10060;|&#10060;|
 |WindowsServer2016|&#10004;|&#10060;|
 
 ---
