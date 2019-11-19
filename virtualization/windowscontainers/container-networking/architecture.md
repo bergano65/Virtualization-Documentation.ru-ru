@@ -8,17 +8,17 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: 8d2ddb80aa05b511dbc8c9532654b18956e340da
-ms.sourcegitcommit: 7fd95333bd7fd2ef3627b0b5c558067e0bd0e09f
+ms.openlocfilehash: e9d4a9ac88c6853ce019a2469ee80688490b8fdf
+ms.sourcegitcommit: bb4ec1f05921f982c00bdb3ace6d9bc1d5355296
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "10276519"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "10297245"
 ---
 # <a name="windows-container-networking"></a>Сетевые контейнеры Windows
 
 >[!IMPORTANT]
->Для общих сетевых команд, параметров и синтаксиса, используемых в справочнике, вы можете использовать [подкрепление сети](https://docs.docker.com/engine/userguide/networking/) . * * * за исключением случаев, описанных в разделе [неподдерживаемые функции и сетевые параметры](#unsupported-features-and-network-options), все сетевые команды Dock являются поддерживается в Windows с тем же синтаксисом, что и в Linux. Тем не менее, сетевые стеки Windows и Linux отличаются, и в этом случае вы обнаружите, что некоторые сетевые команды Linux (например, ifconfig) не поддерживаются в Windows.
+>Для общих сетевых команд, параметров и синтаксиса, используемых в справочнике, вы можете использовать [подкрепление сети](https://docs.docker.com/engine/userguide/networking/) . * * * за исключением случаев, описанных в разделе [неподдерживаемые функции и сетевые параметры](#unsupported-features-and-network-options), все команды стыковочного сетевого устройства поддерживаются в Windows с тем же синтаксисом, что и в Linux. Тем не менее, сетевые стеки Windows и Linux отличаются, и в этом случае вы обнаружите, что некоторые сетевые команды Linux (например, ifconfig) не поддерживаются в Windows.
 
 ## <a name="basic-networking-architecture"></a>Базовая сетевая архитектура
 
@@ -69,7 +69,7 @@ ms.locfileid: "10276519"
 - Контейнеры Windows, вложенные в сети l2bridge, NAT и оверлея, не поддерживают связь с стеком IPv6.
 - Связь с зашифрованным контейнером через IPsec.
 - Поддержка прокси-сервера HTTP для контейнеров.
-- Присоединение конечных точек к работе в режиме изоляции Hyper-V (горячая установка).
+- Сеть [режим узла](https://docs.docker.com/ee/ucp/interlock/config/host-mode-networking/) 
 - Сетевая сеть в виртуализованной инфраструктуре Azure с помощью прозрачного сетевого драйвера.
 
 | Команда        | Неподдерживаемый параметр   |
