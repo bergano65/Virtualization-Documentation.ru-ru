@@ -48,8 +48,8 @@
 #### [Присоединение к сотрудникам Windows](kubernetes/joining-windows-workers.md)
 #### [Присоединение к сотрудникам Linux](kubernetes/joining-linux-workers.md)
 #### [Развертывание ресурсов Кубернетес](kubernetes/deploying-resources.md)
-#### [Поиск и устранение неисправностей](kubernetes/common-problems.md)
-#### [Службы Windows на Кубернетес](kubernetes/kube-windows-services.md)
+#### [Troubleshooting](kubernetes/common-problems.md)
+#### [Кубернетес как служба Windows](kubernetes/kube-windows-services.md)
 #### [Компиляция двоичных файлов Кубернетес](kubernetes/compiling-kubernetes-binaries.md)
 ### Фабрика служб
 #### [Структура и контейнеры служб](/azure/service-fabric/service-fabric-containers-overview)
@@ -84,6 +84,6 @@
 
 # Ресурсы
 ## [Примеры контейнеров](samples.md)
-## [Поиск и устранение неисправностей](troubleshooting.md)
+## [Troubleshooting](troubleshooting.md)
 ## [Форум по контейнерам](https://social.msdn.microsoft.com/Forums/home?forum=windowscontainers)
 ## [Видеоролики и блоги сообщества](communitylinks.md)
