@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.prod: containers
 description: Решения распространенных проблем при развертывании Kubernetes и присоединении узлов Windows.
 keywords: кубернетес, 1,14, Linux, компиляция
-ms.openlocfilehash: b6e4e648ff050e13a0930f2834949867e44ce895
-ms.sourcegitcommit: d252f356a3de98f224e1550536810dfc75345303
+ms.openlocfilehash: 8bebc83e03fe919f6af3968b0e0463ab3c6bb987
+ms.sourcegitcommit: 6b925368d122ba600d7d4c73bd240cdcb915cccd
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "10069938"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "10305728"
 ---
 # <a name="troubleshooting-kubernetes"></a>Устранение неполадок Kubernetes #
 На этой странице описано несколько распространенных проблем, связанных с установкой, сетями и развертываниями Kubernetes.
@@ -43,6 +43,19 @@ nssm set <Service Name> AppStderr C:\k\mysvc.log
 Дополнительные сведения можно найти в разделе официальные документы [об использовании НССМ](https://nssm.cc/usage) .
 
 ## <a name="common-networking-errors"></a>Общие сетевые ошибки ##
+
+### <a name="load-balancers-are-plumbed-inconsistently-across-the-cluster-nodes"></a>Подсистема балансировки нагрузки несогласованно подключены на узлах кластера ###
+В конфигурации (по умолчанию) Кубе-прокси кластеры, содержащие 100 + балансировщик нагрузки, могут получить доступ ко всем временным (динамическим) портам из-за большого количества портов, зарезервированных на каждом узле, для каждого подсистемы балансировки нагрузки (не DSR). Это может проявляться с ошибками в Кубе-прокси, например:
+```
+Policy creation failed: hcnCreateLoadBalancer failed in Win32: The specified port already exists.
+```
+
+Пользователи могут определить эту ошибку, выполнив сценарий [коллектлогс. ps1](https://github.com/microsoft/SDN/blob/master/Kubernetes/windows/debug/collectlogs.ps1) и консультации `*portrange.txt` файлов. В `reservedports.txt`этом случае также будет создан эвристический Реферат.
+
+Чтобы устранить эту проблему, можно выполнить несколько действий.
+1.  Для постоянного решения Кубе для балансировки нагрузки прокси-сервера должен быть установлен [режим DSR](https://techcommunity.microsoft.com/t5/Networking-Blog/Direct-Server-Return-DSR-in-a-nutshell/ba-p/693710). К сожалению, режим DSR полностью реализован только в новейшей версии [Windows Server Insider build 18945](https://blogs.windows.com/windowsexperience/2019/07/30/announcing-windows-server-vnext-insider-preview-build-18945/#o1bs7T2DGPFpf7HM.97) (или более поздней версии).
+2. В качестве обходного пути пользователи могут также увеличивать конфигурацию Windows по умолчанию для временных портов, доступ к которым можно `netsh int ipv4 dynamicportrange TCP <start_range> <end_range>`получить с помощью таких команд, как. *Предупреждение:* Переопределение диапазона динамических портов по умолчанию может повлиять на другие процессы и службы на узле, которые используют доступные TCP-порты из невременных диапазонов, поэтому этот диапазон следует выбирать с осторожностью.
+3. Кроме того, мы работаем над улучшением масштабируемости для подсистемы балансировки нагрузки режима без DSR с помощью интеллектуального общего использования пула портов, который планируется выпустить с помощью накопительного обновления в Q1 2020.
 
 ### <a name="hostport-publishing-is-not-working"></a>Публикация Хостпорт не работает ###
 Сейчас невозможно опубликовать порты с помощью поля Кубернетес `containers.ports.hostPort` , так как это поле не соблюдается подключаемыми модулями Windows CNI. Используйте публикацию Нодепорт, чтобы время публикации портов на узле.
@@ -160,7 +173,7 @@ Remove-Item -Recurse c:\var
 ```
 
 ### <a name="my-windows-node-cannot-access-my-services-using-the-service-ip"></a>Узел Windows не может получить доступ к службам с помощью IP-адреса служб ###
-Это известное ограничение текущего сетевого стека для Windows. Тем ** не менее **, Windows, возможно,** сможет получить доступ к IP-адресу службы.
+Это известное ограничение текущего сетевого стека для Windows. Тем *не менее* **, Windows, возможно,** сможет получить доступ к IP-адресу службы.
 
 ### <a name="no-network-adapter-is-found-when-starting-kubelet"></a>При запуске Kubelet не удается найти ни один сетевой адаптер ###
 Сетевому стеку Windows требуется виртуальный адаптер, чтобы сеть Kubernetes работала. Если следующие команды не дают результатов (в оболочке администратора), создание виртуальной сети&mdash; необходимое условие для работы Kubelet &mdash; завершилось ошибкой:
