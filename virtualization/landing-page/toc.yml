@@ -2,7 +2,7 @@
   tocHref: /virtualization/
   topicHref: /virtualization/index
   items:
-    - name: Hyper-V в Windows10
+    - name: "Hyper-V в Windows\_10"
       tocHref: /virtualization/hyper-v-on-windows/
       topicHref: /virtualization/hyper-v-on-windows/index
     - name: Контейнеры в Windows
