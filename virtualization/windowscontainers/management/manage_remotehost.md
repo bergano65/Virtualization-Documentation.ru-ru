@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 0cc1b621-1a92-4512-8716-956d7a8fe495
-ms.openlocfilehash: 2e1fec6aa7149c801b1c72a0f8a346ca879015c2
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: b975c593bd5c736ec3e7e1e21b76b2f6a2c8f8a4
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998201"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909654"
 ---
 # <a name="remote-management-of-a-windows-docker-host"></a>Удаленное управление узлом Docker в Windows
 
@@ -23,7 +23,7 @@ ms.locfileid: "9998201"
 
 * Создайте сертификаты на сервере с помощью [dockertls](https://hub.docker.com/r/stefanscherer/dockertls-windows/). Если вы создаете сертификаты с IP-адресом, можно использовать статический IP-адрес, чтобы не создавать сертификаты повторно при изменении IP-адреса.
 
-* Перезапустите службу Docker. `Restart-Service Docker`
+* Перезапустите службу DOCKER `Restart-Service Docker`
 * Сделайте TLS-порты 2375 и 2376 Docker доступными, создав правило NSG, разрешающее входящий трафик. Обратите внимание, что для безопасных подключений необходимо разрешить только порт 2376.  
   На портале должна быть указана конфигурация NSG, подобная показанной ниже:  
   ![NGS](media/nsg.png)  
@@ -33,7 +33,7 @@ ms.locfileid: "9998201"
 New-NetFirewallRule -DisplayName 'Docker SSL Inbound' -Profile @('Domain', 'Public', 'Private') -Direction Inbound -Action Allow -Protocol TCP -LocalPort 2376
 ```
 * Скопируйте файлы `ca.pem`, cert.pem и key.pem из папки Docker на компьютере, например `c:\users\chris\.docker`, на локальный компьютер. Например, вы можете скопировать (CTRL+C) и вставить (CTRL+V) файлы из сеанса RDP. 
-* Убедитесь, что вы можете подключиться к удаленному узлу Docker. Выполните следующую команду:
+* Убедитесь, что вы можете подключиться к удаленному узлу Docker. Запуск
 ```
 docker -D -H tcp://wsdockerhost.southcentralus.cloudapp.azure.com:2376 --tlsverify --tlscacert=c:\
 users\foo\.docker\client\ca.pem --tlscert=c:\users\foo\.docker\client\cert.pem --tlskey=c:\users\foo\.doc
@@ -41,7 +41,7 @@ ker\client\key.pem ps
 ```
 
 
-## <a name="troubleshooting"></a>Диагностика
+## <a name="troubleshooting"></a>Поиск и устранение неисправностей
 ### <a name="try-connecting-without-tls-to-determine-your-nsg-firewall-settings-are-correct"></a>Попытка подключения без TLS для проверки параметров брандмауэра NSG
 Ошибки подключения обычно проявляются следующим образом:
 ```

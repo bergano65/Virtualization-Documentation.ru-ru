@@ -1,7 +1,7 @@
 ---
-title: Контейнеры для Windows и Linux в Windows 10
-description: Настройте Windows 10 или Windows Server для контейнеров, а затем перейдите к нужному первому образу контейнера.
-keywords: Dock, Containers, ЛКОВ
+title: Контейнеры Windows и Linux в Windows 10
+description: Настройте Windows 10 или Windows Server для контейнеров, а затем перейдите к запуску первого образа контейнера.
+keywords: DOCKER, контейнеры, ЛКОВ
 author: cwilhit
 ms.author: crwilhit
 ms.date: 11/12/2019
@@ -10,64 +10,64 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: bb9bfbe0-5bdc-4984-912f-9c93ea67105f
 ms.openlocfilehash: 2c52dd96b3bf2402d41ec5b178af36521d00a649
-ms.sourcegitcommit: e61db4d98d9476a622e6cc8877650d9e7a6b4dd9
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "10288122"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909564"
 ---
-# <a name="get-started-prep-windows-for-containers"></a>Начало работы: подготовка окон подсистемы для контейнеров
+# <a name="get-started-prep-windows-for-containers"></a>Начало работы: окна подготовки для контейнеров
 
-В этом руководстве описано, как выполнять указанные ниже действия.
+В этом учебнике описывается:
 
 - Настройка Windows 10 или Windows Server для контейнеров
-- Выполнение первого изображения контейнера
-- Контаинеризе простого приложения .NET Core
+- Запуск первого образа контейнера
+- Контейнеризовать простое приложение .NET Core
 
-## <a name="prerequisites"></a>Что вам понадобится
+## <a name="prerequisites"></a>Предварительные условия
 
 <!-- start tab view -->
-# [<a name="windows-server"></a>Windows Server](#tab/Windows-Server)
+# <a name="windows-servertabwindows-server"></a>[Windows Server](#tab/Windows-Server)
 
-Для работы с контейнерами на компьютере с Windows Server требуется физический сервер или виртуальная машина под управлением Windows Server (половина канала), Windows Server 2019 или Windows Server 2016.
+Для запуска контейнеров в Windows Server требуется физический сервер или виртуальная машина под управлением Windows Server (полугодовой канал), Windows Server 2019 или Windows Server 2016.
 
-Для тестирования вы можете скачать копию Windows [server 2019 Evaluation или ознакомительную](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ) версию программы [предварительной оценки](https://insider.windows.com/for-business-getting-started-server/).
+Для тестирования можно загрузить копию [ознакомительной версии Window server 2019](https://www.microsoft.com/evalcenter/evaluate-windows-server-2019 ) или [предварительной версии Windows Server Insider](https://insider.windows.com/for-business-getting-started-server/)Preview.
 
-# [<a name="windows-10"></a>Windows 10](#tab/Windows-10-Client)
+# <a name="windows-10tabwindows-10-client"></a>[Windows 10](#tab/Windows-10-Client)
 
-Для выполнения контейнеров в Windows 10 вам понадобятся следующие возможности:
+Для запуска контейнеров в Windows 10 необходимо следующее:
 
-- Одна физическая компьютерная система под управлением Windows 10 профессиональная или Корпоративная с обновлением юбилея (версия 1607) или более поздней.
-- [Технология Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) должна быть включена.
+- Одна физическая компьютерная система под управлением Windows 10 профессиональная или Корпоративная с годовщиной обновления (версии 1607) или более поздней.
+- [Hyper-V](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) должен быть включен.
 
 > [!NOTE]
->  Начиная с Windows 10, Октябрь обновление 2018, мы больше не запрещают пользователям запускать контейнер Windows в режиме изоляции процессов в Windows 10 Корпоративная или профессиональная для разработки и тестирования. Дополнительные сведения можно найти в разделе " [часто задаваемые вопросы](../about/faq.md) ". 
+>  Начиная с Windows 10 октября с обновлением 2018, мы больше не запрещают пользователям запускать контейнер Windows в режиме изоляции процессов в Windows 10 Корпоративная или Professional для целей разработки и тестирования. Дополнительные сведения см. в разделе [часто задаваемые вопросы](../about/faq.md) . 
 > 
-> Контейнеры Windows Server по умолчанию используют изоляцию Hyper-V в Windows 10 для предоставления разработчикам одной и той же версии ядра и конфигурации, которая будет использоваться в производстве. Дополнительные сведения об изоляции Hyper-V содержатся в разделе [основные положения](../manage-containers/hyperv-container.md) наших документов.
+> Контейнеры Windows Server по умолчанию используют изоляцию Hyper-V в Windows 10 для предоставления разработчикам той же версии и конфигурации ядра, которая будет использоваться в рабочей среде. Дополнительные сведения о изоляции Hyper-V см. в области " [Основные понятия](../manage-containers/hyperv-container.md) " наших документов.
 
 ---
 <!-- stop tab view -->
 
 ## <a name="install-docker"></a>Установка Docker
 
-Первый этап — Установка Dock, необходимого для работы с контейнерами Windows. Dock предоставляет стандартную среду выполнения для контейнеров с общим API и интерфейсом командной строки (CLI).
+Первым шагом является установка DOCKER, необходимого для работы с контейнерами Windows. DOCKER предоставляет стандартную среду выполнения для контейнеров с общим API и интерфейсом командной строки (CLI).
 
-Дополнительные сведения о конфигурации можно найти [в разделе Подсистема стыковки в Windows](../manage-docker/configure-docker-daemon.md).
+Дополнительные сведения о конфигурации см. [в разделе Подсистема DOCKER в Windows](../manage-docker/configure-docker-daemon.md).
 
 <!-- start tab view -->
-# [<a name="windows-server"></a>Windows Server](#tab/Windows-Server)
+# <a name="windows-servertabwindows-server"></a>[Windows Server](#tab/Windows-Server)
 
-Чтобы установить Dock на Windows Server, можно использовать [модуль PowerShell поставщика онежет](https://github.com/oneget/oneget) , опубликованный корпорацией Майкрософт, который называется [доккермикрософтпровидер](https://github.com/OneGet/MicrosoftDockerProvider). Этот поставщик включает функцию контейнеров в Windows и устанавливает подсистему и клиентскую подкрепление. Вот как это сделать.
+Чтобы установить DOCKER в Windows Server, можно использовать [модуль PowerShell поставщика OneGet](https://github.com/oneget/oneget) , опубликованный корпорацией Майкрософт под названием [доккермикрософтпровидер](https://github.com/OneGet/MicrosoftDockerProvider). Этот поставщик включает функцию контейнеров в Windows и устанавливает подсистему и клиент DOCKER. Вот как это сделать.
 
-1. Откройте сеанс PowerShell с повышенными привилегиями и установите Dock-поставщик Microsoft PackageManagement из [коллекции PowerShell](https://www.powershellgallery.com/packages/DockerMsftProvider).
+1. Откройте сеанс PowerShell с повышенными привилегиями и установите поставщик DOCKER-Microsoft на основе [коллекция PowerShell](https://www.powershellgallery.com/packages/DockerMsftProvider).
 
    ```powershell
    Install-Module -Name DockerMsftProvider -Repository PSGallery -Force
    ```
 
-   Если вам будет предложено установить поставщик NuGet, введите `Y` его также и для его установки.
+   Если будет предложено установить поставщик NuGet, введите также `Y`, чтобы установить его.
 
-2. Используйте модуль PowerShell PackageManagement, чтобы установить последнюю версию Dock.
+2. Используйте модуль PackageManagement PowerShell для установки последней версии DOCKER.
 
    ```powershell
    Install-Package -Name docker -ProviderName DockerMsftProvider
@@ -80,32 +80,32 @@ ms.locfileid: "10288122"
    Restart-Computer -Force
    ```
 
-Если вы хотите обновить закрепление позже, выполните указанные ниже действия.
+Если вы хотите обновить DOCKER позже:
 
-- Проверьте установленную версию с помощью команды `Get-Package -Name Docker -ProviderName DockerMsftProvider`
-- Найдите текущую версию с помощью команды `Find-Package -Name Docker -ProviderName DockerMsftProvider`
-- После этого выполните обновление с помощью команды `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force` и команды `Start-Service Docker`
+- Проверьте установленную версию с помощью `Get-Package -Name Docker -ProviderName DockerMsftProvider`
+- Найти текущую версию с помощью `Find-Package -Name Docker -ProviderName DockerMsftProvider`
+- Когда будете готовы, выполните обновление до `Install-Package -Name Docker -ProviderName DockerMsftProvider -Update -Force`, а затем `Start-Service Docker`
 
-# [<a name="windows-10"></a>Windows 10](#tab/Windows-10-Client)
+# <a name="windows-10tabwindows-10-client"></a>[Windows 10](#tab/Windows-10-Client)
 
-Вы можете установить Dock в выпусках Windows 10 профессиональная и Enterprise Edition, выполнив указанные ниже действия. 
+Вы можете установить DOCKER в выпусках Windows 10 профессиональная и Enterprise, выполнив следующие действия. 
 
-1. Скачайте и установите [закрепление на компьютере](https://store.docker.com/editions/community/docker-ce-desktop-windows), чтобы создать бесплатную учетную запись Dock, если у вас ее еще нет. Дополнительные сведения можно найти в [документации по Dock](https://docs.docker.com/docker-for-windows/install).
+1. Скачайте и установите [DOCKER Desktop](https://store.docker.com/editions/community/docker-ce-desktop-windows), создав бесплатную учетную запись DOCKER, если она еще не установлена. Дополнительные сведения см. в [документации по DOCKER](https://docs.docker.com/docker-for-windows/install).
 
-2. Во время установки задайте тип контейнера по умолчанию для контейнеров Windows. Чтобы переключиться после завершения установки, можно использовать либо элемент Dock в панели задач Windows (как показано ниже), либо следующую команду в командной строке PowerShell:
+2. Во время установки укажите контейнеры Windows по умолчанию. Чтобы переключиться после завершения установки, можно использовать либо элемент DOCKER в области уведомлений Windows (как показано ниже), либо следующую команду в командной строке PowerShell:
 
    ```console
    & $Env:ProgramFiles\Docker\Docker\DockerCli.exe -SwitchDaemon .
    ```
 
-![Меню панели задач "закрепляемое окно" с командой "перейти в контейнеры Windows".](./media/docker-for-win-switch.png)
+![Меню области уведомлений DOCKER, в котором отображается команда "переключиться на контейнеры Windows".](./media/docker-for-win-switch.png)
 
 ---
 <!-- stop tab view -->
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-Теперь, когда ваша среда настроена правильно, перейдите по ссылке, чтобы получить сведения о том, как выполнить контейнер.
+Теперь, когда среда настроена правильно, перейдите по ссылке, чтобы узнать, как запустить контейнер.
 
 > [!div class="nextstepaction"]
-> [Выполнение первого контейнера](./run-your-first-container.md)
+> [Запуск первого контейнера](./run-your-first-container.md)

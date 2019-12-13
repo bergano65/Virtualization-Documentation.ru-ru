@@ -1,7 +1,7 @@
 ---
 title: Работа с Hyper-V и Windows PowerShell
 description: Работа с Hyper-V и Windows PowerShell
-keywords: windows10, hyper-v
+keywords: windows 10, hyper-v
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
@@ -9,11 +9,11 @@ ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 6d1ae036-0841-4ba5-b7e0-733aad31e9a7
 ms.openlocfilehash: d53bdce3438c6dafe3a1e0350c7a5df30ff8210b
-ms.sourcegitcommit: c4a3f88d1663dd19336bfd4ede0368cb18550ac7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "9883127"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911514"
 ---
 # <a name="working-with-hyper-v-and-windows-powershell"></a>Работа с Hyper-V и Windows PowerShell
 

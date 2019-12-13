@@ -1,34 +1,34 @@
 ---
 title: Создание виртуальной машины с помощью Hyper-V
-description: Создание новой виртуальной машины с помощью Hyper-V в среде Windows10 Creators Update
+description: Создание новой виртуальной машины с помощью Hyper-V в среде Windows 10 Creators Update
 keywords: windows 10, hyper-v, виртуальная машина
 author: scooley
 ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 6035143bc1449bc4a8e9bb7a4484b4c5329e6d3c
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 970e92def02e5386d38a2e72d5ef921aa8321fdf
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998631"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74911404"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>Создание виртуальной машины с помощью Hyper-V
 
 Создайте виртуальную машину и установите ее операционную систему.
 
-Мы разработали новые инструменты для создания виртуальных машин, и они значительно изменились в течение последних трех выпусков.
+Мы создали новые средства для создания виртуальных машин, чтобы они были значительно изменены в течение прошлых трех выпусков.
 
 Выберите вашу операционную систему для получения соответствующего набора инструкций:
 
-* [Обновление Windows 10 для дизайнеров (версия 1709) и более поздних версий](quick-create-virtual-machine.md#windows-10-fall-creators-update-windows-10-version-1709)
-* [Обновление Windows 10 для дизайнеров (v1703)](quick-create-virtual-machine.md#windows-10-creators-update-windows-10-version-1703)
-* [Обновление годовщины Windows 10 (v1607) и более ранние версии](quick-create-virtual-machine.md#before-windows-10-creators-update-windows-10-version-1607-and-earlier)
+* [Обновление Windows 10 для дизайнеров (v1709) и более поздних версий](quick-create-virtual-machine.md#windows-10-fall-creators-update-windows-10-version-1709)
+* [Windows 10 для дизайнеров Update (v1703)](quick-create-virtual-machine.md#windows-10-creators-update-windows-10-version-1703)
+* [Юбилейное обновление Windows 10 (v1607) и более ранние версии](quick-create-virtual-machine.md#before-windows-10-creators-update-windows-10-version-1607-and-earlier)
 
 Начнем.
 
-## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Обновление для Windows 10 для дизайнеров (Windows 10 версии 1709)
+## <a name="windows-10-fall-creators-update-windows-10-version-1709"></a>Обновление Windows 10 для дизайнеров Creator (Windows 10 версии 1709)
 
 В выпуске Fall Creators Update функция "Быстрое создание" была расширена и теперь включает коллекцию виртуальных машин, которую можно запустить независимо от диспетчера Hyper-V.
 
@@ -44,10 +44,10 @@ ms.locfileid: "9998631"
 
     1. Если вы хотите использовать собственный образ для создания виртуальной машины, выберите **Локальный источник установки**.
     1. Выберите **Изменить источник установки**.
-      ![Кнопка для использования локального источника установки](media/change-source.png)
+      Кнопка ![для использования локального источника установки](media/change-source.png)
     1. Выберите образ .iso или .vhdx, который требуется преобразовать в новую виртуальную машину.
     1. Если используется образ Linux, отключите параметр "Безопасная загрузка".
-      ![Кнопка для использования локального источника установки](media/toggle-secure-boot.png)
+      Кнопка ![для использования локального источника установки](media/toggle-secure-boot.png)
 
 1. Выберите "Создать виртуальную машину"
 
@@ -81,7 +81,7 @@ ms.locfileid: "9998631"
 
 > **Примечание.** Если вы не используете корпоративную лицензию на Windows, требуется отдельная лицензия для Windows, установленная в виртуальной машине. Операционная система виртуальной машины не зависит от операционной системы узла.
 
-## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>До обновления Windows 10 Creators (Windows 10 версии 1607 и более ранних версий)
+## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>Перед обновлением Windows 10 Creators (Windows 10 версии 1607 и более ранних версий)
 
 Если вы используете не Windows 10 Creators Update или более позднюю версию ОС, выполните следующие инструкции с помощью мастера создания виртуальной машины.
 

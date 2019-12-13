@@ -1,7 +1,7 @@
 ---
-title: Выполнение контейнера с Гмса
-description: Работа с контейнером Windows с помощью групповой управляемой учетной записи службы (Гмса).
-keywords: Dock, Containers, Active Directory, гмса, групповая управляемая учетная запись службы, групповая управляемая учетные записи служб
+title: Запуск контейнера с помощью gMSA
+description: Как запустить контейнер Windows с групповой управляемой учетной записью службы (gMSA).
+keywords: DOCKER, контейнеры, Active Directory, gmsa, групповая управляемая учетная запись службы, групповые управляемые учетные записи служб
 author: rpsqrd
 ms.date: 09/10/2019
 ms.topic: article
@@ -9,15 +9,15 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
 ms.openlocfilehash: 52625517748356251aa41115caebd7801ec3cdaf
-ms.sourcegitcommit: 22dcc1400dff44fb85591adf0fc443360ea92856
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "10209868"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909764"
 ---
-# <a name="run-a-container-with-a-gmsa"></a>Выполнение контейнера с Гмса
+# <a name="run-a-container-with-a-gmsa"></a>Запуск контейнера с помощью gMSA
 
-Чтобы выполнить контейнер с групповой управляемой учетной записью службы (Гмса), укажите в качестве файла спецификации `--security-opt` учетных данных параметр [выполнения Dock](https://docs.docker.com/engine/reference/run):
+Чтобы запустить контейнер с групповой управляемой учетной записью службы (gMSA), предоставьте файл спецификации учетных данных в параметре `--security-opt` [выполнения DOCKER](https://docs.docker.com/engine/reference/run):
 
 ```powershell
 # For Windows Server 2016, change the image name to mcr.microsoft.com/windows/servercore:ltsc2016
@@ -25,13 +25,13 @@ docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostna
 ```
 
 >[!IMPORTANT]
->В Windows Server 2016 версий 1709 и 1803 имя узла контейнера должно совпадать с коротким именем Гмса.
+>В Windows Server 2016 версии 1709 и 1803 имя узла контейнера должно соответствовать короткому имени gMSA.
 
-В предыдущем примере именем учетной записи SAM Гмса является "webapp01", поэтому имя узла контейнера также называется "webapp01".
+В предыдущем примере имя учетной записи SAM gMSA — «webapp01», поэтому имя узла контейнера также называется «webapp01».
 
-В Windows Server 2019 и более поздних версиях поле HostName не является обязательным, но контейнер будет по-прежнему определяться именем Гмса, а не именем узла, даже если явным образом вы явно задаете его.
+В Windows Server 2019 и более поздних версиях поле HostName не является обязательным, но контейнер по-прежнему будет идентифицировать себя по имени gMSA, а не имени узла, даже если явно указать другое имя.
 
-Чтобы проверить, правильно ли работает Гмса, выполните в контейнере следующий командлет:
+Чтобы проверить, правильно ли работает gMSA, выполните следующий командлет в контейнере:
 
 ```powershell
 # Replace contoso.com with your own domain
@@ -44,9 +44,9 @@ Trust Verification Status = 0 0x0 NERR_Success
 The command completed successfully
 ```
 
-Если состояние подключения доверенного домена и состояние проверки доверия не `NERR_Success`установлены, следуйте инструкциям по [устранению неполадок для устранения](gmsa-troubleshooting.md#check-the-container) проблемы.
+Если состояние подключения к доверенному контроллеру домена и состояние проверки доверия не `NERR_Success`, следуйте [инструкциям по устранению неполадок](gmsa-troubleshooting.md#check-the-container) , чтобы отладить проблему.
 
-Вы можете проверить удостоверение Гмса в контейнере, выполнив следующую команду и проверив имя клиента:
+Удостоверение gMSA можно проверить в контейнере, выполнив следующую команду и проверив имя клиента:
 
 ```powershell
 PS C:\> klist get krbtgt
@@ -70,14 +70,14 @@ Cached Tickets: (2)
 [...]
 ```
 
-Чтобы открыть PowerShell или другое консольное приложение в качестве учетной записи Гмса, вы можете задать для него разрешение на работу с учетной записью Network Service, а не с обычной Контаинерадминистратор (или Контаинерусер для сервера для серверов).
+Чтобы открыть PowerShell или другое консольное приложение в качестве учетной записи gMSA, можно попросить его запустить под учетной записью сетевой службы вместо обычной учетной записи Контаинерадминистратор (или Контаинерусер for Server):
 
 ```powershell
 # NOTE: you can only run as Network Service or SYSTEM on Windows Server 1709 and later
 docker run --security-opt "credentialspec=file://contoso_webapp01.json" --hostname webapp01 --user "NT AUTHORITY\NETWORK SERVICE" -it mcr.microsoft.com/windows/servercore:ltsc2019 powershell
 ```
 
-Если вы используете сетевую службу, вы можете проверить подлинность сети как Гмса, пытаясь подключиться к SYSVOL на контроллере домена.
+При работе в качестве сетевой службы можно проверить сетевую проверку подлинности в качестве gMSA, пытаясь подключиться к SYSVOL на контроллере домена:
 
 ```powershell
 # This command should succeed if you're successfully running as the gMSA
@@ -94,9 +94,9 @@ d----l        2/27/2019   8:09 PM                contoso.com
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В дополнение к запущенным контейнерам вы также можете использовать Гмсас, чтобы:
+В дополнение к работе с контейнерами можно также использовать Gmsa для:
 
 - [Настройка приложений](gmsa-configure-app.md)
-- [Контейнеры для оркестрации](gmsa-orchestrate-containers.md)
+- [Управление контейнерами](gmsa-orchestrate-containers.md)
 
-Если во время установки возникнут проблемы, ознакомьтесь с нашим [руководством по устранению неполадок для поиска](gmsa-troubleshooting.md) возможных решений.
+Если во время установки возникнут проблемы, ознакомьтесь с нашим [руководством по устранению неполадок](gmsa-troubleshooting.md) , чтобы получить возможные решения.

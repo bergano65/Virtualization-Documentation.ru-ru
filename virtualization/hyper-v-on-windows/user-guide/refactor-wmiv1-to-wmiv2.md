@@ -7,12 +7,12 @@ ms.date: 04/13/2017
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: b13a3594-d168-448b-b0a1-7d77153759a8
-ms.openlocfilehash: 963a1cc356c34c8d051c427a069c49021e3c0d27
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: e2d6faabe77346199a5d292fcfd92cdfd63909b8
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998911"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910904"
 ---
 # <a name="move-from-hyper-v-wmi-v1-to-wmi-v2"></a>Перенос программ с Hyper-V WMI версии 1 на WMI версии 2
 
@@ -26,26 +26,26 @@ ms.locfileid: "9998911"
 
 ## <a name="msdn-samples"></a>Примеры MSDN
 
-[Пример переноса виртуальной машины Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
-[Пример виртуального подключения Fibre Channel для Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
+[Пример миграции виртуальных машин Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-machine-aef356ee)  
+[Пример виртуального волоконного канала Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-virtual-Fiber-35d27dcd)  
 [Пример запланированных виртуальных машин Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-planned-virtual-8c7b7499)  
 [Пример мониторинга работоспособности приложений Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-application-health-dc0294f2)  
-[Пример управления виртуальным жестким диском](http://code.msdn.microsoft.com/windowsdesktop/Virtual-hard-disk-03108ed3)  
+[Пример управления виртуальными жесткими дисками](http://code.msdn.microsoft.com/windowsdesktop/Virtual-hard-disk-03108ed3)  
 [Пример репликации Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-replication-sample-d2558867)  
-[Пример показателей Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-metrics-sample-2dab2cb1)  
-[Пример динамического распределения памяти в Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-dynamic-memory-9b0b1d05)  
-[Драйвер фильтра расширяемого коммутатора Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-Extensible-Virtual-e4b31fbb)  
-[Пример сетевого подключения Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-networking-sample-7c47e6f5)  
+[Пример метрик Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-metrics-sample-2dab2cb1)  
+[Пример динамической памяти Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-dynamic-memory-9b0b1d05)  
+[Драйвер фильтра расширений расширенного коммутатора Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-Extensible-Virtual-e4b31fbb)  
+[Пример сети Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-networking-sample-7c47e6f5)  
 [Пример управления пулом ресурсов Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-resource-pool-df906d95)  
 [Пример моментального снимка восстановления Hyper-V](http://code.msdn.microsoft.com/windowsdesktop/Hyper-V-recovery-snapshot-ea72320c)  
 
 ## <a name="samples-from-blogs"></a>Примеры в блогах
 
-[Добавление сетевого адаптера в виртуальную машину с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Подключение сетевого адаптера виртуальной машины к коммутатору с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Изменение MAC-адреса сетевого адаптера с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/changing-the-mac-address-of-nic-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Удаление сетевого адаптера из виртуальной машины с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Подключение виртуального жесткого диска к виртуальной машине с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/attaching-a-vhd-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Удаление виртуального жесткого диска из виртуальной машины с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-vhd-from-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
-[Создание виртуальной машины с помощью пространства имен WMI Hyper-V версии 2](http://blogs.msdn.com/b/virtual_pc_guy/archive/2013/06/20/creating-a-virtual-machine-with-wmi-v2.aspx)
+[Добавление сетевого адаптера в виртуальную машину с помощью пространства имен Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/adding-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Подключение сетевого адаптера виртуальной машины к коммутатору с помощью пространства имен Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/07/15/connecting-a-vm-network-adapter-to-a-switch-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Изменение MAC-адреса сетевого адаптера с помощью пространства имен WMI версии 2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/changing-the-mac-address-of-nic-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Удаление сетевого адаптера с виртуальной машины с помощью пространства имен Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-network-adapter-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Подключение виртуального жесткого диска к виртуальной машине с помощью пространства имен Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/attaching-a-vhd-to-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Удаление виртуального жесткого диска из виртуальной машины с помощью пространства имен Hyper-V WMI v2](http://blogs.msdn.com/b/taylorb/archive/2013/08/12/removing-a-vhd-from-a-vm-using-the-hyper-v-wmi-v2-namespace.aspx)  
+[Создание виртуальной машины с помощью пространства имен Hyper-V WMI v2](http://blogs.msdn.com/b/virtual_pc_guy/archive/2013/06/20/creating-a-virtual-machine-with-wmi-v2.aspx)
 

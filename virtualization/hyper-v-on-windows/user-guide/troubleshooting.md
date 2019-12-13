@@ -1,19 +1,19 @@
 ---
 title: Устранение неполадок с Hyper-V в Windows 10
 description: Устранение неполадок с Hyper-V в Windows 10
-keywords: windows10, hyper-v
+keywords: windows 10, hyper-v
 author: scooley
 ms.date: 05/02/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: f0ec8eb4-ffc4-4bf1-9a19-7a8c3975b359
-ms.openlocfilehash: bdb9feeb2452f2784a3b814e85dc72f3b967a9d3
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 03bbb4494bbbd790f16c4b6afef387905f7c6c83
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998871"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910894"
 ---
 # <a name="troubleshoot-hyper-v-on-windows-10"></a>Устранение неполадок с Hyper-V в Windows 10
 

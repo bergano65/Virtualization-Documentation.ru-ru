@@ -9,11 +9,11 @@ ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 8ccd4192-4a58-42a5-8f74-2574d10de98e
 ms.openlocfilehash: 3e9f7e3208222cd6c0f512c5f892453ac6e6980c
-ms.sourcegitcommit: 73134bf279f3ed18235d24ae63cdc2e34a20e7b7
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "10107878"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910174"
 ---
 # <a name="implementing-resource-controls-for-windows-containers"></a>Реализация элементов управления ресурсами для контейнеров Windows
 Существует несколько элементов управления ресурсами, которые можно реализовать на уровне контейнера и ресурса.  По умолчанию управление контейнерами осуществляется как типичными ресурсами Windows, которое обычно основано на справедливом распределении, однако с помощью конфигурации этих элементов управления разработчик или администратор может ограничить использование ресурсов.  Можно управлять следующими ресурсами: ЦП или процессор, память или ОЗУ, диск или хранилище, сеть или пропускная способность.
@@ -28,39 +28,39 @@ ms.locfileid: "10107878"
 |  | |
 | ----- | ------|
 | *Память* ||
-| Интерфейс Docker | [--memory](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
-| Интерфейс HCS | [MemoryMaximumInMB](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
+| Интерфейс Docker | [--память](https://docs.docker.com/engine/admin/resource_constraints/#memory) |
+| Интерфейс HCS | [меморимаксимуминмб](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | [JOB_OBJECT_LIMIT_JOB_MEMORY](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_basic_limit_information) |
 | Изоляция Hyper-V | Память виртуальной машины |
-| _Примечание об изоляции Hyper-V в Windows Server 2016: при использовании ограничения памяти вы увидите, что контейнер изначально выделяет ограниченный объем памяти, а затем возвращает его узлу контейнера.  В более поздних версиях (1709 или более старших) этот процесс был оптимизирован._ |
+| _Примечание о изоляции Hyper-V в Windows Server 2016. при использовании ограничения памяти вы увидите, что контейнер сначала выделит объем памяти, а затем начнет возвратить его обратно в узел контейнера.  В более поздних версиях (1709 или более) это было оптимизировано._ |
 | ||
-| *ЦП (число)* ||
-| Интерфейс Docker | [--cpus](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| *ЦП (количество)* ||
+| Интерфейс Docker | [--ЦП](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
 | Интерфейс HCS | [ProcessorCount](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | Эмулируется с помощью [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information)* |
 | Изоляция Hyper-V | Доступное число виртуальных процессоров |
 | ||
-| *ЦП (процент)* ||
-| Интерфейс Docker | [--cpu-percent](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
-| Интерфейс HCS | [ProcessorMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
+| *ЦП (в процентах)* ||
+| Интерфейс Docker | [--ЦП-проценты](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
+| Интерфейс HCS | [процессормаксимум](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | [JOB_OBJECT_CPU_RATE_CONTROL_HARD_CAP](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information) |
 | Изоляция Hyper-V | Ограничение виртуальных процессоров, применяемое низкоуровневой оболочкой |
 | ||
 | *ЦП (общие ресурсы)* ||
 | Интерфейс Docker | [--cpu-shares](https://docs.docker.com/engine/admin/resource_constraints/#cpu) |
-| Интерфейс HCS | [ProcessorWeight](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
+| Интерфейс HCS | [процессорвеигхт](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | [JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information) |
 | Изоляция Hyper-V | Веса виртуальных процессоров низкоуровневой оболочки |
 | ||
-| *Хранилище (образ)* ||
-| Интерфейс Docker | [--io-maxbandwidth/--io-maxiops](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
-| Интерфейс HCS | [StorageIOPSMaximum и StorageBandwidthMaximum](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
+| *Хранилище (изображение)* ||
+| Интерфейс Docker | [--IO-MaxBandwidth/--IO-максиопс](https://docs.docker.com/edge/engine/reference/commandline/run/#usage) |
+| Интерфейс HCS | [Сторажеиопсмаксимум и Сторажебандвидсмаксимум](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Изоляция Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | ||
 | *Хранилище (тома)* ||
-| Интерфейс Docker | [--storage-opt size=](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
-| Интерфейс HCS | [StorageSandboxSize](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
+| Интерфейс Docker | [--Storage-неявное изменение размера =](https://docs.docker.com/edge/engine/reference/commandline/run/#set-storage-driver-options-per-container) |
+| Интерфейс HCS | [сторажесандбокссизе](https://github.com/Microsoft/hcsshim/blob/b144c605002d4086146ca1c15c79e56bfaadc2a7/interface.go#L67) |
 | Общее ядро | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 | Изоляция Hyper-V | [JOBOBJECT_IO_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/jobapi2/ns-jobapi2-jobobject_io_rate_control_information) |
 
@@ -72,4 +72,4 @@ ms.locfileid: "10107878"
 
 ### <a name="cpu-shares-without-hyper-v-isolation"></a>Общие ресурсы ЦП (без изоляции Hyper-V)
 
-При использовании общих ресурсов ЦП базовая реализация (без изоляции Hyper-V) настраивает [JOBOBJECT_CPU_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information), в частности устанавливает для флага управления значение JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED и указывает соответствующий вес.  Допустимые значения весов объекта задания: 1–9. Значение по умолчанию— 5, при этом точность меньше, чем у значений служб контейнера узлов (1–10 000).  Например, вес общего ресурса, равный 7500, соответствует весу 7, а вес общего ресурса 2500 соответствует весу 2.
+При использовании общих ресурсов ЦП базовая реализация (без изоляции Hyper-V) настраивает [JOBOBJECT_CPU_RATE_CONTROL_INFORMATION](https://docs.microsoft.com/windows/desktop/api/winnt/ns-winnt-_jobobject_cpu_rate_control_information), в частности устанавливает для флага управления значение JOB_OBJECT_CPU_RATE_CONTROL_WEIGHT_BASED и указывает соответствующий вес.  Допустимые значения весов объекта задания: 1–9. Значение по умолчанию — 5, при этом точность меньше, чем у значений служб контейнера узлов (1–10 000).  Например, вес общего ресурса, равный 7500, соответствует весу 7, а вес общего ресурса 2500 соответствует весу 2.

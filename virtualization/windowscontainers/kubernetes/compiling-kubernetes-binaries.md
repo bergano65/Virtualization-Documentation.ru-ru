@@ -6,21 +6,21 @@ ms.date: 11/02/2018
 ms.topic: get-started-article
 ms.prod: containers
 description: Компиляция и кросс-компиляции двоичных файлов Kubernetes из источника.
-keywords: kubernetes, 1.12, linux, компиляция
+keywords: kubernetes, 1,12, Linux, компиляция
 ms.openlocfilehash: 40bf7e65a8910cdab095abb269aa0a92508189cd
-ms.sourcegitcommit: 0deb653de8a14b32a1cfe3e1d73e5d3f31bbe83b
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "9574825"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909874"
 ---
 # <a name="compiling-kubernetes-binaries"></a>Компиляция двоичных файлов Kubernetes #
 Для компиляции двоичных файлов Kubernetes требуется рабочая среда Go. На этой странице описывается несколько способов компиляции двоичных файлов Linux и кросс-компиляции двоичных файлов Windows.
 > [!NOTE] 
-> На этой странице включенной полностью произвольные и только разработчикам заинтересованным Kubernetes, поэкспериментировать с последней & наибольшее исходный код.
+> Эта страница является полностью добровольной и предназначена только для заинтересованных Kubernetesных разработчиков, желающих поэкспериментировать с последним & самым большим исходным кодом.
 
 > [!tip]
-> Чтобы получать уведомления о новейших достижений, можно подписаться на [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).
+> Чтобы получать уведомления о новых разработках, вы можете подписываться на [@kubernetes-announce](https://groups.google.com/forum/#!forum/kubernetes-announce).
 
 ## <a name="installing-go"></a>Установка Go ##
 Для простоты установка Go выполняется во временной настраиваемой папке:
@@ -47,11 +47,11 @@ export PATH="$GOROOT/bin:$PATH"
 Чтобы скопировать двоичные файлы Windows в соответствующие им узлы, используйте визуальное средство, например [WinSCP](https://winscp.net/eng/download.php), или средство командной строки, например [pscp](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), для их переноса в каталог `C:\k`.
 
 
-## <a name="building-locally"></a>Локальное построение ##
+## <a name="building-locally"></a>Локальное создание ##
 > [!Tip]  
 > При возникновении ошибок «Отказано в разрешении» их можно избежать, выполнив сначала построение Linux `kubelet`, как описано в примечании в [`acs-engine`](https://github.com/Azure/acs-engine/blob/master/scripts/build-windows-k8s.sh#L176):
 >  
-> _Из-за того, что кажется ошибкой в системе сборки Kubernetes для Windows, необходимо сначала выполнить построение двоичного файла Linux для создания `_output/bin/deepcopy-gen`. Сборка в Windows без этого действия приведет к созданию пустого объекта `deepcopy-gen`._
+> _Из-за того, что кажется ошибкой в системе сборки Windows Kubernetes, одна должна сначала создать двоичный файл Linux для создания `_output/bin/deepcopy-gen`. Если выполнить сборку в Windows, это приведет к созданию пустого `deepcopy-gen`._
 
 Сначала получите репозиторий Kubernetes:
 

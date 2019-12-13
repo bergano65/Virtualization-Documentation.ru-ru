@@ -1,23 +1,23 @@
 ---
 title: Вложенная виртуализация
 description: Вложенная виртуализация
-keywords: windows10, hyper-v
+keywords: windows 10, hyper-v
 author: johncslack
 ms.date: 12/18/2016
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: f819ac04773188525af202d370ba271a2d93e259
-ms.sourcegitcommit: cdf127747cfcb839a8abf50a173e628dcfee02db
+ms.openlocfilehash: 625a9b36ff782c86065ef3d9124708e5716e066f
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 08/07/2019
-ms.locfileid: "9998921"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74910934"
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>Запуск Hyper-V в виртуальной машине со вложенной виртуализацией
 
-Вложенная виртуализация— это компонент, который позволяет запускать Hyper-V в виртуальной машине (ВМ) Hyper-V. Это полезно для запуска эмулятора телефона Visual Studio на виртуальной машине и для тестирования конфигураций, для которых обычно требуется несколько узлов.
+Вложенная виртуализация — это компонент, который позволяет запускать Hyper-V в виртуальной машине (ВМ) Hyper-V. Это полезно для запуска эмулятора телефона Visual Studio на виртуальной машине и для тестирования конфигураций, для которых обычно требуется несколько узлов.
 
 ![](./media/HyperVNesting.png)
 

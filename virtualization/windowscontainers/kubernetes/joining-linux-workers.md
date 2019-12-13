@@ -1,38 +1,38 @@
 ---
-title: Присоединение узла Linux
+title: Присоединение узлов Linux
 author: daschott
 ms.author: daschott
 ms.date: 02/09/2018
 ms.topic: get-started-article
 ms.prod: containers
-description: Присоединение к кластеру Kubernetes с v1.14 узла Linux.
-keywords: kubernetes, 1.14, windows, начало работы
+description: Присоединение узла Linux к кластеру Kubernetes с помощью v 1.14.
+keywords: kubernetes, 1,14, Windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
 ms.openlocfilehash: 88207939c82bfe8ffa0b088cfd61cf4ab22cb10a
-ms.sourcegitcommit: aaf115a9de929319cc893c29ba39654a96cf07e1
+ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "9622949"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74909954"
 ---
-# <a name="joining-linux-nodes-to-a-cluster"></a>Присоединение к кластеру узла Linux
+# <a name="joining-linux-nodes-to-a-cluster"></a>Присоединение узлов Linux к кластеру
 
-После [настройки Kubernetes главном узле](creating-a-linux-master.md) и [выбрать нужную сеть решение](network-topologies.md), можно приступать к присоединение узла Linux в кластере. Прежде чем присоединять этого некоторые [подготовки на узле Linux](joining-linux-workers.md#preparing-a-linux-node) .
+После [настройки главного узла Kubernetes](creating-a-linux-master.md) и [выбора нужного сетевого решения](network-topologies.md)вы можете присоединить узлы Linux к кластеру. Для этого требуется выполнить некоторые [подготовительные действия на узле Linux](joining-linux-workers.md#preparing-a-linux-node) перед присоединением.
 > [!tip]
-> Инструкции Linux подобранными по направлению к **Ubuntu 16.04**. Другие дистрибутивов Linux, сертифицированных для запуска Kubernetes также должны выдавать эквивалент команды, которые можно заменить. Они также будут успешно взаимодействовать с Windows.
+> Инструкции для Linux адаптированы к установке **Ubuntu 16,04**. Другие дистрибутивы Linux, сертифицированные для запуска Kubernetes, также должны предоставлять эквивалентные команды, которые можно заменить. Они также будут успешно взаимодействовать с Windows.
 
 ## <a name="preparing-a-linux-node"></a>Подготовка узла Linux
 
 > [!NOTE]
-> Если явно не указаны в противном случае, выполните все команды в **оболочку с повышенными привилегиями, привилегированного пользователя**.
+> Если явно не указано иное, выполните все команды в **пользовательской оболочке с повышенными привилегиями**.
 
-Во-первых получите оболочки корневой:
+Сначала Приготовьтесь к корневой оболочке:
 
 ```bash
 sudo –s
 ```
 
-Убедитесь, что компьютер находится в актуальном состоянии.
+Убедитесь, что ваша виртуальная машина обновлена:
 
 ```bash
 apt-get update && apt-get upgrade
@@ -40,18 +40,18 @@ apt-get update && apt-get upgrade
 
 ## <a name="install-docker"></a>Установка Docker
 
-Чтобы иметь возможность использовать контейнеры, требуется механизм контейнера, например, Docker. Чтобы получить последнюю версию, можно использовать [следующие действия](https://docs.docker.com/install/linux/docker-ce/ubuntu/) для установки Docker. Вы можете проверить, что docker установлены правильно, выполнив `hello-world` изображения:
+Чтобы иметь возможность использовать контейнеры, необходим обработчик контейнеров, например DOCKER. Чтобы получить последнюю версию, можно использовать [эти инструкции](https://docs.docker.com/install/linux/docker-ce/ubuntu/) для установки DOCKER. Чтобы убедиться, что DOCKER установлен правильно, запустите `hello-world` образ:
 
 ```bash
 docker run hello-world
 ```
 
-## <a name="install-kubeadm"></a>Установка kubeadm
+## <a name="install-kubeadm"></a>Установка кубеадм
 
-Скачать `kubeadm` двоичные файлы для дистрибутива Linux и инициализировать кластер.
+Скачайте `kubeadm` двоичные файлы для дистрибутива Linux и инициализируйте кластер.
 
 > [!Important]  
-> В зависимости от дистрибутива Linux, вам может потребоваться заменить `kubernetes-xenial` ниже с правильным [Название](https://wiki.ubuntu.com/Releases).
+> В зависимости от дистрибутива Linux может потребоваться заменить `kubernetes-xenial` ниже правильным [кодовым названием](https://wiki.ubuntu.com/Releases).
 
 ``` bash
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
@@ -61,18 +61,18 @@ EOF
 apt-get update && apt-get install -y kubelet kubeadm kubectl 
 ```
 
-## <a name="disable-swap"></a>Отключить буферов
+## <a name="disable-swap"></a>Отключить переключение
 
-Kubernetes в Linux требует места буферов выключить:
+Для Kubernetes в Linux требуется отключить пространство подкачки.
 
 ``` bash
 nano /etc/fstab  # (remove a line referencing 'swap.img' , if it exists)
 swapoff -a
 ```
 
-## <a name="flannel-only-enable-bridged-ipv4-traffic-to-iptables"></a>(Flannel) С мостом трафик IPv4 утилита iptables
+## <a name="flannel-only-enable-bridged-ipv4-traffic-to-iptables"></a>(Только фланнел) Включение передачи трафика IPv4 через мост в iptables
 
-Если вы выбрали Flannel как сетевые решения, рекомендуется включить мост трафик IPv4 утилита iptables цепочки. Вы должны [сделано для главного узла](network-topologies.md#flannel-in-host-gateway-mode) и теперь необходимо повторить для объяснения присоединение узла Linux. Это можно сделать с помощью следующей команды:
+Если вы выбрали Фланнел в качестве сетевого решения, рекомендуется включить передачу трафика IPv4 через мост в цепочки iptables. [Это уже необходимо сделать для главного](network-topologies.md#flannel-in-host-gateway-mode) сервера, и теперь его нужно повторить для узла Linux, который планируется присоединить. Это можно сделать с помощью следующей команды:
 
 ``` bash
 sudo sysctl net.bridge.bridge-nf-call-iptables=1
@@ -80,39 +80,39 @@ sudo sysctl net.bridge.bridge-nf-call-iptables=1
 
 ## <a name="copy-kubernetes-certificate"></a>Копирование сертификата Kubernetes
 
-**Обычный, лица (некорневой)**, выполните следующие шаги 3.
+**Как обычный (не корневой) пользователь**, выполните следующие три шага.
 
-1. Создание Kubernetes для Linux каталог:
+1. Создайте Kubernetes для каталога Linux:
 
 ```bash
 mkdir -p $HOME/.kube
 ```
 
-2. Скопируйте файл сертификата Kubernetes (`$HOME/.kube/config`) [от главного узла](./creating-a-linux-master.md#collect-cluster-information) и сохранять в виде `$HOME/.kube/config` рабочие.
+2. Скопируйте файл сертификата Kubernetes (`$HOME/.kube/config`) [из главного](./creating-a-linux-master.md#collect-cluster-information) сервера и сохраните его как `$HOME/.kube/config` в рабочей роли.
 
 > [!tip]
-> На основе scp средства, такие как [WinSCP](https://winscp.net/eng/download.php) можно использовать для перемещения между узлами в файле конфигурации.
+> Для перемещения файла конфигурации между узлами можно использовать средства на основе SCP, такие как [WinSCP](https://winscp.net/eng/download.php) .
 
-3. Установите владение файла конфигурации скопированных следующим образом:
+3. Задайте для параметра владение файлом скопированный файл конфигурации следующее:
 
 ``` bash
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
-## <a name="joining-node"></a>Присоединение узла
+## <a name="joining-node"></a>Присоединение к узлу
 
-Наконец, для присоединения к кластеру, запустите `kubeadm join` команды [мы отмечалось вниз](./creating-a-linux-master.md#initialize-master) **как корень**:
+Наконец, чтобы присоединиться к кластеру, выполните команду `kubeadm join`, которая [была записана ранее](./creating-a-linux-master.md#initialize-master) **в качестве корневого**:
 
 ```bash
 kubeadm join <Master_IP>:6443 --token <some_token> --discovery-token-ca-cert-hash <some_hash>
 ```
 
-В случае успеха вы должны увидеть похожие выходные данные для этого:
+В случае успешного выполнения вы увидите аналогичные выходные данные:
 
 ![текст](./media/node-join.png)
 
 ## <a name="next-steps"></a>Дальнейшие действия
 
-В этом разделе мы рассматривается как присоединить устройство Linux сотрудников к нашей кластера Kubernetes. Теперь вы готовы к шагу 6:
+В этом разделе мы рассмотрели, как присоединить рабочие роли Linux к нашему кластеру Kubernetes. Теперь вы готовы к шагу 6.
 > [!div class="nextstepaction"]
 > [Развертывание ресурсов Kubernetes](./deploying-resources.md)
