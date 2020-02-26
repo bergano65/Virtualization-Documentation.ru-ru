@@ -8,12 +8,12 @@ ms.prod: containers
 description: Присоединение узла Windows к кластеру Kubernetes с помощью v 1.14.
 keywords: kubernetes, 1,14, Windows, начало работы
 ms.assetid: 3b05d2c2-4b9b-42b4-a61b-702df35f5b17
-ms.openlocfilehash: c380f5dc10430a94959718a5ce92f311603db733
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 18734f102042ec951255061dcd82229e18d29a15
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910364"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439531"
 ---
 # <a name="kubernetes-on-windows"></a>Kubernetes в Windows
 
@@ -32,9 +32,9 @@ ms.locfileid: "74910364"
 >[!TIP]
 >Если вы хотите развернуть кластер в Azure, средство AKS-Engine с открытым кодом упрощает эту задачу. Дополнительные сведения см. в этом пошаговом [руководстве](https://github.com/Azure/aks-engine/blob/master/docs/topics/windows.md).
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
-### <a name="plan-ip-addressing-for-your-cluster"></a>Планирование назначения IP-адресов для кластера
+### <a name="plan-ip-addressing-for-your-cluster"></a>Планирование IP-адресов для кластера
 
 <a name="definitions"></a>Так как кластеры Kubernetes предоставляют новые подсети для модулей Pod и служб, важно убедиться, что ни одна из них не конфликтует с другими существующими сетями в вашей среде. Ниже приведены все адресные пространства, которые необходимо освободить для успешного развертывания Kubernetes.
 
@@ -58,9 +58,9 @@ ms.locfileid: "74910364"
 > * Развернут [образец ресурса Kubernetes](./deploying-resources.md).  
 > * Рассмотрим [распространенные проблемы и ошибки](./common-problems.md).
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 В этом разделе мы говорили о важных предварительных требованиях &, необходимых для успешного развертывания Kubernetes в Windows на сегодняшний день. Продолжайте научиться настраивать Kubernetes Master:
 
 >[!div class="nextstepaction"]
->[Создание главного Kubernetes](./creating-a-linux-master.md)
+>[Создание главного узла Kubernetes](./creating-a-linux-master.md)

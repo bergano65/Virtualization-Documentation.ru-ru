@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 88e6e080-cf8f-41d8-a301-035959dc5ce0
-ms.openlocfilehash: 2a69fbace51589cce08476bd68fdb5c34a7907e6
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 9884cc0ae2d2f398d2dc2fb1997a70493a6de6c0
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909784"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764181"
 ---
 # <a name="container-base-images"></a>Базовые образы контейнеров
 
@@ -144,4 +144,4 @@ docker pull mcr.microsoft.com/windows/servercore:ltsc2019
 
 `Windows Server Core` и `Nanoserver` являются наиболее распространенными базовыми образами. Основное различие между этими образами заключается в том, что в сервере существует значительно меньше поверхности API. PowerShell, WMI и стек обслуживания Windows отсутствуют в образе сервера.
 
-Главный сервер был разработан для предоставления достаточной поверхности API для запуска приложений с зависимостью от .NET Core или других современных платформ с открытым исходным кодом. В качестве компромисса к более мелкой поверхности APi, образ сервера на диске значительно меньше, чем в остальных основных образах Windows. Имейте в виду, что вы всегда можете добавить другие компоненты поверх Nano Server по своему усмотрению. Пример см. здесь: [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1803/amd64/Dockerfile).
+Главный сервер был разработан для предоставления достаточной поверхности API для запуска приложений с зависимостью от .NET Core или других современных платформ с открытым исходным кодом. В качестве компромисса к более мелкой поверхности APi, образ сервера на диске значительно меньше, чем в остальных основных образах Windows. Имейте в виду, что вы всегда можете добавить другие компоненты поверх Nano Server по своему усмотрению. Пример см. здесь: [.NET Core Nano Server Dockerfile](https://github.com/dotnet/dotnet-docker/blob/master/2.1/sdk/nanoserver-1909/amd64/Dockerfile).

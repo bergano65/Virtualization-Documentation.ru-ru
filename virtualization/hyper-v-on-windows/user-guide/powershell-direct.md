@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: fb228e06-e284-45c0-b6e6-e7b0217c3a49
-ms.openlocfilehash: ea6b71200d3115ba3d156b2c133e1be2fa495261
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: ed96c7ba30c83906cd3245a279ab078229400d8d
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910924"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439551"
 ---
 # <a name="virtual-machine-automation-and-management-using-powershell"></a>Автоматизация виртуальных машин и управление ими с помощью PowerShell
 
@@ -168,12 +168,12 @@ PowerShell Direct с Invoke-Command идеально подходит для с�
   
 -------------
 
-## <a name="troubleshooting"></a>Поиск и устранение неисправностей
+## <a name="troubleshooting"></a>Диагностика
 
 В PowerShell Direct выводится небольшой набор сообщений о распространенных ошибках.  Ниже приведены наиболее распространенные ошибки, возможные причины и средства диагностики.
 
 ### <a name="-vmname-or--vmid-parameters-dont-exist"></a>Параметры -VMName или -VMID не существуют
-**Проблема:**  
+**Ошибк**  
 `Enter-PSSession`, `Invoke-Command`или `New-PSSession` не имеют параметра `-VMName` или `-VMId`.
 
 **Возможные причины:**  

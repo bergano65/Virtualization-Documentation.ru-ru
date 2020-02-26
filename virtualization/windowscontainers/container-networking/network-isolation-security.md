@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 538871ba-d02e-47d3-a3bf-25cda4a40965
-ms.openlocfilehash: b39ec17ac04995e8e1ce8795b5721df7a291e31c
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: d5081104f1614a91d6441a5e879a439f1df1bf77
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910594"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439291"
 ---
 # <a name="network-isolation-and-security"></a>Сетевая изоляция и безопасность
 
@@ -65,8 +65,8 @@ Get-NetCompartment
 
 | Сетевой драйвер | Контейнеры Windows Server | Изоляция Hyper-V  |
 | -------------- |-------------------------- | ------------------- |
-| Прозрачный режим | Брандмауэр Windows | X |
-| NAT | Брандмауэр Windows | X |
-| L2Bridge | Устройства обоих типов | VFP |
-| L2Tunnel | Устройства обоих типов | VFP |
-| Наложение  | Устройства обоих типов | VFP |
+| Прозрачный | брандмауэр Windows | X |
+| NAT | брандмауэр Windows | X |
+| L2Bridge | Оба варианта | VFP |
+| L2Tunnel | Оба варианта | VFP |
+| Наложение  | Оба варианта | VFP |

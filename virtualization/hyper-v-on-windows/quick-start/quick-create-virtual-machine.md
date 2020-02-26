@@ -7,12 +7,12 @@ ms.date: 04/07/2018
 ms.topic: article
 ms.prod: windows-10-hyperv
 ms.assetid: f1e75efa-8745-4389-b8dc-91ca931fe5ae
-ms.openlocfilehash: 970e92def02e5386d38a2e72d5ef921aa8321fdf
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 6035143bc1449bc4a8e9bb7a4484b4c5329e6d3c
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911404"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439631"
 ---
 # <a name="create-a-virtual-machine-with-hyper-v"></a>Создание виртуальной машины с помощью Hyper-V
 
@@ -79,7 +79,7 @@ ms.locfileid: "74911404"
 
 ![Начальный экран виртуальной машины](media/OSDeploy_upd.png)
 
-> **Примечание.** Если вы не используете корпоративную лицензию на Windows, требуется отдельная лицензия для Windows, установленная в виртуальной машине. Операционная система виртуальной машины не зависит от операционной системы узла.
+> **Примечание.** Если вы не используете корпоративную лицензию на Windows, требуется отдельная лицензия для Windows, установленная в виртуальной машине. ОС виртуальной машины не зависит от операционной системы сервера виртуальных машин.
 
 ## <a name="before-windows-10-creators-update-windows-10-version-1607-and-earlier"></a>Перед обновлением Windows 10 Creators (Windows 10 версии 1607 и более ранних версий)
 

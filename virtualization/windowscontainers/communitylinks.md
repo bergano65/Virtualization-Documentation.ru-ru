@@ -8,18 +8,18 @@ ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: cfbb2542-fead-48e7-8318-4da92a7b5b6f
-ms.openlocfilehash: 55b428894b22ded48ce9db8f24928924964ce96d
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 338dd0570f1a2e73295b2bacf2c4282b3fdd7956
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910084"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439301"
 ---
 # <a name="community-videos-and-blogs"></a>Видеоматериалы и блоги сообщества
 
 На этой странице представлены ссылки на видеоматериалы и блоги, созданные членами сообщества контейнеров.  Если вы знаете отличный ресурс или вы сами создали его, отправьте заявку на добавление в этот список.
 
-## <a name="getting-started"></a>начало работы
+## <a name="getting-started"></a>Начало работы
 
 [Запуск контейнеров Linux и Windows в Windows 10](https://stefanscherer.github.io/run-linux-and-windows-containers-on-windows-10/) — Стефан Шерер (
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 68c65445-ce13-40c9-b516-57ded76c1b15
-ms.openlocfilehash: 625a9b36ff782c86065ef3d9124708e5716e066f
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: f819ac04773188525af202d370ba271a2d93e259
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910934"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439351"
 ---
 # <a name="run-hyper-v-in-a-virtual-machine-with-nested-virtualization"></a>Запуск Hyper-V в виртуальной машине со вложенной виртуализацией
 
@@ -21,7 +21,7 @@ ms.locfileid: "74910934"
 
 ![](./media/HyperVNesting.png)
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 * Узел Hyper-V и виртуальная машина должны быть размещены в Windows Server 2016, Windows 10 Anniversary Update или более поздней версии.
 * Версия конфигурации ВМ 8.0 или более поздняя.

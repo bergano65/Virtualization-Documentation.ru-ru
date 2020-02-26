@@ -18,7 +18,7 @@
 ## [Перенос WMI Hyper-V](user-guide/refactor-wmiv1-to-wmiv2.md)
 ## [Вложенные виртуальные машины в виртуальных сетях Azure](user-guide/nested-virtualization-azure-virtual-network.md) 
 
-# Справочные материалы
+# Ссылка
 ## [Требования к системе для Hyper-V](reference/hyper-v-requirements.md)
 ## [Поддерживаемые гостевые операционные системы](about/supported-guest-os.md)
 ## [PowerShell для Hyper-V](https://docs.microsoft.com/powershell/module/hyper-v/index?view=win10-ps)

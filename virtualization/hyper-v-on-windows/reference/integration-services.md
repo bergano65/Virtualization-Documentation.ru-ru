@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 18930864-476a-40db-aa21-b03dfb4fda98
-ms.openlocfilehash: 762b82f3714651ffb488f682581680c9526404a8
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 6568b68a77fc5506b58249caea44ec78e3e44de2
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911154"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439571"
 ---
 # <a name="hyper-v-integration-services"></a>Службы интеграции Hyper-V
 
@@ -29,16 +29,16 @@ ms.locfileid: "74911154"
 
 | Имя | Название службы Windows | Имя управляющей программы Linux |  Описание | Влияние на виртуальную машину при отключении |
 |:---------|:---------|:---------|:---------|:---------|
-| [Служба пульса Hyper-V](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | Сообщает, что виртуальная машина работает нормально. | Различается |
-| [Завершение работы службы виртуальной машины Hyper-V](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  Позволяет узлу управлять выключением виртуальных машин. | **Высокая** |
-| [Служба синхронизации времени Hyper-V](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | Синхронизирует время виртуальной машины со временем на главном компьютере. | **Высокая** |
+| [Служба пульса Hyper-V](#hyper-v-heartbeat-service) |  vmicheartbeat | hv_utils | Сообщает, что виртуальная машина работает нормально. | Возможны разные варианты |
+| [Завершение работы службы виртуальной машины Hyper-V](#hyper-v-guest-shutdown-service) | vmicshutdown | hv_utils |  Позволяет узлу управлять выключением виртуальных машин. | **Высоком** |
+| [Служба синхронизации времени Hyper-V](#hyper-v-time-synchronization-service) | vmictimesync | hv_utils | Синхронизирует время виртуальной машины со временем на главном компьютере. | **Высоком** |
 | [Служба обмена данными Hyper-V (KVP)](#hyper-v-data-exchange-service-kvp) | vmickvpexchange | hv_kvp_daemon | Позволяет виртуальной машине и узлу обмениваться между собой простыми метаданными. | Средний |
-| [Служба запросов на теневое копирование томов Hyper-V](#hyper-v-volume-shadow-copy-requestor) | vmicvss | hv_vss_daemon | Позволяет службе теневого копирования томов выполнить резервное копирование виртуальной машины без ее выключения. | Различается |
+| [Служба запросов на теневое копирование томов Hyper-V](#hyper-v-volume-shadow-copy-requestor) | vmicvss | hv_vss_daemon | Позволяет службе теневого копирования томов выполнить резервное копирование виртуальной машины без ее выключения. | Возможны разные варианты |
 | [Интерфейс гостевой службы Hyper-V](#hyper-v-powershell-direct-service) | vmicguestinterface | hv_fcopy_daemon | Предоставляет интерфейс для узла Hyper-V для копирования файлов с виртуальной машины и на виртуальную машину. | Низкий |
 | [Служба Hyper-V PowerShell Direct Service](#hyper-v-powershell-direct-service) | vmicvmsession | недоступен | Позволяет управлять виртуальной машиной с помощью PowerShell без подключения к сети. | Низкий |  
 
 
-## <a name="hyper-v-heartbeat-service"></a>Служба пульса (Hyper-V)
+## <a name="hyper-v-heartbeat-service"></a>Служба пульса Hyper-V
 
 **Имя службы Windows:** vmicheartbeat  
 **Имя управляющей программы Linux:** hv_utils  
@@ -68,13 +68,13 @@ DemoVM  Running  Operating normally
 
 
 
-## <a name="hyper-v-guest-shutdown-service"></a>Служба завершения работы в качестве гостя (Hyper-V)
+## <a name="hyper-v-guest-shutdown-service"></a>Завершение работы службы виртуальной машины Hyper-V
 
 **Имя службы Windows:** vmicshutdown  
 **Имя управляющей программы Linux:** hv_utils  
 **Описание.** Позволяет узлу Hyper-V запрашивать завершение работы виртуальной машины.  Компьютер виртуальной машины всегда может принудительно выключить виртуальную машину, но это похоже на нажатие кнопки выключения в отличие от корректного завершения работы.  
 **Добавлено в:** Windows Server 2012, Windows 8  
-**Влияние:** **высокая степень влияния**. При отключении узел не сможет корректно завершить работу виртуальной машины.  Все завершения работы будут жесткими, что может привести к потере данных или повреждению данных.  
+**Влияние.** **высокий уровень влияния** , когда отключено, узел не может активировать понятное завершение работы внутри виртуальной машины.  Все завершения работы будут жесткими, что может привести к потере данных или повреждению данных.  
 
 
 ## <a name="hyper-v-time-synchronization-service"></a>Служба синхронизации времени Hyper-V
@@ -83,7 +83,7 @@ DemoVM  Running  Operating normally
 **Имя управляющей программы Linux:** hv_utils  
 **Описание:** Синхронизирует системное время виртуальной машины с системным временем физического компьютера.  
 **Добавлено в:** Windows Server 2012, Windows 8  
-**Влияние:** **высокая степень влияния**. При отключении время на виртуальной машине будет случайным образом отклоняться от времени компьютера.  
+**Влияние.** **при** отключении часы виртуальной машины будут непредсказуемыми.  
 
 
 ## <a name="hyper-v-data-exchange-service-kvp"></a>Служба обмена данными Hyper-V (KVP)

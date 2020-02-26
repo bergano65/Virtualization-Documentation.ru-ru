@@ -3,12 +3,12 @@ title: Диспетчер очереди печати в контейнерах 
 description: Описание текущего рабочего поведения службы диспетчера очереди печати в контейнерах Windows
 keywords: DOCKER, контейнеры, принтер, диспетчер очереди печати
 author: cwilhit
-ms.openlocfilehash: 48130bc6a826a45dfa49d0a3b4600d227f34704e
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: e104a87046545b90d244783aafb62ad9d151e14b
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910534"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439541"
 ---
 # <a name="print-spooler-in-windows-containers"></a>Диспетчер очереди печати в контейнерах Windows
 

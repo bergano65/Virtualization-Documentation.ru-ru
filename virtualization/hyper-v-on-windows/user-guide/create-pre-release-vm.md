@@ -8,12 +8,12 @@ ms.topic: article
 ms.prod: windows-10-hyperv
 ms.service: windows-10-hyperv
 ms.assetid: 426c87cc-fa50-4b8d-934e-0b653d7dea7d
-ms.openlocfilehash: 8f1c1b96fe88f46a24b8ebb46d4f387c9717f6ba
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 725466f657ae8fc4f14813822e90657e12d26fa6
+ms.sourcegitcommit: 16744984ede5ec94cd265b6bff20aee2f782ca88
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74911164"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77439561"
 ---
 # <a name="try-pre-release-features-for-hyper-v"></a>Оценка функций предварительной версии Hyper-V
 
@@ -35,7 +35,7 @@ ms.locfileid: "74911164"
 Виртуальную машину предварительной версии можно создать на узлах Hyper-V под управлением Windows Server 2016 Technical Preview.
 
 1. На рабочем столе Windows нажмите кнопку "Пуск" и введите любую часть имени **Windows PowerShell**.
-2. Щелкните правой кнопкой мыши элемент **Windows PowerShell** и выберите пункт **Запуск от имени администратора**.
+2. Щелкните правой кнопкой мыши пункт **Windows PowerShell** и выберите пункт **Запуск от имени администратора**.
 3. Используйте командлет [New-VM](https://docs.microsoft.com/powershell/module/hyper-v/new-vm?view=win10-ps) с флагом -Prerelease для создания виртуальной машины предварительной версии. Например, выполните следующую команду, где "VM Name" — это имя создаваемой виртуальной машины.
 
 ``` PowerShell
@@ -47,6 +47,6 @@ New-VM -Name <VM Name> -Prerelease
 
  Примеры, приведенные в этих статьях, работают для узлов Hyper-V под управлением Windows 10 или Windows Server 2016 Technical Preview. Однако сейчас флаг -Prerelease можно использовать только для создания виртуальной машины предварительной версии на узлах Hyper-V под управлением Windows Server 2016 Technical Preview.
 
-## <a name="see-also"></a>См. также
+## <a name="see-also"></a>См. также:
 -  [Блог по виртуализации](https://techcommunity.microsoft.com/t5/Virtualization/bg-p/Virtualization) —вы можете узнать о доступных функциях предварительной версии и оценить их.
 - [Поддерживаемые версии конфигурации виртуальной машины](https://docs.microsoft.com/windows-server/virtualization/hyper-v/deploy/Upgrade-virtual-machine-version-in-Hyper-V-on-Windows-or-Windows-Server#BKMK_SupportedConfigVersions) — вы можете узнать, как проверить версию конфигурации виртуальной машины и какие версии поддерживаются корпорацией Майкрософт.
