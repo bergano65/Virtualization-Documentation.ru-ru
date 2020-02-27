@@ -3,17 +3,17 @@ title: Создание Gmsa для контейнеров Windows
 description: Создание групповых управляемых учетных записей служб (Gmsa) для контейнеров Windows.
 keywords: DOCKER, контейнеры, Active Directory, gmsa, групповая управляемая учетная запись службы, групповые управляемые учетные записи служб
 author: rpsqrd
-ms.date: 09/10/2019
+ms.date: 01/03/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
 ms.assetid: 9e06ad3a-0783-476b-b85c-faff7234809c
-ms.openlocfilehash: 9ed9029e534d56bfe1830281d0bfd3ddde0cee9e
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 36061cfc491dd9dd581d1e6bce92a29e4a6f217d
+ms.sourcegitcommit: 530712469552a1ef458883001ee748bab2c65ef7
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74910254"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77628939"
 ---
 # <a name="create-gmsas-for-windows-containers"></a>Создание Gmsa для контейнеров Windows
 
@@ -27,7 +27,7 @@ ms.locfileid: "74910254"
 
 В этой статье объясняется, как начать работу с Active Directory групповой управляемыми учетными записями службы с контейнерами Windows.
 
-## <a name="prerequisites"></a>Предварительные условия
+## <a name="prerequisites"></a>Предварительные требования
 
 Чтобы запустить контейнер Windows с групповой управляемой учетной записью службы, вам потребуется следующее:
 
@@ -109,7 +109,7 @@ New-ADGroup -Name "WebApp01 Authorized Hosts" -SamAccountName "WebApp01Hosts" -G
 New-ADServiceAccount -Name "WebApp01" -DnsHostName "WebApp01.contoso.com" -ServicePrincipalNames "host/WebApp01", "host/WebApp01.contoso.com" -PrincipalsAllowedToRetrieveManagedPassword "WebApp01Hosts"
 
 # Add your container hosts to the security group
-Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01", "ContainerHost02", "ContainerHost03"
+Add-ADGroupMember -Identity "WebApp01Hosts" -Members "ContainerHost01$", "ContainerHost02$", "ContainerHost03$"
 ```
 
 Мы рекомендуем создавать отдельные учетные записи gMSA для сред разработки, тестирования и рабочей среды.
@@ -164,13 +164,19 @@ DOCKER ждет найти файл спецификации учетных да
 
     По умолчанию командлет создаст спецификацию CRED, используя предоставленное имя gMSA в качестве учетной записи компьютера для контейнера. Файл будет сохранен в каталоге DOCKER Кредентиалспекс с использованием домена gMSA и имени учетной записи для имени файла.
 
-    Вы можете создать спецификацию учетных данных, включающую дополнительные учетные записи gMSA, если вы используете службу или процесс в качестве вторичного gMSA в контейнере. Для этого используйте параметр `-AdditionalAccounts`:
+    Если вы хотите сохранить файл в другом каталоге, используйте параметр `-Path`:
+
+    ```powershell
+    New-CredentialSpec -AccountName WebApp01 -Path "C:\MyFolder\WebApp01_CredSpec.json"
+    ```
+
+    Вы также можете создать спецификацию учетных данных, включающую дополнительные учетные записи gMSA, если вы используете службу или процесс в качестве вторичного gMSA в контейнере. Для этого используйте параметр `-AdditionalAccounts`:
 
     ```powershell
     New-CredentialSpec -AccountName WebApp01 -AdditionalAccounts LogAgentSvc, OtherSvc
     ```
 
-    Чтобы получить полный список поддерживаемых параметров, выполните `Get-Help New-CredentialSpec`.
+    Чтобы получить полный список поддерживаемых параметров, выполните `Get-Help New-CredentialSpec -Full`.
 
 4. Вы можете отобразить список всех спецификаций учетных данных и их полный путь с помощью следующего командлета:
 
@@ -178,7 +184,7 @@ DOCKER ждет найти файл спецификации учетных да
     Get-CredentialSpec
     ```
 
-## <a name="next-steps"></a>Дальнейшие действия
+## <a name="next-steps"></a>Следующие шаги
 
 Теперь, когда вы настроили учетную запись gMSA, ее можно использовать в следующих случаях:
 
