@@ -8,12 +8,12 @@ ms.date: 06/17/2019
 ms.topic: article
 ms.prod: windows-containers
 ms.service: windows-containers
-ms.openlocfilehash: bb5e5fabadde421de9d420edd2fc921457432930
-ms.sourcegitcommit: 1ca9d7562a877c47f227f1a8e6583cb024909749
+ms.openlocfilehash: 27672f6a8e71989bfd47fe9810dfd429eedd9206
+ms.sourcegitcommit: 379eb650f6af90f5963e2fcf9de7196238fbe9fa
 ms.translationtype: MT
 ms.contentlocale: ru-RU
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74909994"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77705689"
 ---
 # <a name="base-image-servicing-lifecycles"></a>Жизненные циклы обслуживания базовых образов
 
@@ -27,13 +27,13 @@ ms.locfileid: "74909994"
 
 |Base image                       |Канал обслуживания|Версия|Сборка ОС|Доступность|Дата окончания основной фазы поддержки|Расширенная Дата поддержки|
 |---------------------------------|-----------------|-------|--------|------------|---------------------------|---------------------|
-|Server Core, Nano Server, Windows|Половина года      |1909   |18363   |12.11.2019  |11.05.2021                 |Нет данных                  |
-|Server Core, Nano Server, Windows|Половина года      |1903   |18362   |05/21/2019  |08.12.2020                 |Нет данных                  |
-|Основные серверные компоненты                      |Долгосрочное время        |1809   |17763   |13.11.2018  |09.01.2024                 |09.01.2029           |
-|Server Core, Nano Server, Windows|Половина года      |1809   |17763   |13.11.2018  |05/12/2020                 |Нет данных                  |
-|Server Core, Nano Server         |Половина года      |1803   |17134   |30.04.2018  |12.11.2019                 |Нет данных                  |
-|Server Core, Nano Server         |Половина года      |1709   |16299   |17.10.2017  |09.04.2019                 |Нет данных                  |
+|Server Core, Nano Server, Windows|Половина года      |1909   |18363   |12.11.2019  |11.05.2021                 |Н/Д                  |
+|Server Core, Nano Server, Windows|Половина года      |1903   |18362   |05/21/2019  |08.12.2020                 |Н/Д                  |
+|Основные серверные компоненты                      |Долгосрочное время        |2019 г.   |17763   |13.11.2018  |09.01.2024                 |09.01.2029           |
+|Server Core, Nano Server, Windows|Половина года      |1809   |17763   |13.11.2018  |05/12/2020                 |Н/Д                  |
+|Server Core, Nano Server         |Половина года      |1803   |17134   |30.04.2018  |12.11.2019                 |Н/Д                  |
+|Server Core, Nano Server         |Половина года      |1709   |16299   |17.10.2017  |09.04.2019                 |Н/Д                  |
 |Основные серверные компоненты                      |Долгосрочное время        |1607   |14393   |15.10.2016  |11.01.2022                 |11.01.2027           |
-|Сервер Nano Server                      |Половина года      |1607   |14393   |15.10.2016  |10/09/2018                 |Нет данных                  |
+|Сервер Nano Server                      |Половина года      |1607   |14393   |15.10.2016  |10/09/2018                 |Н/Д                  |
 
 Требования к обслуживанию и другие дополнительные сведения см. в разделе [часто задаваемые вопросы о жизненном цикле Windows](https://support.microsoft.com/help/18581/lifecycle-faq-windows-products), [сведения о выпуске Windows Server](https://docs.microsoft.com/windows-server/get-started/windows-server-release-info)и [репозитории центра DOCKER для образов базовых ОС Windows](https://hub.docker.com/_/microsoft-windows-base-os-images).
